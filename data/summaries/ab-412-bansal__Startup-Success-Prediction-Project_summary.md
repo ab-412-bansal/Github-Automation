@@ -4,36 +4,36 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (1d):** 0
+- **Recent Commits (5d):** 0
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 1 days.
+No open pull requests in the last 5 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-No pull request history in the last 1 days.
+No pull request history in the last 5 days.
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 1 days.
+No open issues in the last 5 days.
 
 ---
 
 ## 📈 Recent Commits
 
-No recent commits in the last 1 days.
+No recent commits in the last 5 days.
 
 ---
 
-No commit activity in the last 1 days.
+No commit activity in the last 5 days.
 
 ---
 
