@@ -109,6 +109,13 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
         try:
             venv_path = os.path.join(os.getcwd(), 'venv', 'Scripts', 'Activate.bat')
             # subprocess.run(["powershell", "-Command", f"& '{venv_path}'"], check=True)
+            # Configure git user/email from .env
+            git_user = getattr(config, 'GIT_USER_NAME', None)
+            git_email = getattr(config, 'GIT_USER_EMAIL', None)
+            if git_user:
+                subprocess.run(["git", "config", "user.name", git_user], check=True)
+            if git_email:
+                subprocess.run(["git", "config", "user.email", git_email], check=True)
             subprocess.run(["git", "checkout", "dev"], check=True)
         except Exception as e:
             console.print(f"[yellow]Startup git/venv automation failed: {e}[/yellow]")
