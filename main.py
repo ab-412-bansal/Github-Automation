@@ -70,7 +70,8 @@ def process_repo(full_name, days=30):
 
     # Fetch security alerts
     console.print("Fetching security alerts...")
-    alerts = fetch_security_alerts(repo)
+    github_token = config.GITHUB_TOKEN
+    alerts = fetch_security_alerts(full_name, github_token)
     alerts_file = save_json(alerts, f"{full_name.replace('/', '__')}_security.json")
     console.print(f"[green]Saved security alerts to[/green] {alerts_file}")
 

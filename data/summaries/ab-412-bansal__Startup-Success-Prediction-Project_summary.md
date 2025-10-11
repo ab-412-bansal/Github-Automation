@@ -1,4 +1,4 @@
-# 🚀 GitHub Automation Summary for `ab-412-bansal/AlgoVision`
+# 🚀 GitHub Automation Summary for `ab-412-bansal/Startup-Success-Prediction-Project`
 
 ## 📂 Overview
 

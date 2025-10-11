@@ -2,33 +2,42 @@
 """
 Fetches security/vulnerability alerts for a repository using GitHub API.
 """
-from typing import List, Dict
 
-def fetch_security_alerts(repo) -> List[Dict]:
+import os
+import requests
+from typing import List, Dict, Union
+
+def fetch_security_alerts(repo_full_name: str, github_token: str) -> Union[List[Dict], str]:
     """
-    Fetch security/vulnerability alerts for the given repo.
-    Returns a list of dicts summarizing each alert.
+    Fetch security/vulnerability alerts for the given repo using the GitHub REST API.
+    Returns a list of dicts summarizing each alert, or a string error message.
     """
-    alerts = []
+    url = f"https://api.github.com/repos/{repo_full_name}/dependabot/alerts"
+    headers = {
+        "Authorization": f"token {github_token}",
+        "Accept": "application/vnd.github+json"
+    }
     try:
-        # GitHub API: repo.get_vulnerability_alerts() is not in PyGithub as of 2025,
-        # so we use the raw API as a workaround.
-        alerts_api = repo._requester.requestJson(
-            "GET",
-            f"/repos/{repo.full_name}/dependabot/alerts",
-            headers={"Accept": "application/vnd.github+json"}
-        )
-        for alert in alerts_api[1]:
-            alerts.append({
-                "number": alert.get("number"),
-                "state": alert.get("state"),
-                "dependency": alert.get("dependency", {}).get("package", {}).get("name"),
-                "severity": alert.get("security_advisory", {}).get("severity"),
-                "summary": alert.get("security_advisory", {}).get("summary"),
-                "created_at": alert.get("created_at"),
-                "updated_at": alert.get("updated_at"),
-                "url": alert.get("html_url")
-            })
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            alerts = []
+            for alert in response.json():
+                alerts.append({
+                    "number": alert.get("number"),
+                    "state": alert.get("state"),
+                    "dependency": alert.get("dependency", {}).get("package", {}).get("name"),
+                    "severity": alert.get("security_advisory", {}).get("severity"),
+                    "summary": alert.get("security_advisory", {}).get("summary"),
+                    "created_at": alert.get("created_at"),
+                    "updated_at": alert.get("updated_at"),
+                    "url": alert.get("html_url")
+                })
+            return alerts
+        elif response.status_code == 404:
+            return "Security alerts are not enabled or you lack permission."
+        elif response.status_code == 403:
+            return "Token does not have required scopes (repo, security_events), or you do not have access to this repository's security alerts."
+        else:
+            return f"Error: {response.status_code} - {response.text}"
     except Exception as e:
-        alerts.append({"error": str(e)})
-    return alerts
+        return f"Exception occurred: {str(e)}"

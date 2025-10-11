@@ -142,6 +142,6 @@ No open issues in the last 3 days.
 
 ## 🛡️ Security Alerts
 
-⚠️ Could not fetch security alerts: 'str' object has no attribute 'get'
+No security alerts.
 
 ---
