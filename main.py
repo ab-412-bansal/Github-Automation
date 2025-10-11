@@ -9,6 +9,7 @@ from src.fetchers.issues import fetch_open_issues
 from src.fetchers.commits import fetch_commits_last_30_days
 from src.fetchers.security import fetch_security_alerts
 from src.utils import save_json, ensure_data_dir
+import subprocess, os, sys
 from src.reporting.summary import (
     summarize_prs, summarize_issues, summarize_commits, summarize_security_alerts
 )
@@ -90,6 +91,8 @@ def process_repo(full_name, days=30):
     console.print(f"[bold green]Summary written to {summary_md_path}[/bold green]")
     logging.info(f"Processed {full_name}")
 
+    # (Git automation moved to after all repos are processed)
+
 
 def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
     """
@@ -102,6 +105,14 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
         repo_list = get_repos_to_process()
 
     def run_all():
+        # Activate venv (if not already active) and checkout dev branch at start
+        try:
+            venv_path = os.path.join(os.getcwd(), 'venv', 'Scripts', 'Activate.ps1')
+            # subprocess.run(["powershell", "-Command", f"& '{venv_path}'"], check=True)
+            subprocess.run(["git", "checkout", "dev"], check=True)
+        except Exception as e:
+            console.print(f"[yellow]Startup git/venv automation failed: {e}[/yellow]")
+
         max_repos = 5
         console.print(f"[blue]Processing up to {max_repos} repos (for safety). Edit main.py to change this limit.[/blue]")
         count = 0
@@ -111,6 +122,17 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
             process_repo(r, days=days)
             count += 1
             time.sleep(1)  # small delay to be polite to API
+
+        # After all repos processed, add/commit/push summaries
+        try:
+            subprocess.run(["git", "add", "*"], check=True)
+            from datetime import datetime
+            commit_msg = f"Update summaries {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            subprocess.run(["git", "commit", "-m", commit_msg], check=False)
+            subprocess.run(["git", "push", "origin", "dev"], check=True)
+            console.print("[green]Auto-committed and pushed summary changes to origin/dev.[/green]")
+        except Exception as e:
+            console.print(f"[yellow]Git automation failed: {e}[/yellow]")
 
     if schedule_mode:
         console.print(f"[magenta]Scheduling automation every {interval_minutes} minutes.[/magenta]")
