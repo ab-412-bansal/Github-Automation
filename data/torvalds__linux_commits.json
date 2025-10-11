@@ -5040,19 +5040,5 @@
         "deletions": 1
       }
     ]
-  },
-  {
-    "sha": "d74d6c0e98958aa0bdb6f0a93258a856bda58b97",
-    "author": "dubeyko",
-    "message": "ceph: add bug tracking system info to MAINTAINERS\n\nThis patch adds information about Ceph bug tracking system.\n\n[ idryomov: add the same for RBD, don't mention include/linux/ceph/\n  again ]\n\nSigned-off-by: Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>\nSigned-off-by: Ilya Dryomov <idryomov@gmail.com>",
-    "date": "2025-09-02T20:09:58",
-    "html_url": "https://github.com/torvalds/linux/commit/d74d6c0e98958aa0bdb6f0a93258a856bda58b97",
-    "files": [
-      {
-        "filename": "MAINTAINERS",
-        "additions": 3,
-        "deletions": 0
-      }
-    ]
   }
 ]

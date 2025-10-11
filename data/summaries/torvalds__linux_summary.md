@@ -4,7 +4,7 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (3d):** 89
+- **Recent Commits (3d):** 88
 
 
 ---
@@ -121,7 +121,6 @@ No open issues in the last 3 days.
 - [37bfdbc](https://github.com/torvalds/linux/commit/37bfdbc11b245119210ac9924a192aec8bd07d16): Merge tag 'pci-v6.18-fixes-1' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci (by @torvalds, 2025-10-09)
 - [64cf7d0](https://github.com/torvalds/linux/commit/64cf7d058a005c5c31eb8a0b741f35dc12915d18): tracing: Have trace_marker use per-cpu data to read user space (by @rostedt, 2025-10-08)
 - [de4cbd7](https://github.com/torvalds/linux/commit/de4cbd704731778a2dc833ce5a24b38e5d672c05): ring buffer: Propagate __rb_map_vma return value to caller (by @ankitkhushwaha, 2025-10-08)
-- [d74d6c0](https://github.com/torvalds/linux/commit/d74d6c0e98958aa0bdb6f0a93258a856bda58b97): ceph: add bug tracking system info to MAINTAINERS (by @dubeyko, 2025-09-02)
 
 ---
 
@@ -131,7 +130,7 @@ No open issues in the last 3 days.
   - @kuba-moo — 9 commits
   - @esben — 5 commits
 - **Most Modified Files:**
-  - MAINTAINERS (7 changes)
+  - MAINTAINERS (6 changes)
   - drivers/net/ethernet/meta/fbnic/fbnic_txrx.c (5 changes)
   - fs/smb/client/inode.c (4 changes)
 
