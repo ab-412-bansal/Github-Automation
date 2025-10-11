@@ -4,20 +4,20 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (30d):** 104
+- **Recent Commits (3d):** 104
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests.
+No open pull requests in the last 3 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History
+### Pull Request History (Last 3 Days)
 
 - [#1290](https://github.com/torvalds/linux/pull/1290): Make the kernel cute (by @nambona890) — **Closed, closed at 2025-09-22T16:22:49**
 
@@ -25,13 +25,13 @@ No open pull requests.
 
 ## ❗ Open Issues
 
-No open issues.
+No open issues in the last 3 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 30 Days)
+### Recent Commits (Last 3 Days)
 
 - [98906f9](https://github.com/torvalds/linux/commit/98906f9d850e4882004749eccb8920649dc98456): Merge tag 'rtc-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux (by @torvalds, 2025-10-11)
 - [2a6edd8](https://github.com/torvalds/linux/commit/2a6edd867b155cb5c391a32a66ce7e5d2cdcb531): Merge tag 'scsi-misc' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi (by @torvalds, 2025-10-11)

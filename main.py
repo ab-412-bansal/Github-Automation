@@ -76,7 +76,7 @@ def process_repo(full_name, days=30):
 
     # Generate Markdown summary
     from src.reporting.summary import summarize_all_prs, build_beautiful_summary
-    summary_md = build_beautiful_summary(full_name, prs, all_prs, issues, commits, alerts)
+    summary_md = build_beautiful_summary(full_name, prs, all_prs, issues, commits, alerts, days=days)
     summary_file = save_json({'summary': summary_md}, f"{full_name.replace('/', '__')}_summary.json")
     # Ensure summaries directory exists
     import os

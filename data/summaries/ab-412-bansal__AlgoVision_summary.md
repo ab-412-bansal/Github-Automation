@@ -4,32 +4,32 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (30d):** 0
+- **Recent Commits (3d):** 0
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests.
+No open pull requests in the last 3 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-No pull request history.
+No pull request history in the last 3 days.
 
 ---
 
 ## ❗ Open Issues
 
-No open issues.
+No open issues in the last 3 days.
 
 ---
 
 ## 📈 Recent Commits
 
-No recent commits.
+No recent commits in the last 3 days.
 
 ---
 
