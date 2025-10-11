@@ -1,0 +1,11 @@
+PyGithub==1.58
+python-dotenv==1.0.1
+requests==2.31.0
+rich==13.3.1
+
+# For scheduling and testing
+schedule==1.2.1
+pytest==7.4.0
+# For optional NLP summarization (future)
+transformers==4.41.2
+torch==2.3.0
