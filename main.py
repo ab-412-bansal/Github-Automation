@@ -116,6 +116,8 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
                 subprocess.run(["git", "config", "--global", "user.name", git_user], check=True)
             if git_email:
                 subprocess.run(["git", "config", "--global", "user.email", git_email], check=True)
+            # Fix SSL issues on Windows by using Windows certificate store
+            subprocess.run(["git", "config", "--global", "http.sslbackend", "schannel"], check=True)
             subprocess.run(["git", "checkout", "dev"], check=True)
         except Exception as e:
             console.print(f"[yellow]Startup git/venv automation failed: {e}[/yellow]")
