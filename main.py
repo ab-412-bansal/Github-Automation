@@ -107,7 +107,7 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
     def run_all():
         # Activate venv (if not already active) and checkout dev branch at start
         try:
-            venv_path = os.path.join(os.getcwd(), 'venv', 'Scripts', 'Activate.ps1')
+            venv_path = os.path.join(os.getcwd(), 'venv', 'Scripts', 'Activate.bat')
             # subprocess.run(["powershell", "-Command", f"& '{venv_path}'"], check=True)
             subprocess.run(["git", "checkout", "dev"], check=True)
         except Exception as e:
