@@ -1,0 +1,81 @@
+[
+  {
+    "number": 1290,
+    "title": "Make the kernel cute",
+    "user": "nambona890",
+    "state": "closed",
+    "merged": false,
+    "created_at": "2025-07-08T09:30:40",
+    "updated_at": "2025-10-11T15:41:21",
+    "closed_at": "2025-09-22T16:22:49",
+    "body": "The demographic for Linux has a higher than average enjoyment of cuteness, especially with regards to anime. This PR will make the Linux kernel more comfortable and easier to maintain and use for people like me who enjoy cute things.",
+    "html_url": "https://github.com/torvalds/linux/pull/1290",
+    "files": [
+      {
+        "filename": "README",
+        "additions": 16,
+        "deletions": 0
+      },
+      {
+        "filename": "arch/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/accessibility/Makefile",
+        "additions": 16,
+        "deletions": 0
+      },
+      {
+        "filename": "fs/fat/fat.h",
+        "additions": 18,
+        "deletions": 0
+      },
+      {
+        "filename": "include/linux/shrinker.h",
+        "additions": 19,
+        "deletions": 0
+      },
+      {
+        "filename": "include/net/9p/9p.h",
+        "additions": 20,
+        "deletions": 0
+      },
+      {
+        "filename": "include/xen/xen.h",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "kernel/panic.c",
+        "additions": 33,
+        "deletions": 2
+      },
+      {
+        "filename": "security/landlock/errata.h",
+        "additions": 16,
+        "deletions": 0
+      },
+      {
+        "filename": "security/security.c",
+        "additions": 22,
+        "deletions": 0
+      },
+      {
+        "filename": "sound/sound_core.c",
+        "additions": 19,
+        "deletions": 0
+      },
+      {
+        "filename": "sound/synth/emux/emux_synth.c",
+        "additions": 24,
+        "deletions": 0
+      },
+      {
+        "filename": "tools/perf/perf-archive.sh",
+        "additions": 16,
+        "deletions": 0
+      }
+    ]
+  }
+]

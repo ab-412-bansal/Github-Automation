@@ -2,12 +2,14 @@
 from datetime import datetime, timedelta
 from typing import List, Dict
 
-def fetch_commits_last_30_days(repo, limit=200) -> List[Dict]:
+def fetch_commits_last_30_days(repo, limit=200, days=30) -> List[Dict]:
     """
-    Fetch commits for last 30 days. Returns serializable dicts.
+    Fetch commits for last N days. Returns serializable dicts.
     limit: maximum commits to fetch
+    days: number of days to look back
     """
-    since = datetime.utcnow() - timedelta(days=30)
+    from datetime import datetime, timedelta
+    since = datetime.utcnow() - timedelta(days=days)
     results = []
     commits = repo.get_commits(since=since)
     count = 0

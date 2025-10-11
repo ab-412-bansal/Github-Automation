@@ -1,16 +1,23 @@
 # src/fetchers/issues.py
 from typing import List, Dict
 
-def fetch_open_issues(repo, limit=50) -> List[Dict]:
+def fetch_open_issues(repo, limit=50, days=30) -> List[Dict]:
     """
-    Fetch open issues (excluding PRs) and return list of dicts.
+    Fetch open issues (excluding PRs) created or updated within the last N days and return list of dicts.
+    days: number of days to look back
     """
+    from datetime import datetime, timedelta
     results = []
+    since = datetime.utcnow() - timedelta(days=days)
     issues = repo.get_issues(state="open", sort="updated", direction="desc")
     count = 0
     for issue in issues:
         # skip pull requests (GitHub treats PRs as issues)
         if hasattr(issue, "pull_request") and issue.pull_request is not None:
+            continue
+        created = issue.created_at if hasattr(issue, 'created_at') else None
+        updated = issue.updated_at if hasattr(issue, 'updated_at') else None
+        if created and created < since and (not updated or updated < since):
             continue
         if count >= limit:
             break
