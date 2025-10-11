@@ -117,7 +117,7 @@ pytest
 
 MIT License
 
-Copyright (c) 2025 [**Ayush Bansal**](https://www.linkedin.com/in/ab-412-bansal)
+Copyright (c) 2025 [**Ayush Bansal**](https://www.linkedin.com/in/ayush-bansal-5b4706283/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

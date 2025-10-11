@@ -1,4 +1,4 @@
-github # 🚀 GitHub Automation Summary for `ab-412-bansal/Test-Security-Repository`
+# 🚀 GitHub Automation Summary for `ab-412-bansal/Test-Security-Repository`
 
 ## 📂 Overview
 
@@ -40,6 +40,15 @@ github # 🚀 GitHub Automation Summary for `ab-412-bansal/Test-Security-Reposit
 ### Recent Commits (Last 3 Days)
 
 - [bb7d9e4](https://github.com/ab-412-bansal/Test-Security-Repository/commit/bb7d9e4f0168eb126b04811efec90c916bbf5e85): Test repo for Github Automation (by @ab-412-bansal, 2025-10-11)
+
+---
+
+### 📈 Commit Activity (Last 3 Days)
+- **Top Contributors:**
+  - @ab-412-bansal — 1 commits
+- **Most Modified Files:**
+  - README.md (1 changes)
+  - requirements.txt (1 changes)
 
 ---
 

@@ -4,7 +4,7 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (3d):** 104
+- **Recent Commits (3d):** 89
 
 
 ---
@@ -122,21 +122,18 @@ No open issues in the last 3 days.
 - [64cf7d0](https://github.com/torvalds/linux/commit/64cf7d058a005c5c31eb8a0b741f35dc12915d18): tracing: Have trace_marker use per-cpu data to read user space (by @rostedt, 2025-10-08)
 - [de4cbd7](https://github.com/torvalds/linux/commit/de4cbd704731778a2dc833ce5a24b38e5d672c05): ring buffer: Propagate __rb_map_vma return value to caller (by @ankitkhushwaha, 2025-10-08)
 - [d74d6c0](https://github.com/torvalds/linux/commit/d74d6c0e98958aa0bdb6f0a93258a856bda58b97): ceph: add bug tracking system info to MAINTAINERS (by @dubeyko, 2025-09-02)
-- [a154f14](https://github.com/torvalds/linux/commit/a154f141604acacc0ec64a445d8058a045c308ef): PCI: Fix regression in pci_bus_distribute_available_resources() (by @cyyself, 2025-10-08)
-- [22c73d5](https://github.com/torvalds/linux/commit/22c73d52a6d05c5a2053385c0d6cd9984732799d): ceph: fix multifs mds auth caps issue (by @kotreshhr, 2025-09-11)
-- [c66120c](https://github.com/torvalds/linux/commit/c66120c84295a0495eb46dcfba829457acd6ef7d): ceph: cleanup in ceph_alloc_readdir_reply_buffer() (by @dubeyko, 2025-09-02)
-- [98a2850](https://github.com/torvalds/linux/commit/98a2850de49c10a1a09642e17978b925f95e6029): ceph: fix potential NULL dereference issue in ceph_fill_trace() (by @dubeyko, 2025-08-28)
-- [6140f1d](https://github.com/torvalds/linux/commit/6140f1d43ba9425dc55b12bdfd8877b0c5118d9a): libceph: add empty check to ceph_con_get_out_msg() (by @MaxKellermann, 2025-08-06)
-- [7399212](https://github.com/torvalds/linux/commit/7399212dcf64d90a6ab239bdd98bd325d922fc7e): libceph: pass the message pointer instead of loading con->out_msg (by @MaxKellermann, 2025-08-06)
-- [59699a5](https://github.com/torvalds/linux/commit/59699a5a7114f09f890e86c09a6b32afb5eaa64c): libceph: make ceph_con_get_out_msg() return the message pointer (by @MaxKellermann, 2025-08-06)
-- [fbeafe7](https://github.com/torvalds/linux/commit/fbeafe782bd986bf75544526fb9c0284e045e0a4): ceph: fix potential race condition on operations with CEPH_I_ODIRECT flag (by @dubeyko, 2025-07-16)
-- [53db6f2](https://github.com/torvalds/linux/commit/53db6f25ee47cb1265141d31562604e56146919a): ceph: refactor wake_up_bit() pattern of calling (by @dubeyko, 2025-07-08)
-- [5824ccb](https://github.com/torvalds/linux/commit/5824ccba9a39a3ad914fc9b2972a2c1119abaac9): ceph: fix potential race condition in ceph_ioctl_lazyio() (by @dubeyko, 2025-06-13)
-- [5b2d137](https://github.com/torvalds/linux/commit/5b2d1377d6cc4147492780b0bd95fb9c4cb28d1b): ceph: fix overflowed constant issue in ceph_do_objects_copy() (by @dubeyko, 2025-06-06)
-- [1ed4471](https://github.com/torvalds/linux/commit/1ed4471a4ee6cfa902467332042158ca5ef8ad24): ceph: fix wrong sizeof argument issue in register_session() (by @dubeyko, 2025-06-06)
-- [b7ed1e2](https://github.com/torvalds/linux/commit/b7ed1e29cfe773d648ca09895b92856bd3a2092d): ceph: add checking of wait_for_completion_killable() return value (by @dubeyko, 2025-06-06)
-- [fa07303](https://github.com/torvalds/linux/commit/fa073039466f16141807a0f32840ecdceb00e22a): ceph: make ceph_start_io_*() killable (by @MaxKellermann, 2024-12-06)
-- [27c0a7b](https://github.com/torvalds/linux/commit/27c0a7b05d13a0dc54ed0b95fc12218210fdea1a): libceph: Use HMAC-SHA256 library instead of crypto_shash (by @Eric Biggers, 2025-07-31)
+
+---
+
+### 📈 Commit Activity (Last 3 Days)
+- **Top Contributors:**
+  - @torvalds — 32 commits
+  - @kuba-moo — 9 commits
+  - @esben — 5 commits
+- **Most Modified Files:**
+  - MAINTAINERS (7 changes)
+  - drivers/net/ethernet/meta/fbnic/fbnic_txrx.c (5 changes)
+  - fs/smb/client/inode.c (4 changes)
 
 ---
 

@@ -33,6 +33,10 @@ No recent commits in the last 3 days.
 
 ---
 
+No commit activity in the last 3 days.
+
+---
+
 ## 🛡️ Security Alerts
 
 No security alerts.

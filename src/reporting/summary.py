@@ -1,6 +1,8 @@
 # Add missing imports
 from typing import List, Dict
 from datetime import datetime
+from collections import Counter
+
 def summarize_all_prs(all_prs: List[Dict], days: int = 30) -> str:
     """
     Generate a Markdown summary of all PRs (open, closed, merged) for the last N days.
@@ -81,6 +83,30 @@ def summarize_security_alerts(alerts: List[Dict]) -> str:
         return "No security alerts."
     return "\n".join(lines)
 
+def summarize_commit_activity(commits: List[Dict], days: int = 30, top_n: int = 3) -> str:
+    """
+    Summarize commit activity: top contributors and most modified files in the last N days.
+    """
+    if not commits:
+        return f"No commit activity in the last {days} days."
+    author_counter = Counter()
+    file_counter = Counter()
+    for c in commits:
+        author = c.get('author', 'unknown')
+        author_counter[author] += 1
+        for f in c.get('files', []):
+            file_counter[f.get('filename', 'unknown')] += 1
+    lines = [f"### 📈 Commit Activity (Last {days} Days)"]
+    if author_counter:
+        lines.append("- **Top Contributors:**")
+        for author, count in author_counter.most_common(top_n):
+            lines.append(f"  - @{author} — {count} commits")
+    if file_counter:
+        lines.append("- **Most Modified Files:**")
+        for fname, count in file_counter.most_common(top_n):
+            lines.append(f"  - {fname} ({count} changes)")
+    return "\n".join(lines)
+
 def build_beautiful_summary(full_name, prs, all_prs, issues, commits, alerts, days=30):
     """
     Build a beautiful, presentable Markdown summary for the repository.
@@ -103,6 +129,8 @@ def build_beautiful_summary(full_name, prs, all_prs, issues, commits, alerts, da
         divider,
         "## 📈 Recent Commits\n",
         summarize_commits(commits, days=days),
+        divider,
+        summarize_commit_activity(commits, days=days),
         divider,
         "## 🛡️ Security Alerts\n",
         summarize_security_alerts(alerts),
