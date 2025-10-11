@@ -3,7 +3,7 @@
 ## 📂 Overview
 
 - **Open PRs:** 2
-- **Open Issues:** 0
+- **Open Issues:** 1
 - **Recent Commits (3d):** 1
 
 
@@ -29,7 +29,9 @@
 
 ## ❗ Open Issues
 
-No open issues in the last 3 days.
+### Open Issues (Last 3 Days)
+
+- [#3](https://github.com/ab-412-bansal/Test-Security-Repository/issues/3): Test Issue for automation (by @ab-412-bansal, opened 2025-10-11)
 
 ---
 
