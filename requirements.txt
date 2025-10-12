@@ -7,5 +7,5 @@ rich==13.3.1
 schedule==1.2.1
 pytest==7.4.0
 # For optional NLP summarization (future)
-transformers==4.41.2
+transformers==4.53.0
 torch==2.3.0
