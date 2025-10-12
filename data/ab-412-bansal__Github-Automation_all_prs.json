@@ -6,7 +6,7 @@
     "state": "open",
     "merged": false,
     "created_at": "2025-10-12T09:56:50",
-    "updated_at": "2025-10-12T10:09:57",
+    "updated_at": "2025-10-12T10:27:31",
     "closed_at": null,
     "body": "",
     "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/3",
@@ -23,7 +23,7 @@
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_all_prs.json",
-        "additions": 756,
+        "additions": 1024,
         "deletions": 9
       },
       {
@@ -33,8 +33,8 @@
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_prs.json",
-        "additions": 341,
-        "deletions": 81
+        "additions": 342,
+        "deletions": 82
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_summary.json",
@@ -58,7 +58,7 @@
       },
       {
         "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
-        "additions": 33,
+        "additions": 35,
         "deletions": 13
       },
       {
@@ -163,7 +163,7 @@
       },
       {
         "filename": "frontend/public/data/ab-412-bansal__Github-Automation_all_prs.json",
-        "additions": 1008,
+        "additions": 1276,
         "deletions": 0
       },
       {
@@ -258,7 +258,7 @@
       },
       {
         "filename": "frontend/public/data/summaries/ab-412-bansal__Github-Automation_summary.md",
-        "additions": 77,
+        "additions": 79,
         "deletions": 0
       },
       {
@@ -393,8 +393,8 @@
       },
       {
         "filename": "main.py",
-        "additions": 11,
-        "deletions": 0
+        "additions": 13,
+        "deletions": 2
       },
       {
         "filename": "node_modules/.bin/marked",
@@ -515,6 +515,65 @@
         "filename": "package.json",
         "additions": 6,
         "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Update summaries 2025-10-12 15:49:53",
+    "user": "ab-412-bansal",
+    "state": "closed",
+    "merged": true,
+    "created_at": "2025-10-12T10:20:45",
+    "updated_at": "2025-10-12T10:27:30",
+    "closed_at": "2025-10-12T10:27:30",
+    "body": "",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/7",
+    "files": [
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_all_prs.json",
+        "additions": 278,
+        "deletions": 10
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_prs.json",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_all_prs.json",
+        "additions": 278,
+        "deletions": 10
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_prs.json",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "main.py",
+        "additions": 2,
+        "deletions": 2
       }
     ]
   },
