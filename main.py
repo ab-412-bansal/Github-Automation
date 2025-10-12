@@ -118,7 +118,7 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
                 subprocess.run(["git", "config", "--global", "user.email", git_email], check=True)
             # Fix SSL issues on Windows by using Windows certificate store
             subprocess.run(["git", "config", "--global", "http.sslbackend", "schannel"], check=True)
-            subprocess.run(["git", "checkout", "frontend"], check=True)
+            subprocess.run(["git", "checkout", "dev"], check=True)
         except Exception as e:
             console.print(f"[yellow]Startup git/venv automation failed: {e}[/yellow]")
 
@@ -149,8 +149,8 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
             from datetime import datetime
             commit_msg = f"Update summaries {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
             subprocess.run(["git", "commit", "-m", commit_msg], check=False)
-            subprocess.run(["git", "push", "origin", "frontend"], check=True)
-            console.print("[green]Auto-committed and pushed summary changes to origin/frontend.[/green]")
+            subprocess.run(["git", "push", "origin", "dev"], check=True)
+            console.print("[green]Auto-committed and pushed summary changes to origin/dev.[/green]")
         except Exception as e:
             console.print(f"[yellow]Git automation failed: {e}[/yellow]")
 
