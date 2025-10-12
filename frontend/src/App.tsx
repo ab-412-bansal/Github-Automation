@@ -5,8 +5,6 @@ import Tabs from './components/Tabs';
 import Overview from './components/Overview';
 import SectionPanel from './components/SectionPanel';
 import './index.css';
-import 'github-markdown-css/github-markdown-light.css';
-import 'github-markdown-css/github-markdown-dark.css';
 
 const TABS = [
   { label: 'Open Pull Requests', key: 'open_prs' },
@@ -17,21 +15,15 @@ const TABS = [
   { label: 'Security Alerts', key: 'security_alerts' },
 ];
 
-// Dynamically scan the /data directory for *_summary.json files
 async function getRepoListFromJsonFiles(): Promise<string[]> {
   try {
-    // Vite cannot read the filesystem at runtime, but we can use import.meta.glob for static files
-    // This will create an object with keys like '/public/data/ab-412-bansal__Github-Automation_summary.json'
     const files = import.meta.glob('/public/data/*_summary.json');
-    // Extract repo names from filenames
     return Object.keys(files).map((path) => {
-      // path: '/public/data/ab-412-bansal__Github-Automation_summary.json'
       const file = path.split('/').pop() || '';
       const repo = file.replace('_summary.json', '').replace('__', '/');
       return repo;
     });
   } catch {
-    // fallback: empty list
     return [];
   }
 }
@@ -64,7 +56,6 @@ function App() {
     fetchSummary();
   }, [selectedRepo]);
 
-  // Parse overview numbers from summary
   const overview = summary ? {
     repo: selectedRepo,
     openPrs: (summary.summary.match(/\*\*Open PRs:\*\* (\d+)/)?.[1]) || 0,
@@ -72,9 +63,8 @@ function App() {
     recentCommits: (summary.summary.match(/\*\*Recent Commits.*? (\d+)/)?.[1]) || 0,
   } : { repo: selectedRepo, openPrs: 0, openIssues: 0, recentCommits: 0 };
 
-  // Extract tab content from markdown summary (very basic, for demo)
   function getTabContent(tabKey: string) {
-    if (!summary) return <div className="text-gray-400">No data.</div>;
+    if (!summary) return <div style={{ color: '#9ca3af' }}>No data available.</div>;
     const md = summary.summary;
     const sections: Record<string, string> = {
       open_prs: /## 📝 Open Pull Requests\n([\s\S]*?)\n---/.exec(md)?.[1] || '',
@@ -84,20 +74,65 @@ function App() {
       commit_activity: /### 📈 Commit Activity.*?\n([\s\S]*?)(?:\n---|$)/.exec(md)?.[1] || '',
       security_alerts: /## 🛡️ Security Alerts\n([\s\S]*?)\n---/.exec(md)?.[1] || '',
     };
-    return <div className="prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{ __html: marked.parse(sections[tabKey] || '') }} />;
+    return <div style={{ maxWidth: 'none' }} dangerouslySetInnerHTML={{ __html: marked.parse(sections[tabKey] || '') }} />;
   }
 
   return (
-    <div className="min-h-screen bg-[#f6f8fa] dark:bg-[#0d1117] text-[#24292f] dark:text-[#c9d1d9] font-sans">
-      <div className="max-w-4xl mx-auto py-8 px-4">
-        <h1 className="text-2xl font-bold mb-6 tracking-tight text-[#24292f] dark:text-[#c9d1d9]">RepoPulse</h1>
-        <RepoDropdown repos={repos} selectedRepo={selectedRepo} onSelect={setSelectedRepo} />
+    <div style={{ 
+      minHeight: '100vh', 
+      background: 'linear-gradient(to bottom right, #f8fafc, #e2e8f0)',
+      color: '#1e293b'
+    }}>
+      {/* Header */}
+      <header style={{ 
+        background: 'white', 
+        borderBottom: '1px solid #e2e8f0',
+        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
+      }}>
+        <div style={{ 
+          maxWidth: '1280px', 
+          margin: '0 auto', 
+          padding: '1rem 1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}>
+          <h1 style={{ 
+            fontSize: '1.5rem', 
+            fontWeight: 'bold',
+            background: 'linear-gradient(to right, #2563eb, #9333ea)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            📊 RepoPulse Analytics
+          </h1>
+          <div style={{ fontSize: '0.875rem', color: '#64748b' }}>
+            Repository Monitoring Dashboard
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+        {/* Repository Selection */}
+        <div style={{ marginBottom: '2rem' }}>
+          <RepoDropdown repos={repos} selectedRepo={selectedRepo} onSelect={setSelectedRepo} />
+        </div>
+
+        {/* Overview Cards */}
         <Overview summary={overview} />
-        <Tabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
+
+        {/* Tabs Navigation */}
+        <div style={{ marginTop: '2rem' }}>
+          <Tabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
+
+        {/* Content Panel */}
         <SectionPanel title={TABS.find(t => t.key === activeTab)?.label || ''}>
           {getTabContent(activeTab)}
         </SectionPanel>
-      </div>
+      </main>
     </div>
   );
 }
