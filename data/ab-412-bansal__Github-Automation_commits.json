@@ -1,0 +1,195 @@
+[
+  {
+    "sha": "57b98c16db3d18d72c38ce04a3cd5f3034994648",
+    "author": "ab-412-bansal",
+    "message": "Added .gitignore file",
+    "date": "2025-10-11T20:01:49",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/commit/57b98c16db3d18d72c38ce04a3cd5f3034994648",
+    "files": [
+      {
+        "filename": ".gitignore",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "7cf631f5ada2082edb305bf723847ae1b05c6e52",
+    "author": "ab-412-bansal",
+    "message": "Initial Commit",
+    "date": "2025-10-11T19:53:36",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/commit/7cf631f5ada2082edb305bf723847ae1b05c6e52",
+    "files": [
+      {
+        "filename": ".env.example",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "README.md",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "filename": "__pycache__/github_api.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "automation.log",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/torvalds__linux_summary.md",
+        "additions": 210,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_commits.json",
+        "additions": 10982,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_security.json",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "main.py",
+        "additions": 127,
+        "deletions": 0
+      },
+      {
+        "filename": "requirements.txt",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "src/__pycache__/config.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/__pycache__/github_client.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/__pycache__/utils.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/config.py",
+        "additions": 17,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/commits.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/issues.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/prs.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/security.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/commits.py",
+        "additions": 40,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/issues.py",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/prs.py",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/security.py",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "src/github_client.py",
+        "additions": 30,
+        "deletions": 0
+      },
+      {
+        "filename": "src/reporting/__pycache__/summary.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/reporting/summary.py",
+        "additions": 60,
+        "deletions": 0
+      },
+      {
+        "filename": "src/utils.py",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/__pycache__/test_fetchers.cpython-313-pytest-7.4.0.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/__pycache__/test_reporting.cpython-313-pytest-7.4.0.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/__pycache__/test_utils.cpython-313-pytest-7.4.0.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/test_fetchers.py",
+        "additions": 33,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/test_reporting.py",
+        "additions": 22,
+        "deletions": 0
+      },
+      {
+        "filename": "tests/test_utils.py",
+        "additions": 18,
+        "deletions": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "number": 7,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "medium",
+    "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+    "created_at": "2025-10-11T21:12:29Z",
+    "updated_at": "2025-10-11T21:12:29Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/7"
+  },
+  {
+    "number": 6,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "medium",
+    "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/6"
+  },
+  {
+    "number": 5,
+    "state": "open",
+    "dependency": "flask",
+    "severity": "high",
+    "summary": "Pallets Project Flask is vulnerable to Denial of Service via Unexpected memory usage",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/5"
+  },
+  {
+    "number": 4,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "medium",
+    "summary": "Unintended leak of Proxy-Authorization header in requests",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/4"
+  },
+  {
+    "number": 3,
+    "state": "open",
+    "dependency": "flask",
+    "severity": "high",
+    "summary": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/3"
+  },
+  {
+    "number": 2,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "high",
+    "summary": "Insufficiently Protected Credentials in Requests",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/2"
+  },
+  {
+    "number": 1,
+    "state": "open",
+    "dependency": "flask",
+    "severity": "high",
+    "summary": "Flask is vulnerable to Denial of Service via incorrect encoding of JSON data",
+    "created_at": "2025-10-11T21:12:28Z",
+    "updated_at": "2025-10-11T21:12:28Z",
+    "url": "https://github.com/ab-412-bansal/Test-Security-Repository/security/dependabot/1"
+  }
+]
