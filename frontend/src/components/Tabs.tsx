@@ -13,20 +13,66 @@ interface TabsProps {
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabChange }) => {
   return (
-    <div className="flex border-b border-gray-200 dark:border-[#30363d] mb-4">
-      {tabs.map(tab => (
-        <button
-          key={tab.key}
-          className={`px-4 py-2 -mb-px font-medium border-b-2 transition-colors duration-150 focus:outline-none ${
-            activeTab === tab.key
-              ? 'border-[#0969da] text-[#0969da] dark:border-[#58a6ff] dark:text-[#58a6ff] bg-white dark:bg-[#161b22]'
-              : 'border-transparent text-gray-500 dark:text-[#8b949e] bg-transparent'
-          }`}
-          onClick={() => onTabChange(tab.key)}
-        >
-          {tab.label}
-        </button>
-      ))}
+    <div style={{
+      background: 'white',
+      borderTopLeftRadius: '0.5rem',
+      borderTopRightRadius: '0.5rem',
+      border: '1px solid #e2e8f0',
+      borderBottom: 'none',
+      overflow: 'hidden'
+    }}>
+      <div style={{ 
+        display: 'flex', 
+        overflowX: 'auto',
+        scrollbarWidth: 'thin'
+      }}>
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.key;
+          return (
+            <button
+              key={tab.key}
+              onClick={() => onTabChange(tab.key)}
+              style={{
+                padding: '1rem 1.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.2s',
+                border: 'none',
+                borderBottom: isActive ? '2px solid #2563eb' : '2px solid transparent',
+                background: isActive ? 'rgba(239, 246, 255, 0.5)' : 'transparent',
+                color: isActive ? '#2563eb' : '#64748b',
+                cursor: 'pointer',
+                position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.color = '#111827';
+                  e.currentTarget.style.background = '#f8fafc';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.color = '#64748b';
+                  e.currentTarget.style.background = 'transparent';
+                }
+              }}
+            >
+              {tab.label}
+              {isActive && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: '2px',
+                  background: 'linear-gradient(to right, #2563eb, #9333ea)'
+                }} />
+              )}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };

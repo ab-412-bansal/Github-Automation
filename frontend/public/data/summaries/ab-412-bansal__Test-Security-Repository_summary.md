@@ -4,14 +4,14 @@
 
 - **Open PRs:** 2
 - **Open Issues:** 1
-- **Recent Commits (3d):** 1
+- **Recent Commits (15d):** 1
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-### Open Pull Requests (Last 3 Days)
+### Open Pull Requests (Last 15 Days)
 
 - [#2](https://github.com/ab-412-bansal/Test-Security-Repository/pull/2): Bump requests from 2.19.0 to 2.32.4 (by @dependabot[bot], opened 2025-10-11)
 - [#1](https://github.com/ab-412-bansal/Test-Security-Repository/pull/1): Bump flask from 0.12 to 2.2.5 (by @dependabot[bot], opened 2025-10-11)
@@ -20,7 +20,7 @@
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 3 Days)
+### Pull Request History (Last 15 Days)
 
 - [#2](https://github.com/ab-412-bansal/Test-Security-Repository/pull/2): Bump requests from 2.19.0 to 2.32.4 (by @dependabot[bot]) — **Open**
 - [#1](https://github.com/ab-412-bansal/Test-Security-Repository/pull/1): Bump flask from 0.12 to 2.2.5 (by @dependabot[bot]) — **Open**
@@ -29,7 +29,7 @@
 
 ## ❗ Open Issues
 
-### Open Issues (Last 3 Days)
+### Open Issues (Last 15 Days)
 
 - [#3](https://github.com/ab-412-bansal/Test-Security-Repository/issues/3): Test Issue for automation (by @ab-412-bansal, opened 2025-10-11)
 
@@ -37,13 +37,13 @@
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 3 Days)
+### Recent Commits (Last 15 Days)
 
 - [bb7d9e4](https://github.com/ab-412-bansal/Test-Security-Repository/commit/bb7d9e4f0168eb126b04811efec90c916bbf5e85): Test repo for Github Automation (by @ab-412-bansal, 2025-10-11)
 
 ---
 
-### 📈 Commit Activity (Last 3 Days)
+### 📈 Commit Activity (Last 15 Days)
 - **Top Contributors:**
   - @ab-412-bansal — 1 commits
 - **Most Modified Files:**

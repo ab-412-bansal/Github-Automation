@@ -4,20 +4,20 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (3d):** 92
+- **Recent Commits (15d):** 200
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 3 days.
+No open pull requests in the last 15 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 3 Days)
+### Pull Request History (Last 15 Days)
 
 - [#1290](https://github.com/torvalds/linux/pull/1290): Make the kernel cute (by @nambona890) — **Closed, closed at 2025-09-22T16:22:49**
 
@@ -25,13 +25,13 @@ No open pull requests in the last 3 days.
 
 ## ❗ Open Issues
 
-No open issues in the last 3 days.
+No open issues in the last 15 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 3 Days)
+### Recent Commits (Last 15 Days)
 
 - [67029a4](https://github.com/torvalds/linux/commit/67029a49db6c1f21106a1b5fcdd0ea234a6e0711): Merge tag 'trace-v6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace (by @torvalds, 2025-10-11)
 - [c04022d](https://github.com/torvalds/linux/commit/c04022dccb2f9cf2b1cfe65807149500d1fc080a): Merge tag 'kbuild-fixes-6.18-1' of git://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux (by @torvalds, 2025-10-11)
@@ -125,18 +125,126 @@ No open issues in the last 3 days.
 - [613e9e8](https://github.com/torvalds/linux/commit/613e9e8dcb7e2523943d3cf965f3183c54b32adb): eth: fbnic: fix accounting of XDP packets (by @kuba-moo, 2025-10-07)
 - [7e617d5](https://github.com/torvalds/linux/commit/7e617d57f2a2f0cc3c5d91b5594df7fd1f2e4459): eth: fbnic: fix missing programming of the default descriptor (by @kuba-moo, 2025-10-07)
 - [2854378](https://github.com/torvalds/linux/commit/2854378a00e8872507a19cb1eb88517fc9584bc5): Merge tag 'nf-25-10-08' of https://git.kernel.org/pub/scm/linux/kernel/git/netfilter/nf (by @Paolo Abeni, 2025-10-09)
+- [6bb73db](https://github.com/torvalds/linux/commit/6bb73db6948c2de23e407fe1b7ef94bf02b7529f): crypto: essiv - Check ssize for decryption and in-place encryption (by @herbertx, 2025-10-08)
+- [ec714e3](https://github.com/torvalds/linux/commit/ec714e371f22f716a04e6ecb2a24988c92b26911): Merge tag 'perf-tools-for-v6.18-1-2025-10-08' of git://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools (by @torvalds, 2025-10-09)
+- [37bfdbc](https://github.com/torvalds/linux/commit/37bfdbc11b245119210ac9924a192aec8bd07d16): Merge tag 'pci-v6.18-fixes-1' of git://git.kernel.org/pub/scm/linux/kernel/git/pci/pci (by @torvalds, 2025-10-09)
+- [64cf7d0](https://github.com/torvalds/linux/commit/64cf7d058a005c5c31eb8a0b741f35dc12915d18): tracing: Have trace_marker use per-cpu data to read user space (by @rostedt, 2025-10-08)
+- [de4cbd7](https://github.com/torvalds/linux/commit/de4cbd704731778a2dc833ce5a24b38e5d672c05): ring buffer: Propagate __rb_map_vma return value to caller (by @ankitkhushwaha, 2025-10-08)
+- [d74d6c0](https://github.com/torvalds/linux/commit/d74d6c0e98958aa0bdb6f0a93258a856bda58b97): ceph: add bug tracking system info to MAINTAINERS (by @dubeyko, 2025-09-02)
+- [a154f14](https://github.com/torvalds/linux/commit/a154f141604acacc0ec64a445d8058a045c308ef): PCI: Fix regression in pci_bus_distribute_available_resources() (by @cyyself, 2025-10-08)
+- [22c73d5](https://github.com/torvalds/linux/commit/22c73d52a6d05c5a2053385c0d6cd9984732799d): ceph: fix multifs mds auth caps issue (by @kotreshhr, 2025-09-11)
+- [c66120c](https://github.com/torvalds/linux/commit/c66120c84295a0495eb46dcfba829457acd6ef7d): ceph: cleanup in ceph_alloc_readdir_reply_buffer() (by @dubeyko, 2025-09-02)
+- [98a2850](https://github.com/torvalds/linux/commit/98a2850de49c10a1a09642e17978b925f95e6029): ceph: fix potential NULL dereference issue in ceph_fill_trace() (by @dubeyko, 2025-08-28)
+- [6140f1d](https://github.com/torvalds/linux/commit/6140f1d43ba9425dc55b12bdfd8877b0c5118d9a): libceph: add empty check to ceph_con_get_out_msg() (by @MaxKellermann, 2025-08-06)
+- [7399212](https://github.com/torvalds/linux/commit/7399212dcf64d90a6ab239bdd98bd325d922fc7e): libceph: pass the message pointer instead of loading con->out_msg (by @MaxKellermann, 2025-08-06)
+- [59699a5](https://github.com/torvalds/linux/commit/59699a5a7114f09f890e86c09a6b32afb5eaa64c): libceph: make ceph_con_get_out_msg() return the message pointer (by @MaxKellermann, 2025-08-06)
+- [fbeafe7](https://github.com/torvalds/linux/commit/fbeafe782bd986bf75544526fb9c0284e045e0a4): ceph: fix potential race condition on operations with CEPH_I_ODIRECT flag (by @dubeyko, 2025-07-16)
+- [53db6f2](https://github.com/torvalds/linux/commit/53db6f25ee47cb1265141d31562604e56146919a): ceph: refactor wake_up_bit() pattern of calling (by @dubeyko, 2025-07-08)
+- [5824ccb](https://github.com/torvalds/linux/commit/5824ccba9a39a3ad914fc9b2972a2c1119abaac9): ceph: fix potential race condition in ceph_ioctl_lazyio() (by @dubeyko, 2025-06-13)
+- [5b2d137](https://github.com/torvalds/linux/commit/5b2d1377d6cc4147492780b0bd95fb9c4cb28d1b): ceph: fix overflowed constant issue in ceph_do_objects_copy() (by @dubeyko, 2025-06-06)
+- [1ed4471](https://github.com/torvalds/linux/commit/1ed4471a4ee6cfa902467332042158ca5ef8ad24): ceph: fix wrong sizeof argument issue in register_session() (by @dubeyko, 2025-06-06)
+- [b7ed1e2](https://github.com/torvalds/linux/commit/b7ed1e29cfe773d648ca09895b92856bd3a2092d): ceph: add checking of wait_for_completion_killable() return value (by @dubeyko, 2025-06-06)
+- [fa07303](https://github.com/torvalds/linux/commit/fa073039466f16141807a0f32840ecdceb00e22a): ceph: make ceph_start_io_*() killable (by @MaxKellermann, 2024-12-06)
+- [27c0a7b](https://github.com/torvalds/linux/commit/27c0a7b05d13a0dc54ed0b95fc12218210fdea1a): libceph: Use HMAC-SHA256 library instead of crypto_shash (by @Eric Biggers, 2025-07-31)
+- [cd5a0af](https://github.com/torvalds/linux/commit/cd5a0afbdf8033dc83786315d63f8b325bdba2fd): Merge tag 'mailbox-v6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox (by @torvalds, 2025-10-08)
+- [ed4d6e9](https://github.com/torvalds/linux/commit/ed4d6e92463e8dfe6dfb971f8edc6b5d9ea18722): Merge tag 'vfio-v6.18-rc1-pt2' of https://github.com/awilliam/linux-vfio (by @torvalds, 2025-10-08)
+- [99cedb6](https://github.com/torvalds/linux/commit/99cedb6b8f4101e2780f10b9e76d2f346a1e4316): Merge tag 'input-for-v6.18-rc0' of git://git.kernel.org/pub/scm/linux/kernel/git/dtor/input (by @torvalds, 2025-10-08)
+- [7c8dcac](https://github.com/torvalds/linux/commit/7c8dcac8d72da94328f4de7bf98320b75710da1f): Merge tag 'v6.18-p2' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/crypto-2.6 (by @torvalds, 2025-10-08)
+- [c834a97](https://github.com/torvalds/linux/commit/c834a97962c708ff5bb8582ca76b0e1225feb675): tracing: Fix irqoff tracers on failure of acquiring calltime (by @rostedt, 2025-10-08)
+- [4f7bf54](https://github.com/torvalds/linux/commit/4f7bf54b07e5acf79edd58dafede4096854776cd): tracing: Fix wakeup tracers on failure of acquiring calltime (by @rostedt, 2025-10-08)
+- [f0c029d](https://github.com/torvalds/linux/commit/f0c029d2ff42499a62c873c14428f02bf94c28af): tracing/osnoise: Replace kmalloc + copy_from_user with memdup_user_nul (by @toblux, 2025-10-01)
+- [e9a9dcb](https://github.com/torvalds/linux/commit/e9a9dcb4ccb32446165800a9d83058e95c4833d2): io_uring/zcrx: increment fallback loop src offset (by @isilence, 2025-10-08)
+- [09cfd3c](https://github.com/torvalds/linux/commit/09cfd3c52ea76f43b3cb15e570aeddf633d65e80): io_uring/zcrx: fix overshooting recv limit (by @isilence, 2025-10-08)
+- [455281c](https://github.com/torvalds/linux/commit/455281c0ef4e2cabdfe2e8b83fa6010d5210811c): loop: remove redundant __GFP_NOWARN flag (by @pedrodemargomes, 2025-10-07)
+- [deabb34](https://github.com/torvalds/linux/commit/deabb34b66b96c941ac0b3d01a6a6804c3274a78): s390/uv: Fix comment of uv_find_secret() function (by @huth, 2025-10-02)
+- [ca7a231](https://github.com/torvalds/linux/commit/ca7a2317993efa26eb2100a1523548f1b3a07af0): Merge tag 'asoc-fix-v6.18-merge-window' of https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound into for-linus (by @tiwai, 2025-10-08)
+- [e84945b](https://github.com/torvalds/linux/commit/e84945bdc619ed4243ba4298dbb8ca2062026474): selftests: netfilter: query conntrack state to check for port clash resolution (by @Florian Westphal, 2025-10-02)
+- [a126ab6](https://github.com/torvalds/linux/commit/a126ab6b26f107f4eb100c8c77e9f10b706f26e6): selftests: netfilter: nft_fib.sh: fix spurious test failures (by @Florian Westphal, 2025-10-02)
+- [bbf0c98](https://github.com/torvalds/linux/commit/bbf0c98b3ad9edaea1f982de6c199cc11d3b7705): bridge: br_vlan_fill_forward_path_pvid: use br_vlan_group_rcu() (by @ericwoud, 2025-10-07)
+- [f359b80](https://github.com/torvalds/linux/commit/f359b809d54c6e3dd1d039b97e0b68390b0e53e4): netfilter: nft_objref: validate objref and objrefmap expressions (by @Fernando Fernandez Mancera, 2025-10-08)
+- [229c586](https://github.com/torvalds/linux/commit/229c586b5e86979badb7cb0d38717b88a9e95ddd): crypto: skcipher - Fix reqsize handling (by @Pratham-T, 2025-10-07)
+- [8b87f67](https://github.com/torvalds/linux/commit/8b87f67b4c87452e21721887fa8dec1f4c6b2b7c): Merge branch 'next' into for-linus (by @dtor, 2025-10-08)
+- [c7866ee](https://github.com/torvalds/linux/commit/c7866ee0a9ddd9789faadf58cdac6abd7aabf045): Input: atmel_mxt_ts - allow reset GPIO to sleep (by @Marek Vasut, 2025-10-05)
+- [2c95a75](https://github.com/torvalds/linux/commit/2c95a756e0cfc19af6d0b32b0c6cf3bada334998): net: pse-pd: tps23881: Fix current measurement scaling (by @Thomas Wismer, 2025-10-06)
+- [e475fa4](https://github.com/torvalds/linux/commit/e475fa420e6c53a5023e89dbf0d51bd027b5a776): net/mlx5: fix pre-2.40 binutils assembler error (by @arndb, 2025-10-06)
+- [0d97f20](https://github.com/torvalds/linux/commit/0d97f2067c166eb495771fede9f7b73999c67f66): Merge tag 'for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/rmk/linux (by @torvalds, 2025-10-07)
+- [f52ce0e](https://github.com/torvalds/linux/commit/f52ce0ea90c83a28904c7cc203a70e6434adfecb): mm: hugetlb: avoid soft lockup when mprotect to large memory area (by @Yang Shi, 2025-09-29)
+- [28bba2c](https://github.com/torvalds/linux/commit/28bba2c2935e219d6cb6946e16b9a0b7c47913be): fsnotify: pass correct offset to fsnotify_mmap_perm() (by @ryanhrob, 2025-10-03)
+- [f04aad3](https://github.com/torvalds/linux/commit/f04aad36a07cc17b7a5d5b9a2d386ce6fae63e93): mm/ksm: fix flag-dropping behavior in ksm_madvise (by @Jakub Acs, 2025-10-01)
+- [b93af2c](https://github.com/torvalds/linux/commit/b93af2cc8e036754c0d9970d9ddc47f43cc94b9f): mm/damon/vaddr: do not repeat pte_offset_map_lock() until success (by @sjp38, 2025-09-30)
+- [9658d69](https://github.com/torvalds/linux/commit/9658d698a8a83540bf6a6c80d13c9a61590ee985): mm/rmap: fix soft-dirty and uffd-wp bit loss when remapping zero-filled mTHP subpage to shared zeropage (by @ioworker0, 2025-09-30)
+- [1ce6473](https://github.com/torvalds/linux/commit/1ce6473d17e78e3cb9a40147658231731a551828): mm/thp: fix MTE tag mismatch when replacing zero-filled subpages (by @ioworker0, 2025-09-22)
+- [fcc0669](https://github.com/torvalds/linux/commit/fcc0669c5aa681994c507b50f1c706c969d99730): memcg: skip cgroup_file_notify if spinning is not allowed (by @shakeelb, 2025-09-22)
+- [90eb9ae](https://github.com/torvalds/linux/commit/90eb9ae35727a662789c850efaf225ffe5511fae): lib/test_kho: use kho_preserve_vmalloc instead of storing addresses in fdt (by @rppt, 2025-09-21)
+- [a667300](https://github.com/torvalds/linux/commit/a667300bd53f272a3055238bcefe108f88836270): kho: add support for preserving vmalloc allocations (by @rppt, 2025-09-21)
+- [8375b76](https://github.com/torvalds/linux/commit/8375b76517cb52bac0903071feedc218c45d74d2): kho: replace kho_preserve_phys() with kho_preserve_pages() (by @rppt, 2025-09-21)
+- [469661d](https://github.com/torvalds/linux/commit/469661d0d3a55a7ba1e7cb847c26baf78cace086): kho: check if kho is finalized in __kho_preserve_order() (by @rppt, 2025-09-21)
+- [fa02d50](https://github.com/torvalds/linux/commit/fa02d505a3ef7c5c55b7b2aee1df2bdc178ce1ad): MAINTAINERS, .mailmap: update Umang's email address (by @Umang Jain, 2025-09-29)
+- [e4bea91](https://github.com/torvalds/linux/commit/e4bea919584ff292c9156cf7d641a2ab3cbe27b0): drm/nouveau: fix bad ret code in nouveau_bo_move_prep (by @Shuhao Fu, 2025-10-07)
+- [a8cdf51](https://github.com/torvalds/linux/commit/a8cdf51cda30f7461a98af821e8a28c5cb5f8878): Merge tag 'hardening-fix1-v6.18-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux (by @torvalds, 2025-10-07)
+- [16d1ba7](https://github.com/torvalds/linux/commit/16d1ba7c9675ee16e0f7fb22d51cd2898aab625d): Merge tag 'dma-mapping-6.18-2025-10-07' of git://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux (by @torvalds, 2025-10-07)
+- [4468490](https://github.com/torvalds/linux/commit/4468490251c0392e0c87a3f1c1c1585a89f6ffa6): smb: client: Return directly after a failed genlmsg_new() in cifs_swn_send_register_message() (by @elfring, 2025-10-07)
+- [fdb8d00](https://github.com/torvalds/linux/commit/fdb8d00af919d2403a9e40261cf3f78f0fd75212): Merge tag 'char-misc-6.18-rc1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/char-misc (by @torvalds, 2025-10-07)
+- [fbd2e22](https://github.com/torvalds/linux/commit/fbd2e22716d30d77a35affd6493f4bd74fe2e961): Merge tag 'staging-6.18-rc1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging (by @torvalds, 2025-10-07)
+- [3d15d6c](https://github.com/torvalds/linux/commit/3d15d6c1b3dd9eda173d474db82daf093afa4562): Merge tag 'tty-6.18-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty (by @torvalds, 2025-10-07)
+- [ce47f74](https://github.com/torvalds/linux/commit/ce47f7498598f4cf8729a6b93722c98814385e78): smb: client: Use common code in cifs_do_create() (by @elfring, 2025-10-05)
+- [56019d4](https://github.com/torvalds/linux/commit/56019d4ff8dd5ef16915c2605988c4022a46019c): Merge tag 'thermal-6.18-rc1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm (by @torvalds, 2025-10-07)
+- [d07e142](https://github.com/torvalds/linux/commit/d07e142641417e67f3bfc9d8ba3da8a69c39cfcd): drm/amd/display: Incorrect Mirror Cositing (by @Jesse Agate, 2025-06-13)
+- [5949e7c](https://github.com/torvalds/linux/commit/5949e7c4890c3cf65e783c83c355b95e21f10dba): drm/amd/display: Enable Dynamic DTBCLK Switch (by @Fangzhi Zuo, 2025-09-24)
+- [2e97663](https://github.com/torvalds/linux/commit/2e97663760e5fb7ee14f399c68e57b894f01e505): drm/amdgpu: Report individual reset error (by @Lijo Lazar, 2025-10-06)
+- [a107aeb](https://github.com/torvalds/linux/commit/a107aeb6a2150dd552673caefc771e2222d584de): drm/amdgpu: partially revert "revert to old status lock handling v3" (by @ChristianKoenigAMD, 2025-10-06)
+- [ddbfac1](https://github.com/torvalds/linux/commit/ddbfac152830e38d488ff8e45ab7eaf5d72f8527): drm/amd/display: Fix unsafe uses of kernel mode FPU (by @ardbiesheuvel, 2025-10-02)
+- [bd8acfc](https://github.com/torvalds/linux/commit/bd8acfcfce7d711372c2c45f4c5e24ea650c26bf): drm/amd/pm: Disable VCN queue reset on SMU v13.0.6 due to regression (by @Jie1zhang, 2025-10-04)
+- [8d557ea](https://github.com/torvalds/linux/commit/8d557eab3a396c5c0068d7b4ad920f2bf261e484): drm/amdgpu: Fix general protection fault in amdgpu_vm_bo_reset_state_machine (by @Jie1zhang, 2025-09-29)
+- [9b608fe](https://github.com/torvalds/linux/commit/9b608fe94870fe46bd2c41fcda99e74dabd6bbc6): drm/amdgpu: Check swus/ds for switch state save (by @Lijo Lazar, 2025-09-29)
+- [1f086d2](https://github.com/torvalds/linux/commit/1f086d2508ebe494d13fd587d1f5e2b908379efc): drm/amdkfd: Fix two comments in kfd_ioctl.h (by @fxkamd, 2025-10-03)
+- [4538a93](https://github.com/torvalds/linux/commit/4538a93bbbf104d7b7ce769bec48ff360bce583b): drm/amd/pm: Avoid interface mismatch messaging (by @Lijo Lazar, 2025-09-19)
+- [b809ca9](https://github.com/torvalds/linux/commit/b809ca91a5b7eccba065460200512f83cc87987a): drm/amdgpu: Merge amdgpu_vm_set_pasid into amdgpu_vm_init (by @Jie1zhang, 2025-09-25)
+- [8dbac5c](https://github.com/torvalds/linux/commit/8dbac5cf8bd55a01a8a0e792a6ed866856506f60): drm/amd/amdgpu: Fix the mes version that support inv_tlbs (by @Shaoyun Liu, 2025-09-25)
+- [c760bcd](https://github.com/torvalds/linux/commit/c760bcda83571e07b72c10d9da175db5051ed971): drm/amd: Check whether secure display TA loaded successfully (by @superm1, 2025-09-25)
+- [7574f30](https://github.com/torvalds/linux/commit/7574f30337e19045f03126b4c51f525b84e5049e): drm/amdkfd: Fix mmap write lock not release (by @PhilipYangA, 2025-09-15)
+- [58e6fc2](https://github.com/torvalds/linux/commit/58e6fc2fb94f0f409447e5d46cf6a417b6397fbc): drm/amdkfd: Fix kfd process ref leaking when userptr unmapping (by @PhilipYangA, 2025-05-27)
+- [0c67342](https://github.com/torvalds/linux/commit/0c6734288566f9642037882c4cb1684d5ecc6b57): drm/amdgpu: Fix for GPU reset being blocked by KIQ I/O. (by @Heng Zhou, 2025-09-26)
+- [0e190a0](https://github.com/torvalds/linux/commit/0e190a0446ec517666dab4691b296a9b758e590f): drm/amd/display: Disable scaling on DCE6 for now (by @Timur Kristóf, 2025-09-25)
+- [a7dc87f](https://github.com/torvalds/linux/commit/a7dc87f3448bea5ebe054f14e861074b9c289c65): drm/amd/display: Properly disable scaling on DCE6 (by @Timur Kristóf, 2025-09-25)
+- [c0aa7cf](https://github.com/torvalds/linux/commit/c0aa7cf49dd6cb302fe28e7183992b772cb7420c): drm/amd/display: Properly clear SCL_*_FILTER_CONTROL on DCE6 (by @Timur Kristóf, 2025-09-25)
+- [d60f9c4](https://github.com/torvalds/linux/commit/d60f9c45d1bff7e20ecd57492ef7a5e33c94a37c): drm/amd/display: Add missing DCE6 SCL_HORZ_FILTER_INIT* SRIs (by @Timur Kristóf, 2025-09-25)
+- [5072963](https://github.com/torvalds/linux/commit/507296328b36ffd00ec1f4fde5b8acafb7222ec7): drm/amdgpu: Add additional DCE6 SCL registers (by @alexdeucher, 2025-09-25)
+- [f7dfa0f](https://github.com/torvalds/linux/commit/f7dfa0f31b13ee5f2ba598cdfcab9a831ed8a6b8): slub: Don't call lockdep_unregister_key() for immature kmem_cache. (by @q2ven, 2025-10-07)
+- [610cb23](https://github.com/torvalds/linux/commit/610cb23bcc75bcd9fead3e41cbd867cccd0eb229): parisc: Add initial kernel-side perf_event support (by @hdeller, 2025-10-07)
+- [38492c5](https://github.com/torvalds/linux/commit/38492c5743f8b7213ca86f0cd72ea625af35d5ef): gen_init_cpio: Ignore fsync() returning EINVAL on pipes (by @0x7f454c46, 2025-10-07)
+- [7ded7d3](https://github.com/torvalds/linux/commit/7ded7d37e5f5b36b4acd74380156cf07b6640c5b): scripts/Makefile.extrawarn: Respect CONFIG_WERROR / W=e for hostprogs (by @nathanchance, 2025-10-06)
+- [89b59f0](https://github.com/torvalds/linux/commit/89b59f0979926fb22ae7ecb8f4a1b5ecdb04b3d4): Merge tag 'acpi-6.18-rc1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm (by @torvalds, 2025-10-07)
+- [abdf766](https://github.com/torvalds/linux/commit/abdf766d149c51fb256118f73be947d7a82f702e): Merge tag 'pm-6.18-rc1-2' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm (by @torvalds, 2025-10-07)
+- [522ba45](https://github.com/torvalds/linux/commit/522ba450b56fff29f868b1552bdc2965f55de7ed): Merge tag 'clk-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux (by @torvalds, 2025-10-07)
+- [e2080b7](https://github.com/torvalds/linux/commit/e2080b70c5851a132547bec3bd7dde847e649678): smb: client: Improve unlocking of a mutex in cifs_get_swn_reg() (by @elfring, 2025-10-07)
+- [0a98b40](https://github.com/torvalds/linux/commit/0a98b40b8fe1bdebf3cb78924cef60af322c4437): smb: client: Return a status code only as a constant in cifs_spnego_key_instantiate() (by @elfring, 2025-10-07)
+- [912b9fd](https://github.com/torvalds/linux/commit/912b9fd7c7775060900ad315f0ceb616f9381bc3): parisc: Report software alignment faults via perf (by @hdeller, 2025-10-07)
+- [6fb2e09](https://github.com/torvalds/linux/commit/6fb2e09c3abca500ad3ef88afdd291515323d668): parisc: Report emulation faults via perf (by @hdeller, 2025-10-07)
+- [971199a](https://github.com/torvalds/linux/commit/971199ad2a0f1b2fbe14af13369704aff2999988): Merge tag 'arm64-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux (by @torvalds, 2025-10-07)
+- [2215336](https://github.com/torvalds/linux/commit/221533629550e920580ab428f13ffebf54063b95): Merge tag 'hyperv-next-signed-20251006' of git://git.kernel.org/pub/scm/linux/kernel/git/hyperv/linux (by @torvalds, 2025-10-07)
+- [3f39f56](https://github.com/torvalds/linux/commit/3f39f56520374cf56872644acf9afcc618a4b674): mailbox: mtk-cmdq: Remove pm_runtime APIs from cmdq_mbox_send_data() (by @Jason-JH Lin, 2025-08-29)
+- [b157dd2](https://github.com/torvalds/linux/commit/b157dd228cf0ee24b2414712abd82bd3a8d5b009): tools headers: kcfi: rename missed CONFIG_CFI_CLANG (by @Carlos Llamas, 2025-10-06)
+- [0902b3c](https://github.com/torvalds/linux/commit/0902b3cb23ce7f436bddbdf6ba7b1ed427b36bd9): kconfig: Avoid prompting for transitional symbols (by @kees, 2025-09-30)
+- [8ec5a06](https://github.com/torvalds/linux/commit/8ec5a066f88f89bd52094ba18792b34c49dcd55a): parisc: don't reference obsolete termio struct for TC* constants (by @thesamesam, 2025-10-01)
+- [16794e5](https://github.com/torvalds/linux/commit/16794e524d310780163fdd49d0bf7fac30f8dbc8): parisc: Remove spurious if statement from raw_copy_from_user() (by @danglin44, 2025-08-05)
+- [506aa23](https://github.com/torvalds/linux/commit/506aa235f6e0baa00bf792df82a5e9f618b7a5d8): block: move bio_iov_iter_get_bdev_pages to block/fops.c (by @Christoph Hellwig, 2025-10-07)
+- [cb6d51a](https://github.com/torvalds/linux/commit/cb6d51a4115781fd9de6108932e866a332e38406): iomap: open code bio_iov_iter_get_bdev_pages (by @Christoph Hellwig, 2025-10-07)
+- [82dd5d7](https://github.com/torvalds/linux/commit/82dd5d763c9b718e2d655b9565e0a06a91bb83dc): block: rename bio_iov_iter_get_pages_aligned to bio_iov_iter_get_pages (by @Christoph Hellwig, 2025-10-07)
+- [1ed06c8](https://github.com/torvalds/linux/commit/1ed06c83506ecaaf1836ddeb7c65772ff86d8d53): block: remove bio_iov_iter_get_pages (by @Christoph Hellwig, 2025-10-07)
+- [beb9799](https://github.com/torvalds/linux/commit/beb97995b97532e1f215e3295e6843e59862f94b): io_uring: use tab indentation for IORING_SEND_VECTORIZED comment (by @haiyuewa, 2025-10-07)
 
 ---
 
-### 📈 Commit Activity (Last 3 Days)
+### 📈 Commit Activity (Last 15 Days)
 - **Top Contributors:**
-  - @torvalds — 32 commits
+  - @torvalds — 50 commits
   - @kuba-moo — 9 commits
-  - @nathanchance — 5 commits
+  - @dubeyko — 9 commits
 - **Most Modified Files:**
+  - MAINTAINERS (13 changes)
+  - kernel/trace/trace.c (5 changes)
   - scripts/Makefile.vmlinux (5 changes)
-  - MAINTAINERS (5 changes)
-  - drivers/net/ethernet/meta/fbnic/fbnic_txrx.c (5 changes)
 
 ---
 
