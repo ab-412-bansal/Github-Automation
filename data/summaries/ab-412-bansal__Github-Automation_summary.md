@@ -22,6 +22,8 @@
 ### Pull Request History (Last 15 Days)
 
 - [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Open**
+- [#6](https://github.com/ab-412-bansal/Github-Automation/pull/6): Frontend to dev for frontend (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T10:09:55**
+- [#5](https://github.com/ab-412-bansal/Github-Automation/pull/5): Frontend ti dev for frinteend (by @ab-412-bansal) — **Closed, closed at 2025-10-12T10:07:48**
 - [#4](https://github.com/ab-412-bansal/Github-Automation/pull/4): Final push from frontend to dev (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:59:57**
 - [#2](https://github.com/ab-412-bansal/Github-Automation/pull/2): Frontend pushed to dev after frontend changes (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:56:02**
 - [#1](https://github.com/ab-412-bansal/Github-Automation/pull/1): Working project with all functionalities (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T07:29:30**
