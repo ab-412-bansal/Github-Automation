@@ -2,7 +2,7 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 0
+- **Open PRs:** 1
 - **Open Issues:** 0
 - **Recent Commits (15d):** 19
 
@@ -11,7 +11,9 @@
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 15 days.
+### Open Pull Requests (Last 15 Days)
+
+- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal, opened 2025-10-12)
 
 ---
 
@@ -19,6 +21,9 @@ No open pull requests in the last 15 days.
 
 ### Pull Request History (Last 15 Days)
 
+- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Open**
+- [#4](https://github.com/ab-412-bansal/Github-Automation/pull/4): Final push from frontend to dev (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:59:57**
+- [#2](https://github.com/ab-412-bansal/Github-Automation/pull/2): Frontend pushed to dev after frontend changes (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:56:02**
 - [#1](https://github.com/ab-412-bansal/Github-Automation/pull/1): Working project with all functionalities (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T07:29:30**
 
 ---

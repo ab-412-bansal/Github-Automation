@@ -1,5 +1,747 @@
 [
   {
+    "number": 3,
+    "title": "Dev pushed to main after completion of the project",
+    "user": "ab-412-bansal",
+    "state": "open",
+    "merged": false,
+    "created_at": "2025-10-12T09:56:50",
+    "updated_at": "2025-10-12T09:59:58",
+    "closed_at": null,
+    "body": "",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/3",
+    "files": [
+      {
+        "filename": "automation.log",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_all_prs.json",
+        "additions": 14,
+        "deletions": 9
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_commits.json",
+        "additions": 1168,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_prs.json",
+        "additions": 1,
+        "deletions": 258
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__AlgoVision_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 30,
+        "deletions": 15
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Test-Security-Repository_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/torvalds__linux_summary.md",
+        "additions": 118,
+        "deletions": 10
+      },
+      {
+        "filename": "data/torvalds__linux_commits.json",
+        "additions": 7197,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/.gitignore",
+        "additions": 24,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/.vite/deps/_metadata.json",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/.vite/deps/package.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/README.md",
+        "additions": 73,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/eslint.config.js",
+        "additions": 23,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/index.html",
+        "additions": 13,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/package-lock.json",
+        "additions": 4173,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/package.json",
+        "additions": 39,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/postcss.config.cjs",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_all_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_commits.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_all_prs.json",
+        "additions": 266,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_commits.json",
+        "additions": 1363,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_all_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_commits.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_all_prs.json",
+        "additions": 40,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_commits.json",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_issues.json",
+        "additions": 12,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_prs.json",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_security.json",
+        "additions": 72,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__AlgoVision_summary.md",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 72,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Test-Security-Repository_summary.md",
+        "additions": 67,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/summaries/torvalds__linux_summary.md",
+        "additions": 255,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_all_prs.json",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_commits.json",
+        "additions": 10937,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/vite.svg",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/App.css",
+        "additions": 42,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/App.tsx",
+        "additions": 140,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/assets/react.svg",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/components/Overview.tsx",
+        "additions": 113,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/components/RepoDropdown.tsx",
+        "additions": 86,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/components/SectionPanel.tsx",
+        "additions": 37,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/components/Tabs.tsx",
+        "additions": 80,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/github-font.css",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/index.css",
+        "additions": 73,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/main.tsx",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/theme/githubTheme.ts",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/tailwind.config.cjs",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/tsconfig.app.json",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/tsconfig.json",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/tsconfig.node.json",
+        "additions": 26,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/vite.config.ts",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "main.py",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/.bin/marked",
+        "additions": 16,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/.bin/marked.cmd",
+        "additions": 17,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/.bin/marked.ps1",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/.package-lock.json",
+        "additions": 31,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/github-markdown-dark.css",
+        "additions": 1105,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/github-markdown-light.css",
+        "additions": 1105,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/github-markdown.css",
+        "additions": 1228,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/license",
+        "additions": 9,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/package.json",
+        "additions": 40,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/github-markdown-css/readme.md",
+        "additions": 63,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/LICENSE.md",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/README.md",
+        "additions": 106,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/bin/main.js",
+        "additions": 282,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/bin/marked.js",
+        "additions": 15,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/lib/marked.d.ts",
+        "additions": 749,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/lib/marked.esm.js",
+        "additions": 72,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/lib/marked.esm.js.map",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/lib/marked.umd.js",
+        "additions": 74,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/lib/marked.umd.js.map",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/man/marked.1",
+        "additions": 111,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/man/marked.1.md",
+        "additions": 92,
+        "deletions": 0
+      },
+      {
+        "filename": "node_modules/marked/package.json",
+        "additions": 103,
+        "deletions": 0
+      },
+      {
+        "filename": "package-lock.json",
+        "additions": 37,
+        "deletions": 0
+      },
+      {
+        "filename": "package.json",
+        "additions": 6,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Final push from frontend to dev",
+    "user": "ab-412-bansal",
+    "state": "closed",
+    "merged": true,
+    "created_at": "2025-10-12T09:59:50",
+    "updated_at": "2025-10-12T09:59:57",
+    "closed_at": "2025-10-12T09:59:57",
+    "body": "",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/4",
+    "files": [
+      {
+        "filename": "automation.log",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/src/App.tsx",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "main.py",
+        "additions": 3,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Frontend pushed to dev after frontend changes",
+    "user": "ab-412-bansal",
+    "state": "closed",
+    "merged": true,
+    "created_at": "2025-10-12T09:55:50",
+    "updated_at": "2025-10-12T09:56:02",
+    "closed_at": "2025-10-12T09:56:02",
+    "body": "",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/2",
+    "files": [
+      {
+        "filename": "automation.log",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__AlgoVision_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Test-Security-Repository_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "data/summaries/torvalds__linux_summary.md",
+        "additions": 118,
+        "deletions": 10
+      },
+      {
+        "filename": "data/torvalds__linux_commits.json",
+        "additions": 7197,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/.vite/deps/_metadata.json",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/.vite/deps/package.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/package-lock.json",
+        "additions": 747,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/package.json",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/postcss.config.cjs",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__AlgoVision_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Startup-Success-Prediction-Project_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/public/data/ab-412-bansal__Test-Security-Repository_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__AlgoVision_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "frontend/public/data/summaries/ab-412-bansal__Test-Security-Repository_summary.md",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "frontend/public/data/summaries/torvalds__linux_summary.md",
+        "additions": 118,
+        "deletions": 10
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_commits.json",
+        "additions": 7197,
+        "deletions": 0
+      },
+      {
+        "filename": "frontend/public/data/torvalds__linux_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "frontend/src/App.tsx",
+        "additions": 54,
+        "deletions": 19
+      },
+      {
+        "filename": "frontend/src/components/Overview.tsx",
+        "additions": 97,
+        "deletions": 22
+      },
+      {
+        "filename": "frontend/src/components/RepoDropdown.tsx",
+        "additions": 70,
+        "deletions": 15
+      },
+      {
+        "filename": "frontend/src/components/SectionPanel.tsx",
+        "additions": 29,
+        "deletions": 7
+      },
+      {
+        "filename": "frontend/src/components/Tabs.tsx",
+        "additions": 61,
+        "deletions": 15
+      },
+      {
+        "filename": "frontend/src/index.css",
+        "additions": 51,
+        "deletions": 46
+      },
+      {
+        "filename": "frontend/tailwind.config.cjs",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "filename": "main.py",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
     "number": 1,
     "title": "Working project with all functionalities",
     "user": "ab-412-bansal",
