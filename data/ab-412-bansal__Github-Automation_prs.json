@@ -1,1 +1,258 @@
-[]
+[
+  {
+    "number": 1,
+    "title": "Working project with all functionalities",
+    "user": "ab-412-bansal",
+    "created_at": "2025-10-12T07:25:32",
+    "updated_at": "2025-10-12T07:25:32",
+    "body": "",
+    "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/1",
+    "files": [
+      {
+        "filename": ".env.example",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": ".gitignore",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "README.md",
+        "additions": 119,
+        "deletions": 25
+      },
+      {
+        "filename": "automation.log",
+        "additions": 68,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_all_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_commits.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__AlgoVision_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_all_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_commits.json",
+        "additions": 195,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Github-Automation_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_all_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_commits.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_issues.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_prs.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_security.json",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Startup-Success-Prediction-Project_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_all_prs.json",
+        "additions": 40,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_commits.json",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_issues.json",
+        "additions": 12,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_prs.json",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_security.json",
+        "additions": 72,
+        "deletions": 0
+      },
+      {
+        "filename": "data/ab-412-bansal__Test-Security-Repository_summary.json",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__AlgoVision_summary.md",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
+        "additions": 53,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/ab-412-bansal__Test-Security-Repository_summary.md",
+        "additions": 67,
+        "deletions": 0
+      },
+      {
+        "filename": "data/summaries/torvalds__linux_summary.md",
+        "additions": 255,
+        "deletions": 210
+      },
+      {
+        "filename": "data/torvalds__linux_all_prs.json",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "data/torvalds__linux_security.json",
+        "additions": 1,
+        "deletions": 5
+      },
+      {
+        "filename": "data/torvalds__linux_summary.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "main.py",
+        "additions": 53,
+        "deletions": 17
+      },
+      {
+        "filename": "src/__pycache__/config.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/config.py",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/commits.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/issues.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/prs.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/__pycache__/security.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/fetchers/commits.py",
+        "additions": 5,
+        "deletions": 3
+      },
+      {
+        "filename": "src/fetchers/issues.py",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "src/fetchers/prs.py",
+        "additions": 49,
+        "deletions": 4
+      },
+      {
+        "filename": "src/fetchers/security.py",
+        "additions": 34,
+        "deletions": 25
+      },
+      {
+        "filename": "src/reporting/__pycache__/summary.cpython-313.pyc",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "src/reporting/summary.py",
+        "additions": 98,
+        "deletions": 19
+      }
+    ]
+  }
+]

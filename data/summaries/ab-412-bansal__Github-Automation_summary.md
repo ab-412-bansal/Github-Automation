@@ -2,41 +2,45 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 0
+- **Open PRs:** 1
 - **Open Issues:** 0
-- **Recent Commits (5d):** 2
+- **Recent Commits (3d):** 2
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 5 days.
+### Open Pull Requests (Last 3 Days)
+
+- [#1](https://github.com/ab-412-bansal/Github-Automation/pull/1): Working project with all functionalities (by @ab-412-bansal, opened 2025-10-12)
 
 ---
 
 ## 🕑 Pull Request History
 
-No pull request history in the last 5 days.
+### Pull Request History (Last 3 Days)
+
+- [#1](https://github.com/ab-412-bansal/Github-Automation/pull/1): Working project with all functionalities (by @ab-412-bansal) — **Open**
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 5 days.
+No open issues in the last 3 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 5 Days)
+### Recent Commits (Last 3 Days)
 
 - [57b98c1](https://github.com/ab-412-bansal/Github-Automation/commit/57b98c16db3d18d72c38ce04a3cd5f3034994648): Added .gitignore file (by @ab-412-bansal, 2025-10-11)
 - [7cf631f](https://github.com/ab-412-bansal/Github-Automation/commit/7cf631f5ada2082edb305bf723847ae1b05c6e52): Initial Commit (by @ab-412-bansal, 2025-10-11)
 
 ---
 
-### 📈 Commit Activity (Last 5 Days)
+### 📈 Commit Activity (Last 3 Days)
 - **Top Contributors:**
   - @ab-412-bansal — 2 commits
 - **Most Modified Files:**
