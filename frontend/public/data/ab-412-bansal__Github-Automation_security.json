@@ -1,1 +1,192 @@
-"Token does not have required scopes (repo, security_events), or you do not have access to this repository's security alerts."
+[
+  {
+    "number": 19,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Hugging Face Transformers vulnerable to Regular Expression Denial of Service (ReDoS) in the AdamWeightDecay optimizer",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/19"
+  },
+  {
+    "number": 18,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Hugging Face Transformers library has Regular Expression Denial of Service",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/18"
+  },
+  {
+    "number": 17,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Hugging Face Transformers is vulnerable to ReDoS through its MarianTokenizer",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/17"
+  },
+  {
+    "number": 16,
+    "state": "open",
+    "dependency": "torch",
+    "severity": "critical",
+    "summary": "PyTorch: `torch.load` with `weights_only=True` leads to remote code execution",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/16"
+  },
+  {
+    "number": 15,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Hugging Face Transformers Regular Expression Denial of Service (ReDoS) vulnerability",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/15"
+  },
+  {
+    "number": 14,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Transformers is vulnerable to ReDoS attack through its DonutProcessor class",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/14"
+  },
+  {
+    "number": 13,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "low",
+    "summary": "Transformers's Improper Input Validation vulnerability can be exploited through username injection",
+    "created_at": "2025-10-12T10:33:02Z",
+    "updated_at": "2025-10-12T10:33:02Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/13"
+  },
+  {
+    "number": 12,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Transformers vulnerable to ReDoS attack through its get_imports() function",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/12"
+  },
+  {
+    "number": 11,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Transformers's ReDoS vulnerability in get_configuration_file can lead to catastrophic backtracking",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/11"
+  },
+  {
+    "number": 10,
+    "state": "open",
+    "dependency": "torch",
+    "severity": "medium",
+    "summary": "PyTorch Improper Resource Shutdown or Release vulnerability",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/10"
+  },
+  {
+    "number": 9,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "medium",
+    "summary": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/9"
+  },
+  {
+    "number": 8,
+    "state": "open",
+    "dependency": "torch",
+    "severity": "low",
+    "summary": "PyTorch susceptible to local Denial of Service",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/8"
+  },
+  {
+    "number": 7,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Hugging Face Transformers Regular Expression Denial of Service",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/7"
+  },
+  {
+    "number": 6,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Transformers Regular Expression Denial of Service (ReDoS) vulnerability",
+    "created_at": "2025-10-12T10:33:01Z",
+    "updated_at": "2025-10-12T10:33:01Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/6"
+  },
+  {
+    "number": 5,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "medium",
+    "summary": "Transformers Regular Expression Denial of Service (ReDoS) vulnerability",
+    "created_at": "2025-10-12T10:33:00Z",
+    "updated_at": "2025-10-12T10:33:00Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/5"
+  },
+  {
+    "number": 4,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "high",
+    "summary": "Deserialization of Untrusted Data in Hugging Face Transformers",
+    "created_at": "2025-10-12T10:33:00Z",
+    "updated_at": "2025-10-12T10:33:00Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/4"
+  },
+  {
+    "number": 3,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "high",
+    "summary": "Deserialization of Untrusted Data in Hugging Face Transformers",
+    "created_at": "2025-10-12T10:33:00Z",
+    "updated_at": "2025-10-12T10:33:00Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/3"
+  },
+  {
+    "number": 2,
+    "state": "open",
+    "dependency": "transformers",
+    "severity": "high",
+    "summary": "Deserialization of Untrusted Data in Hugging Face Transformers",
+    "created_at": "2025-10-12T10:33:00Z",
+    "updated_at": "2025-10-12T10:33:00Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/2"
+  },
+  {
+    "number": 1,
+    "state": "open",
+    "dependency": "requests",
+    "severity": "medium",
+    "summary": "Requests `Session` object does not verify requests after making first request with verify=False",
+    "created_at": "2025-10-12T10:33:00Z",
+    "updated_at": "2025-10-12T10:33:00Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/1"
+  }
+]
