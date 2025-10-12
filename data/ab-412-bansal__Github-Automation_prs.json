@@ -4,13 +4,13 @@
     "title": "Dev pushed to main after completion of the project",
     "user": "ab-412-bansal",
     "created_at": "2025-10-12T09:56:50",
-    "updated_at": "2025-10-12T09:59:58",
+    "updated_at": "2025-10-12T10:09:57",
     "body": "",
     "html_url": "https://github.com/ab-412-bansal/Github-Automation/pull/3",
     "files": [
       {
         "filename": "automation.log",
-        "additions": 21,
+        "additions": 11,
         "deletions": 0
       },
       {
@@ -20,7 +20,7 @@
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_all_prs.json",
-        "additions": 14,
+        "additions": 756,
         "deletions": 9
       },
       {
@@ -30,8 +30,8 @@
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_prs.json",
-        "additions": 1,
-        "deletions": 258
+        "additions": 341,
+        "deletions": 81
       },
       {
         "filename": "data/ab-412-bansal__Github-Automation_summary.json",
@@ -55,8 +55,8 @@
       },
       {
         "filename": "data/summaries/ab-412-bansal__Github-Automation_summary.md",
-        "additions": 30,
-        "deletions": 15
+        "additions": 33,
+        "deletions": 13
       },
       {
         "filename": "data/summaries/ab-412-bansal__Startup-Success-Prediction-Project_summary.md",
@@ -160,7 +160,7 @@
       },
       {
         "filename": "frontend/public/data/ab-412-bansal__Github-Automation_all_prs.json",
-        "additions": 266,
+        "additions": 1008,
         "deletions": 0
       },
       {
@@ -175,7 +175,7 @@
       },
       {
         "filename": "frontend/public/data/ab-412-bansal__Github-Automation_prs.json",
-        "additions": 1,
+        "additions": 518,
         "deletions": 0
       },
       {
@@ -255,7 +255,7 @@
       },
       {
         "filename": "frontend/public/data/summaries/ab-412-bansal__Github-Automation_summary.md",
-        "additions": 72,
+        "additions": 77,
         "deletions": 0
       },
       {
