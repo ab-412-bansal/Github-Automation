@@ -132,6 +132,17 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
             count += 1
             time.sleep(1)  # small delay to be polite to API
 
+        # After all repos processed, copy data/ to frontend/public/data for UI
+        try:
+            import shutil
+            dest = os.path.join('frontend', 'public', 'data')
+            src = os.path.join('data')
+            if os.path.exists(dest):
+                shutil.rmtree(dest)
+            shutil.copytree(src, dest)
+            console.print(f"[green]Copied data/ to frontend/public/data for UI.[/green]")
+        except Exception as e:
+            console.print(f"[yellow]Data copy to frontend/public/data failed: {e}[/yellow]")
         # After all repos processed, add/commit/push summaries
         try:
             subprocess.run(["git", "add", "*"], check=True)
