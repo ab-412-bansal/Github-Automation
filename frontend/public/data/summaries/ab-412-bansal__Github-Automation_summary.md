@@ -2,9 +2,9 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 2
+- **Open PRs:** 1
 - **Open Issues:** 0
-- **Recent Commits (15d):** 19
+- **Recent Commits (15d):** 37
 
 
 ---
@@ -14,7 +14,6 @@
 ### Open Pull Requests (Last 15 Days)
 
 - [#10](https://github.com/ab-412-bansal/Github-Automation/pull/10): Bump the pip group across 1 directory with 3 updates (by @dependabot[bot], opened 2025-10-12)
-- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal, opened 2025-10-12)
 
 ---
 
@@ -22,10 +21,10 @@
 
 ### Pull Request History (Last 15 Days)
 
+- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T10:37:59**
 - [#9](https://github.com/ab-412-bansal/Github-Automation/pull/9): Bump requests from 2.31.0 to 2.32.4 (by @dependabot[bot]) — **Closed, closed at 2025-10-12T10:35:03**
 - [#8](https://github.com/ab-412-bansal/Github-Automation/pull/8): Bump transformers from 4.41.2 to 4.53.0 (by @dependabot[bot]) — **Closed, closed at 2025-10-12T10:35:02**
 - [#10](https://github.com/ab-412-bansal/Github-Automation/pull/10): Bump the pip group across 1 directory with 3 updates (by @dependabot[bot]) — **Open**
-- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Open**
 - [#7](https://github.com/ab-412-bansal/Github-Automation/pull/7): Update summaries 2025-10-12 15:49:53 (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T10:27:30**
 - [#6](https://github.com/ab-412-bansal/Github-Automation/pull/6): Frontend to dev for frontend (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T10:09:55**
 - [#5](https://github.com/ab-412-bansal/Github-Automation/pull/5): Frontend ti dev for frinteend (by @ab-412-bansal) — **Closed, closed at 2025-10-12T10:07:48**
@@ -45,6 +44,24 @@ No open issues in the last 15 days.
 
 ### Recent Commits (Last 15 Days)
 
+- [9f8ad4d](https://github.com/ab-412-bansal/Github-Automation/commit/9f8ad4df1bf18c4a68a8dd85dfae57e54c430620): Merge pull request #3 from ab-412-bansal/dev (by @ab-412-bansal, 2025-10-12)
+- [e54125f](https://github.com/ab-412-bansal/Github-Automation/commit/e54125f92de0c72b60863edf57d294865b90347d): Update summaries 2025-10-12 16:06:05 (by @ab-412-bansal, 2025-10-12)
+- [c3b2d5c](https://github.com/ab-412-bansal/Github-Automation/commit/c3b2d5cfb778e70021d7bf1b035ec15cbbaccb30): Update summaries 2025-10-12 16:01:25 (by @ab-412-bansal, 2025-10-12)
+- [b232d87](https://github.com/ab-412-bansal/Github-Automation/commit/b232d870cebb0fa26ce419b1b106c95a77ebe2c6): Merge branch 'dev' of https://github.com/ab-412-bansal/Github-Automation into dev (by @ab-412-bansal, 2025-10-12)
+- [d5c38ca](https://github.com/ab-412-bansal/Github-Automation/commit/d5c38ca5a73102a1c35b7d7f713ec34eedfbad62): Merge pull request #7 from ab-412-bansal/frontend (by @ab-412-bansal, 2025-10-12)
+- [86190b3](https://github.com/ab-412-bansal/Github-Automation/commit/86190b3452756b8ca74840fc8494ee4d5416c378): Merge branch 'dev' into frontend (by @ab-412-bansal, 2025-10-12)
+- [f0510c7](https://github.com/ab-412-bansal/Github-Automation/commit/f0510c75212e4ca22f1d07edd356faea99250114): Merge branch 'dev' of https://github.com/ab-412-bansal/Github-Automation into dev (by @ab-412-bansal, 2025-10-12)
+- [83ac3b2](https://github.com/ab-412-bansal/Github-Automation/commit/83ac3b244c48a2e076c9c85bee18a50d483690a6): Update summaries 2025-10-12 15:49:53 (by @ab-412-bansal, 2025-10-12)
+- [9b8a9fd](https://github.com/ab-412-bansal/Github-Automation/commit/9b8a9fdeb436e57be1148517ffdd28b7039228bf): Update summaries 2025-10-12 15:45:33 (by @ab-412-bansal, 2025-10-12)
+- [8efcb8d](https://github.com/ab-412-bansal/Github-Automation/commit/8efcb8dca696df4c98ed7d4584e9eea04110747b): Commit (by @ab-412-bansal, 2025-10-12)
+- [3e0f44e](https://github.com/ab-412-bansal/Github-Automation/commit/3e0f44e91c9c072d8bd8b494a45e3ebb29b3a281): Merge pull request #6 from ab-412-bansal/frontend (by @ab-412-bansal, 2025-10-12)
+- [817c25d](https://github.com/ab-412-bansal/Github-Automation/commit/817c25dabe45e80b4369ce4a308e3e4e17bb2d37): Merge branch 'dev' into frontend (by @ab-412-bansal, 2025-10-12)
+- [ac226b0](https://github.com/ab-412-bansal/Github-Automation/commit/ac226b07fdfe2f6c3efd28e12941f1ced59b57bf): Update summaries 2025-10-12 15:35:52 (by @ab-412-bansal, 2025-10-12)
+- [51a7992](https://github.com/ab-412-bansal/Github-Automation/commit/51a799252920472069cf3b6d96e43a640479c3e9): Final commit (by @ab-412-bansal, 2025-10-12)
+- [067adaa](https://github.com/ab-412-bansal/Github-Automation/commit/067adaa87f95b30f1f6200077e64848a47946650): Update summaries 2025-10-12 15:24:34 (by @ab-412-bansal, 2025-10-12)
+- [1affdee](https://github.com/ab-412-bansal/Github-Automation/commit/1affdeea903a5976e64a84b0b4448f158d090d9f): Update summaries 2025-10-12 15:19:39 (by @ab-412-bansal, 2025-10-12)
+- [09b6c14](https://github.com/ab-412-bansal/Github-Automation/commit/09b6c1433a6dc8626fd85379d477bcce3194c17c): Frontend (by @ab-412-bansal, 2025-10-12)
+- [2605a1f](https://github.com/ab-412-bansal/Github-Automation/commit/2605a1fae92225c1ea7c34c02a8e349ae1d6b884): Update summaries 2025-10-12 13:35:21 (by @ab-412-bansal, 2025-10-12)
 - [eddd75a](https://github.com/ab-412-bansal/Github-Automation/commit/eddd75a6a316664573b8914dd830a693756333b7): Merge pull request #1 from ab-412-bansal/dev (by @ab-412-bansal, 2025-10-12)
 - [f8443cd](https://github.com/ab-412-bansal/Github-Automation/commit/f8443cd3a2ca83323f3ef33c43947c7ae1f32d4a): Update summaries 2025-10-12 12:58:37 (by @ab-412-bansal, 2025-10-12)
 - [34639ba](https://github.com/ab-412-bansal/Github-Automation/commit/34639ba7440c880df16831b19991b695a06f2677): Update summaries 2025-10-12 04:12:13 (by @ab-412-bansal, 2025-10-11)
@@ -69,11 +86,11 @@ No open issues in the last 15 days.
 
 ### 📈 Commit Activity (Last 15 Days)
 - **Top Contributors:**
-  - @ab-412-bansal — 19 commits
+  - @ab-412-bansal — 37 commits
 - **Most Modified Files:**
-  - automation.log (17 changes)
-  - data/summaries/torvalds__linux_summary.md (12 changes)
-  - data/torvalds__linux_summary.json (12 changes)
+  - automation.log (28 changes)
+  - main.py (21 changes)
+  - data/summaries/torvalds__linux_summary.md (15 changes)
 
 ---
 

@@ -1,5 +1,24 @@
 [
   {
+    "sha": "8765f467912ff0d4832eeaf26ae573792da877e7",
+    "author": "torvalds",
+    "message": "Merge tag 'irq_urgent_for_v6.18_rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip\n\nPull irq fixes from Borislav Petkov:\n\n - Skip interrupt ID 0 in sifive-plic during suspend/resume because\n   ID 0 is reserved and accessing reserved register space could result\n   in undefined behavior\n\n - Fix a function's retval check in aspeed-scu-ic\n\n* tag 'irq_urgent_for_v6.18_rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip:\n  irqchip/sifive-plic: Avoid interrupt ID 0 handling during suspend/resume\n  irqchip/aspeed-scu-ic: Fix an IS_ERR() vs NULL check",
+    "date": "2025-10-12T15:45:52",
+    "html_url": "https://github.com/torvalds/linux/commit/8765f467912ff0d4832eeaf26ae573792da877e7",
+    "files": [
+      {
+        "filename": "drivers/irqchip/irq-aspeed-scu-ic.c",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/irqchip/irq-sifive-plic.c",
+        "additions": 4,
+        "deletions": 2
+      }
+    ]
+  },
+  {
     "sha": "67029a49db6c1f21106a1b5fcdd0ea234a6e0711",
     "author": "torvalds",
     "message": "Merge tag 'trace-v6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace\n\nPull tracing fixes from Steven Rostedt:\n \"The previous fix to trace_marker required updating trace_marker_raw as\n  well. The difference between trace_marker_raw from trace_marker is\n  that the raw version is for applications to write binary structures\n  directly into the ring buffer instead of writing ASCII strings. This\n  is for applications that will read the raw data from the ring buffer\n  and get the data structures directly. It's a bit quicker than using\n  the ASCII version.\n\n  Unfortunately, it appears that our test suite has several tests that\n  test writes to the trace_marker file, but lacks any tests to the\n  trace_marker_raw file (this needs to be remedied). Two issues came\n  about the update to the trace_marker_raw file that syzbot found:\n\n   - Fix tracing_mark_raw_write() to use per CPU buffer\n\n     The fix to use the per CPU buffer to copy from user space was\n     needed for both the trace_maker and trace_maker_raw file.\n\n     The fix for reading from user space into per CPU buffers properly\n     fixed the trace_marker write function, but the trace_marker_raw\n     file wasn't fixed properly. The user space data was correctly\n     written into the per CPU buffer, but the code that wrote into the\n     ring buffer still used the user space pointer and not the per CPU\n     buffer that had the user space data already written.\n\n   - Stop the fortify string warning from writing into trace_marker_raw\n\n     After converting the copy_from_user_nofault() into a memcpy(),\n     another issue appeared. As writes to the trace_marker_raw expects\n     binary data, the first entry is a 4 byte identifier. The entry\n     structure is defined as:\n\n     struct {\n   \tstruct trace_entry ent;\n   \tint id;\n   \tchar buf[];\n     };\n\n     The size of this structure is reserved on the ring buffer with:\n\n       size = sizeof(*entry) + cnt;\n\n     Then it is copied from the buffer into the ring buffer with:\n\n       memcpy(&entry->id, buf, cnt);\n\n     This use to be a copy_from_user_nofault(), but now converting it to\n     a memcpy() triggers the fortify-string code, and causes a warning.\n\n     The allocated space is actually more than what is copied, as the\n     cnt used also includes the entry->id portion. Allocating\n     sizeof(*entry) plus cnt is actually allocating 4 bytes more than\n     what is needed.\n\n     Change the size function to:\n\n       size = struct_size(entry, buf, cnt - sizeof(entry->id));\n\n     And update the memcpy() to unsafe_memcpy()\"\n\n* tag 'trace-v6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace:\n  tracing: Stop fortify-string from warning in tracing_mark_raw_write()\n  tracing: Fix tracing_mark_raw_write() to use buf and not ubuf",
@@ -10917,20 +10936,6 @@
         "filename": "include/linux/bio.h",
         "additions": 0,
         "deletions": 5
-      }
-    ]
-  },
-  {
-    "sha": "beb97995b97532e1f215e3295e6843e59862f94b",
-    "author": "haiyuewa",
-    "message": "io_uring: use tab indentation for IORING_SEND_VECTORIZED comment\n\nBe consistent with tab style of \"liburing/src/include/liburing/io_uring.h\".\n\nSigned-off-by: Haiyue Wang <haiyuewa@163.com>\nSigned-off-by: Jens Axboe <axboe@kernel.dk>",
-    "date": "2025-10-07T06:18:18",
-    "html_url": "https://github.com/torvalds/linux/commit/beb97995b97532e1f215e3295e6843e59862f94b",
-    "files": [
-      {
-        "filename": "include/uapi/linux/io_uring.h",
-        "additions": 1,
-        "deletions": 1
       }
     ]
   }

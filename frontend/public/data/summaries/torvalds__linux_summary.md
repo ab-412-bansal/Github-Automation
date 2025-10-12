@@ -33,6 +33,7 @@ No open issues in the last 15 days.
 
 ### Recent Commits (Last 15 Days)
 
+- [8765f46](https://github.com/torvalds/linux/commit/8765f467912ff0d4832eeaf26ae573792da877e7): Merge tag 'irq_urgent_for_v6.18_rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip (by @torvalds, 2025-10-12)
 - [67029a4](https://github.com/torvalds/linux/commit/67029a49db6c1f21106a1b5fcdd0ea234a6e0711): Merge tag 'trace-v6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace (by @torvalds, 2025-10-11)
 - [c04022d](https://github.com/torvalds/linux/commit/c04022dccb2f9cf2b1cfe65807149500d1fc080a): Merge tag 'kbuild-fixes-6.18-1' of git://git.kernel.org/pub/scm/linux/kernel/git/kbuild/linux (by @torvalds, 2025-10-11)
 - [98906f9](https://github.com/torvalds/linux/commit/98906f9d850e4882004749eccb8920649dc98456): Merge tag 'rtc-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux (by @torvalds, 2025-10-11)
@@ -232,13 +233,12 @@ No open issues in the last 15 days.
 - [cb6d51a](https://github.com/torvalds/linux/commit/cb6d51a4115781fd9de6108932e866a332e38406): iomap: open code bio_iov_iter_get_bdev_pages (by @Christoph Hellwig, 2025-10-07)
 - [82dd5d7](https://github.com/torvalds/linux/commit/82dd5d763c9b718e2d655b9565e0a06a91bb83dc): block: rename bio_iov_iter_get_pages_aligned to bio_iov_iter_get_pages (by @Christoph Hellwig, 2025-10-07)
 - [1ed06c8](https://github.com/torvalds/linux/commit/1ed06c83506ecaaf1836ddeb7c65772ff86d8d53): block: remove bio_iov_iter_get_pages (by @Christoph Hellwig, 2025-10-07)
-- [beb9799](https://github.com/torvalds/linux/commit/beb97995b97532e1f215e3295e6843e59862f94b): io_uring: use tab indentation for IORING_SEND_VECTORIZED comment (by @haiyuewa, 2025-10-07)
 
 ---
 
 ### 📈 Commit Activity (Last 15 Days)
 - **Top Contributors:**
-  - @torvalds — 50 commits
+  - @torvalds — 51 commits
   - @kuba-moo — 9 commits
   - @dubeyko — 9 commits
 - **Most Modified Files:**
