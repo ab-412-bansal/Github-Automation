@@ -2,36 +2,41 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 0
+- **Open PRs:** 1
 - **Open Issues:** 0
-- **Recent Commits (3d):** 19
+- **Recent Commits (15d):** 19
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 3 days.
+### Open Pull Requests (Last 15 Days)
+
+- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal, opened 2025-10-12)
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 3 Days)
+### Pull Request History (Last 15 Days)
 
+- [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Open**
+- [#4](https://github.com/ab-412-bansal/Github-Automation/pull/4): Final push from frontend to dev (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:59:57**
+- [#2](https://github.com/ab-412-bansal/Github-Automation/pull/2): Frontend pushed to dev after frontend changes (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T09:56:02**
 - [#1](https://github.com/ab-412-bansal/Github-Automation/pull/1): Working project with all functionalities (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T07:29:30**
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 3 days.
+No open issues in the last 15 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 3 Days)
+### Recent Commits (Last 15 Days)
 
 - [eddd75a](https://github.com/ab-412-bansal/Github-Automation/commit/eddd75a6a316664573b8914dd830a693756333b7): Merge pull request #1 from ab-412-bansal/dev (by @ab-412-bansal, 2025-10-12)
 - [f8443cd](https://github.com/ab-412-bansal/Github-Automation/commit/f8443cd3a2ca83323f3ef33c43947c7ae1f32d4a): Update summaries 2025-10-12 12:58:37 (by @ab-412-bansal, 2025-10-12)
@@ -55,7 +60,7 @@ No open issues in the last 3 days.
 
 ---
 
-### 📈 Commit Activity (Last 3 Days)
+### 📈 Commit Activity (Last 15 Days)
 - **Top Contributors:**
   - @ab-412-bansal — 19 commits
 - **Most Modified Files:**

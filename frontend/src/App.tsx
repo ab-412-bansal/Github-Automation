@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { marked } from 'marked';
 import RepoDropdown from './components/RepoDropdown';
 import Tabs from './components/Tabs';
