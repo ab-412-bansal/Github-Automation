@@ -17,26 +17,41 @@ const TABS = [
   { label: 'Security Alerts', key: 'security_alerts' },
 ];
 
-function getRepoListFromJsonFiles(): string[] {
-  // This function should scan the data directory for *_summary.json files
-  // For demo, hardcode or fetch from backend/static
-  return [
-    'ab-412-bansal/AlgoVision',
-    'torvalds/linux',
-    'ab-412-bansal/Startup-Success-Prediction-Project',
-    'ab-412-bansal/Test-Security-Repository',
-  ];
+// Dynamically scan the /data directory for *_summary.json files
+async function getRepoListFromJsonFiles(): Promise<string[]> {
+  try {
+    // Vite cannot read the filesystem at runtime, but we can use import.meta.glob for static files
+    // This will create an object with keys like '/public/data/ab-412-bansal__Github-Automation_summary.json'
+    const files = import.meta.glob('/public/data/*_summary.json');
+    // Extract repo names from filenames
+    return Object.keys(files).map((path) => {
+      // path: '/public/data/ab-412-bansal__Github-Automation_summary.json'
+      const file = path.split('/').pop() || '';
+      const repo = file.replace('_summary.json', '').replace('__', '/');
+      return repo;
+    });
+  } catch {
+    // fallback: empty list
+    return [];
+  }
 }
 
 function App() {
-  const [repos] = useState<string[]>(getRepoListFromJsonFiles());
-  const [selectedRepo, setSelectedRepo] = useState<string>(repos[0]);
+  const [repos, setRepos] = useState<string[]>([]);
+  const [selectedRepo, setSelectedRepo] = useState<string>('');
   const [summary, setSummary] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<string>(TABS[0].key);
 
   useEffect(() => {
+    getRepoListFromJsonFiles().then((repoList) => {
+      setRepos(repoList);
+      if (repoList.length > 0) setSelectedRepo(repoList[0]);
+    });
+  }, []);
+
+  useEffect(() => {
     async function fetchSummary() {
-      // Try to fetch the summary JSON for the selected repo
+      if (!selectedRepo) return;
       const fileName = `${selectedRepo.replace('/', '__')}_summary.json`;
       try {
         const res = await fetch(`/data/${fileName}`);
