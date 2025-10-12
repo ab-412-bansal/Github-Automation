@@ -149,8 +149,8 @@ def main(repos=None, schedule_mode=False, interval_minutes=1440, days=30):
             from datetime import datetime
             commit_msg = f"Update summaries {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
             subprocess.run(["git", "commit", "-m", commit_msg], check=False)
-            subprocess.run(["git", "push", "origin", "dev"], check=True)
-            console.print("[green]Auto-committed and pushed summary changes to origin/dev.[/green]")
+            subprocess.run(["git", "push", "origin", "frontend"], check=True)
+            console.print("[green]Auto-committed and pushed summary changes to origin/frontend.[/green]")
         except Exception as e:
             console.print(f"[yellow]Git automation failed: {e}[/yellow]")
 
