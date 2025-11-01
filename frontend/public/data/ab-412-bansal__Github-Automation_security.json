@@ -1,5 +1,25 @@
 [
   {
+    "number": 21,
+    "state": "open",
+    "dependency": "tar",
+    "severity": "medium",
+    "summary": "node-tar has a race condition leading to uninitialized memory exposure",
+    "created_at": "2025-10-30T17:22:30Z",
+    "updated_at": "2025-10-30T17:22:30Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/21"
+  },
+  {
+    "number": 20,
+    "state": "open",
+    "dependency": "vite",
+    "severity": "medium",
+    "summary": "vite allows server.fs.deny bypass via backslash on Windows",
+    "created_at": "2025-10-20T20:51:24Z",
+    "updated_at": "2025-10-20T20:51:24Z",
+    "url": "https://github.com/ab-412-bansal/Github-Automation/security/dependabot/20"
+  },
+  {
     "number": 19,
     "state": "open",
     "dependency": "transformers",

@@ -2,25 +2,29 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 1
+- **Open PRs:** 3
 - **Open Issues:** 0
-- **Recent Commits (15d):** 37
+- **Recent Commits (30d):** 37
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-### Open Pull Requests (Last 15 Days)
+### Open Pull Requests (Last 30 Days)
 
+- [#12](https://github.com/ab-412-bansal/Github-Automation/pull/12): Bump tar from 7.5.1 to 7.5.2 in /frontend (by @dependabot[bot], opened 2025-10-30)
+- [#11](https://github.com/ab-412-bansal/Github-Automation/pull/11): Bump vite from 7.1.9 to 7.1.11 in /frontend (by @dependabot[bot], opened 2025-10-21)
 - [#10](https://github.com/ab-412-bansal/Github-Automation/pull/10): Bump the pip group across 1 directory with 3 updates (by @dependabot[bot], opened 2025-10-12)
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 15 Days)
+### Pull Request History (Last 30 Days)
 
+- [#12](https://github.com/ab-412-bansal/Github-Automation/pull/12): Bump tar from 7.5.1 to 7.5.2 in /frontend (by @dependabot[bot]) — **Open**
+- [#11](https://github.com/ab-412-bansal/Github-Automation/pull/11): Bump vite from 7.1.9 to 7.1.11 in /frontend (by @dependabot[bot]) — **Open**
 - [#3](https://github.com/ab-412-bansal/Github-Automation/pull/3): Dev pushed to main after completion of the project (by @ab-412-bansal) — **Closed (merged), closed at 2025-10-12T10:37:59**
 - [#9](https://github.com/ab-412-bansal/Github-Automation/pull/9): Bump requests from 2.31.0 to 2.32.4 (by @dependabot[bot]) — **Closed, closed at 2025-10-12T10:35:03**
 - [#8](https://github.com/ab-412-bansal/Github-Automation/pull/8): Bump transformers from 4.41.2 to 4.53.0 (by @dependabot[bot]) — **Closed, closed at 2025-10-12T10:35:02**
@@ -36,13 +40,13 @@
 
 ## ❗ Open Issues
 
-No open issues in the last 15 days.
+No open issues in the last 30 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 15 Days)
+### Recent Commits (Last 30 Days)
 
 - [9f8ad4d](https://github.com/ab-412-bansal/Github-Automation/commit/9f8ad4df1bf18c4a68a8dd85dfae57e54c430620): Merge pull request #3 from ab-412-bansal/dev (by @ab-412-bansal, 2025-10-12)
 - [e54125f](https://github.com/ab-412-bansal/Github-Automation/commit/e54125f92de0c72b60863edf57d294865b90347d): Update summaries 2025-10-12 16:06:05 (by @ab-412-bansal, 2025-10-12)
@@ -84,7 +88,7 @@ No open issues in the last 15 days.
 
 ---
 
-### 📈 Commit Activity (Last 15 Days)
+### 📈 Commit Activity (Last 30 Days)
 - **Top Contributors:**
   - @ab-412-bansal — 37 commits
 - **Most Modified Files:**
@@ -98,6 +102,8 @@ No open issues in the last 15 days.
 
 ### Security Alerts
 
+- **tar** [`medium`] - node-tar has a race condition leading to uninitialized memory exposure (state: open) [View Alert](https://github.com/ab-412-bansal/Github-Automation/security/dependabot/21)
+- **vite** [`medium`] - vite allows server.fs.deny bypass via backslash on Windows (state: open) [View Alert](https://github.com/ab-412-bansal/Github-Automation/security/dependabot/20)
 - **transformers** [`medium`] - Hugging Face Transformers vulnerable to Regular Expression Denial of Service (ReDoS) in the AdamWeightDecay optimizer (state: open) [View Alert](https://github.com/ab-412-bansal/Github-Automation/security/dependabot/19)
 - **transformers** [`medium`] - Hugging Face Transformers library has Regular Expression Denial of Service (state: open) [View Alert](https://github.com/ab-412-bansal/Github-Automation/security/dependabot/18)
 - **transformers** [`medium`] - Hugging Face Transformers is vulnerable to ReDoS through its MarianTokenizer (state: open) [View Alert](https://github.com/ab-412-bansal/Github-Automation/security/dependabot/17)

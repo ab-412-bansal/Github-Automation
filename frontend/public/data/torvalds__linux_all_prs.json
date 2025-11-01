@@ -1,5 +1,43 @@
 [
   {
+    "number": 637,
+    "title": "-",
+    "user": "orhanerday",
+    "state": "closed",
+    "merged": false,
+    "created_at": "2018-12-29T21:59:04",
+    "updated_at": "2025-10-21T09:50:28",
+    "closed_at": "2019-02-13T08:35:13",
+    "body": "# This PR opened in 2018 \r\n\r\n\r\n## UPDATE 2025\r\n\r\nHi everyone,\r\n\r\nI’d like to sincerely apologise for this pull request.\r\nLooking back, I realise it was completely unnecessary and not an appropriate way to engage with the Linux kernel project.\r\n\r\nAt the time (2018), I was still learning how GitHub works and how contributions to large projects like the kernel are supposed to be made. My intent wasn’t to waste anyone’s time or cause a distraction, but I now understand that even small, non-functional changes can create noise and take attention away from important work.\r\n\r\nTo all the contributors (listed below) and especially @torvalds, I apologize for any inconvenience or disruption this may have caused. I appreciate the work you all do and have a much greater respect for the proper contribution process now.\r\n\r\nThank you for your understanding,\r\n\r\nBR,\r\nOrhan\r\n\r\n\r\n@cioccarellia, @bigodines, @legiorange, @Trumeet, @Mervin1024, @gs666, @imzf, @phariel, @geminate, @ansonsiva, @nickdine, @xpiaoyu, @zhangguanzhang, @AwadYoo, @Liam0205, @BaiBaiRTC, @monkey-soft, @Ted-Zhang, @0x750, @tennessine, @Germey, @cavin2012, @Sup0rsonic, @MrAMS, @nabilfreeman, @kwilliams1987, @bechedire, @sn99, @Mikotochan, @deyikong, @axegon, @thearyong, @yai-dev, @newdee, @MrZhaii, @maldiohead, @alfedsun, @cybertxt, @munizart, @immarktube, @whberet, @kkjinping, @skymei, @annazhong, @samzhangss, @carlosbridi, @hochbaum, @skylar2k, @roccodev, @z-zkagami, @vinkdong, @FateForWindows, @LeoEatle, @code-written-by-monkeys , @flouthoc, @JamesTheHacker, @me11203sci, @PatoCinza, @resynth1943\r\n",
+    "html_url": "https://github.com/torvalds/linux/pull/637",
+    "files": [
+      {
+        "filename": "arch/alpha/kernel/core_tsunami.c",
+        "additions": 0,
+        "deletions": 484
+      }
+    ]
+  },
+  {
+    "number": 1355,
+    "title": "-",
+    "user": "vmfunc",
+    "state": "closed",
+    "merged": false,
+    "created_at": "2025-09-19T18:04:37",
+    "updated_at": "2025-10-15T08:15:25",
+    "closed_at": "2025-09-22T16:21:17",
+    "body": "hi maintainers, i’ve come across a critical bug in my life:  \r\n\r\n- status: single  \r\n- expected behavior:\r\n        -  dom gf (preferably linux-compatible) who is okay with having a dog\r\n        -  treats, walks, headpats on demand (via ioctl)\r\n        -  boots into cuddles, not init 3\r\n- actual behavior: literally cannot get gf to dom me in a t4r kernel dev way\r\n\r\ntried grepping for \"mommy\" in the source, only found deprecation warnings\r\n\r\nsteps to reproduce:\r\n1. post thirst on lkml\r\n2. wait patiently for gf to appear  \r\n3. modprobe dom_gf; dmesg | grep \"wagging tail\"\r\n4. still waiting \r\n\r\nlog dump:\r\n[   0.420000] puppygirl: module not found, try therapy\r\n[   1.133700] genderfluid kernel detected, still lonely\r\n[   3.141592] uwu: syntax error, invalid argument ‘gf’\r\n\r\nexpected result once this issue gets resolved:\r\n- dom gf in latex, preferably open source\r\n- receive belly rubs on merge request\r\n- t4r, will submit bug reports for snacks\r\n\r\ntried rebooting, only got more zoomies, gentoo stage3 also didn’t include gf (btw)\r\n\r\nany help from the community would be greatly appreciated. thank you for attending my ted talk\r\n\r\nif anyone RTMs and still wants to apply, i promise to fetch snacks and debug cuddles",
+    "html_url": "https://github.com/torvalds/linux/pull/1355",
+    "files": [
+      {
+        "filename": "README",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
     "number": 1290,
     "title": "Make the kernel cute",
     "user": "nambona890",
