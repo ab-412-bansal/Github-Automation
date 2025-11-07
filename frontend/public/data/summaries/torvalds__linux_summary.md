@@ -4,37 +4,42 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (30d):** 200
+- **Recent Commits (7d):** 150
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 30 days.
+No open pull requests in the last 7 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 30 Days)
-
-- [#637](https://github.com/torvalds/linux/pull/637): - (by @orhanerday) — **Closed, closed at 2019-02-13T08:35:13**
-- [#1355](https://github.com/torvalds/linux/pull/1355): - (by @vmfunc) — **Closed, closed at 2025-09-22T16:21:17**
-- [#1290](https://github.com/torvalds/linux/pull/1290): Make the kernel cute (by @nambona890) — **Closed, closed at 2025-09-22T16:22:49**
+No pull request history in the last 7 days.
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 30 days.
+No open issues in the last 7 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 30 Days)
+### Recent Commits (Last 7 Days)
 
+- [da32d15](https://github.com/torvalds/linux/commit/da32d155f4a8937952ca6fd55d3270fec1c3799f): Merge tag 'gpio-fixes-for-v6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux (by @torvalds, 2025-11-07)
+- [5b95a50](https://github.com/torvalds/linux/commit/5b95a50001f1fbcae6b7fe211a02f37a04dd9a4b): Merge tag 'trace-v6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace (by @torvalds, 2025-11-07)
+- [a80abfb](https://github.com/torvalds/linux/commit/a80abfbb1013ffec7aa7e574b5ba9bcf02bd5462): Merge tag 'slab-for-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/vbabka/slab (by @torvalds, 2025-11-07)
+- [9dc5206](https://github.com/torvalds/linux/commit/9dc520632a0dd3bdc37540528040771a96bdc8ff): Merge tag 'io_uring-6.18-20251106' of git://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux (by @torvalds, 2025-11-07)
+- [11a6afa](https://github.com/torvalds/linux/commit/11a6afabb4b38e70b6d697fd90fddedb9ad0ec43): Merge tag 'scsi-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi (by @torvalds, 2025-11-07)
+- [cff0a1b](https://github.com/torvalds/linux/commit/cff0a1be08ae4ee609362fc6500cec4724e79e18): Merge tag 'v6.18-rc4-smb-server-fixes' of git://git.samba.org/ksmbd (by @torvalds, 2025-11-07)
+- [53afec2](https://github.com/torvalds/linux/commit/53afec2c8fb2a562222948cb1c2aac48598578c9): tracing/tools: Fix incorrcet short option in usage text for --threads (by @Zhang Chujun, 2025-11-06)
+- [80f0d63](https://github.com/torvalds/linux/commit/80f0d631dcc76ee1b7755bfca1d8417d91d71414): tracing: Fix memory leaks in create_field_var() (by @GoodLuck612, 2025-11-06)
+- [aa997d2](https://github.com/torvalds/linux/commit/aa997d2d2a0b2e76f4df0f1f12829f02acb4fb6b): ring-buffer: Do not warn in ring_buffer_map_get_reader() when reader catches up (by @rostedt, 2025-10-16)
 - [4a0c9b3](https://github.com/torvalds/linux/commit/4a0c9b3391999818e2c5b93719699b255be1f682): Merge tag 'probes-fixes-v6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace (by @torvalds, 2025-11-07)
 - [f5f2e20](https://github.com/torvalds/linux/commit/f5f2e20b1cbc5f9ea20b372d15967b24921ede19): Merge tag 'perf-tools-fixes-for-v6.18-1-2025-11-06' of git://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools (by @torvalds, 2025-11-07)
 - [225a97d](https://github.com/torvalds/linux/commit/225a97d6d45456a7627633da09cb842a43ef1b85): Merge tag 'riscv-for-linus-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (by @torvalds, 2025-11-06)
@@ -45,6 +50,7 @@ No open issues in the last 30 days.
 - [a1388fc](https://github.com/torvalds/linux/commit/a1388fcb52fcad3e0b06e2cdd0ed757a82a5be30): Merge tag 'libcrypto-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux (by @torvalds, 2025-11-06)
 - [c668da9](https://github.com/torvalds/linux/commit/c668da99b923bc0527f19e361bb8496be087970f): Merge tag 'fscrypt-for-linus' of git://git.kernel.org/pub/scm/fs/fscrypt/linux (by @torvalds, 2025-11-06)
 - [c90841d](https://github.com/torvalds/linux/commit/c90841db3524657204c096fd47283817cfdbd2f9): Merge tag 'hardening-v6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux (by @torvalds, 2025-11-06)
+- [4436f48](https://github.com/torvalds/linux/commit/4436f484cb437ba28dc58b7f787a6f80a65aa5c3): gpio: tb10x: Drop unused tb10x_set_bits() function (by @krzk, 2025-11-06)
 - [c2c2ccf](https://github.com/torvalds/linux/commit/c2c2ccfd4ba72718266a56f3ecc34c989cb5b7a0): Merge tag 'net-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (by @torvalds, 2025-11-06)
 - [3534e03](https://github.com/torvalds/linux/commit/3534e03e0ec2e00908765549828a69df5ebefb91): selftests/vsock: avoid false-positives when checking dmesg (by @beshleman, 2025-11-05)
 - [13fef4f](https://github.com/torvalds/linux/commit/13fef4fb0536c80e8c4a77e69fe0b5deeb7c331b): Merge branch 'net-bridge-fix-two-mst-bugs' (by @kuba-moo, 2025-11-06)
@@ -53,6 +59,7 @@ No open issues in the last 30 days.
 - [0216721](https://github.com/torvalds/linux/commit/0216721ce71252f60d89af49c8dff613358058d3): lan966x: Fix sleeping in atomic context (by @HoratiuVultur, 2025-11-05)
 - [067bf01](https://github.com/torvalds/linux/commit/067bf016e99ad72aa4ff869d6dec1fd62a9c6202): bonding: fix NULL pointer dereference in actor_port_prio setting (by @liuhangbin, 2025-11-05)
 - [96baf48](https://github.com/torvalds/linux/commit/96baf482ca1f69f0da9d10a5bd8422c87ea9039e): net: dsa: microchip: Fix reserved multicast address table programming (by @triha2work, 2025-11-05)
+- [c379b74](https://github.com/torvalds/linux/commit/c379b745e12a99f0a54bafaaf75fc710614511ce): slab: prevent infinite loop in kmalloc_nolock() with debugging (by @tehcaster, 2025-11-03)
 - [7d1988a](https://github.com/torvalds/linux/commit/7d1988a943850c584e8e2e4bcc7a3b5275024072): Merge tag 'wireless-2025-11-05' of https://git.kernel.org/pub/scm/linux/kernel/git/wireless/wireless (by @kuba-moo, 2025-11-06)
 - [4d6ec3a](https://github.com/torvalds/linux/commit/4d6ec3a7932ca5b168426f7b5b40abab2b41d2da): net: wan: framer: pef2256: Switch to devm_mfd_add_devices() (by @ISCAS-Vulab, 2025-11-05)
 - [a04ea57](https://github.com/torvalds/linux/commit/a04ea57aae375bdda1cb57034d8bcbb351e1f973): net: libwx: fix device bus LAN ID (by @Jiawen Wu, 2025-11-04)
@@ -66,8 +73,10 @@ No open issues in the last 30 days.
 - [b1d16f7](https://github.com/torvalds/linux/commit/b1d16f7c0063b7209fd3251ce40c77d37b477b83): libie: depend on DEBUG_FS when building LIBIE_FWLOG (by @Michal Swiatkowski, 2025-11-04)
 - [dc77806](https://github.com/torvalds/linux/commit/dc77806cf3b4788d328fddf245e86c5b529f31a2): Merge tag 'rust-fixes-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/ojeda/linux (by @torvalds, 2025-11-05)
 - [5624d4c](https://github.com/torvalds/linux/commit/5624d4c3781673da84e6144c359803ca31b66214): Merge tag 'platform-drivers-x86-v6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86 (by @torvalds, 2025-11-05)
+- [1fd5367](https://github.com/torvalds/linux/commit/1fd5367391bf0eeb09e624c4ab45121b54eaab96): io_uring: fix types for region size calulation (by @isilence, 2025-11-05)
 - [4c740c4](https://github.com/torvalds/linux/commit/4c740c4d8bac5569c5bf5f86db65ce779178f9a2): Merge tag 'ath-current-20251103' of git://git.kernel.org/pub/scm/linux/kernel/git/ath/ath (by @jmberg-intel, 2025-11-05)
 - [c74619e](https://github.com/torvalds/linux/commit/c74619e7602e88a0239cd4999571dd31081e9adf): wifi: mac80211_hwsim: Limit destroy_on_close radio removal to netgroup (by @martinwilli, 2025-11-03)
+- [5232334](https://github.com/torvalds/linux/commit/5232334baec371a3c9d9192ba7d2da2d88a85333): gpio: aggregator: restore the set_config operation (by @thom24, 2025-09-29)
 - [1c353dc](https://github.com/torvalds/linux/commit/1c353dc8d962de652bc7ad2ba2e63f553331391c): Merge tag 'media/v6.18-2' of git://git.kernel.org/pub/scm/linux/kernel/git/mchehab/linux-media (by @torvalds, 2025-11-05)
 - [327c20c](https://github.com/torvalds/linux/commit/327c20c21d80e0d87834b392d83ae73c955ad8ff): netpoll: Fix deadlock in memory allocation under spinlock (by @leitao, 2025-11-03)
 - [90a8830](https://github.com/torvalds/linux/commit/90a88306eb874fe4bbdd860e6c9787f5bbc588b5): net: ethernet: ti: netcp: Standardize knav_dma_open_channel to return NULL on error (by @nmenon, 2025-11-03)
@@ -85,6 +94,8 @@ No open issues in the last 30 days.
 - [789521b](https://github.com/torvalds/linux/commit/789521b4717fd6bd85164ba5c131f621a79c9736): rust: kbuild: support `-Cjump-tables=n` for Rust 1.93.0 (by @ojeda, 2025-11-01)
 - [44e8241](https://github.com/torvalds/linux/commit/44e8241c51f762aafa50ed116da68fd6ecdcc954): lib/crypto: arm/curve25519: Disable on CPU_BIG_ENDIAN (by @Eric Biggers, 2025-11-04)
 - [2b81082](https://github.com/torvalds/linux/commit/2b81082ad37cc3f28355fb73a6a69b91ff7dbf20): lib/crypto: curve25519-hacl64: Fix older clang KASAN workaround for GCC (by @nathanchance, 2025-11-03)
+- [e618765](https://github.com/torvalds/linux/commit/e6187655acfa2dd566ea2aed4522083f0bb940c3): ksmbd: detect RDMA capable netdevs include IPoIB (by @namjaejeon, 2025-10-27)
+- [d24822e](https://github.com/torvalds/linux/commit/d24822e1471d68a6eceee67809b5956d59482cb5): ksmbd: detect RDMA capable lower devices when bridge and vlan netdev is used (by @namjaejeon, 2025-10-27)
 - [c9cfc12](https://github.com/torvalds/linux/commit/c9cfc122f03711a5124b4aafab3211cf4d35a2ac): Merge tag 'for-6.18-rc4-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux (by @torvalds, 2025-11-04)
 - [e120f46](https://github.com/torvalds/linux/commit/e120f46768d98151ece8756ebd688b0e43dc8b29): net: usb: qmi_wwan: initialize MAC header offset in qmimux_rx_fixup (by @Qendrim Maxhuni, 2025-10-29)
 - [59b20b1](https://github.com/torvalds/linux/commit/59b20b15c112867f28a12a24aa25f14549db02e4): sctp: make sctp_transport_init() void (by @Huiwen He, 2025-11-03)
@@ -121,7 +132,11 @@ No open issues in the last 30 days.
 - [1642fab](https://github.com/torvalds/linux/commit/1642fabff19f768e9a8fea85d55a2d6d43ecffe3): ACPI: CPPC: Fix typo in a comment (by @Chu Guangqing, 2025-10-31)
 - [29e4d12](https://github.com/torvalds/linux/commit/29e4d12a2957e4e7dcad2418c7251f36285d99d8): tools headers UAPI: Sync linux/kvm.h with the kernel sources (by @acmel, 2025-11-03)
 - [bd9e119](https://github.com/torvalds/linux/commit/bd9e119951b527724938ff55fb0ca3daa54f5c18): Documentation: ACPI: i2c-muxes: fix I2C device references (by @KanjiMonster, 2025-10-27)
+- [819630b](https://github.com/torvalds/linux/commit/819630bd6f86ac8998c7df9deddb6cee50e9e22d): io_uring/zcrx: remove sync refill uapi (by @isilence, 2025-11-03)
 - [f8950b4](https://github.com/torvalds/linux/commit/f8950b47db707565543d6c4a9fdb7e36b3329722): tools headers UAPI: Update tools's copy of drm.h to pick DRM_IOCTL_GEM_CHANGE_HANDLE (by @acmel, 2025-11-03)
+- [2f6115a](https://github.com/torvalds/linux/commit/2f6115ad8864cf3f48598f26c74c7c8e5c391919): gpiolib: fix invalid pointer access in debugfs (by @Bartosz Golaszewski, 2025-11-03)
+- [e5d527b](https://github.com/torvalds/linux/commit/e5d527be7e6984882306b49c067f1fec18920735): gpio: swnode: don't use the swnode's name as the key for GPIO lookup (by @Bartosz Golaszewski, 2025-11-03)
+- [4a37279](https://github.com/torvalds/linux/commit/4a372798e12cc777918db90c06e11c80e90bd001): dt-bindings: gpio: ti,twl4030: Correct the schema $id path (by @JihedChaibi, 2025-08-21)
 - [09b1704](https://github.com/torvalds/linux/commit/09b1704f5b02c18dd02b21343530463fcfc92c54): rust: condvar: fix broken intra-doc link (by @ojeda, 2025-10-29)
 - [ff4d2ef](https://github.com/torvalds/linux/commit/ff4d2ef3874773c9c6173b0f099372bf62252aaf): rust: devres: fix private intra-doc link (by @ojeda, 2025-10-29)
 - [6146a0f](https://github.com/torvalds/linux/commit/6146a0f1dfae5d37442a9ddcba012add260bceb0): Linux 6.18-rc4 (by @torvalds, 2025-11-02)
@@ -166,87 +181,18 @@ No open issues in the last 30 days.
 - [b4f7f01](https://github.com/torvalds/linux/commit/b4f7f01ea14fe3654a0f7b7152ded7c15acd5e5f): Merge tag 's390-6.18-3' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux (by @torvalds, 2025-10-31)
 - [284987a](https://github.com/torvalds/linux/commit/284987ab6c974c338e54852abcfaf2ed69b852d3): Merge tag 'for-net-2025-10-31' of git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth (by @kuba-moo, 2025-10-31)
 - [b790432](https://github.com/torvalds/linux/commit/b7904323e76b074c59f113ca423e76d90da26875): Merge tag 'wireless-2025-10-30' of https://git.kernel.org/pub/scm/linux/kernel/git/wireless/wireless (by @kuba-moo, 2025-10-31)
-- [be708ed](https://github.com/torvalds/linux/commit/be708ed300e1ebd32978b4092b909f0d9be0958f): bpf/arm64: Fix BPF_ST into arena memory (by @puranjaymohan, 2025-10-30)
-- [14a7f23](https://github.com/torvalds/linux/commit/14a7f2392f42bbb71c1a5ea68930006221fcd80a): bpf: Make migrate_disable always inline to avoid partial inlining (by @Yonghong Song, 2025-10-29)
-- [41dacb3](https://github.com/torvalds/linux/commit/41dacb39fe79cd2fce42d31fa6658d926489a548): Merge tag 'drm-xe-fixes-2025-10-30' of https://gitlab.freedesktop.org/drm/xe/kernel into drm-fixes (by @danvet, 2025-10-31)
-- [b095398](https://github.com/torvalds/linux/commit/b095398586181010d3cfad4ec2cea723f2c1d582): Merge tag 'drm-misc-fixes-2025-10-30' of https://gitlab.freedesktop.org/drm/misc/kernel into drm-fixes (by @danvet, 2025-10-31)
-- [e28e383](https://github.com/torvalds/linux/commit/e28e383da32a6396e37c3f68964dc92eb9b6f0ed): Merge tag 'drm-intel-fixes-2025-10-30' of https://gitlab.freedesktop.org/drm/i915/kernel into drm-fixes (by @danvet, 2025-10-31)
-- [3d8d35b](https://github.com/torvalds/linux/commit/3d8d35bf8dc8893e34d92212d413d7cfd89c560e): Merge tag 'drm-msm-fixes-2025-10-29' of https://gitlab.freedesktop.org/drm/msm into drm-fixes (by @danvet, 2025-10-31)
-- [3a9f6bd](https://github.com/torvalds/linux/commit/3a9f6bd54e20d0eaf89ca3ec6d82e5263cac93e8): Merge tag 'amd-drm-fixes-6.18-2025-10-29' of https://gitlab.freedesktop.org/agd5f/linux into drm-fixes (by @danvet, 2025-10-31)
-- [ef54548](https://github.com/torvalds/linux/commit/ef54548455190f3d28462787eb33d08c3cfadc4e): Merge tag 'mediatek-drm-fixes-20251028' of https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux into drm-fixes (by @danvet, 2025-10-31)
-- [8d59fba](https://github.com/torvalds/linux/commit/8d59fba49362c65332395789fd82771f1028d87e): Bluetooth: MGMT: Fix OOB access in parse_adv_monitor_pattern() (by @Ilia Gavrilov, 2025-10-20)
-- [1c21cf8](https://github.com/torvalds/linux/commit/1c21cf89a66413eb04b2d22c955b7a50edc14dfa): Bluetooth: btrtl: Fix memory leak in rtlbt_parse_firmware_v2() (by @Abdun Nihaal, 2025-10-28)
-- [5c5f1f6](https://github.com/torvalds/linux/commit/5c5f1f64681cc889d9b13e4a61285e9e029d6ab5): Bluetooth: hci_event: validate skb length for unknown CC opcode (by @raphaelpthibeault, 2025-10-24)
-- [b909d77](https://github.com/torvalds/linux/commit/b909d77359b82821e1c6b6a3a8a51b355b06fdb5): Merge tag '6.18-rc3-smb-client-fixes' of git://git.samba.org/sfrench/cifs-2.6 (by @torvalds, 2025-10-31)
-- [0d92a3e](https://github.com/torvalds/linux/commit/0d92a3eaa6726e64a18db74ece806c2c021aaac3): null_blk: set dma alignment to logical block size (by @yhr, 2025-10-31)
-- [58fdd84](https://github.com/torvalds/linux/commit/58fdd8484c05a19942690008304228ad784771e9): Merge tag 'sound-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound (by @torvalds, 2025-10-31)
-- [3ad81aa](https://github.com/torvalds/linux/commit/3ad81aa52085a7e67edfa4bc8f518e5962196bb3): Merge tag 'v6.18-p4' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/crypto-2.6 (by @torvalds, 2025-10-31)
-- [2d51cb1](https://github.com/torvalds/linux/commit/2d51cb1792c7b1d8d5daf55cc3eecf19ddc4500c): Merge tag 'scsi-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi (by @torvalds, 2025-10-31)
-- [0db22d7](https://github.com/torvalds/linux/commit/0db22d7ee462c42c1284e98d47840932792c1adb): xfs: document another racy GC case in xfs_zoned_map_extent (by @Christoph Hellwig, 2025-10-23)
-- [83bac56](https://github.com/torvalds/linux/commit/83bac569c762651ac6dff9a86f54ecc13d911f7d): xfs: prevent gc from picking the same zone twice (by @Christoph Hellwig, 2025-10-23)
-- [d127176](https://github.com/torvalds/linux/commit/d127176862a93c4b3216bda533d2bee170af5e71): Merge tag 'linux_kselftest-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest (by @torvalds, 2025-10-31)
-- [1806838](https://github.com/torvalds/linux/commit/1806838686ef74cde74e590d13984dec7c0233d6): Merge tag 'linux_kselftest-kunit-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest (by @torvalds, 2025-10-31)
-- [a5355e9](https://github.com/torvalds/linux/commit/a5355e98accb20d8ea06008fd8fb5755cc52e8c0): Merge tag 'acpi-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm (by @torvalds, 2025-10-31)
-- [a5dbbb3](https://github.com/torvalds/linux/commit/a5dbbb39e11d50a8c426b8d88f5b12031fee49f3): Merge tag 'pm-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm (by @torvalds, 2025-10-31)
-- [a4819ac](https://github.com/torvalds/linux/commit/a4819ac1913e78e41c8406df481a661d9469c350): Merge tag 'fbdev-for-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/linux-fbdev (by @torvalds, 2025-10-31)
-- [e576349](https://github.com/torvalds/linux/commit/e5763491237ffee22d9b554febc2d00669f81dee): Merge tag 'net-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (by @torvalds, 2025-10-31)
-- [08d3339](https://github.com/torvalds/linux/commit/08d33390248f9e248bca970afc731a16aad4e348): Merge tag 'nvme-6.18-2025-10-30' of git://git.infradead.org/nvme into block-6.18 (by @axboe, 2025-10-31)
-- [a9fb41b](https://github.com/torvalds/linux/commit/a9fb41b5def8e1e0103d5fd1453787993587281e): drm/ast: Clear preserved bits from register output value (by @tdz, 2025-10-24)
-- [8907226](https://github.com/torvalds/linux/commit/8907226bed1ebd10d069f6f70ff0aaa8840f3267): Merge branches 'acpi-button', 'acpi-video' and 'acpi-fan' (by @rafaeljw, 2025-10-30)
-- [590c5cd](https://github.com/torvalds/linux/commit/590c5cd10675a6ae49f6019502dec5c87aba07e4): Merge branches 'pm-cpuidle' and 'pm-sleep' (by @rafaeljw, 2025-10-30)
-- [3b1a4a5](https://github.com/torvalds/linux/commit/3b1a4a59a2086badab391687a6a0b86e03048393): btrfs: mark dirty extent range for out of bound prealloc extents (by @austin880625syno, 2025-10-29)
-- [953902e](https://github.com/torvalds/linux/commit/953902e4fb4c373c81a977f78e40f9f93a79e20f): btrfs: set inode flag BTRFS_INODE_COPY_EVERYTHING when logging new name (by @fdmanana, 2025-10-24)
-- [f260c6a](https://github.com/torvalds/linux/commit/f260c6aff0b8af236084012d14f9f1bf792ea883): btrfs: fix memory leak of qgroup_list in btrfs_add_qgroup_relation (by @shardulsb08, 2025-10-25)
-- [2618849](https://github.com/torvalds/linux/commit/2618849f31e7cf51fadd4a5242458501a6d5b315): btrfs: ensure no dirty metadata is written back for an fs with errors (by @adam900710, 2025-10-23)
-- [64e2f60](https://github.com/torvalds/linux/commit/64e2f60f355e556337fcffe80b9bcff1b22c9c42): s390: Disable ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP (by @hcahca, 2025-10-30)
-- [bf7e979](https://github.com/torvalds/linux/commit/bf7e97910b9f4d9679e075a39be371a4ed65dbd4): drm/imx: parallel-display: add the bridge before attaching it (by @lucaceresoli, 2025-10-14)
-- [3257bd1](https://github.com/torvalds/linux/commit/3257bd193fa1702791978d8418c9a96e3def082c): drm/imx: parallel-display: convert to devm_drm_bridge_alloc() API (by @lucaceresoli, 2025-10-14)
-- [0b39ca4](https://github.com/torvalds/linux/commit/0b39ca457241aeca07a613002512573e8804f93a): blk-crypto: use BLK_STS_INVAL for alignment errors (by @Carlos Llamas, 2025-10-30)
-- [390db60](https://github.com/torvalds/linux/commit/390db60f8e2bd21fae544917eb3a8618265c058c): Merge tag 'asoc-fix-v6.18-rc2' of https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound into for-linus (by @tiwai, 2025-10-30)
-- [47a0925](https://github.com/torvalds/linux/commit/47a0925ee4bd2689f0aef4dbd67dd46442fe1ca2): regulator: bd718x7: Fix voltages scaled by resistor divider (by @SpieringsAE, 2025-10-30)
-- [89216c9](https://github.com/torvalds/linux/commit/89216c9051ef6635f1514f8e0d2f9cd63b37a3b6): x86/cpu: Add/fix core comments for {Panther,Nova} Lake (by @aegl, 2025-10-28)
-- [847ebc4](https://github.com/torvalds/linux/commit/847ebc4476714f81d7dea73e5ea69448d7fe9d3a): x86/CPU/AMD: Extend Zen6 model range (by @bp3tk0v, 2025-10-29)
-- [51e5ad5](https://github.com/torvalds/linux/commit/51e5ad549c43b557c7da1e4d1a1dcf061b4a5f6c): net: sctp: fix KMSAN uninit-value in sctp_inq_pop (by @ranganathvn, 2025-10-26)
-- [70e8335](https://github.com/torvalds/linux/commit/70e8335485966d7d4ed85976dceab52803b151a2): wifi: zd1211rw: fix potential memory leak in __zd_usb_enable_rx() (by @Abdun Nihaal, 2025-10-28)
-- [4f4c654](https://github.com/torvalds/linux/commit/4f4c654f5a0f6560b938a5ab05ec5940aa6c1c29): ALSA: hda/realtek: Enable mic on Vaio RPL (by @drosdeck, 2025-10-29)
-- [c57f5fe](https://github.com/torvalds/linux/commit/c57f5fee54dfc83ee1d7f70f7beb9410b8466e9e): libeth: xdp: Disable generic kCFI pass for libeth_xdp_tx_xmit_bulk() (by @nathanchance, 2025-10-25)
-- [1ed9e6b](https://github.com/torvalds/linux/commit/1ed9e6b1004f786d036eaabffb4ee6db9405e117): ARM: Select ARCH_USES_CFI_GENERIC_LLVM_PASS (by @nathanchance, 2025-10-25)
-- [39c89ee](https://github.com/torvalds/linux/commit/39c89ee6e9c4464eb366f4e594379454a6c4db39): compiler_types: Introduce __nocfi_generic (by @nathanchance, 2025-10-25)
-- [6a2108c](https://github.com/torvalds/linux/commit/6a2108c78069fda000729b88c97b1eba0405e6d7): net: devmem: refresh devmem TX dst in case of route invalidation (by @Shivaji Kant, 2025-10-29)
-- [a38eeec](https://github.com/torvalds/linux/commit/a38eeecfe3232283c0ae34d0f4302e5a3e60f3ee): Merge branch 'net-stmmac-fixes-for-stmmac-tx-vlan-insert-and-est' (by @kuba-moo, 2025-10-30)
-- [48b2e32](https://github.com/torvalds/linux/commit/48b2e323c018c4c908ae5acabff326647bab5240): net: stmmac: est: Fix GCL bounds checks (by @rohangt07, 2025-10-28)
-- [ded9813](https://github.com/torvalds/linux/commit/ded9813d17d3dd50a08e7a2ca1495769ef9c6673): net: stmmac: Consider Tx VLAN offload tag length for maxSDU (by @rohangt07, 2025-10-28)
-- [c657f86](https://github.com/torvalds/linux/commit/c657f86106c8729240e1f50a62c6606b578ecf20): net: stmmac: vlan: Disable 802.1AD tag insertion offload (by @rohangt07, 2025-10-28)
-- [0dd1be4](https://github.com/torvalds/linux/commit/0dd1be4fe06a1f3a14a517446b49afaa6ac5fa94): Merge branch 'tls-introduce-and-use-rx-async-resync-request-cancel-function' (by @kuba-moo, 2025-10-30)
-- [426e9da](https://github.com/torvalds/linux/commit/426e9da3b28404b1edcbae401231fb378150d99d): net/mlx5e: kTLS, Cancel RX async resync request in error flows (by @Shahar Shitrit, 2025-10-26)
-- [c15d5c6](https://github.com/torvalds/linux/commit/c15d5c62ab313c19121f10e25d4fec852bd1c40c): net: tls: Cancel RX async resync request on rcd_delta overflow (by @Shahar Shitrit, 2025-10-26)
-- [34892cf](https://github.com/torvalds/linux/commit/34892cfec0c2d96787c4be7bda0d5f18d7dacf85): net: tls: Change async resync helpers argument (by @Shahar Shitrit, 2025-10-26)
-- [e98cda7](https://github.com/torvalds/linux/commit/e98cda764aa9c27f6810d08bd7bf2e8071535990): Merge tag 'nf-25-10-29' of https://git.kernel.org/pub/scm/linux/kernel/git/netfilter/nf (by @kuba-moo, 2025-10-30)
-- [895ad6f](https://github.com/torvalds/linux/commit/895ad6f7083b0c9f1902b23b84136298a492cbeb): smb: client: call smbd_destroy() in the same splace as kernel_sock_shutdown()/sock_release() (by @metze-samba, 2025-10-28)
-- [fac56c4](https://github.com/torvalds/linux/commit/fac56c4651ae95f3f2b468c2cf1884cf0e6d18c1): smb: client: handle lack of IPC in dfs_cache_refresh() (by @pcacjr, 2025-10-23)
-- [2985749](https://github.com/torvalds/linux/commit/298574936a6c4ebbe655e15d971ddb1a96c7dc0b): net: phy: dp83869: fix STRAP_OPMODE bitmask (by @thanhquan1, 2025-10-27)
-- [9311e95](https://github.com/torvalds/linux/commit/9311e9540a8b406d9f028aa87fb072a3819d4c82): selftests: net: use BASH for bareudp testing (by @Cypresslin, 2025-10-27)
-- [da2522d](https://github.com/torvalds/linux/commit/da2522df3fcc6f57068470cbdcd6516d9eb76b37): net: mctp: Fix tx queue stall (by @jinliangw, 2025-10-27)
-- [5311023](https://github.com/torvalds/linux/commit/53110232c95ff56067fd96c75a1a1c53d10dcd98): net/mlx5: Don't zero user_count when destroying FDB tables (by @Cosmin Ratiu, 2025-10-26)
-- [dc89548](https://github.com/torvalds/linux/commit/dc89548c6926d68dfdda11bebc1a5258bc41d887): net: usb: asix_devices: Check return value of usbnet_get_endpoints (by @Yuuoniy, 2025-10-26)
-- [ac345c5](https://github.com/torvalds/linux/commit/ac345c5fff55262a51dad43bf8724c3d5d1fb006): Merge branch 'mptcp-various-rare-sending-issues' (by @kuba-moo, 2025-10-30)
-- [fe11dfa](https://github.com/torvalds/linux/commit/fe11dfa10919ce594682c76f5f648a0840d80a2b): mptcp: zero window probe mib (by @Paolo Abeni, 2025-10-28)
-- [a824084](https://github.com/torvalds/linux/commit/a824084b98d8a1dbd6e85d0842a8eb5e73467f59): mptcp: restore window probe (by @Paolo Abeni, 2025-10-28)
-- [8e04ce4](https://github.com/torvalds/linux/commit/8e04ce45a8db7a080220e86e249198fa676b83dc): mptcp: fix MSG_PEEK stream corruption (by @Paolo Abeni, 2025-10-28)
-- [27b0e70](https://github.com/torvalds/linux/commit/27b0e701d3872ba59c5b579a9e8a02ea49ad3d3b): mptcp: drop bogus optimization in __mptcp_check_push() (by @Paolo Abeni, 2025-10-28)
-- [00764aa](https://github.com/torvalds/linux/commit/00764aa5c9bbb2044eb04d6d78584a436666b231): netconsole: Fix race condition in between reader and writer of userdata (by @gustavold, 2025-10-28)
 
 ---
 
-### 📈 Commit Activity (Last 30 Days)
+### 📈 Commit Activity (Last 7 Days)
 - **Top Contributors:**
-  - @torvalds — 40 commits
-  - @kuba-moo — 15 commits
+  - @torvalds — 36 commits
   - @acmel — 14 commits
+  - @kuba-moo — 11 commits
 - **Most Modified Files:**
-  - MAINTAINERS (11 changes)
+  - MAINTAINERS (8 changes)
   - drivers/net/dsa/b53/b53_common.c (8 changes)
-  - drivers/net/ethernet/mellanox/mlx5/core/en_rx.c (8 changes)
+  - drivers/net/ethernet/mellanox/mlx5/core/en_rx.c (5 changes)
 
 ---
 
