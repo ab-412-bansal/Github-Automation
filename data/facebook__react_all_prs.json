@@ -1,5 +1,24 @@
 [
   {
+    "number": 34547,
+    "title": "Fix indices of hooks in devtools when using useSyncExternalStore",
+    "user": "blazejkustra",
+    "state": "closed",
+    "merged": true,
+    "created_at": "2025-09-20T20:45:51",
+    "updated_at": "2025-11-08T11:57:46",
+    "closed_at": "2025-10-21T12:59:21",
+    "body": "## Summary\r\n\r\nThis PR updates getChangedHooksIndices to account for the fact that useSyncExternalStore internally mounts two hooks, while DevTools should treat it as a single user-facing hook.\r\n\r\nIt introduces a helper isUseSyncExternalStoreHook to detect this case and adjust iteration so the extra internal hook is skipped when counting changes.\r\n\r\nBefore:\r\n\r\nhttps://github.com/user-attachments/assets/0db72a4e-21f7-44c7-ba02-669a272631e5\r\n\r\nAfter:\r\n\r\nhttps://github.com/user-attachments/assets/4da71392-0396-408d-86a7-6fbc82d8c4f5\r\n\r\n## How did you test this change?\r\n\r\nI used this component to reproduce this issue locally (I followed instructions in `packages/react-devtools/CONTRIBUTING.md`).\r\n\r\n```ts\r\nfunction Test() {\r\n  // 1\r\n  React.useSyncExternalStore(\r\n    () => {},\r\n    () => {},\r\n    () => {},\r\n  );\r\n  // 2\r\n  const [state, setState] = useState('test'); \r\n  return (\r\n    <>\r\n      <div\r\n        onClick={() => setState(Math.random())}\r\n        style={{backgroundColor: 'red'}}>\r\n        {state}\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n```\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34547",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/backend/fiber/renderer.js",
+        "additions": 23,
+        "deletions": 6
+      }
+    ]
+  },
+  {
     "number": 34908,
     "title": "[DevTools] Apply Activity slice filter when double clicking Activity",
     "user": "eps1lon",
@@ -319,25 +338,6 @@
         "filename": "packages/react-dom/src/events/plugins/__tests__/BeforeInputEventPlugin-test.js",
         "additions": 65,
         "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 34547,
-    "title": "Fix indices of hooks in devtools when using useSyncExternalStore",
-    "user": "blazejkustra",
-    "state": "closed",
-    "merged": true,
-    "created_at": "2025-09-20T20:45:51",
-    "updated_at": "2025-11-07T18:24:37",
-    "closed_at": "2025-10-21T12:59:21",
-    "body": "## Summary\r\n\r\nThis PR updates getChangedHooksIndices to account for the fact that useSyncExternalStore internally mounts two hooks, while DevTools should treat it as a single user-facing hook.\r\n\r\nIt introduces a helper isUseSyncExternalStoreHook to detect this case and adjust iteration so the extra internal hook is skipped when counting changes.\r\n\r\nBefore:\r\n\r\nhttps://github.com/user-attachments/assets/0db72a4e-21f7-44c7-ba02-669a272631e5\r\n\r\nAfter:\r\n\r\nhttps://github.com/user-attachments/assets/4da71392-0396-408d-86a7-6fbc82d8c4f5\r\n\r\n## How did you test this change?\r\n\r\nI used this component to reproduce this issue locally (I followed instructions in `packages/react-devtools/CONTRIBUTING.md`).\r\n\r\n```ts\r\nfunction Test() {\r\n  // 1\r\n  React.useSyncExternalStore(\r\n    () => {},\r\n    () => {},\r\n    () => {},\r\n  );\r\n  // 2\r\n  const [state, setState] = useState('test'); \r\n  return (\r\n    <>\r\n      <div\r\n        onClick={() => setState(Math.random())}\r\n        style={{backgroundColor: 'red'}}>\r\n        {state}\r\n      </div>\r\n    </>\r\n  );\r\n}\r\n```\r\n",
-    "html_url": "https://github.com/facebook/react/pull/34547",
-    "files": [
-      {
-        "filename": "packages/react-devtools-shared/src/backend/fiber/renderer.js",
-        "additions": 23,
-        "deletions": 6
       }
     ]
   },

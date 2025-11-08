@@ -1,5 +1,69 @@
 [
   {
+    "sha": "2606592c709af990c125f03dae973e9b5af53a9a",
+    "author": "tensorflower-gardener",
+    "message": "Automated Code Change\n\nPiperOrigin-RevId: 829777192",
+    "date": "2025-11-08T12:00:43",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/2606592c709af990c125f03dae973e9b5af53a9a",
+    "files": [
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/case_format.cc",
+        "additions": 7,
+        "deletions": 7
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/case_format.h",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/case_format_test.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/controller.cc",
+        "additions": 4,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/controller.h",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/path_config.cc",
+        "additions": 6,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/path_config.h",
+        "additions": 10,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/source_code.cc",
+        "additions": 8,
+        "deletions": 7
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/source_code.h",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/view_util.cc",
+        "additions": 7,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/c/experimental/ops/gen/common/view_util.h",
+        "additions": 5,
+        "deletions": 4
+      }
+    ]
+  },
+  {
     "sha": "7c2de2a3df89aabbebabda17b004249ba88e5856",
     "author": "tensorflower-gardener",
     "message": "Automated Code Change\n\nPiperOrigin-RevId: 829745705",
@@ -7272,35 +7336,6 @@
         "filename": "third_party/xla/xla/xla.proto",
         "additions": 6,
         "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "0ff0de7dab6c0b6ab2d4ef9d83ed047196501cc1",
-    "author": "tensorflower-gardener",
-    "message": "Add a CounterGauge metric implementation.\n\nThis change introduces `counter_gauge.h`, providing a `Counter` class that registers as a `MetricKind::kGauge`. It allows tracking gauge-like counter values and does not require a mutex on the user side.\n\nPiperOrigin-RevId: 828183128",
-    "date": "2025-11-05T00:36:24",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/0ff0de7dab6c0b6ab2d4ef9d83ed047196501cc1",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/tsl/lib/monitoring/BUILD",
-        "additions": 24,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/lib/monitoring/cell_reader_test.cc",
-        "additions": 38,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/lib/monitoring/counter_gauge.h",
-        "additions": 180,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/lib/monitoring/counter_gauge_test.cc",
-        "additions": 111,
-        "deletions": 0
       }
     ]
   }

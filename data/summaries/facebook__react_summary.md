@@ -50,6 +50,7 @@
 
 ### Pull Request History (Last 30 Days)
 
+- [#34547](https://github.com/facebook/react/pull/34547): Fix indices of hooks in devtools when using useSyncExternalStore (by @blazejkustra) — **Closed (merged), closed at 2025-10-21T12:59:21**
 - [#34908](https://github.com/facebook/react/pull/34908): [DevTools] Apply Activity slice filter when double clicking Activity (by @eps1lon) — **Open**
 - [#34996](https://github.com/facebook/react/pull/34996): Improve completeSegment for safer DOM manipulation (by @leog) — **Open**
 - [#35062](https://github.com/facebook/react/pull/35062): [compiler] Allow ref access in callbacks passed to event handler props (by @kolvian) — **Open**
@@ -57,7 +58,6 @@
 - [#35074](https://github.com/facebook/react/pull/35074): Fix: Errors should not escape a hidden Activity (by @acdlite) — **Closed (merged), closed at 2025-11-07T23:18:25**
 - [#31655](https://github.com/facebook/react/pull/31655): Upgrade devtools dependency update-notifier to 5.x (by @stianjensen) — **Closed (merged), closed at 2025-11-07T18:43:43**
 - [#35052](https://github.com/facebook/react/pull/35052): fix(beforeinput): handle native beforeinput events (Firefox replacement flows) — fixes #24358 (by @ruidosujeira) — **Open**
-- [#34547](https://github.com/facebook/react/pull/34547): Fix indices of hooks in devtools when using useSyncExternalStore (by @blazejkustra) — **Closed (merged), closed at 2025-10-21T12:59:21**
 - [#35071](https://github.com/facebook/react/pull/35071): [DevTools] Special case the selected root outline (by @sebmarkbage) — **Open**
 - [#34956](https://github.com/facebook/react/pull/34956): [DevTools] Revert Measure the Rectangle of Suspense boundaries as we reconcile (by @meet-student) — **Open**
 - [#35068](https://github.com/facebook/react/pull/35068): [Fizz] Unify preamble only fields to save a field (by @sebmarkbage) — **Closed (merged), closed at 2025-11-07T14:19:19**
