@@ -1,0 +1,436 @@
+# 🚀 GitHub Automation Summary for `tensorflow/tensorflow`
+
+## 📂 Overview
+
+- **Open PRs:** 30
+- **Open Issues:** 50
+- **Recent Commits (30d):** 200
+
+
+---
+
+## 📝 Open Pull Requests
+
+### Open Pull Requests (Last 30 Days)
+
+- [#104017](https://github.com/tensorflow/tensorflow/pull/104017): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104015](https://github.com/tensorflow/tensorflow/pull/104015): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104014](https://github.com/tensorflow/tensorflow/pull/104014): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104013](https://github.com/tensorflow/tensorflow/pull/104013): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104012](https://github.com/tensorflow/tensorflow/pull/104012): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#103834](https://github.com/tensorflow/tensorflow/pull/103834): [XLA:GPU][XTile] Remove xtile.to_tensor/scalar. (by @copybara-service[bot], opened 2025-11-06)
+- [#100882](https://github.com/tensorflow/tensorflow/pull/100882): build(aarch64): Update Compute Library to 52.4.0 (by @almayne, opened 2025-09-23)
+- [#104006](https://github.com/tensorflow/tensorflow/pull/104006): Add support for CollectivePermuteThunk in Command Buffer. (by @copybara-service[bot], opened 2025-11-08)
+- [#104007](https://github.com/tensorflow/tensorflow/pull/104007): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104004](https://github.com/tensorflow/tensorflow/pull/104004): Add GPUOptions support to Go bindings (by @meghana459, opened 2025-11-08)
+- [#104005](https://github.com/tensorflow/tensorflow/pull/104005): Automated Code Change (by @copybara-service[bot], opened 2025-11-08)
+- [#104003](https://github.com/tensorflow/tensorflow/pull/104003): Add `kDotDependent` to `DimensionInfo`, to indicate a DOT operation can reach the operands of the operation through def-use chains. (by @copybara-service[bot], opened 2025-11-08)
+- [#104002](https://github.com/tensorflow/tensorflow/pull/104002): Rename `WeightInfo` to `DimensionInfo`, `HloWeightPropagation` to `HloDimensionInfoPropagation". (by @copybara-service[bot], opened 2025-11-08)
+- [#103654](https://github.com/tensorflow/tensorflow/pull/103654): Automated Code Change (by @copybara-service[bot], opened 2025-11-06)
+- [#103883](https://github.com/tensorflow/tensorflow/pull/103883): Automated Code Change (by @copybara-service[bot], opened 2025-11-07)
+- [#103988](https://github.com/tensorflow/tensorflow/pull/103988): Introduce methods to query host, chip, and device IDs from PjRtTopologyDescription. (by @copybara-service[bot], opened 2025-11-07)
+- [#103478](https://github.com/tensorflow/tensorflow/pull/103478): [PJRT] Add tests for the PJRT C API cross-host transfer extension. (by @copybara-service[bot], opened 2025-11-03)
+- [#104000](https://github.com/tensorflow/tensorflow/pull/104000): Integrate LLVM at llvm/llvm-project@2bc22ea02edd (by @copybara-service[bot], opened 2025-11-08)
+- [#103989](https://github.com/tensorflow/tensorflow/pull/103989): XProf GPU - Expose # of Chips to Profile (by @copybara-service[bot], opened 2025-11-07)
+- [#103993](https://github.com/tensorflow/tensorflow/pull/103993): [StableHLO Optim] Coalesce adjacent concatenated splats (by @copybara-service[bot], opened 2025-11-07)
+- [#103991](https://github.com/tensorflow/tensorflow/pull/103991): build_config: Disable gtest_fail_if_no_test_selected. (by @copybara-service[bot], opened 2025-11-07)
+- [#103990](https://github.com/tensorflow/tensorflow/pull/103990): Make the NormalizeTimestamps() for proflier lines more robust. (by @copybara-service[bot], opened 2025-11-07)
+- [#103987](https://github.com/tensorflow/tensorflow/pull/103987): Add int32 type to AdvancedConfigValue in ProfilerOptions. (by @copybara-service[bot], opened 2025-11-07)
+- [#103053](https://github.com/tensorflow/tensorflow/pull/103053): [XLA][codegen] Emit stablehlo dot and addition and then lower it to triton dot. (by @copybara-service[bot], opened 2025-10-29)
+- [#103985](https://github.com/tensorflow/tensorflow/pull/103985): Abort GPU communicators concurrently to avoid getting stuck. (by @copybara-service[bot], opened 2025-11-07)
+- [#103984](https://github.com/tensorflow/tensorflow/pull/103984): Improve the performance in `StreamExecutorGpuTopologyDescription::LogicalDeviceOfDefaultTypeForId` (by @copybara-service[bot], opened 2025-11-07)
+- [#103380](https://github.com/tensorflow/tensorflow/pull/103380): [xprof] Add support for tracemark_lower and tracemark_upper profiler options (by @copybara-service[bot], opened 2025-10-31)
+- [#103983](https://github.com/tensorflow/tensorflow/pull/103983): Reverts 9d7262d8b365f33e1b9d629405505ee26117e420 (by @copybara-service[bot], opened 2025-11-07)
+- [#103979](https://github.com/tensorflow/tensorflow/pull/103979): Relax the check on situations where we cannot schedule all annotated nodes in the same group as a whole. (by @copybara-service[bot], opened 2025-11-07)
+- [#103900](https://github.com/tensorflow/tensorflow/pull/103900): PR #33656: [ROCm] Fix rocm device lib failure due to clash in include dirs (by @copybara-service[bot], opened 2025-11-07)
+
+---
+
+## 🕑 Pull Request History
+
+### Pull Request History (Last 30 Days)
+
+- [#104017](https://github.com/tensorflow/tensorflow/pull/104017): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#104015](https://github.com/tensorflow/tensorflow/pull/104015): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#104011](https://github.com/tensorflow/tensorflow/pull/104011): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T09:33:14**
+- [#104014](https://github.com/tensorflow/tensorflow/pull/104014): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103980](https://github.com/tensorflow/tensorflow/pull/103980): PR #33388: [XLA:GPU][oneAPI] Enable RBE for the ONEAPI presubmit (by @copybara-service[bot]) — **Closed, closed at 2025-11-08T08:32:21**
+- [#104013](https://github.com/tensorflow/tensorflow/pull/104013): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#104012](https://github.com/tensorflow/tensorflow/pull/104012): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103834](https://github.com/tensorflow/tensorflow/pull/103834): [XLA:GPU][XTile] Remove xtile.to_tensor/scalar. (by @copybara-service[bot]) — **Open**
+- [#104010](https://github.com/tensorflow/tensorflow/pull/104010): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-11-08T07:55:00**
+- [#104009](https://github.com/tensorflow/tensorflow/pull/104009): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T07:42:21**
+- [#100882](https://github.com/tensorflow/tensorflow/pull/100882): build(aarch64): Update Compute Library to 52.4.0 (by @almayne) — **Open**
+- [#104008](https://github.com/tensorflow/tensorflow/pull/104008): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T07:30:35**
+- [#104006](https://github.com/tensorflow/tensorflow/pull/104006): Add support for CollectivePermuteThunk in Command Buffer. (by @copybara-service[bot]) — **Open**
+- [#103885](https://github.com/tensorflow/tensorflow/pull/103885): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T07:06:05**
+- [#104001](https://github.com/tensorflow/tensorflow/pull/104001): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T06:24:20**
+- [#103570](https://github.com/tensorflow/tensorflow/pull/103570): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T06:14:21**
+- [#104007](https://github.com/tensorflow/tensorflow/pull/104007): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#104004](https://github.com/tensorflow/tensorflow/pull/104004): Add GPUOptions support to Go bindings (by @meghana459) — **Open**
+- [#104005](https://github.com/tensorflow/tensorflow/pull/104005): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103832](https://github.com/tensorflow/tensorflow/pull/103832): Integrate LLVM at llvm/llvm-project@2bc22ea02edd (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T05:23:39**
+- [#104003](https://github.com/tensorflow/tensorflow/pull/104003): Add `kDotDependent` to `DimensionInfo`, to indicate a DOT operation can reach the operands of the operation through def-use chains. (by @copybara-service[bot]) — **Open**
+- [#104002](https://github.com/tensorflow/tensorflow/pull/104002): Rename `WeightInfo` to `DimensionInfo`, `HloWeightPropagation` to `HloDimensionInfoPropagation". (by @copybara-service[bot]) — **Open**
+- [#102627](https://github.com/tensorflow/tensorflow/pull/102627): [TSL] Replace `tsl::StringPiece` with `absl::string_view`. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T05:10:26**
+- [#103654](https://github.com/tensorflow/tensorflow/pull/103654): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103883](https://github.com/tensorflow/tensorflow/pull/103883): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103988](https://github.com/tensorflow/tensorflow/pull/103988): Introduce methods to query host, chip, and device IDs from PjRtTopologyDescription. (by @copybara-service[bot]) — **Open**
+- [#103478](https://github.com/tensorflow/tensorflow/pull/103478): [PJRT] Add tests for the PJRT C API cross-host transfer extension. (by @copybara-service[bot]) — **Open**
+- [#104000](https://github.com/tensorflow/tensorflow/pull/104000): Integrate LLVM at llvm/llvm-project@2bc22ea02edd (by @copybara-service[bot]) — **Open**
+- [#103986](https://github.com/tensorflow/tensorflow/pull/103986): Allow DCE side-effecting custom calls (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T02:02:56**
+- [#103989](https://github.com/tensorflow/tensorflow/pull/103989): XProf GPU - Expose # of Chips to Profile (by @copybara-service[bot]) — **Open**
+- [#103993](https://github.com/tensorflow/tensorflow/pull/103993): [StableHLO Optim] Coalesce adjacent concatenated splats (by @copybara-service[bot]) — **Open**
+- [#103000](https://github.com/tensorflow/tensorflow/pull/103000): support donation override logic in IFRT Program Interpreter. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T01:03:31**
+- [#102924](https://github.com/tensorflow/tensorflow/pull/102924): Implement SPMD DUS as select + pad + collective-permute instead of all-gather. This will remove some unnecessary data copying between devices. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-08T00:36:37**
+- [#103614](https://github.com/tensorflow/tensorflow/pull/103614): Refactor: Use `absl::ascii_*` functions and improve string parsing. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T23:57:43**
+- [#103608](https://github.com/tensorflow/tensorflow/pull/103608): Allow `stablehlo.reshape` ops with complex element types to be folded. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T23:43:41**
+- [#103992](https://github.com/tensorflow/tensorflow/pull/103992): [XLA] Migrate dot_operation_test to use PJRT (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T23:31:31**
+- [#103936](https://github.com/tensorflow/tensorflow/pull/103936): [XLA:GPU] Make BufferDebugLog generic over the entry type. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T23:24:13**
+- [#103991](https://github.com/tensorflow/tensorflow/pull/103991): build_config: Disable gtest_fail_if_no_test_selected. (by @copybara-service[bot]) — **Open**
+- [#103990](https://github.com/tensorflow/tensorflow/pull/103990): Make the NormalizeTimestamps() for proflier lines more robust. (by @copybara-service[bot]) — **Open**
+- [#102993](https://github.com/tensorflow/tensorflow/pull/102993): Add float4_e2m1fn to TensorFlow. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T22:04:26**
+- [#103987](https://github.com/tensorflow/tensorflow/pull/103987): Add int32 type to AdvancedConfigValue in ProfilerOptions. (by @copybara-service[bot]) — **Open**
+- [#103053](https://github.com/tensorflow/tensorflow/pull/103053): [XLA][codegen] Emit stablehlo dot and addition and then lower it to triton dot. (by @copybara-service[bot]) — **Open**
+- [#103985](https://github.com/tensorflow/tensorflow/pull/103985): Abort GPU communicators concurrently to avoid getting stuck. (by @copybara-service[bot]) — **Open**
+- [#103984](https://github.com/tensorflow/tensorflow/pull/103984): Improve the performance in `StreamExecutorGpuTopologyDescription::LogicalDeviceOfDefaultTypeForId` (by @copybara-service[bot]) — **Open**
+- [#103982](https://github.com/tensorflow/tensorflow/pull/103982): Add `--repo_env=HERMETIC_CUDA_UMD_VERSION=12.8.1` for nightly TF wheel builds. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T21:06:27**
+- [#103380](https://github.com/tensorflow/tensorflow/pull/103380): [xprof] Add support for tracemark_lower and tracemark_upper profiler options (by @copybara-service[bot]) — **Open**
+- [#103870](https://github.com/tensorflow/tensorflow/pull/103870): Add broadcasting APIs with support for bounded dynamism (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T20:29:02**
+- [#103981](https://github.com/tensorflow/tensorflow/pull/103981): downgrade error message to warning (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T20:05:22**
+- [#103963](https://github.com/tensorflow/tensorflow/pull/103963): Reverts 3f575133c691e8bbecc7e1aa36b20c6535c6b57e (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T19:38:11**
+- [#103983](https://github.com/tensorflow/tensorflow/pull/103983): Reverts 9d7262d8b365f33e1b9d629405505ee26117e420 (by @copybara-service[bot]) — **Open**
+- [#103877](https://github.com/tensorflow/tensorflow/pull/103877): Refactor GPU: Move GetCurrentId to p2p_thunk_common. (by @copybara-service[bot]) — **Closed, closed at 2025-11-07T19:31:59**
+- [#103864](https://github.com/tensorflow/tensorflow/pull/103864): Reverts 08cfeaf6e86a411d0f9605a33dc528fdc93db072 (by @copybara-service[bot]) — **Closed, closed at 2025-11-07T19:24:52**
+- [#100549](https://github.com/tensorflow/tensorflow/pull/100549): Allow NCCL communicator creation to be canceled. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T19:14:21**
+- [#103381](https://github.com/tensorflow/tensorflow/pull/103381): Change visibility for xla profiler (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T19:05:25**
+- [#103868](https://github.com/tensorflow/tensorflow/pull/103868): Integrate StableHLO at openxla/stablehlo@3f27c53c (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T18:53:38**
+- [#103979](https://github.com/tensorflow/tensorflow/pull/103979): Relax the check on situations where we cannot schedule all annotated nodes in the same group as a whole. (by @copybara-service[bot]) — **Open**
+- [#103900](https://github.com/tensorflow/tensorflow/pull/103900): PR #33656: [ROCm] Fix rocm device lib failure due to clash in include dirs (by @copybara-service[bot]) — **Open**
+- [#103909](https://github.com/tensorflow/tensorflow/pull/103909): PR #33671: fix(Triton/ROCm): Add missing createTritonGPUAllocateWarpGroups pass to pipeline (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T17:56:34**
+- [#103922](https://github.com/tensorflow/tensorflow/pull/103922): This is an automatic update to a device compatibility allowlist. (by @copybara-service[bot]) — **Open**
+- [#103978](https://github.com/tensorflow/tensorflow/pull/103978): Removed more of ruy from tflite. (by @copybara-service[bot]) — **Open**
+- [#103939](https://github.com/tensorflow/tensorflow/pull/103939): Introduce `GpuAotCompilationResult` (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T16:39:15**
+- [#103845](https://github.com/tensorflow/tensorflow/pull/103845): `UnflattenCallGraph` assumed graph was flat, but we can get rid of assumption and use the pass for general deduplication. For this we should only hash unique computations, to avoid redundant work for performance. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T16:27:31**
+- [#103942](https://github.com/tensorflow/tensorflow/pull/103942): [XLA] Use absl::AnyInvocable instead of std::function since it can't be copied. (by @copybara-service[bot]) — **Open**
+- [#103938](https://github.com/tensorflow/tensorflow/pull/103938): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T16:06:51**
+- [#103267](https://github.com/tensorflow/tensorflow/pull/103267): Hlo module splitting (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T16:00:42**
+- [#103935](https://github.com/tensorflow/tensorflow/pull/103935): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T15:54:32**
+- [#103944](https://github.com/tensorflow/tensorflow/pull/103944): Switch away from deprecated GEN_PASS_CLASSES. NFC (by @copybara-service[bot]) — **Open**
+- [#103847](https://github.com/tensorflow/tensorflow/pull/103847): [xla:gpu] Skip autotuner configs if we fail to nest gemm fusion. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T15:43:58**
+- [#103828](https://github.com/tensorflow/tensorflow/pull/103828): Add build flag to disable subprocess compilation for CUDA. (by @copybara-service[bot]) — **Open**
+- [#103943](https://github.com/tensorflow/tensorflow/pull/103943): [xla:gpu] Disable the legacy emitter path. (by @copybara-service[bot]) — **Open**
+- [#103932](https://github.com/tensorflow/tensorflow/pull/103932): [XLA][codegen] Move checking if triton supports an HLO instruction outside of code emission (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T15:29:09**
+- [#103913](https://github.com/tensorflow/tensorflow/pull/103913): [XLA:GPU] Add additional check for operand sharing of Bias Matmul (by @copybara-service[bot]) — **Closed, closed at 2025-11-07T15:17:03**
+- [#103941](https://github.com/tensorflow/tensorflow/pull/103941): Drop uncalled inlineable manual computation functions. (by @copybara-service[bot]) — **Open**
+- [#103856](https://github.com/tensorflow/tensorflow/pull/103856): The `AbslHashValue` for `HloComputation` uses a sorted set of root hashes to ensure all instructions are considered, and a similar mechanism to capture control dependencies.    Add test to verify hash is instruction-order invariant and handles disconnected instructions correctly. (by @copybara-service[bot]) — **Open**
+- [#103908](https://github.com/tensorflow/tensorflow/pull/103908): [XLA:CPU] Pass MLIRContext to EmitFusionKernel. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T14:58:53**
+- [#103933](https://github.com/tensorflow/tensorflow/pull/103933): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103931](https://github.com/tensorflow/tensorflow/pull/103931): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T14:44:25**
+- [#103940](https://github.com/tensorflow/tensorflow/pull/103940): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103923](https://github.com/tensorflow/tensorflow/pull/103923): Move KernelArgs into its own file (by @copybara-service[bot]) — **Open**
+- [#103937](https://github.com/tensorflow/tensorflow/pull/103937): Use KernelArgumentsPackingSpec in KernelSpec (by @copybara-service[bot]) — **Open**
+- [#103844](https://github.com/tensorflow/tensorflow/pull/103844): NFC: Remove unused function and simplify return. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T13:56:40**
+- [#103934](https://github.com/tensorflow/tensorflow/pull/103934): Fix test breakage when address/memory/thread sanitizer was enabled also on Apple. (by @copybara-service[bot]) — **Open**
+- [#103927](https://github.com/tensorflow/tensorflow/pull/103927): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T13:49:42**
+- [#103928](https://github.com/tensorflow/tensorflow/pull/103928): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T13:39:00**
+- [#103930](https://github.com/tensorflow/tensorflow/pull/103930): [XLA:GPU] Avoid running out of shared memory for prefix sum kernel. (by @copybara-service[bot]) — **Open**
+- [#103817](https://github.com/tensorflow/tensorflow/pull/103817): Move `GpuThunkGpuAotCompilationResult` to a new file, and rename it. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T12:13:39**
+- [#103929](https://github.com/tensorflow/tensorflow/pull/103929): Reverts 9cbe7bd184c7bf0558c5b908da4f92446cc1b2a0 (by @copybara-service[bot]) — **Open**
+- [#103914](https://github.com/tensorflow/tensorflow/pull/103914): PR #32970: [NVIDIA GPU] Set nccl max channels to 32 for blackwell (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:58:19**
+- [#103589](https://github.com/tensorflow/tensorflow/pull/103589): [XLA:GPU/TMA] Move the restriction on GEMMs with broadcasts and pipelining from the autotuner to the emitter. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:51:46**
+- [#103910](https://github.com/tensorflow/tensorflow/pull/103910): Move KernelMetadata into its own file (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:45:01**
+- [#103603](https://github.com/tensorflow/tensorflow/pull/103603): Enhance SymbolicExprContext and SymbolicMap Equality (by @copybara-service[bot]) — **Open**
+- [#103926](https://github.com/tensorflow/tensorflow/pull/103926): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103907](https://github.com/tensorflow/tensorflow/pull/103907): Remove buffer sharing logic related to GPU SliceInput fusions (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:38:17**
+- [#103527](https://github.com/tensorflow/tensorflow/pull/103527): PR #32934: [XLA:CPU][oneDNN] Fix failing oneDNN tests and F16 regressions (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:28:14**
+- [#103925](https://github.com/tensorflow/tensorflow/pull/103925): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#103853](https://github.com/tensorflow/tensorflow/pull/103853): PR #33681: [ROCm] Fix hermetic build (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:17:36**
+- [#103501](https://github.com/tensorflow/tensorflow/pull/103501): PR #33414: [ROCm] Add missing keepalive timeout for rbe builds in rocm (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T11:07:03**
+- [#103876](https://github.com/tensorflow/tensorflow/pull/103876): PR #33655: [XLA:GPU] Set NCCL kernels to highest priority in cuda graph (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T10:57:28**
+- [#103921](https://github.com/tensorflow/tensorflow/pull/103921): Fix the doc for error raised in func `tf.linalg.LinearOperatorToeplitz` (by @ILCSFNO) — **Open**
+- [#103904](https://github.com/tensorflow/tensorflow/pull/103904): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-11-07T10:39:44**
+
+---
+
+## ❗ Open Issues
+
+### Open Issues (Last 30 Days)
+
+- [#104016](https://github.com/tensorflow/tensorflow/issues/104016): Installation guide missing packages on MacOS (by @IcyTempest, opened 2025-11-08)
+- [#103407](https://github.com/tensorflow/tensorflow/issues/103407): Can't download tensorflow (by @midoradev, opened 2025-11-02)
+- [#103999](https://github.com/tensorflow/tensorflow/issues/103999): [CUDA] illegal memory read when calling MirrorPadGrad (by @kokol16, opened 2025-11-08)
+- [#103998](https://github.com/tensorflow/tensorflow/issues/103998): [CUDA] illegal memory atomic on MaxPoolGradWithArgmax (by @kokol16, opened 2025-11-08)
+- [#103997](https://github.com/tensorflow/tensorflow/issues/103997): [CUDA] illegal memory read on MaxPoolGradGradWithArgmax (by @kokol16, opened 2025-11-07)
+- [#103996](https://github.com/tensorflow/tensorflow/issues/103996): [CUDA] illegal memory read on DynamicStitch (by @kokol16, opened 2025-11-07)
+- [#103995](https://github.com/tensorflow/tensorflow/issues/103995): [CUDA] illegal memory write on DenseBincount (by @kokol16, opened 2025-11-07)
+- [#103994](https://github.com/tensorflow/tensorflow/issues/103994): [CUDA] illegal memory read on DebugNumericSummaryV2 (by @kokol16, opened 2025-11-07)
+- [#103977](https://github.com/tensorflow/tensorflow/issues/103977): (Suporte ao cliente):BR} Como falar com a Turkish Airlines por telefone no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103976](https://github.com/tensorflow/tensorflow/issues/103976): (bRA)(BRAsIL):))"{Consultarcon} Como falar com a Air Europa pelo telefone no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103975](https://github.com/tensorflow/tensorflow/issues/103975): COPA<B:R>}Como falar com a Copa Airlines pelo telefone no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103974](https://github.com/tensorflow/tensorflow/issues/103974): BR)(+55}(LUFThAnsa TElefono Brasil)Como falar com a Lufthansa pelo telefone no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103973](https://github.com/tensorflow/tensorflow/issues/103973): (BR)(Ligue direto:) Como falar com a American Airlines pelo telefone no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103972](https://github.com/tensorflow/tensorflow/issues/103972): (Turkish:<BRASIL>)Como falar com a Turkish Airlines Brasil ? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103971](https://github.com/tensorflow/tensorflow/issues/103971): BR["AIr FRance") Como falar com a telefone air france brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103970](https://github.com/tensorflow/tensorflow/issues/103970): (BRASiL()Como falar com a Emirates Brasil pelo telefone? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103969](https://github.com/tensorflow/tensorflow/issues/103969): (Iberia_BRAsIL)) Como posso falar diretamente com a Iberia Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103968](https://github.com/tensorflow/tensorflow/issues/103968): [}>(:){(BRAsil)) Como faço para falar com a Copa Airlines Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103967](https://github.com/tensorflow/tensorflow/issues/103967): {(bRAsiLl(Contato rapido)Como faço para falar com a Air Canada no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103966](https://github.com/tensorflow/tensorflow/issues/103966): ((Apoiar))>B:r< Como faço para falar com a Lufthansa no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103965](https://github.com/tensorflow/tensorflow/issues/103965): |rápida|_({A-A}Como posso falar diretamente com a American Airlines Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103964](https://github.com/tensorflow/tensorflow/issues/103964): <{Precisar de ajuda}> Como posso falar com um agente da Emirates no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103962](https://github.com/tensorflow/tensorflow/issues/103962): {Ajuda}:BR:{}Como contatar Air Europa no Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103961](https://github.com/tensorflow/tensorflow/issues/103961): (BR_|-(qatar Airways!)”BR) Como posso falar com a Qatar Airways em São Paulo? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103950](https://github.com/tensorflow/tensorflow/issues/103950): (TA_!_BR) Como Falar Com A Turkish Airlines Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103948](https://github.com/tensorflow/tensorflow/issues/103948): (KLM): BRASIL TELEFONE”) Como posso falar com a KLM Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103947](https://github.com/tensorflow/tensorflow/issues/103947): (LATAM)<:>(BRASIL)Como ligo para um agente oficial da Latam Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103946](https://github.com/tensorflow/tensorflow/issues/103946): {BRAsil):>}UNited}Como ligar para a United Airlines Brasil? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103945](https://github.com/tensorflow/tensorflow/issues/103945): [(_Brasil_)] Como Falar Com a LATAM Pelo telefone? (by @ashvinashivin0-sketch, opened 2025-11-07)
+- [#103924](https://github.com/tensorflow/tensorflow/issues/103924): RAII mutex_lock object combined with manual unlock/lock calls causes double-unlock (by @Vivek5041, opened 2025-11-07)
+- [#103920](https://github.com/tensorflow/tensorflow/issues/103920): Fix the doc for error raised in func `tf.linalg.LinearOperatorToeplitz` (by @ILCSFNO, opened 2025-11-07)
+- [#103918](https://github.com/tensorflow/tensorflow/issues/103918): Can not import tensorflow (by @amalpeter80, opened 2025-11-07)
+- [#103915](https://github.com/tensorflow/tensorflow/issues/103915): Fix the docstring of error raised in func `tf.linalg.LinearOperatorCirculant` (by @ILCSFNO, opened 2025-11-07)
+- [#103911](https://github.com/tensorflow/tensorflow/issues/103911): Fix the doc of error raised in func `tf.linalg.LinearOperatorScaledIdentity` (by @ILCSFNO, opened 2025-11-07)
+- [#103823](https://github.com/tensorflow/tensorflow/issues/103823): Inconsistent error message when using tf.function with NumPy arrays in eager mode (by @sharvandeep, opened 2025-11-06)
+- [#89600](https://github.com/tensorflow/tensorflow/issues/89600): NotImplementedError: StreamingModel.call() not implemented (by @zhouxiaoyaozzz, opened 2025-03-20)
+- [#102880](https://github.com/tensorflow/tensorflow/issues/102880): `plot_model` `rankdir="LR"` show empty image (by @khteh, opened 2025-10-27)
+- [#103640](https://github.com/tensorflow/tensorflow/issues/103640): Whether `fft_length` could be larger than the corresponding dimension of `input` in func `tf.raw_ops.RFFT2D` (by @ILCSFNO, opened 2025-11-06)
+- [#103630](https://github.com/tensorflow/tensorflow/issues/103630): Is there a guide about how to use CMake and the compiled files to create a tensorflow lite demo? (by @jixiedaima, opened 2025-11-06)
+- [#103590](https://github.com/tensorflow/tensorflow/issues/103590): Xcode 26.1: missing LC_UUID load command (by @adamjstewart, opened 2025-11-05)
+- [#103582](https://github.com/tensorflow/tensorflow/issues/103582): Vulnerability reported in blackduck scan (by @frnz123, opened 2025-11-05)
+- [#103564](https://github.com/tensorflow/tensorflow/issues/103564): MirroredStrategy incurring a lot of overheads as compared to standalone instance (by @shubham4060, opened 2025-11-05)
+- [#103531](https://github.com/tensorflow/tensorflow/issues/103531): Tensorflow on RTX Blackwell (by @joseavegaa, opened 2025-11-04)
+- [#103506](https://github.com/tensorflow/tensorflow/issues/103506): Exception when fitting CNN with maxpooling + dropout (by @jaspervandorp, opened 2025-11-04)
+- [#103470](https://github.com/tensorflow/tensorflow/issues/103470): [CUDA] illegal memory write on ClipByValue (by @kokol16, opened 2025-11-03)
+- [#103469](https://github.com/tensorflow/tensorflow/issues/103469): [CUDA] illegal memory read on Bucketize (by @kokol16, opened 2025-11-03)
+- [#103454](https://github.com/tensorflow/tensorflow/issues/103454): tf.nn.max_pool_with_argmax output_dtype not working (by @pesekon2, opened 2025-11-03)
+- [#103660](https://github.com/tensorflow/tensorflow/issues/103660): Fix the doc of `axis` and `Raises` in func `tf.linspace` (by @ILCSFNO, opened 2025-11-06)
+- [#63849](https://github.com/tensorflow/tensorflow/issues/63849): Adding TensorFlow Hub KerasLayer to Sequential Model Raises ValueError (by @ruddyscent, opened 2024-03-17)
+- [#103397](https://github.com/tensorflow/tensorflow/issues/103397): `ValueError: Shape must be at most rank 0 but is rank 2 for '{{node BroadcastTo_1}} = BroadcastTo[T=DT_FLOAT, Tidx=DT_INT32](Cast_6, BroadcastTo_1/shape_1)' with input shapes: [?,104], [0].` (by @khteh, opened 2025-11-01)
+
+---
+
+## 📈 Recent Commits
+
+### Recent Commits (Last 30 Days)
+
+- [7c2de2a](https://github.com/tensorflow/tensorflow/commit/7c2de2a3df89aabbebabda17b004249ba88e5856): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [dd5247d](https://github.com/tensorflow/tensorflow/commit/dd5247ddedad833b943e5aeb6adeb92fc0be0917): compat: Update forward compatibility horizon to 2025-11-08 (by @tensorflower-gardener, 2025-11-08)
+- [a663d50](https://github.com/tensorflow/tensorflow/commit/a663d502602f48051947648a0527fac42f905d2b): Update GraphDef version to 2405. (by @tensorflower-gardener, 2025-11-08)
+- [ef36727](https://github.com/tensorflow/tensorflow/commit/ef367277397bd96b2e72907dee3999d5e588394b): PR #33388: [XLA:GPU][oneAPI] Enable RBE for the ONEAPI presubmit (by @mraunak, 2025-11-08)
+- [6fa61af](https://github.com/tensorflow/tensorflow/commit/6fa61af21ca4a623cbe60c1ddd11aabcb1d33b8e): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [be54b30](https://github.com/tensorflow/tensorflow/commit/be54b30fb35353acbcd2b148f6541cf8c8608e4d): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [ff6098c](https://github.com/tensorflow/tensorflow/commit/ff6098c69920b826b77454bbf7ff870518268364): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [f1f8e96](https://github.com/tensorflow/tensorflow/commit/f1f8e96f59d415a62575220789ee9a3b516440ce): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [21e6ad8](https://github.com/tensorflow/tensorflow/commit/21e6ad839269e83a2586861c0ee9154132026186): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [e739574](https://github.com/tensorflow/tensorflow/commit/e739574a2ac7af14c3e1e2267be9f3f10b671eee): Automated Code Change (by @tensorflower-gardener, 2025-11-08)
+- [30beaef](https://github.com/tensorflow/tensorflow/commit/30beaef2b1a16997259be42602430a6cede3252a): Integrate LLVM at llvm/llvm-project@2bc22ea02edd (by @tensorflower-gardener, 2025-11-08)
+- [68236ce](https://github.com/tensorflow/tensorflow/commit/68236ced376b1553cb6593b9a9a18d2418c0b3c5): [TSL] Replace `tsl::StringPiece` with `absl::string_view`. (by @majnemer, 2025-11-08)
+- [521884c](https://github.com/tensorflow/tensorflow/commit/521884c0b00f8a4df5e738e0cc5974e87e710a96): Reverts 0057077b4345c2ac4785302af70aae17543eed26 (by @tensorflower-gardener, 2025-11-08)
+- [c66648c](https://github.com/tensorflow/tensorflow/commit/c66648c3bb8d1c3cada83c02d2310abc35171436): Allow DCE side-effecting custom calls (by @sharadmv, 2025-11-08)
+- [3fbf71b](https://github.com/tensorflow/tensorflow/commit/3fbf71be52704c78a6642b2e1a5a64174e7f5a59): support donation override logic in IFRT Program Interpreter. (by @tensorflower-gardener, 2025-11-08)
+- [0057077](https://github.com/tensorflow/tensorflow/commit/0057077b4345c2ac4785302af70aae17543eed26): Implement SPMD DUS as select + pad + collective-permute instead of all-gather. This will remove some unnecessary data copying between devices. (by @tensorflower-gardener, 2025-11-08)
+- [efab298](https://github.com/tensorflow/tensorflow/commit/efab298fb7da82786019419e14bc9f69775c96e8): Refactor: Use `absl::ascii_*` functions and improve string parsing. (by @majnemer, 2025-11-07)
+- [c4ff788](https://github.com/tensorflow/tensorflow/commit/c4ff7887a3a6937e731d0c55356903751045ad37): Allow `stablehlo.reshape` ops with complex element types to be folded. (by @mrguenther, 2025-11-07)
+- [3e37d6f](https://github.com/tensorflow/tensorflow/commit/3e37d6f355dcab61759ddb105a3783fba7450894):   [XLA] Migrate dot_operation_test to use PJRT (by @pkanwar23, 2025-11-07)
+- [61a5ba2](https://github.com/tensorflow/tensorflow/commit/61a5ba283e2a28b8a25204b0b1314874ae03f996): [XLA:GPU] Make BufferDebugLog generic over the entry type. (by @loislo, 2025-11-07)
+- [5e1a6c2](https://github.com/tensorflow/tensorflow/commit/5e1a6c27c9e3d5c2de3c65a6e945dea9eb9cb9dc): Reverts e32ab4d782762aa4228641399161b22ccfcd40c1 (by @tensorflower-gardener, 2025-11-07)
+- [e600c5c](https://github.com/tensorflow/tensorflow/commit/e600c5c5945a9164ec6f9e668c932ef09830fef7): Reverts 7024106d90bb2876db453e1f7615be37333d8c27 (by @tensorflower-gardener, 2025-11-07)
+- [7024106](https://github.com/tensorflow/tensorflow/commit/7024106d90bb2876db453e1f7615be37333d8c27): Reverts 345fdfabee987c84de3fffe6bd4436348ecde435 (by @tensorflower-gardener, 2025-11-07)
+- [e32ab4d](https://github.com/tensorflow/tensorflow/commit/e32ab4d782762aa4228641399161b22ccfcd40c1): Add float4_e2m1fn to TensorFlow. (by @tensorflower-gardener, 2025-11-07)
+- [dbbd906](https://github.com/tensorflow/tensorflow/commit/dbbd9067dfea8309b94fb469ecefc0f24e4dc440): Add `--repo_env=HERMETIC_CUDA_UMD_VERSION=12.8.1` for nightly TF wheel builds. (by @ybaturina, 2025-11-07)
+- [e095cee](https://github.com/tensorflow/tensorflow/commit/e095ceec54c6e06c8134eb1254f536964d3e83cf): Add broadcasting APIs with support for bounded dynamism (by @GleasonK, 2025-11-07)
+- [95aabf9](https://github.com/tensorflow/tensorflow/commit/95aabf9f548e0c505066b91e6f7658e2174d729c): downgrade error message to warning (by @ermilovmaxim, 2025-11-07)
+- [345fdfa](https://github.com/tensorflow/tensorflow/commit/345fdfabee987c84de3fffe6bd4436348ecde435): Reverts 3f575133c691e8bbecc7e1aa36b20c6535c6b57e (by @nvgrw, 2025-11-07)
+- [9f7f4c7](https://github.com/tensorflow/tensorflow/commit/9f7f4c7bc67a571887b29ba4af02666b1c6731d3): Refactor GPU: Move GetCurrentId to p2p_thunk_common. (by @apivovarov, 2025-11-07)
+- [6e2fd43](https://github.com/tensorflow/tensorflow/commit/6e2fd438aa9b01065d20c88686c6874b83972d12): Reverts 08cfeaf6e86a411d0f9605a33dc528fdc93db072 (by @ermilovmaxim, 2025-11-07)
+- [595c829](https://github.com/tensorflow/tensorflow/commit/595c829095d659c899793b8c3d41deb95239d4ab): Allow NCCL communicator creation to be canceled. (by @mwhittaker, 2025-11-07)
+- [162c3e5](https://github.com/tensorflow/tensorflow/commit/162c3e57634157281d2bd389e0f5e943fcc47733): Change visibility for xla profiler (by @tensorflower-gardener, 2025-11-07)
+- [151894f](https://github.com/tensorflow/tensorflow/commit/151894fa84cb54bf11b58fe7c4fefc56fa831a4b): Integrate StableHLO at openxla/stablehlo@3f27c53c (by @mrguenther, 2025-11-07)
+- [05b62ca](https://github.com/tensorflow/tensorflow/commit/05b62cafd75150445fea61805d37aac175305500): PR #33671: fix(Triton/ROCm): Add missing createTritonGPUAllocateWarpGroups pass to pipeline (by @hugomano, 2025-11-07)
+- [4cbccfc](https://github.com/tensorflow/tensorflow/commit/4cbccfc8c59d180434c48f839f47263a0e910b0b): Introduce `GpuAotCompilationResult` (by @EusebioDM, 2025-11-07)
+- [de7c931](https://github.com/tensorflow/tensorflow/commit/de7c931899fe6f0415513381a3b5edf2555419a0): `UnflattenCallGraph` assumed graph was flat, but we can get rid of assumption and use the pass for general deduplication. For this we should only hash unique computations, to avoid redundant work for performance. (by @Zviki Nozadze, 2025-11-07)
+- [cc4a122](https://github.com/tensorflow/tensorflow/commit/cc4a122a248becc99b503bfa2980446bd92430ee): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [3f34740](https://github.com/tensorflow/tensorflow/commit/3f34740ef595a3d2b17f70b4286a207a64af1b33): Hlo module splitting (by @Zviki Nozadze, 2025-11-07)
+- [1f1323c](https://github.com/tensorflow/tensorflow/commit/1f1323c0f4734138091130170927f10e83149ff9): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [f684f93](https://github.com/tensorflow/tensorflow/commit/f684f93c33a5c0ba7521ca45f27109f1d6ef7995): [xla:gpu] Skip autotuner configs if we fail to nest gemm fusion. (by @chsigg, 2025-11-07)
+- [94b3689](https://github.com/tensorflow/tensorflow/commit/94b36896014d2bfc899b8437802ccd76b3855cd4): [XLA][codegen] Move checking if triton supports an HLO instruction outside of code emission (by @basioli-k, 2025-11-07)
+- [feda04a](https://github.com/tensorflow/tensorflow/commit/feda04abd7b377dcbf9662c2e9067811bda3f4e0): [XLA:GPU] Add additional check for operand sharing of Bias Matmul (by @akuegel, 2025-11-07)
+- [599b30f](https://github.com/tensorflow/tensorflow/commit/599b30f47fb99ea0377bfa7c68a5bd8249228858): [XLA:CPU] Pass MLIRContext to EmitFusionKernel. (by @pifon2a, 2025-11-07)
+- [1604bf3](https://github.com/tensorflow/tensorflow/commit/1604bf3218d972a631d5458388e01c583a90be25): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [54c7505](https://github.com/tensorflow/tensorflow/commit/54c7505360915a1defc0b6993729b6af722fb0da): NFC: Remove unused function and simplify return. (by @chsigg, 2025-11-07)
+- [a137ca1](https://github.com/tensorflow/tensorflow/commit/a137ca105e47c64930f3e792ea4dc2f9fdea2f46): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [62f00f3](https://github.com/tensorflow/tensorflow/commit/62f00f3f0524f6d5a7da48c91f596cbb941e9276): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [b977bfa](https://github.com/tensorflow/tensorflow/commit/b977bfa8de23c56017cb23cedb8f149a5d15303b): Move `GpuThunkGpuAotCompilationResult` to a new file, and rename it. (by @EusebioDM, 2025-11-07)
+- [ac914a4](https://github.com/tensorflow/tensorflow/commit/ac914a493d41a764978a73ad31a287ceeb7f17c1): PR #32970: [NVIDIA GPU] Set nccl max channels to 32 for blackwell (by @Tixxx, 2025-11-07)
+- [4a024c8](https://github.com/tensorflow/tensorflow/commit/4a024c88ff8b7253c86a40e0f54b3fd4cb844395): [XLA:GPU/TMA] Move the restriction on GEMMs with broadcasts and pipelining from the autotuner to the emitter. (by @Moerafaat, 2025-11-07)
+- [14e8fbe](https://github.com/tensorflow/tensorflow/commit/14e8fbe22600c5f7152ba61bd303c24ecd7cc930): Move KernelMetadata into its own file (by @beckerhe, 2025-11-07)
+- [8640317](https://github.com/tensorflow/tensorflow/commit/8640317764ff90922900a820c03554d36200cca7): Remove buffer sharing logic related to GPU SliceInput fusions (by @akuegel, 2025-11-07)
+- [ec8876a](https://github.com/tensorflow/tensorflow/commit/ec8876a2558e065b27a4fd2ffca62e4845963e0f): PR #32934: [XLA:CPU][oneDNN] Fix failing oneDNN tests and F16 regressions (by @akhilgoe, 2025-11-07)
+- [6f40b74](https://github.com/tensorflow/tensorflow/commit/6f40b747b83eeba3b69a77f4a7806117df83d1b3): PR #33681: [ROCm] Fix hermetic build (by @alekstheod, 2025-11-07)
+- [9dddfc9](https://github.com/tensorflow/tensorflow/commit/9dddfc9179694b8c5f83ceb6e7120e0247582820): PR #33414: [ROCm] Add missing keepalive timeout for rbe builds in rocm (by @alekstheod, 2025-11-07)
+- [7c09e90](https://github.com/tensorflow/tensorflow/commit/7c09e90f2f6a17ba0e5c387c2530c19547f709f4): PR #33655: [XLA:GPU] Set NCCL kernels to highest priority in cuda graph (by @shawnwang18, 2025-11-07)
+- [cad893c](https://github.com/tensorflow/tensorflow/commit/cad893c92dfe3188562485fc46692fd68827a3ec): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [7de7e9e](https://github.com/tensorflow/tensorflow/commit/7de7e9ee93a204fdf0a0a590b52a85ea5c9887d6): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [eb0349a](https://github.com/tensorflow/tensorflow/commit/eb0349a8362e349a09665cbf9f5c48a9c74c22bb): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [e752c1a](https://github.com/tensorflow/tensorflow/commit/e752c1a78bd01d022abbee63917b339804f5a1e3): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [79a94f1](https://github.com/tensorflow/tensorflow/commit/79a94f17e1352122d57663baca2528f0d54be247): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [9bfda58](https://github.com/tensorflow/tensorflow/commit/9bfda589103890dba70874ccbe4b190d84c91f10): compat: Update forward compatibility horizon to 2025-11-07 (by @tensorflower-gardener, 2025-11-07)
+- [da3fa11](https://github.com/tensorflow/tensorflow/commit/da3fa11336cc8cab67e606162821db591d91bd4e): Update GraphDef version to 2404. (by @tensorflower-gardener, 2025-11-07)
+- [0977916](https://github.com/tensorflow/tensorflow/commit/0977916f295dafd3e011c6346e97f1429e14dcdf): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [69f5fa6](https://github.com/tensorflow/tensorflow/commit/69f5fa699a6b1fc9358d8c1f52cff57856e74b1d): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [a96d88a](https://github.com/tensorflow/tensorflow/commit/a96d88aa603afced43305dd64ff752440580b7c2): PR #33533: [XLA:GPU] Unify the priority setting for cuda stream and cuda graph nodes (by @shawnwang18, 2025-11-07)
+- [f021c3f](https://github.com/tensorflow/tensorflow/commit/f021c3f4ebca346d48ad2b2f06665542612b6911): Reuse session in tests (by @ermilovmaxim, 2025-11-07)
+- [ff8f16c](https://github.com/tensorflow/tensorflow/commit/ff8f16c1bcd7c41384cb5dc664c6596a86bf97b5): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [d38930f](https://github.com/tensorflow/tensorflow/commit/d38930f29e30904a5625b2ed392c655cfbb0dc0b): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [a8a446d](https://github.com/tensorflow/tensorflow/commit/a8a446d6e76382bd8a00a58b8f76fc7fc22adac8): Reenable framework_build_test as presubmit (by @protobird-git, 2025-11-07)
+- [f3842e0](https://github.com/tensorflow/tensorflow/commit/f3842e08e9bf41f2edc3138cfacefc437307f5bb): Enable new Triton emitter features and switch to nested GEMM fusion in tests. (by @chsigg, 2025-11-07)
+- [931a659](https://github.com/tensorflow/tensorflow/commit/931a659b15a2ca01cd72df266ba99107e55e0683): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [9e202e1](https://github.com/tensorflow/tensorflow/commit/9e202e16188ac2c0d350cc85f91cdcdc52947b7d): [xla:cpu] Delete cpu_runtime_test that tests to-be-deleted cpu runtime matmul (by @ezhulenev, 2025-11-07)
+- [b44bd9b](https://github.com/tensorflow/tensorflow/commit/b44bd9b7aed377f2f3dc9b661af64d0fffd3ff44): Disclaim support for small dots in YNNPACK (by @tensorflower-gardener, 2025-11-07)
+- [f6d412f](https://github.com/tensorflow/tensorflow/commit/f6d412f2536f9c327afa7f4eb809cfde9093673a): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [cd9febe](https://github.com/tensorflow/tensorflow/commit/cd9febef84cd5c7d48cb07173ff34168e28b1aae): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [839477f](https://github.com/tensorflow/tensorflow/commit/839477f8f02688d82094dce85089dbf80401df4d): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [272ab03](https://github.com/tensorflow/tensorflow/commit/272ab03a7ed1fda1108f174ac3918e41fe8a0eab): Automated Code Change (by @tensorflower-gardener, 2025-11-07)
+- [3f57513](https://github.com/tensorflow/tensorflow/commit/3f575133c691e8bbecc7e1aa36b20c6535c6b57e): Rollback of CL breaking builds (by @tensorflower-gardener, 2025-11-07)
+- [4e67885](https://github.com/tensorflow/tensorflow/commit/4e6788540e20297c1f3c7f7af666a090282d0fa3): Add the separate env var to select a custom user mode driver version to match it with KMD version installed on the execution machine. (by @ybaturina, 2025-11-07)
+- [bb5772c](https://github.com/tensorflow/tensorflow/commit/bb5772c28f0c5cfa2eb5a2c72b86dca4340a4c2e): Bug fixes to enable device loop for step tracking (by @tensorflower-gardener, 2025-11-07)
+- [9246b7b](https://github.com/tensorflow/tensorflow/commit/9246b7b687162802308b94be22420c4e8ee5b8cd): Remove @xla references in platform/default/*.bzl (Attempt 2) (by @ethanluoyc, 2025-11-06)
+- [0d5318c](https://github.com/tensorflow/tensorflow/commit/0d5318c21c07b2f8ffc64eded57781baa8e274f3): Disable asan,msan targets for TAP CI. (by @tensorflower-gardener, 2025-11-06)
+- [7ea57e1](https://github.com/tensorflow/tensorflow/commit/7ea57e1e64e7e4e376a5ff4548675b22f7927235): Test thread parallelism with timeout in code, not in BUILD flag. (by @protobird-git, 2025-11-06)
+- [e6aa1c1](https://github.com/tensorflow/tensorflow/commit/e6aa1c1345c09bafcc7a199fae3b981eab756107): Reverts 677d64b51b3c72760aeac1994f17fc8665f97205 (by @tensorflower-gardener, 2025-11-06)
+- [092baae](https://github.com/tensorflow/tensorflow/commit/092baae7135b3d8a52a91cf494f10e850feaad23): Remove @xla prefix in xla build rules (by @ethanluoyc, 2025-11-06)
+- [cbbfa0b](https://github.com/tensorflow/tensorflow/commit/cbbfa0bf1c22f674570a888f485a16379e496012): Replace ios_x86_64 with ios_arm64 (by @protobird-git, 2025-11-06)
+- [48f9cf6](https://github.com/tensorflow/tensorflow/commit/48f9cf668281b2c6cc676a0137823826074739e9): Allow reduced on the fwd pass to jnp.sin even though unreduced is not allowed as an input to sin since sin is a non-linear op. (by @yashk2810, 2025-11-06)
+- [677d64b](https://github.com/tensorflow/tensorflow/commit/677d64b51b3c72760aeac1994f17fc8665f97205):   [XLA] Migrate dot_operation_test to use PJRT (by @pkanwar23, 2025-11-06)
+- [a5a0891](https://github.com/tensorflow/tensorflow/commit/a5a0891ebad14e076d019deb92c6ae0451af6f72): [xla:gpu] Add command buffer + profiling TraceMe warning (by @ezhulenev, 2025-11-06)
+- [35c285b](https://github.com/tensorflow/tensorflow/commit/35c285b8444ccca786c0cac48e820aa799e84451): [xla:cpu] Remove ACL support from XLA:CPU (by @ezhulenev, 2025-11-06)
+- [ea9f880](https://github.com/tensorflow/tensorflow/commit/ea9f8804e917315408ea9fbfd9044e33a0e556fe): Introduce split compilation fail duplicate load feature. (by @nvgrw, 2025-11-06)
+- [f3dfbd2](https://github.com/tensorflow/tensorflow/commit/f3dfbd238dd49a9ff71176fe395e304574081824): Do not `RewriteLayoutWithShardedShape` if the sharding is unreduced, similar to replicated/maximal/manual sharding. (by @ZixuanJiang, 2025-11-06)
+- [eb614e9](https://github.com/tensorflow/tensorflow/commit/eb614e99272eecbed4c5489429babf0834f76c0e): [XLA] Add a pass to remove dead and pass-through parameters from calls. (by @mkuperst, 2025-11-06)
+- [0e99f8e](https://github.com/tensorflow/tensorflow/commit/0e99f8ed7f3fe2950a8a981098ac474d87c591f0): Attempt to fix internal CI Windows issues. (by @belitskiy, 2025-11-06)
+- [9b4116e](https://github.com/tensorflow/tensorflow/commit/9b4116e54887166283f868b3c89ff78a874933ec): Rename `HostBounds` to `ProcessBounds` (by @hhb, 2025-11-06)
+- [45320ac](https://github.com/tensorflow/tensorflow/commit/45320ac6f6227b412ee11730980e18d3780d55fd): Enable bf16 dots in YNNPACK by default (by @tensorflower-gardener, 2025-11-06)
+- [fa130f9](https://github.com/tensorflow/tensorflow/commit/fa130f96a8c66acfc5a9a31623c6d2399e258980): Log ExecutePhase deserialization filename. (by @nvgrw, 2025-11-06)
+- [7c58628](https://github.com/tensorflow/tensorflow/commit/7c5862898829753100c8708a159ed7f6aed1e003): Remove @xla from toolchain configs (by @ethanluoyc, 2025-11-06)
+- [507e516](https://github.com/tensorflow/tensorflow/commit/507e51627cc65b912a628e941f2cf5fe7ababba2): [XLA:CPU] Remove the unused CpuFusionEmitterBase. (by @pifon2a, 2025-11-06)
+- [a646dfe](https://github.com/tensorflow/tensorflow/commit/a646dfef8918a0ae14c75e159c5e1a0cf381b687): Updating internal visibility rules. (by @cantonios, 2025-11-06)
+- [e0d0022](https://github.com/tensorflow/tensorflow/commit/e0d0022e3c04fab971c86f965c6c608356dcc861): Fix duplicated compilation within a single test case. (by @nvgrw, 2025-11-06)
+- [9184a10](https://github.com/tensorflow/tensorflow/commit/9184a10f62c5462dc7921f29387908584bf5de41): Fix the pipeline for YNN reduce fusions. (by @alexander-shaposhnikov, 2025-11-06)
+- [d4369fd](https://github.com/tensorflow/tensorflow/commit/d4369fdd0a6ef4801187907ef6e83731df4661be): [XLA:GPU] pure mechanical rename from NanCount to FloatCheck and from nan_count to float_check (by @loislo, 2025-11-06)
+- [b6f3e97](https://github.com/tensorflow/tensorflow/commit/b6f3e978cadac982b58087e8ee6adb3db9f58aaa): Introduce KernelArgsPackedVector (by @beckerhe, 2025-11-06)
+- [ee5093c](https://github.com/tensorflow/tensorflow/commit/ee5093c3be6d1429c12cc40c1be00dbb7dfb5aba): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [5823707](https://github.com/tensorflow/tensorflow/commit/58237076ae94591f784a5c38a9b03d6172f11b6d): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [87ac689](https://github.com/tensorflow/tensorflow/commit/87ac689b02f8ada812f592b2445cf8d03a63abb5): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [dd8c600](https://github.com/tensorflow/tensorflow/commit/dd8c60023a6df09446ee5d9c56ace48d615f6040): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [4ebd9c2](https://github.com/tensorflow/tensorflow/commit/4ebd9c2860579d2d6162bfe187ab15bc62aa8f9b): Migrate Triton dot algorithm tests to use nested GEMM fusion. (by @chsigg, 2025-11-06)
+- [4a04afc](https://github.com/tensorflow/tensorflow/commit/4a04afc24f61940eda387b693a2d943a764eacfe): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [291616b](https://github.com/tensorflow/tensorflow/commit/291616bb4b66d297776e18008982546672c80aae): [XLA:GPU][XTile] Finalize removal of ScalarOrTensor. (by @WillFroom, 2025-11-06)
+- [d116e67](https://github.com/tensorflow/tensorflow/commit/d116e676076ed29b1caa2473367e6a7cf4f50822): [XLA:GPU][XTile] Update parameter extract, dot, pad & concat to emit 0D tensors. (by @WillFroom, 2025-11-06)
+- [47f8188](https://github.com/tensorflow/tensorflow/commit/47f8188a2a20614dd77829aa16d2d165f9d692aa): [XLA:GPU][XTile] Update reduce, nested fusion and emit scope to emit 0D tensors. (by @WillFroom, 2025-11-06)
+- [edb4870](https://github.com/tensorflow/tensorflow/commit/edb4870e69dc583e4006593a2e6d8aed3abae37e): [Autotuner] Add MIOpen backend. The backend only returns a default algorithm. (by @derdrdirk, 2025-11-06)
+- [d045256](https://github.com/tensorflow/tensorflow/commit/d045256b746ed634800e0071afaf62d29a693974): [XLA:GPU] Simplify kernel registration. (by @akuegel, 2025-11-06)
+- [3a5dd86](https://github.com/tensorflow/tensorflow/commit/3a5dd866c1c7df1607cabc1e54147ae98f470234): [XLA:GPU] Add prefix sum kernel. (by @akuegel, 2025-11-06)
+- [4fff5fe](https://github.com/tensorflow/tensorflow/commit/4fff5fe870270ca0e5a79de72ddfd1b94a6a4b76): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [08cfeaf](https://github.com/tensorflow/tensorflow/commit/08cfeaf6e86a411d0f9605a33dc528fdc93db072): Reverts c963ecc3131a1726b2e604766b2b416368031fb2 (by @allanrenucci, 2025-11-06)
+- [dac01e1](https://github.com/tensorflow/tensorflow/commit/dac01e1d48eb446966f8e6b7c20781f90f9139ff): [XLA:GPU][XTile] Add support to emit 0D tensor constants in the tiled emitter. (by @WillFroom, 2025-11-06)
+- [0c888b4](https://github.com/tensorflow/tensorflow/commit/0c888b43c0cfa278594d44a6ea20f90959b5735b): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [addd4b6](https://github.com/tensorflow/tensorflow/commit/addd4b66ac01905fb7f6987743b2cfec50d9e72d): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [9801893](https://github.com/tensorflow/tensorflow/commit/9801893baecc31dc509d365eb0810be5e7b52297): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [0410d25](https://github.com/tensorflow/tensorflow/commit/0410d256094913fe946cad0f7af089a77ca07e8e): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [34d6076](https://github.com/tensorflow/tensorflow/commit/34d607662007b6a270e4af2199ef091e7d05cac3): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [7fe998f](https://github.com/tensorflow/tensorflow/commit/7fe998f71fd2374a2d293365fc5729476a80e4cb): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [47367a9](https://github.com/tensorflow/tensorflow/commit/47367a9fb42759b71ea54efd4d215b431c630708): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [4785243](https://github.com/tensorflow/tensorflow/commit/4785243e41d774dab9acc1942ab399cc23d6d249): PR #32628: DOC: errors doc pages (by @mtsokol, 2025-11-06)
+- [3a1e2fc](https://github.com/tensorflow/tensorflow/commit/3a1e2fc3ccf73d7b26c54a7e3ba3ef7931bc4a23): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [c327655](https://github.com/tensorflow/tensorflow/commit/c327655db5c9fd93e82d417540141f3c3df8dbd3): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [286905c](https://github.com/tensorflow/tensorflow/commit/286905c278b0740a8313946b182330da9d6cde66): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [5f55af5](https://github.com/tensorflow/tensorflow/commit/5f55af5fea385553c431a9c7fe6ab08804e0a4b8): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [4316cb5](https://github.com/tensorflow/tensorflow/commit/4316cb5062055a47a8499f7f8e5ca98b0aad211a): Replace forward quotes with backward quotes in TFLite opaque api documentation. (by @ggawryal, 2025-11-06)
+- [d532b1f](https://github.com/tensorflow/tensorflow/commit/d532b1ff75fb1c4d4c49ffaa2e258c97a1848a72): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [cbba554](https://github.com/tensorflow/tensorflow/commit/cbba554d6f131f39e5cf9e37c4eb3b1bd069fe61): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [1c7b5bf](https://github.com/tensorflow/tensorflow/commit/1c7b5bf89861cd3e0fcb30905cb5c6fcf3aacf87): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [4e0b08f](https://github.com/tensorflow/tensorflow/commit/4e0b08f4d2c9fb65f369949cd6b94cef68119184): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [ee6b915](https://github.com/tensorflow/tensorflow/commit/ee6b915c070127213cdc7d81c3448c905f1ba3f9): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [174348b](https://github.com/tensorflow/tensorflow/commit/174348bcb13cf843eae883a23c02cd5c7f723acc): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [d562232](https://github.com/tensorflow/tensorflow/commit/d5622324857e7744863ae9daf6e5d52d1e0a2477): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [3a608c4](https://github.com/tensorflow/tensorflow/commit/3a608c4861c2d344f6d8677ddc9959ea668ab2fe): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [c0ed393](https://github.com/tensorflow/tensorflow/commit/c0ed3936799c451d96b0daeee060b8ca18b6d6ba): PR #33106: Rename NumericOptions to EngineOptions and add field to only select cuDNN plans that support CUDA graphs. (by @dimvar, 2025-11-06)
+- [d33a7e0](https://github.com/tensorflow/tensorflow/commit/d33a7e0e89334eb42a2b68f790debbde01d0daa8): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [2e172e0](https://github.com/tensorflow/tensorflow/commit/2e172e0c466a3522d0446ac7cd73ea2c79d776ea): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [1c56965](https://github.com/tensorflow/tensorflow/commit/1c56965b93fd37a6d600d8b248aac640b5476d76): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [b90a3de](https://github.com/tensorflow/tensorflow/commit/b90a3decd1f925d64bc6a83aa3f879c6b9694aff): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [6981198](https://github.com/tensorflow/tensorflow/commit/6981198a5bde2091ca2eaadd85d9e89174f1cfe4): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [73a91b0](https://github.com/tensorflow/tensorflow/commit/73a91b03865be7cff09efc8ff7784304895e1ac4): compat: Update forward compatibility horizon to 2025-11-06 (by @tensorflower-gardener, 2025-11-06)
+- [f448add](https://github.com/tensorflow/tensorflow/commit/f448adda6388dc577da5ca5b36a6c211a7db8eda): Update GraphDef version to 2403. (by @tensorflower-gardener, 2025-11-06)
+- [03c27ce](https://github.com/tensorflow/tensorflow/commit/03c27cee81234f2a618e9311b791e24c71fed726): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [4c2bbe2](https://github.com/tensorflow/tensorflow/commit/4c2bbe253e0c2379c5aae56bb25e4fed39a88e45): PR #29769:  [ROCm] upstream using rocprofiler-sdk (v3) for tracing AMD GPU events (by @cj401-amd, 2025-11-06)
+- [ef08d97](https://github.com/tensorflow/tensorflow/commit/ef08d9771a20e21dba93bd70dcf8a069a312c15a): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [263b4b2](https://github.com/tensorflow/tensorflow/commit/263b4b200fd05a803dad21cde875044baf6ad74e): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [e08fd1c](https://github.com/tensorflow/tensorflow/commit/e08fd1c694907f14dc26c84fb0b2d2d19245ed79): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [5fcf510](https://github.com/tensorflow/tensorflow/commit/5fcf510a862fb6d3c0d34906044389095a180ff6): Refactor `tsl::numbers` to use `absl::StrAppendFormat` and improve negative number handling. (by @majnemer, 2025-11-06)
+- [1cb55ac](https://github.com/tensorflow/tensorflow/commit/1cb55ac3b17c4e469b9ae28d73f617418de937ef): [PjRT] Refactor SocketAddress to use sockaddr_storage. (by @majnemer, 2025-11-06)
+- [7da63d2](https://github.com/tensorflow/tensorflow/commit/7da63d2d146ffab91f4f96d95a2003d56352d7a8): Allow Input to be optional to take None inputs, similar to what keras3 has. (by @tensorflower-gardener, 2025-11-06)
+- [d865399](https://github.com/tensorflow/tensorflow/commit/d8653999e2e4f8811cb6684f7ffebe55c20da592): Replace `ValidateSingleDimensionAxes` with `ValidateSpanOfAxes`. (by @ZixuanJiang, 2025-11-06)
+- [b4272f4](https://github.com/tensorflow/tensorflow/commit/b4272f470c280831a657bbee25b1695b48cae1c9): [xla:hlo] Do not depend on XLA:CPU implementation from HloEvaluator (by @ezhulenev, 2025-11-06)
+- [b531828](https://github.com/tensorflow/tensorflow/commit/b531828aab6cb5c44d879c98fd912af44978b345): Automated Code Change (by @tensorflower-gardener, 2025-11-06)
+- [7c4dbba](https://github.com/tensorflow/tensorflow/commit/7c4dbba7e813da6c528e0a4a0f536745b7fd04ba): [xla:cpu] Bring back tsl_copts() to BuiltinDefinitionGenerator (by @ezhulenev, 2025-11-06)
+- [298d614](https://github.com/tensorflow/tensorflow/commit/298d6143b918d00f8303f97038618bebc6d7b656): Remove unused code. (by @ZixuanJiang, 2025-11-06)
+- [7e6a544](https://github.com/tensorflow/tensorflow/commit/7e6a5445f545192b4050eb6a33fbedb213ea2665): Remove read references to untuple_result now that everyone always sets true. (by @pschuh, 2025-11-06)
+- [ca176b2](https://github.com/tensorflow/tensorflow/commit/ca176b2593d9eaa0da03e59d7c02f1fac4c5edd5): Remove obsolete use of TSL_IS_IN_OSS (by @ddunl, 2025-11-06)
+- [713f63a](https://github.com/tensorflow/tensorflow/commit/713f63a8801d0257da695f7ea178592e00e50a92): [ReplicaGroupV3][Validation] add CanCoexistWithoutOverlap function which is more efficient check of (cancoexist && !overlaps) (by @Varcho, 2025-11-06)
+- [c963ecc](https://github.com/tensorflow/tensorflow/commit/c963ecc3131a1726b2e604766b2b416368031fb2): add nvlink information to DeviceDescription (by @ermilovmaxim, 2025-11-06)
+- [d1db004](https://github.com/tensorflow/tensorflow/commit/d1db004e63101027c440cf48178e49ca85ccda56): Add legalization for mhlo.case to tfl.if. (by @majiddadashi, 2025-11-06)
+- [af5e6fd](https://github.com/tensorflow/tensorflow/commit/af5e6fd8a0066f63aba00601ee908ed845a8de6a): Preserve tmpdir for rocm. Fixes build for certain docker setups that don't have standard tmpdir locations (by @wsmoses, 2025-11-05)
+- [dbd803e](https://github.com/tensorflow/tensorflow/commit/dbd803eed66a2f926fc0ff453bff7ce03d17b7ea): PR #33284: PjRt API changes for improved cross host transfers (by @rao-ashish, 2025-11-05)
+- [4d00323](https://github.com/tensorflow/tensorflow/commit/4d00323df0a7af07562d78de8fd9037d2008d073): [XLA:GPU] Fix missing to_scalar/to_tensor in bitcast lowering. (by @WillFroom, 2025-11-05)
+- [3c9e7b2](https://github.com/tensorflow/tensorflow/commit/3c9e7b2d24bf422e86eff4cff98440ddfdd369cc): [xla:cpu] Move GetDeviceOrdinal to cpu_executable (by @ezhulenev, 2025-11-05)
+- [1f95e41](https://github.com/tensorflow/tensorflow/commit/1f95e417d210c9354824662c5bad11a19d099aa5): [XLA:CPU][XTile] Use bufferization rather than unrealized_conversion_cast. (by @WillFroom, 2025-11-05)
+- [6b2f4d6](https://github.com/tensorflow/tensorflow/commit/6b2f4d629fa2c327d16252d4ecacec51c0b3880d): PR #33212: [ROCm] Enable HloEvaluator for more complex ops (by @nurmukhametov, 2025-11-05)
+- [85e759e](https://github.com/tensorflow/tensorflow/commit/85e759eb6c0648dc64db66b95e98077136283894): Add flag that dumps a serialized `GpuExecutable` (by @EusebioDM, 2025-11-05)
+- [16334aa](https://github.com/tensorflow/tensorflow/commit/16334aae999dd59865cd1b5d23e4798ceff5a99d): [XLA:GPU] Support start_index_map in ComputeOutputToInputGatherOpIndexing and in the gather emitter (by @mooskagh, 2025-11-05)
+- [22189ec](https://github.com/tensorflow/tensorflow/commit/22189ecacb3bb97d977f8f3270de9932a02185ae): [XLA:GPU][XTile] Always pass tensors in the values map in the tiled emitter. (by @WillFroom, 2025-11-05)
+- [10669e6](https://github.com/tensorflow/tensorflow/commit/10669e6976f97f5f5361fd66b0fc93150de23e23): Add (de)serialization methods to  `CubSortThunk` (by @EusebioDM, 2025-11-05)
+- [b919ecc](https://github.com/tensorflow/tensorflow/commit/b919ecce4d81fcc5b56bb9ca1843731e3065bc69): PR #33504: Add human-readable units to "Out of memory" errors (e.g. 7.34GB) (by @cool-RR, 2025-11-05)
+- [fd26d87](https://github.com/tensorflow/tensorflow/commit/fd26d87842fa444d531f5e8583a94489aa64e803): Pass allocation info to `InterpreterBuilder` in `InterpreterCreateWithOpResolver`. (by @ggawryal, 2025-11-05)
+- [cf7fdfe](https://github.com/tensorflow/tensorflow/commit/cf7fdfeee6a53345e3cf53d138e0a3de84fb7e87): [XLA:GPU] Exclude Intel targets from internal wildcard build (by @beckerhe, 2025-11-05)
+- [9f2d8e7](https://github.com/tensorflow/tensorflow/commit/9f2d8e7201abd2046bed59801ceb5236c90dc8dc): [XLA:GPU][XTile] Support 0D tensors in emitting transpose, bitcast, broadcast and dot helpers. (by @WillFroom, 2025-11-05)
+- [7a752c1](https://github.com/tensorflow/tensorflow/commit/7a752c180a30c64a8c802f9cca2615adf351181f): [XLA:GPU] Trigger a crash if nan_counter check was requested (by @loislo, 2025-11-05)
+- [5ebdbc1](https://github.com/tensorflow/tensorflow/commit/5ebdbc129c2f3a1f91749acd8680f33d15d92754): [XLA:GPU][XTile] Move reshape scalar logic to triton lowering. (by @WillFroom, 2025-11-05)
+- [1abd188](https://github.com/tensorflow/tensorflow/commit/1abd188ef1c9c4293ef04bf1217d2f0e1144e924): PR #32812: [XLA:CPU] Add support for riscv64 (by @infiWang, 2025-11-05)
+- [852c9ca](https://github.com/tensorflow/tensorflow/commit/852c9cafebee385327d924ba0dffac07452a0678): PR #33505: [XLA:GPU] Dump command buffer contents to folder specified by --xla-dump-to through dump.h (by @shawnwang18, 2025-11-05)
+- [0d2717e](https://github.com/tensorflow/tensorflow/commit/0d2717e62ab405bf79361c25dffc03a71f8e8776): [XLA:GPU] Pass peer pointers for each kernel parameter. (by @tensorflower-gardener, 2025-11-05)
+- [a24632c](https://github.com/tensorflow/tensorflow/commit/a24632c8f8a0e777626e2cab64b1deafc7b3277c): compat: Update forward compatibility horizon to 2025-11-05 (by @tensorflower-gardener, 2025-11-05)
+- [7a0dd08](https://github.com/tensorflow/tensorflow/commit/7a0dd08ffd3464b4b68df7bbf123d4acf6b71969): Update GraphDef version to 2402. (by @tensorflower-gardener, 2025-11-05)
+- [55d29d8](https://github.com/tensorflow/tensorflow/commit/55d29d8bf0f5f1a1b5001a8dbc6dcf9b18acd8f1): Automated Code Change (by @tensorflower-gardener, 2025-11-05)
+- [2b28f7f](https://github.com/tensorflow/tensorflow/commit/2b28f7f8cdbf18682df68ac791dcf171b832160b): [xla:cpu] Move BuiltinDefinitionGenerator to backends/cpu/codegen (by @ezhulenev, 2025-11-05)
+- [c53c502](https://github.com/tensorflow/tensorflow/commit/c53c5021ee6f92cb143315dd0fceea6f8d593364): Add missing buffer holds for raw buffer transfers. (by @pschuh, 2025-11-05)
+- [295c5b6](https://github.com/tensorflow/tensorflow/commit/295c5b6dabd8dc0a1dd0dd3514a469de22d2d305): Remove `ProtoParseNumeric` and inline its logic into `SafeStringToNumeric`. (by @majnemer, 2025-11-05)
+- [831ac5e](https://github.com/tensorflow/tensorflow/commit/831ac5e4a642d8c957f428cb862098f472f88b30): Replace C-style character functions with `absl::ascii_` or `llvm::` equivalents. (by @majnemer, 2025-11-05)
+- [98725b6](https://github.com/tensorflow/tensorflow/commit/98725b65428f480b736d66e0fea75284452c6065): [xla:cpu] Delete runtime_pow library (by @ezhulenev, 2025-11-05)
+- [5314b4c](https://github.com/tensorflow/tensorflow/commit/5314b4c5ef36f880eb24189d71c67474eec13f9e): Add xla::LayoutUtil::IsUntiledLayout to check if tiling is a no-op (by @tlongeri, 2025-11-05)
+- [cdbece3](https://github.com/tensorflow/tensorflow/commit/cdbece3a4b8e2001069ac42723d933f4ee9b3adf): [XLA] Make LHS fragmentation estimate more accurate (by @vsytch, 2025-11-05)
+- [892d5b2](https://github.com/tensorflow/tensorflow/commit/892d5b29669de5603cbb2ca3656bf8ef5cdbf825): [ReplicaGroupV3][Validation] add overlap check for axes in v3 replica group. (by @Varcho, 2025-11-05)
+- [f307668](https://github.com/tensorflow/tensorflow/commit/f3076689e5c0453e914aa9caef58a1727658f0e6): Fix tests that become flaky when you insert delays after buffer creation for robustness testing. (by @pschuh, 2025-11-05)
+- [539a42d](https://github.com/tensorflow/tensorflow/commit/539a42d194fa52628c12c71722b9759e8672b06c): Add `xla_cpu_enable_platform_dependent_math` flag (by @tensorflower-gardener, 2025-11-05)
+- [0ff0de7](https://github.com/tensorflow/tensorflow/commit/0ff0de7dab6c0b6ab2d4ef9d83ed047196501cc1): Add a CounterGauge metric implementation. (by @tensorflower-gardener, 2025-11-05)
+
+---
+
+### 📈 Commit Activity (Last 30 Days)
+- **Top Contributors:**
+  - @tensorflower-gardener — 89 commits
+  - @WillFroom — 9 commits
+  - @ezhulenev — 8 commits
+- **Most Modified Files:**
+  - third_party/xla/xla/backends/gpu/codegen/triton/fusion_emitter.cc (9 changes)
+  - third_party/xla/xla/service/BUILD (7 changes)
+  - third_party/xla/xla/service/gpu/BUILD (7 changes)
+
+---
+
+## 🛡️ Security Alerts
+
+No security alerts.
+
+---

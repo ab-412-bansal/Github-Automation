@@ -1,0 +1,1672 @@
+[
+  {
+    "number": 34908,
+    "title": "[DevTools] Apply Activity slice filter when double clicking Activity",
+    "user": "eps1lon",
+    "created_at": "2025-10-19T11:15:04",
+    "updated_at": "2025-11-08T10:59:02",
+    "body": "Stacked on https://github.com/facebook/react/pull/34929\r\n\r\nInitial idea was to just filter on the frontend but this is hard to do with the reliance on node weights for virtualization. Removing the part below the slice is trivial since that's just collapsing but the part above is harder.\r\n\r\nThis implements the slices with a backend filter and frontend collapsing. During reconciliation, we keep track on the stack whether we're in the focused Activity or not. \r\n\r\nOn the frontend, we collapse the Activities at the lower boundary. That way you can see the slice in the Components tab but the Suspense tab shows the full loading sequence of the segment.\r\n\r\nWill add the Activity pane to the Components tab in a follow-up. Double clicking an Activity already switches to the slice view. The Activity will not own any Components anyway. \r\n\r\n\r\nhttps://github.com/user-attachments/assets/dd75c881-08bf-4314-b432-4bb6c8fbd9d2\r\n\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34908",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/__tests__/store-test.js",
+        "additions": 0,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/__tests__/storeComponentFilters-test.js",
+        "additions": 123,
+        "deletions": 13
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/__tests__/utils.js",
+        "additions": 13,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/backend/fiber/renderer.js",
+        "additions": 111,
+        "deletions": 8
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/constants.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/store.js",
+        "additions": 78,
+        "deletions": 6
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Components/ActivitySlice.css",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Components/ActivitySlice.js",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Components/Element.js",
+        "additions": 11,
+        "deletions": 4
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Components/Tree.js",
+        "additions": 24,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Components/TreeContext.js",
+        "additions": 45,
+        "deletions": 7
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Profiler/CommitTreeBuilder.js",
+        "additions": 15,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Settings/ComponentsSettings.js",
+        "additions": 42,
+        "deletions": 24
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/ActivityList.css",
+        "additions": 45,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/ActivityList.js",
+        "additions": 168,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseTab.css",
+        "additions": 2,
+        "deletions": 3
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseTab.js",
+        "additions": 19,
+        "deletions": 6
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseTreeList.js",
+        "additions": 0,
+        "deletions": 14
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/frontend/types.js",
+        "additions": 11,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/utils.js",
+        "additions": 27,
+        "deletions": 9
+      },
+      {
+        "filename": "packages/react-devtools-shell/src/app/Segments/index.js",
+        "additions": 96,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-devtools-shell/src/app/index.js",
+        "additions": 2,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 34996,
+    "title": "Improve completeSegment for safer DOM manipulation",
+    "user": "leog",
+    "created_at": "2025-10-28T02:14:59",
+    "updated_at": "2025-11-08T03:54:50",
+    "body": "<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\nEnhance completeSegment function to handle cases where segment or placeholder nodes may not exist, preventing potential DOM exceptions.\r\n\r\nIt's related to this kind of error: https://github.com/vercel/next.js/discussions/70048\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\n## How did you test this change?\r\n\r\nTried to reproduce the original issue but it's very difficult and unpredictable. Since it comes from using Next.js and the `loading.tsx` Suspense boundary, it's not that straightforward to reproduce.  \r\n",
+    "html_url": "https://github.com/facebook/react/pull/34996",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/server/fizz-instruction-set/ReactDOMFizzInstructionSetInlineCodeStrings.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/react-dom-bindings/src/server/fizz-instruction-set/ReactDOMFizzInstructionSetShared.js",
+        "additions": 26,
+        "deletions": 6
+      }
+    ]
+  },
+  {
+    "number": 35062,
+    "title": "[compiler] Allow ref access in callbacks passed to event handler props",
+    "user": "kolvian",
+    "created_at": "2025-11-06T20:03:04",
+    "updated_at": "2025-11-08T02:47:38",
+    "body": "<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\nFixes #35040. The React compiler incorrectly flags ref access within event handlers as ref access at render time. For example, this code would fail to compile with error \"Cannot access refs during render\":\r\n\r\n```tsx\r\n  const onSubmit = async (data) => {\r\n    const file = ref.current?.toFile(); // Incorrectly flagged as error\r\n  };\r\n\r\n  <form onSubmit={handleSubmit(onSubmit)}>\r\n```\r\nThis is a false positive because any built-in DOM event handler is guaranteed not to run at render time. This PR only supports built-in event handlers because there are no guarantees that user-made event handlers will not run at render time.\r\n\r\n## How did you test this change?\r\n\r\n<!--\r\n  Demonstrate the code is solid. Example: The exact commands you ran and their output, screenshots / videos if the pull request changes the user interface.\r\n  How exactly did you verify that your PR solves the issue you wanted to solve?\r\n  If you leave this empty, your PR will very likely be closed.\r\n-->\r\nI created 4 test fixtures which validate this change:\r\n* allow-ref-access-in-event-handler-wrapper.tsx - Sync handler test input\r\n* allow-ref-access-in-event-handler-wrapper.expect.md - Sync handler expected output\r\n* allow-ref-access-in-async-event-handler-wrapper.tsx - Async handler test input\r\n* allow-ref-access-in-async-event-handler-wrapper.expect.md - Async handler expected output\r\n\r\nAll linters and test suites also pass.\r\n\r\n",
+    "html_url": "https://github.com/facebook/react/pull/35062",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts",
+        "additions": 9,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/HIR/Globals.ts",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/HIR/ObjectShape.ts",
+        "additions": 16,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/TypeInference/InferTypes.ts",
+        "additions": 27,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoRefAccessInRender.ts",
+        "additions": 15,
+        "deletions": 18
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-access-in-async-event-handler-wrapper.expect.md",
+        "additions": 150,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-access-in-async-event-handler-wrapper.tsx",
+        "additions": 49,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-access-in-event-handler-wrapper.expect.md",
+        "additions": 103,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/allow-ref-access-in-event-handler-wrapper.tsx",
+        "additions": 37,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.ref-value-in-custom-component-event-handler-wrapper.expect.md",
+        "additions": 70,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.ref-value-in-custom-component-event-handler-wrapper.tsx",
+        "additions": 42,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.ref-value-in-event-handler-wrapper.expect.md",
+        "additions": 56,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/error.ref-value-in-event-handler-wrapper.tsx",
+        "additions": 28,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 33692,
+    "title": "add type to priorityLevel",
+    "user": "bubucuo",
+    "created_at": "2025-07-04T02:08:02",
+    "updated_at": "2025-11-08T01:32:48",
+    "body": "The param priorityLevel should be typed as PriorityLevel.\r\n\r\n<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\n## How did you test this change?\r\n\r\n<!--\r\n  Demonstrate the code is solid. Example: The exact commands you ran and their output, screenshots / videos if the pull request changes the user interface.\r\n  How exactly did you verify that your PR solves the issue you wanted to solve?\r\n  If you leave this empty, your PR will very likely be closed.\r\n-->\r\n",
+    "html_url": "https://github.com/facebook/react/pull/33692",
+    "files": [
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberWorkLoop.js",
+        "additions": 2,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 35052,
+    "title": "fix(beforeinput): handle native beforeinput events (Firefox replacement flows) — fixes #24358",
+    "user": "ruidosujeira",
+    "created_at": "2025-11-05T22:42:53",
+    "updated_at": "2025-11-07T18:26:51",
+    "body": "Summary\r\n\r\nThis pull request fixes a bug where the `onBeforeInput` event handler would not fire in React applications running on Firefox. This failure occurred during specific text replacement flows, such as selecting a character from the macOS accent popup (e.g., holding 'a' to select 'á') or applying a correction from the native spellcheck context menu.\r\n\r\nThe root cause is that Firefox (unlike other browsers) emits a **native** `beforeinput` event for these actions. The existing `BeforeInputEventPlugin` was not registered to listen for this native event, only for `textInput` or composition events, causing these specific replacement flows to be missed.\r\n\r\nThis fix updates `BeforeInputEventPlugin.js` to:\r\n1.  Add `'beforeinput'` as a direct dependency for `onBeforeInput` in `registerEvents()`.\r\n2.  Update `getNativeBeforeInputChars()` to correctly extract `nativeEvent.data` when the event is a native `beforeinput`.\r\n\r\nFixes #24358 \r\n\r\nHow did you test this change?\r\n\r\nAdded two new unit tests to `BeforeInputEventPlugin-test.js` to validate this fix.\r\n\r\nThese tests simulate the dispatch of a native `beforeinput` event (mimicking Firefox's behavior for `insertReplacementText`) on both a standard `<input type=\"text\">` and a `contentEditable` element. The tests assert that the `onBeforeInput` handler is correctly invoked and receives the `event.data` from the native event.\r\n\r\nThese new tests pass, confirming the fix, while all existing tests for the plugin also continue to pass.\r\n\r\nCommand Run:\r\n```bash\r\nyarn test packages/react-dom/src/events/plugins/__tests__/BeforeInputEventPlugin-test.js -i\r\n\r\nTest Output:\r\n\r\nRunning tests for default (experimental)...\r\n PASS  packages/react-dom/src/events/plugins/__tests__/BeforeInputEventPlugin-test.js\r\n  BeforeInputEventPlugin\r\n    ✓ should extract onBeforeInput when simulating in Webkit on input[type=text] (733 ms)\r\n    ✓ should extract onBeforeInput when simulating in Webkit on contenteditable (62 ms)\r\n    ✓ should extract onBeforeInput when simulating in IE11 on input[type=text] (60 ms)\r\n    ✓ should extract onBeforeInput when simulating in IE11 on contenteditable (72 ms)\r\n    ✓ should extract onBeforeInput when simulating in env with no CompositionEvent on input[type=text] (64 ms)\r\n    ✓ should extract onBeforeInput when simulating in env with only CompositionEvent on input[type=text] (73 ms)\r\n    ✓ should extract onBeforeInput when simulating in env with only CompositionEvent on contenteditable (72 ms)\r\n    ✓ should extract onBeforeInput for native beforeinput on input[type=text] (68 ms)\r\n    ✓ should extract onBeforeInput for native beforeinput on contentEditable (76 ms)\r\n\r\nTest Suites: 1 passed, 1 total\r\nTests:       9 passed, 9 total\r\nSnapshots:   0 total\r\nTime:        1.888 s, estimated 2 s\r\nRan all test suites matching /packages\\/react-dom\\/src\\/events\\/plugins\\/__tests__\\/BeforeInputEventPlugin-test.js/i.\r\nDone in 2.79s.",
+    "html_url": "https://github.com/facebook/react/pull/35052",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/events/plugins/BeforeInputEventPlugin.js",
+        "additions": 14,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-dom/src/events/plugins/__tests__/BeforeInputEventPlugin-test.js",
+        "additions": 65,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 35071,
+    "title": "[DevTools] Special case the selected root outline",
+    "user": "sebmarkbage",
+    "created_at": "2025-11-07T16:46:53",
+    "updated_at": "2025-11-07T16:47:16",
+    "body": "When I moved the outline to above all other rects, I thought it was clever to unify with the root so that the outline was also used for the root selection. But the root outline is not drawn like the other rects. It's outside the padding and doesn't have the 1px adjustment which leads the overlay to be slightly inside the other rect instead of above it.\r\n\r\nThis goes back to just having the selected root be drawn by the root element.\r\n\r\nBefore:\r\n\r\n<img width=\"652\" height=\"253\" alt=\"Screenshot 2025-11-07 at 11 39 28 AM\" src=\"https://github.com/user-attachments/assets/334237d1-f190-4995-94cc-9690ec0f7ce1\" />\r\n\r\nAfter:\r\n\r\n<img width=\"674\" height=\"220\" alt=\"Screenshot 2025-11-07 at 11 44 01 AM\" src=\"https://github.com/user-attachments/assets/afaa86d8-942a-44d8-a1a5-67c7fb642c0d\" />\r\n",
+    "html_url": "https://github.com/facebook/react/pull/35071",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseRects.css",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseRects.js",
+        "additions": 1,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 34956,
+    "title": "[DevTools] Revert Measure the Rectangle of Suspense boundaries as we reconcile",
+    "user": "meet-student",
+    "created_at": "2025-10-23T06:13:10",
+    "updated_at": "2025-11-07T15:50:05",
+    "body": "Close:  \r\n- #34942 \r\n- #34866\r\n\r\nAfter investigation, the problem appeared in this PR #34090 . \r\nMeasure the Rectangle of Suspense boundaries as we reconcile\r\n\r\nI think this change release should be rolled back. After confirming that there are no issues with the subsequent plan, it can be changed again to ensure that the impact on users is reduced\r\n\r\n@sebmarkbage @eps1lon  @hoxyq ",
+    "html_url": "https://github.com/facebook/react/pull/34956",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/backend/fiber/renderer.js",
+        "additions": 0,
+        "deletions": 76
+      }
+    ]
+  },
+  {
+    "number": 35050,
+    "title": "Fix: Should not already be working error in Firefox after breakpoint/…",
+    "user": "Mario5T",
+    "created_at": "2025-11-05T16:50:38",
+    "updated_at": "2025-11-07T10:50:13",
+    "body": "\r\n[ISSUE_17355_SUMMARY.md](https://github.com/user-attachments/files/23370921/ISSUE_17355_SUMMARY.md)\r\n…alert (#17355)\r\n\r\n# Fix: \"Should not already be working\" error in Firefox after breakpoint/alert\r\n\r\n## Summary\r\nFixes #17355 - Resolves the \"Should not already be working\" error that occurs in Firefox (and some older browsers) when a breakpoint or `alert()` pauses the JavaScript main thread.\r\n\r\n## Problem Description\r\nWhen developers use breakpoints or `alert()` statements in Firefox, React throws an error:\r\n```\r\nError: Should not already be working.\r\n```\r\n\r\nThis error occurs because:\r\n1. React is performing work with `executionContext` set to `RenderContext` or `CommitContext`\r\n2. A breakpoint or `alert()` pauses the main thread\r\n3. During the pause, `MessageChannel` messages queue up\r\n4. Upon resuming, Firefox immediately fires the queued `MessageChannel` callback\r\n5. This causes `performWorkOnRoot()` or `commitRootImpl()` to be called re-entrantly\r\n6. The re-entrant call sees `executionContext` is still set (hasn't been cleared yet)\r\n7. React throws the error\r\n\r\n## Root Cause Analysis\r\nThe issue is a race condition in Firefox's `MessageChannel` implementation:\r\n- **Normal browsers**: `MessageChannel` callbacks are dispatched asynchronously after the current execution completes\r\n- **Firefox after pause**: Queued `MessageChannel` callbacks fire immediately/synchronously upon resuming from a pause\r\n\r\nThis creates a re-entrance scenario where React's scheduler tries to start new work before the previous work's cleanup (clearing `executionContext`) has completed.\r\n\r\n## Solution\r\nInstead of throwing an error when re-entrance is detected, the fix:\r\n1. Detects the re-entrant call by checking `executionContext`\r\n2. Logs a development warning to inform developers\r\n3. Calls `ensureRootIsScheduled(root)` to properly schedule the work for later\r\n4. Returns early to avoid the error\r\n\r\nThis approach:\r\n- ✅ Handles the Firefox edge case gracefully\r\n- ✅ Maintains React's scheduling semantics\r\n- ✅ Doesn't change timing behavior for normal cases\r\n- ✅ Provides helpful debugging information in development\r\n- ✅ Works across all browsers\r\n\r\n## Changes Made\r\n\r\n### Modified Files\r\n1. **`packages/react-reconciler/src/ReactFiberWorkLoop.js`**\r\n   - Modified `performWorkOnRoot()` (line ~1071)\r\n   - Modified `commitRootImpl()` (line ~3459)\r\n   - Both locations now handle re-entrance gracefully instead of throwing\r\n\r\n### Code Changes\r\n\r\n#### Before:\r\n```javascript\r\nif ((executionContext & (RenderContext | CommitContext)) !== NoContext) {\r\n  throw new Error('Should not already be working.');\r\n}\r\n```\r\n\r\n#### After:\r\n```javascript\r\nif ((executionContext & (RenderContext | CommitContext)) !== NoContext) {\r\n  // We're being called re-entrantly. This can happen in Firefox (and some\r\n  // older browsers) when a breakpoint or alert() pauses the main thread,\r\n  // causing MessageChannel callbacks to fire immediately upon resuming.\r\n  // Instead of throwing an error, schedule the work to run after the\r\n  // current work completes.\r\n  // See: https://github.com/facebook/react/issues/17355\r\n  if (__DEV__) {\r\n    console.error(\r\n      'performWorkOnRoot was called recursively. This is likely due to ' +\r\n        'a browser pause (e.g., breakpoint or alert). The work will be ' +\r\n        'rescheduled.',\r\n    );\r\n  }\r\n  ensureRootIsScheduled(root);\r\n  return;\r\n}\r\n```\r\n\r\n## Testing\r\n\r\n### Manual Testing\r\n1. Created `ISSUE_17355_TEST.html` with multiple test scenarios:\r\n   - Alert during render\r\n   - Alert during effect\r\n   - Rapid state updates\r\n   - Simulated MessageChannel re-entrance\r\n\r\n2. Tested on:\r\n   - Firefox (latest)\r\n   - Chrome\r\n   - Safari\r\n   - Edge\r\n\r\n### Automated Testing\r\nCreated `ReactReentranceGuard-test.js` with test cases for:\r\n- Re-entrant `performWorkOnRoot` calls\r\n- Re-entrant `commitRoot` calls\r\n- Work rescheduling behavior\r\n- Normal operation (no regression)\r\n- Multiple rapid updates\r\n\r\n### Test Results\r\n- ✅ No \"Should not already be working\" errors\r\n- ✅ Work is properly rescheduled\r\n- ✅ Development warnings appear as expected\r\n- ✅ No regression in normal operation\r\n- ✅ All existing tests pass\r\n\r\n## Reproduction Steps (Before Fix)\r\n\r\n1. Create a React component with state updates\r\n2. Add `alert()` in a `useEffect` or render method\r\n3. Run the app in Firefox\r\n4. Click OK on the alert\r\n5. **Error**: \"Should not already be working\" appears in console\r\n\r\n## Verification Steps (After Fix)\r\n\r\n1. Follow the same reproduction steps\r\n2. **Result**: No error is thrown\r\n3. **Result**: In development mode, a warning appears explaining the re-entrance\r\n4. **Result**: The application continues to work correctly\r\n\r\n## Browser Compatibility\r\n- ✅ Firefox (all versions)\r\n- ✅ Chrome\r\n- ✅ Safari\r\n- ✅ Edge\r\n- ✅ Older browsers mentioned in the issue\r\n\r\n## Performance Impact\r\n- **None** - The fix only adds a check that runs when re-entrance is detected (rare edge case)\r\n- Normal operation has zero overhead\r\n- No changes to React's scheduling algorithm\r\n\r\n## Breaking Changes\r\n- **None** - This is a bug fix that makes React more resilient\r\n\r\n## Migration Guide\r\n- **Not needed** - The fix is transparent to users\r\n- Developers using breakpoints/alerts will simply stop seeing the error\r\n\r\n## Related Issues\r\n- Fixes #17355\r\n- Related to scheduler MessageChannel implementation\r\n- May help with similar timing issues in other browsers\r\n\r\n## Documentation\r\n- Added inline comments explaining the fix\r\n- Created comprehensive analysis document (`ISSUE_17355_ANALYSIS.md`)\r\n- Created test file with examples (`ISSUE_17355_TEST.html`)\r\n\r\n## Checklist\r\n- [x] Code follows React's style guidelines\r\n- [x] Added/updated tests\r\n- [x] All tests pass\r\n- [x] Added inline documentation\r\n- [x] Tested on multiple browsers\r\n- [x] No breaking changes\r\n- [x] Issue reference included (#17355)\r\n\r\n## Screenshots/Logs\r\n\r\n### Before Fix:\r\n```\r\nError: Should not already be working.\r\n    at performWorkOnRoot (ReactFiberWorkLoop.js:1072)\r\n    at performWorkOnRoot (ReactFiberWorkLoop.js:1066)\r\n    ...\r\n```\r\n\r\n### After Fix (Development):\r\n```\r\nWarning: performWorkOnRoot was called recursively. This is likely due to \r\na browser pause (e.g., breakpoint or alert). The work will be rescheduled.\r\n```\r\n\r\n### After Fix (Production):\r\n```\r\n(No error, work is silently rescheduled)\r\n```\r\n\r\n## Additional Notes\r\n\r\nThis fix takes a defensive programming approach - instead of assuming the scheduler will never be called re-entrantly, it handles the case gracefully. This makes React more robust against browser quirks and edge cases.\r\n\r\nThe fix is minimal and focused on the specific issue, without changing React's core scheduling logic or introducing new complexity.\r\n\r\n## Reviewers\r\nPlease pay special attention to:\r\n1. The re-entrance detection logic\r\n2. The use of `ensureRootIsScheduled()` for rescheduling\r\n3. The development warning message\r\n4. Test coverage for edge cases\r\n\r\n---\r\n\r\n**Issue Reference**: #17355  \r\n**Type**: Bug Fix  \r\n**Priority**: Medium  \r\n**Affected Versions**: All versions with MessageChannel-based scheduler  \r\n**Target Version**: Next minor release",
+    "html_url": "https://github.com/facebook/react/pull/35050",
+    "files": [
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberWorkLoop.js",
+        "additions": 30,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactReentranceGuard-test.js",
+        "additions": 215,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 35020,
+    "title": "[compiler] Don't validate when effect cleanup function depends on effect localized setState state derived values",
+    "user": "jorge-cab",
+    "created_at": "2025-10-30T22:29:11",
+    "updated_at": "2025-11-06T21:20:52",
+    "body": "\nSummary:\nIf we are using a clean up function in an effect and that clean up function depends on a value that is used to set the state we are validating for we shouldn't throw an error since it is a valid use case for an effect.\n\nTest Plan:\nadded test\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/35020).\n* #35044\n* __->__ #35020\n* #34973\n* #34972\n* #34995\n* #34967",
+    "html_url": "https://github.com/facebook/react/pull/35020",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 387,
+        "deletions": 114
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.expect.md",
+        "additions": 86,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.expect.md",
+        "additions": 77,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 115,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.expect.md",
+        "additions": 57,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.js",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.expect.md",
+        "additions": 93,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-cleanup-function-depending-on-derived-computation-value.expect.md",
+        "additions": 76,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-cleanup-function-depending-on-derived-computation-value.js",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-conditionally-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 49
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-default-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-local-state-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 43
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.effect-contains-local-function-call.expect.md",
+        "additions": 0,
+        "deletions": 50
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-computation-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 48
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-computed-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 0,
+        "deletions": 47
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.expect.md",
+        "additions": 80,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.expect.md",
+        "additions": 79,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 34995,
+    "title": "[compiler] Fix false negatives and add data flow tree to compiler error for `no-deriving-state-in-effects`",
+    "user": "jorge-cab",
+    "created_at": "2025-10-27T22:49:39",
+    "updated_at": "2025-11-06T21:20:52",
+    "body": "\nSummary:\nRevamped the derivationCache graph.\n\nThis fixes a bunch of bugs where sometimes we fail to track from which props/state we derived values from.\n\nAlso, it is more intuitive and allows us to easily implement a Data Flow Tree.\n\nWe can print this tree which gives insight on how the data is derived and should facilitate error resolution in complicated components\n\nTest Plan:\nAdded a test case where we were failing to track derivations. Also updated the test cases with the new error containing the data flow tree\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/34995).\n* #35044\n* #35020\n* #34973\n* #34972\n* __->__ #34995\n* #34967",
+    "html_url": "https://github.com/facebook/react/pull/34995",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 256,
+        "deletions": 69
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-conditionally-in-effect.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-default-props.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-local-state-in-effect.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 12,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-setter-ternary.expect.md",
+        "additions": 48,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-setter-ternary.js",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.effect-contains-local-function-call.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-computation-in-effect.expect.md",
+        "additions": 10,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-computed-props.expect.md",
+        "additions": 11,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 10,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 34973,
+    "title": "[compiler] Switch to track setStates by aliasing and id instead of identifier names",
+    "user": "jorge-cab",
+    "created_at": "2025-10-24T22:08:40",
+    "updated_at": "2025-11-06T21:20:52",
+    "body": "\nSummary:\nThis makes the setState usage logic much more robust. We no longer rely on identifierName.\n\nNow we track when a setState is loaded into a new promoted identifier variable and track this in a map `setStateLoaded` map.\n\nFor other types of instructions we consider the setState to be being used. In this case we record its usage into the `setStateUsages` map.\n\n\n\nTest Plan:\nWe expect no changes in behavior for the current tests\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/34973).\n* #35044\n* #35020\n* __->__ #34973\n* #34972\n* #34995\n* #34967",
+    "html_url": "https://github.com/facebook/react/pull/34973",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 348,
+        "deletions": 114
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.expect.md",
+        "additions": 86,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.expect.md",
+        "additions": 77,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 115,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.expect.md",
+        "additions": 57,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.js",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.expect.md",
+        "additions": 93,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-conditionally-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 49
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-default-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-local-state-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 43
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.effect-contains-local-function-call.expect.md",
+        "additions": 0,
+        "deletions": 50
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-computation-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 48
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-computed-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 0,
+        "deletions": 47
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.expect.md",
+        "additions": 80,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.expect.md",
+        "additions": 79,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 34972,
+    "title": "[compiler] Update ValidateNoDerivedComputationsInEffects_exp to log the error instead of throwing",
+    "user": "jorge-cab",
+    "created_at": "2025-10-24T22:08:39",
+    "updated_at": "2025-11-06T21:20:52",
+    "body": "\nSummary:\nTSIA\n\nSimple change to log errors in Pipeline.ts instead of throwing in the validation\n\nTest Plan:\nupdated snap tests\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/34972).\n* #35044\n* #35020\n* #34973\n* __->__ #34972\n* #34995\n* #34967",
+    "html_url": "https://github.com/facebook/react/pull/34972",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 259,
+        "deletions": 73
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.expect.md",
+        "additions": 86,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.expect.md",
+        "additions": 77,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 115,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.expect.md",
+        "additions": 57,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.js",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.expect.md",
+        "additions": 93,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-conditionally-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 49
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-default-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-local-state-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 43
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.effect-contains-local-function-call.expect.md",
+        "additions": 0,
+        "deletions": 50
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-computation-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 48
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-computed-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 0,
+        "deletions": 47
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.expect.md",
+        "additions": 80,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.expect.md",
+        "additions": 79,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 34967,
+    "title": "[compiler] Prevent overriding a derivationEntry on effect mutation and instead update typeOfValue and fix infinite loops",
+    "user": "jorge-cab",
+    "created_at": "2025-10-23T21:57:45",
+    "updated_at": "2025-11-06T21:20:52",
+    "body": "\nSummary:\nWith this we are now comparing a snapshot of the derivationCache with the new changes every time we are done recording the derivations happening in the HIR.\n\nWe have to do this after recording everything since we still do some mutations on the cache when recording mutations.\n\n\n\nTest Plan:\nTest the following in playground:\n```\n// @validateNoDerivedComputationsInEffects_exp\n\nfunction Component({ value }) {\n  const [checked, setChecked] = useState('');\n\n  useEffect(() => {\n    setChecked(value === '' ? [] : value.split(','));\n  }, [value]);\n\n  return (\n    <div>{checked}</div>\n  )\n}\n```\n\nThis no longer causes an infinite loop.\n\nAdded a test case in the next PR in the stack\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/34967).\n* #35044\n* #35020\n* #34973\n* #34972\n* #34995\n* __->__ #34967",
+    "html_url": "https://github.com/facebook/react/pull/34967",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 59,
+        "deletions": 15
+      }
+    ]
+  },
+  {
+    "number": 35044,
+    "title": "[compiler] Prevent local state source variables from depending on other state",
+    "user": "jorge-cab",
+    "created_at": "2025-11-04T21:15:33",
+    "updated_at": "2025-11-06T21:20:51",
+    "body": "\nSummary:\nWhen a local state is created sometimes it uses a `prop` or even other local state for its initial value.\n\nThis value is only relevant on first render so we shouldn't consider it part of our data flow\n\nTest Plan:\nAdded tests\n\n---\n[//]: # (BEGIN SAPLING FOOTER)\nStack created with [Sapling](https://sapling-scm.com). Best reviewed with [ReviewStack](https://reviewstack.dev/facebook/react/pull/35044).\n* __->__ #35044\n* #35020\n* #34973\n* #34972\n* #34995\n* #34967",
+    "html_url": "https://github.com/facebook/react/pull/35044",
+    "files": [
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Entrypoint/Pipeline.ts",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts",
+        "additions": 394,
+        "deletions": 115
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.expect.md",
+        "additions": 86,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-conditionally-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-default-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.expect.md",
+        "additions": 77,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-local-state-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 115,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-local-state-and-component-scope.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-call-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.expect.md",
+        "additions": 57,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-ternary.js",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-setter-used-outside-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-prop-with-side-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/derived-state-from-ref-and-state-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.expect.md",
+        "additions": 93,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-local-function-call.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.expect.md",
+        "additions": 9,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-contains-prop-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-cleanup-function-depending-on-derived-computation-value.expect.md",
+        "additions": 76,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-cleanup-function-depending-on-derived-computation-value.js",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/effect-with-global-function-call-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-conditionally-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 49
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-default-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-local-state-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 43
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-local-state-and-component-scope.expect.md",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.derived-state-from-prop-with-side-effect.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.effect-contains-local-function-call.expect.md",
+        "additions": 0,
+        "deletions": 50
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-computation-in-effect.expect.md",
+        "additions": 0,
+        "deletions": 48
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-computed-props.expect.md",
+        "additions": 0,
+        "deletions": 46
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/error.invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 0,
+        "deletions": 47
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.expect.md",
+        "additions": 80,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-computation-in-effect.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.expect.md",
+        "additions": 79,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-computed-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.expect.md",
+        "additions": 81,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/invalid-derived-state-from-destructured-props.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.expect.md",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/ref-conditional-in-effect-no-error.js",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/usestate-derived-from-prop-no-show-in-data-flow-tree.expect.md",
+        "additions": 72,
+        "deletions": 0
+      },
+      {
+        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/effect-derived-computations/usestate-derived-from-prop-no-show-in-data-flow-tree.js",
+        "additions": 18,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 34136,
+    "title": "Update index.js",
+    "user": "adriancuadrado",
+    "created_at": "2025-08-08T18:43:31",
+    "updated_at": "2025-11-06T21:05:03",
+    "body": "https://github.com/facebook/react/blob/3958d5d84b3d3e6ae5c1caef9c8cf0dc58e862e6/packages/react-devtools-extensions/src/main/reactPolling.js#L79-L82\r\n\r\nAttemps start every 0.5s, therefore the comment is wrong.\r\n\r\n<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\nThe comment was wrong so I fixed it.\r\n\r\n## How did you test this change?\r\n\r\nI didn't really test this change. It's just a change in a comment, it shouldn't break anything.",
+    "html_url": "https://github.com/facebook/react/pull/34136",
+    "files": [
+      {
+        "filename": "packages/react-devtools-extensions/src/main/index.js",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 33964,
+    "title": "[devtools]: Prevent false positive render detection in profiler (#33423, #19732)",
+    "user": "developerjhp",
+    "created_at": "2025-07-22T15:53:29",
+    "updated_at": "2025-11-06T16:46:34",
+    "body": "## Summary\r\n Fixes a bug in React DevTools where the profiler incorrectly reported sibling components as re-rendered when they were nested under HostComponents (like `<div>`) that get filtered out by DevTools. This affected profiler data collection, render highlighting, and inspector cache management.\r\n\r\n## Background\r\n  React DevTools filters out DOM elements (HostComponents) by default to focus on user components. However, this filtering created a blind spot where sibling components under the same HostComponent parent would be incorrectly reported as re-rendered even when their Fiber objects remained identical.\r\n  This is a follow-up to #33434\r\n  \r\n## Previous Attempt & Learning\r\n#33434 helped identify that the issue wasn't with `didFiberRender` logic itself, but with **when it was being called**. The filtering behavior provided the key insight that components with identical Fiber objects shouldn't trigger render\r\n    detection when their parent HostComponents are filtered.\r\n\r\n##  Example scenario:\r\n  ```javascript\r\nconst Count = () => {\r\n    const [count, setCount] = useState(0);\r\n    console.log('Count Component Rerendered');\r\n    return (\r\n        <button onClick={() => setCount(c => c + 1)}>\r\n            Count: {count}\r\n        </button>\r\n    );\r\n};\r\n\r\nconst Greeting = () => {\r\n    console.log('Greeting Component Rerendered');\r\n    return <span>Hello World!</span>;\r\n};\r\n\r\nconst App = () => {\r\n    const [appState, setAppState] = useState(0);\r\n    console.log('App Component Rerendered');\r\n    \r\n    return (\r\n        <main>\r\n            <div>App State: {appState}</div>\r\n            <button onClick={() => setAppState(s => s + 1)}>\r\n                App Rerender Trigger (All children rerender)\r\n            </button>\r\n            <hr />\r\n            <Count />\r\n            <div>\r\n                <Greeting />\r\n            </div>\r\n        </main>\r\n    );\r\n};\r\n```\r\n\r\n##  Root Cause\r\n\r\n  The issue occurred because didFiberRender was being called for components whose Fiber objects remained referentially identical (prevFiber === nextFiber) but were nested under HostComponents. When the parent HostComponent processed its children during reconciliation, DevTools would check all child components without recognizing that some hadn't actually re-rendered.\r\n\r\n## Key insight \r\nIf prevFiber === nextFiber and the parent is a filtered HostComponent, then didFiberRender shouldn't be called at all - not because the function is wrong, but because the component genuinely hasn't re-rendered.\r\n\r\n##  Solution\r\n  Instead of modifying didFiberRender logic, this fix prevents the function from being called when we can objectively determine a component hasn't re-rendered. The fix adds conditional checks in three critical locations:\r\n\r\n  1. Profiler Data Collection (renderer.js:2816)\r\n   - Prevents false positive entries in profiler commit data when components haven't actually re-rendered.\r\n\r\n  2. Render Highlighting (renderer.js:3327)\r\n  - Prevents incorrect highlighting of components during trace updates when they haven't changed.\r\n\r\n  3. Inspector Cache Management (renderer.js:3359)\r\n  - Preserves cached inspection data when components haven't actually re-rendered, avoiding unnecessary re-computation.\r\n\r\n##  Implementation Details\r\n  The fix uses objective criteria to detect when didFiberRender shouldn't be called:\r\n```jsx\r\n  if (\r\n    prevFiber === nextFiber &&  // Same Fiber object reference\r\n    nextFiber.return != null &&\r\n    (nextFiber.return.tag === HostComponent || nextFiber.return.tag === HostSingleton)  // Parent is filtered HostComponent\r\n  ) {\r\n    // Don't call didFiberRender - component hasn't actually re-rendered\r\n  }\r\n```\r\n\r\n  This approach:\r\n  - Addresses false positives at the source\r\n  - Maintains existing didFiberRender logic unchanged\r\n  - Applies consistently across all DevTools features\r\n  - Uses objective, verifiable criteria\r\n  - No performance impact on normal rendering\r\n\r\n  Related Issues\r\n\r\n  Fixes #33423, #19732",
+    "html_url": "https://github.com/facebook/react/pull/33964",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/backend/fiber/renderer.js",
+        "additions": 41,
+        "deletions": 6
+      }
+    ]
+  },
+  {
+    "number": 35057,
+    "title": "fix(react-dom): add null checks to completeSegment to prevent race condition",
+    "user": "ponharu",
+    "created_at": "2025-11-06T09:41:57",
+    "updated_at": "2025-11-06T12:26:10",
+    "body": "<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\nThis PR fixes a race condition bug in React DOM's Server-Side Rendering where the `$RS` (completeSegment) function doesn't check if `parentNode` is null before accessing it.\r\n\r\n**Problem:**\r\nDuring Suspense boundary resolution in production builds, the `completeSegment` function can encounter a race condition where DOM nodes are removed by other processes, causing `parentNode` to become `null`. This results in the error: `Cannot read properties of null (reading\r\n'parentNode')`.\r\n\r\n**Solution:**\r\nAdded null safety checks for `a`, `b`, `a.parentNode`, and `b.parentNode` before DOM manipulation. This ensures the function safely exits if any required node or parent is missing.\r\n\r\n**Affected code:**\r\n`packages/react-dom-bindings/src/server/fizz-instruction-set/ReactDOMFizzInstructionSetInlineCodeStrings.js` (line 15)\r\n\r\nFixes #35056 \r\n\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\n## How did you test this change?\r\n\r\n**1. Minimal Reproduction:**\r\nCreated a minimal Next.js application that consistently reproduces the bug:\r\n- Repository: https://github.com/ponharu/react-issue\r\n- Setup: Next.js 16.0.1 + React 19.2.0 + Chakra UI v3 with Suspense boundaries\r\n- Steps: Production build with async page component (1s delay) + Suspense fallback\r\n\r\n**2. Verification:**\r\n- **Before fix**: Error occurred consistently when reloading the page multiple times\r\n- **After applying the fix**: Error no longer occurs, page renders correctly\r\n- Applied the fix to all affected compiled files in Next.js project and verified in production environment\r\n\r\n**3. Commands run:**\r\n```bash\r\n# Applied fix to production build\r\nnpm run build\r\nnpm run start\r\n\r\n# Tested multiple page reloads to trigger race condition\r\n# Monitored browser console for errors\r\n```\r\n\r\n**4. Environment tested:**\r\n- Next.js 16.0.1 (production build)\r\n- React/React DOM 19.2.0\r\n- Chakra UI v3\r\n- Node.js 24.11.0\r\n- Browser: google Chrome 142.0.7444.60\r\n\r\nNote: This is a minimal defensive fix that adds null checks without changing the core logic. The race condition is timing-sensitive and more likely to occur with CSS-in-JS libraries like Chakra UI.\r\n\r\n<!--\r\n  Demonstrate the code is solid. Example: The exact commands you ran and their output, screenshots / videos if the pull request changes the user interface.\r\n  How exactly did you verify that your PR solves the issue you wanted to solve?\r\n  If you leave this empty, your PR will very likely be closed.\r\n-->\r\n",
+    "html_url": "https://github.com/facebook/react/pull/35057",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/server/fizz-instruction-set/ReactDOMFizzInstructionSetInlineCodeStrings.js",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 35054,
+    "title": "DevTools: guard against undefined component stack in Profiler SidebarEventInfo",
+    "user": "Abhra0404",
+    "created_at": "2025-11-06T04:10:59",
+    "updated_at": "2025-11-06T06:14:54",
+    "body": "Fixes a crash in the DevTools Profiler where calling `.map` on an undefined component stack could throw: \"Cannot read properties of undefined (reading 'map')\". See issue facebook/react#35049.\n\nWhat I changed:\n- Ensure `stackToComponentLocations(componentStack)` is treated as an array before calling `.map` in `packages/react-devtools-shared/src/devtools/views/Profiler/SidebarEventInfo.js`.\n- Removed inline Flow type annotations in `SidebarEventInfo.js` to keep the file valid JavaScript in this build.\n\nWhy:\n- When `componentStack` was undefined (e.g. during navigation in React Native), the code attempted to call `.map` on the result, causing the Profiler to crash. Guarding the `.map` call prevents the crash.\n\nNotes / Testing:\n- The fix was committed to branch `fix/profiler-crash-35049` in my fork (`Abhra0404/react`).\n- Please review the removal of Flow annotations; if you prefer Flow types retained, I can reintroduce them in a Flow-compatible way.\n\nThis PR references and aims to address facebook/react#35049.\n",
+    "html_url": "https://github.com/facebook/react/pull/35054",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/devtools/views/Profiler/SidebarEventInfo.js",
+        "additions": 6,
+        "deletions": 11
+      }
+    ]
+  },
+  {
+    "number": 34983,
+    "title": "fix: prevent metadata hoisting in hidden Activity boundaries",
+    "user": "ronnakamoto",
+    "created_at": "2025-10-26T14:23:28",
+    "updated_at": "2025-11-05T21:58:46",
+    "body": "## Summary\r\n\r\nThis fixes #34738 \r\n\r\nIn React 19.2, metadata tags (`<title>`) are automatically hoisted to the document <head>. However, these tags were incorrectly being hoisted even when inside hidden <Activity> components, causing the browser's document title to be set by hidden content.\r\n\r\n<img width=\"728\" height=\"461\" alt=\"image\" src=\"https://github.com/user-attachments/assets/1e70fafe-c348-479b-8d83-e6b4b8784032\" />\r\n\r\n\r\nThis commit fixes the issue by making the hoisting logic Activity-aware:\r\n\r\n1. Check offscreenSubtreeIsHidden before mounting hoistables during the initial commit phase to prevent hoisting in hidden Activities\r\n2. Add recursivelyMountHoistablesInSubtree() to mount hoistables when an Activity transitions from hidden to visible\r\n3. Add recursivelyUnmountHoistablesInSubtree() to unmount hoistables when an Activity transitions from visible to hidden\r\n\r\n## How did you test this change?\r\n\r\nAdded tests for this as well as tested this on local using the reference code from the link https://github.com/nilshartmann/react-activity-title given in #34738 issue description.\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34983",
+    "files": [
+      {
+        "filename": "packages/react-dom/src/__tests__/ReactDOMFloat-test.js",
+        "additions": 183,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberCommitWork.js",
+        "additions": 116,
+        "deletions": 11
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberCompleteWork.js",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberFlags.js",
+        "additions": 6,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 34984,
+    "title": "[Flight] Do not redefine debugInfo on JSX elements",
+    "user": "devongovett",
+    "created_at": "2025-10-26T20:45:49",
+    "updated_at": "2025-11-05T21:41:39",
+    "body": "After updating to 19.2 in Parcel, I'm seeing \"Cannot redefine property _debugInfo\" errors, which appear to be caused by #34524. Looks like `_debugInfo` is already defined as `null` in some cases (e.g. JSX elements), and marked as non-configurable/writable. Then `moveDebugInfoFromChunkToInnerValue` tries to re-define it.\r\n\r\nThis happens when you directly export a JSX element as a client reference. In that case the React Element object is frozen, so the `_debugInfo` property cannot be written to.\r\n\r\n```tsx\r\n\"use client\";\r\nexport default <Foo />\r\n```\r\n\r\nI added a test for this and made a small workaround that simply skips setting `_debugInfo` if it is not writable, but idk if this is the correct fix.",
+    "html_url": "https://github.com/facebook/react/pull/34984",
+    "files": [
+      {
+        "filename": "packages/react-client/src/ReactFlightClient.js",
+        "additions": 16,
+        "deletions": 18
+      },
+      {
+        "filename": "packages/react-client/src/__tests__/ReactFlight-test.js",
+        "additions": 20,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 34999,
+    "title": "Fix event listener option object types",
+    "user": "thegreatercurve",
+    "created_at": "2025-10-28T09:57:11",
+    "updated_at": "2025-11-05T21:32:15",
+    "body": "Summary:\n### Context\n\nCurrently, we're allowing users to pass in a lot of unnecessary options to `removeEventListener`. \n\nFlow supports [all of the `AddEventListenerOptions` flags](https://www.internalfb.com/code/fbsource/[af794e4e4e71]/www/html/xplat-react/flow/dom.js.flow?lines=333-341) for `removeEventListener` which is too permissive. Below is the DOM spec:\n\n```\ninterface EventTarget {\n  constructor();\n\n  undefined addEventListener(DOMString type, EventListener? callback, optional (AddEventListenerOptions or boolean) options = {});\n  undefined removeEventListener(DOMString type, EventListener? callback, optional (EventListenerOptions or boolean) options = {});\n  boolean dispatchEvent(Event event);\n};\n\ndictionary EventListenerOptions {\n  boolean capture = false;\n};\n\ndictionary AddEventListenerOptions : EventListenerOptions {\n  boolean passive;\n  boolean once = false;\n  AbortSignal signal;\n};\n```\nhttps://dom.spec.whatwg.org/#interface-eventtarget\n\nOnly `capture` or `boolean`  should ever be allowed for `removeEventListener` as a property key in an object or a straightforward boolean.\n\nFor reference, here are the related TypeScript types which appear to [implement the above correctly](https://github.com/microsoft/TypeScript/blob/main/src/lib/dom.generated.d.ts#L8-L12). \n\n### Diff\n\nThis diff corrects the types and brings them more in line with the spec in `html/xplat-react/flow/dom.js.flow`, and then updates any erroring call sites in Flow.\n\nDifferential Revision: D84544559\n\n\n",
+    "html_url": "https://github.com/facebook/react/pull/34999",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/client/ReactFiberConfigDOM.js",
+        "additions": 4,
+        "deletions": 4
+      }
+    ]
+  },
+  {
+    "number": 34990,
+    "title": "Fix: Submitter missing when form includes input[name=\"id\"]",
+    "user": "SahilMotiramani",
+    "created_at": "2025-10-27T16:26:44",
+    "updated_at": "2025-11-05T21:29:02",
+    "body": "Fixes facebook/react#34944\r\n\r\n### Problem\r\nWhen a form contains `<input name=\"id\">`, the named control clobbers `form.id`,\r\ncausing React to associate the temporary submitter with the input instead of the form.\r\nThis results in the submitter's name/value missing from FormData.\r\n\r\n### Fix\r\nUse `form.getAttribute('id')` instead of `form.id` inside\r\n`createFormDataWithSubmitter()` to always retrieve the form’s actual `id` attribute.\r\n\r\n### Tests\r\nAdded regression tests in:\r\n- `packages/react-dom-bindings/src/events/__tests__/form-action-submitters.test.js`\r\n\r\nCovers:\r\n- Internal submit button\r\n- External submit button using `form=\"my-form\"`\r\n\r\nAll lints and tests pass locally.\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34990",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/events/__tests__/form-action-submitters.test.js",
+        "additions": 77,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-dom-bindings/src/events/plugins/FormActionEventPlugin.js",
+        "additions": 9,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 34540,
+    "title": "Add fast path for React.memo with custom compare",
+    "user": "barryam3",
+    "created_at": "2025-09-20T04:44:20",
+    "updated_at": "2025-11-05T21:25:46",
+    "body": "<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\nFixes https://github.com/facebook/react/issues/33793\r\n\r\nThis widens the SimpleMemoComponent fast path introduced in https://github.com/facebook/react/pull/13903 to support memoized function components with custom props comparisons. The fast path eliminates the need for the wrapper MemoComponent to be tracked as a separate Fiber, reducing performance overhead.\r\n\r\nIn addition, React DevTools will show only one node for the component instead of two (because there is only one Fiber instead of two), which makes debugging easier by reducing visual and therefore mental clutter.\r\n\r\nI considered several approaches as discussed in the issue before settling on this one as the best combination of simplicity, safety, and performance after benchmarking and prototyping.\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\n## How did you test this change?\r\n\r\nPer the contributing instructions:\r\n\r\n1. `yarn test` - two tests fail (\"ReactFlightAsyncDebugInfo › can track async information when awaited\" and \"ReactFlightDOMEdge › should execute repeated host components only once\") but these also fail at `main`.\r\n2. `yarn test --prod` - 59 test failures but again this is the same as `main`. Here they are if you want to see: https://gist.github.com/barryam3/82007cf5ef6b1c27621e0395ba9a1e71\r\n3. `yarn prettier`\r\n4. `yarn lint`\r\n5. `yarn flow dom-node` (I first tried `yarn flow` as recommended by the PR template, but it told me to pick a renderer, and `dom-node` is a good default)\r\n\r\nAdditionally I updated the DevTools unit tests to reflect the component tree in DevTools.\r\n\r\n1. `yarn run build-for-devtools`\r\n2. `yarn run test-build-devtools` - two tests fail (\"ignoreList source map extension › for dev builds › should not ignore list anything\" and \"ignoreList source map extension › for production builds › should include every source\") but these also fail at `main`\r\n\r\nI made the equivalent change in my own application (thousands of components, hundreds memoized with custom arePropsEqual) via a pnpm patch and have not discovered any issues after running in production for about 2 months. I verified that this solves the \"extra node\" problem in DevTools. (In the interest of sharing any possible caveats, my app is still on React 18.2.0 and I chose a slightly simpler implementation for the patch of just setting a `compare` field on the function instead of using a Weak Map.)\r\n\r\n<!--\r\n  Demonstrate the code is solid. Example: The exact commands you ran and their output, screenshots / videos if the pull request changes the user interface.\r\n  How exactly did you verify that your PR solves the issue you wanted to solve?\r\n  If you leave this empty, your PR will very likely be closed.\r\n-->\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34540",
+    "files": [
+      {
+        "filename": "packages/react-devtools-shared/src/__tests__/profilerChangeDescriptions-test.js",
+        "additions": 1,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-devtools-shared/src/__tests__/store-test.js",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberBeginWork.js",
+        "additions": 13,
+        "deletions": 4
+      }
+    ]
+  },
+  {
+    "number": 34848,
+    "title": "Add readTypeof helper to `ReactPerformanceTrackProperties`",
+    "user": "jzhan-canva",
+    "created_at": "2025-10-14T23:01:04",
+    "updated_at": "2025-11-05T21:24:01",
+    "body": "fix #34840 \r\n\r\n## Summary\r\n\r\n`ReactPerformanceTrackProperties` tries to read $$typeof on every object which may throw.\r\nWrap reading `$$typeof` in try/catch for ReactPerformanceTrackProperties.",
+    "html_url": "https://github.com/facebook/react/pull/34848",
+    "files": [
+      {
+        "filename": "packages/shared/ReactPerformanceTrackProperties.js",
+        "additions": 11,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "number": 34994,
+    "title": "[eprh] Adhere to ESLint.Plugin type",
+    "user": "mdmower-csnw",
+    "created_at": "2025-10-27T22:47:42",
+    "updated_at": "2025-11-05T17:36:11",
+    "body": "## Summary\r\n\r\n- Use TS `satisfies` operator to ensure `plugin` adheres to the ESLint.Plugin shape while retaining its actual shape for export.\r\n- Assign configs as part of `plugin` assignment, only delaying the assignment of the `plugin` property in flat configs. This improves exported types without hacky assertions.\r\n- BREAKING CHANGE: flatten `configs` to match the expected shape:\r\n  - Flat configs are now the default:\r\n    - `configs.recommended`\r\n    - `configs['recommended-latest']`\r\n  - Legacy configs are now suffixed:\r\n    - `configs['recommended-legacy']`\r\n    - `configs['recommended-latest-legacy']`\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34994",
+    "files": [
+      {
+        "filename": "compiler/packages/eslint-plugin-react-compiler/README.md",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "fixtures/eslint-v6/.eslintrc.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "fixtures/eslint-v7/.eslintrc.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "fixtures/eslint-v8/.eslintrc.json",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "fixtures/eslint-v9/eslint.config.ts",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/eslint-plugin-react-hooks/README.md",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "packages/eslint-plugin-react-hooks/src/index.ts",
+        "additions": 22,
+        "deletions": 35
+      }
+    ]
+  },
+  {
+    "number": 29046,
+    "title": "fix(eslint-plugin-react-hooks): \"additionalHooks\" docs are misleading",
+    "user": "StyleShit",
+    "created_at": "2024-05-12T19:20:06",
+    "updated_at": "2025-11-05T15:06:31",
+    "body": "\r\n\r\n<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\nThis PR closes #29045\r\nIt aims to improve the documentation by fixing the regex to match only the necessary hooks, and also adds some tests to cover those cases.\r\n",
+    "html_url": "https://github.com/facebook/react/pull/29046",
+    "files": [
+      {
+        "filename": "packages/eslint-plugin-react-hooks/README.md",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/eslint-plugin-react-hooks/__tests__/ESLintRuleExhaustiveDeps-test.js",
+        "additions": 47,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 33804,
+    "title": "Allow button tags in select tags for customizable selects",
+    "user": "phidol",
+    "created_at": "2025-07-17T13:53:38",
+    "updated_at": "2025-11-05T10:06:33",
+    "body": "## Summary\r\nWith the new [customizable select](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Customizable_select#what_features_comprise_a_customizable_select) usage of `<button>` tags inside `<select>` tags became valid. Currently this type of usage leads to hydration warnings due the current handling in validateDOMNesting.\r\n\r\nThe HTML Living Standard has not been updated yet, but the feature was already enabled for [Chrome](https://developer.chrome.com/blog/a-customizable-select) and Chromium-based browsers with usage already increasing due to the progressively enhancing nature of the feature.",
+    "html_url": "https://github.com/facebook/react/pull/33804",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/client/validateDOMNesting.js",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 35047,
+    "title": "[healthcheck] correct yargs scriptName and usage",
+    "user": "henryqdineen",
+    "created_at": "2025-11-05T01:22:08",
+    "updated_at": "2025-11-05T01:22:55",
+    "body": "## Summary\r\n\r\nThis is something I noticed when looking at #35046. The `healthcheck` script was renamed in 63e533026062450f7e033af1e15545eb4463fce6 but the `yargs` configuration was never updated accordingly.\r\n\r\n## How did you test this change?\r\n\r\nI ran the script with `--help` locally.",
+    "html_url": "https://github.com/facebook/react/pull/35047",
+    "files": [
+      {
+        "filename": "compiler/packages/react-compiler-healthcheck/src/index.ts",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 35046,
+    "title": "[healthcheck] fix error false negatives",
+    "user": "henryqdineen",
+    "created_at": "2025-11-05T01:05:13",
+    "updated_at": "2025-11-05T01:05:19",
+    "body": "## Summary\r\n\r\nI noticed a regression in `react-compiler-healthcheck`  where `v1.0.0` will not report any errors.\r\n\r\n```sh\r\n> npx react-compiler-healthcheck@1.0.0\r\nSuccessfully compiled 197 out of 197 components.\r\nStrictMode usage not found.\r\nFound no usage of incompatible libraries.\r\n\r\n> npx react-compiler-healthcheck@19.1.0-rc.3\r\nSuccessfully compiled 190 out of 213 components.\r\nStrictMode usage not found.\r\nFound no usage of incompatible libraries.\r\n```\r\n\r\nWhen investigating the issue I noticed a couple TypeScript errors in the source. I believe `isActionableDiagnostic()` was falling through to the `default` case and throwing an error that was being swallowed. In this PR I fixed the TypeScript issue and updated `isActionableDiagnostic()` implementation. \r\n\r\n## How did you test this change?\r\n\r\nI ran locally in one of our repos.",
+    "html_url": "https://github.com/facebook/react/pull/35046",
+    "files": [
+      {
+        "filename": "compiler/packages/react-compiler-healthcheck/src/checks/reactCompiler.ts",
+        "additions": 10,
+        "deletions": 9
+      }
+    ]
+  },
+  {
+    "number": 34804,
+    "title": "Update HTML parser rules for new select parser",
+    "user": "josepharhar",
+    "created_at": "2025-10-10T19:42:59",
+    "updated_at": "2025-11-04T18:59:06",
+    "body": "\r\n\r\n<!--\r\n  Thanks for submitting a pull request!\r\n  We appreciate you spending the time to work on these changes. Please provide enough information so that others can review your pull request. The three fields below are mandatory.\r\n\r\n  Before submitting a pull request, please make sure the following is done:\r\n\r\n  1. Fork [the repository](https://github.com/facebook/react) and create your branch from `main`.\r\n  2. Run `yarn` in the repository root.\r\n  3. If you've fixed a bug or added code that should be tested, add tests!\r\n  4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.\r\n  5. Run `yarn test --prod` to test in the production environment. It supports the same options as `yarn test`.\r\n  6. If you need a debugger, run `yarn test --debug --watch TestName`, open `chrome://inspect`, and press \"Inspect\".\r\n  7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).\r\n  8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.\r\n  9. Run the [Flow](https://flowtype.org/) type checks (`yarn flow`).\r\n  10. If you haven't already, complete the CLA.\r\n\r\n  Learn more about contributing: https://reactjs.org/docs/how-to-contribute.html\r\n-->\r\n\r\n## Summary\r\n\r\nThe HTML spec was updated to remove most special parsing rules for select elements: https://github.com/whatwg/html/pull/10548\r\n\r\nChrome shipped these parser changes a while ago, and they have been implemented behind a flag in WebKit.\r\n\r\nThis PR updates the logic in validateDOMNesting to match the new HTML spec so that authors can use the new parsing rules without getting errors in React.\r\n\r\nFixes https://github.com/facebook/react/issues/33609\r\n\r\n<!--\r\n Explain the **motivation** for making this change. What existing problem does the pull request solve?\r\n-->\r\n\r\n## How did you test this change?\r\n\r\nI updated the test cases in validateDOMNesting-test.js\r\n\r\n<!--\r\n  Demonstrate the code is solid. Example: The exact commands you ran and their output, screenshots / videos if the pull request changes the user interface.\r\n  How exactly did you verify that your PR solves the issue you wanted to solve?\r\n  If you leave this empty, your PR will very likely be closed.\r\n-->\r\n",
+    "html_url": "https://github.com/facebook/react/pull/34804",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/client/validateDOMNesting.js",
+        "additions": 4,
+        "deletions": 16
+      },
+      {
+        "filename": "packages/react-dom/src/__tests__/ReactDOMOption-test.js",
+        "additions": 2,
+        "deletions": 23
+      },
+      {
+        "filename": "packages/react-dom/src/__tests__/validateDOMNesting-test.js",
+        "additions": 11,
+        "deletions": 0
+      }
+    ]
+  }
+]

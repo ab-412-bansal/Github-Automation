@@ -1,5 +1,336 @@
 [
   {
+    "sha": "e811c33b1f137be26a20444b79db8cbc1fca1c89",
+    "author": "torvalds",
+    "message": "Merge tag 'drm-fixes-2025-11-08' of https://gitlab.freedesktop.org/drm/kernel\n\nPull drm fixes from Dave Airlie:\n \"Back from travel, thanks to Simona for handling things. regular fixes,\n  seems about the right size, but spread out a bit.\n\n  amdgpu has the usual range of fixes, xe has a few fixes, and nouveau\n  has a couple of fixes, one for blackwell modifiers on 8/16 bit\n  surfaces.\n\n  Otherwise a few small fixes for mediatek, sched, imagination and\n  pixpaper.\n\n  sched:\n   - Fix deadlock\n\n  amdgpu:\n   - Reset fixes\n   - Misc fixes\n   - Panel scaling fixes\n   - HDMI fix\n   - S0ix fixes\n   - Hibernation fix\n   - Secure display fix\n   - Suspend fix\n   - MST fix\n\n  amdkfd:\n   - Process cleanup fix\n\n  xe:\n   - Fix missing  synchronization on unbind\n   - Fix device shutdown when doing FLR\n   - Fix user fence signaling order\n\n  i915:\n   - Avoid lock inversion when pinning to GGTT on CHV/BXT+VTD\n   - Fix conversion between clock ticks and nanoseconds\n\n  mediatek:\n   - Disable AFBC support on Mediatek DRM driver\n   - Add pm_runtime support for GCE power control\n\n  imagination:\n   - kconfig: Fix dependencies\n\n  nouveau:\n   - Set DMA mask earlier\n   - Advertize correct modifiers for GB20x\n\n  pixpaper:\n   - kconfig: Fix dependencies\"\n\n* tag 'drm-fixes-2025-11-08' of https://gitlab.freedesktop.org/drm/kernel: (26 commits)\n  drm/xe: Enforce correct user fence signaling order using\n  drm/xe: Do clean shutdown also when using flr\n  drm/xe: Move declarations under conditional branch\n  drm/xe/guc: Synchronize Dead CT worker with unbind\n  drm/amd/display: Enable mst when it's detected but yet to be initialized\n  drm/amdgpu: Fix wait after reset sequence in S3\n  drm/amd: Fix suspend failure with secure display TA\n  drm/amdgpu: fix gpu page fault after hibernation on PF passthrough\n  drm/tiny: pixpaper: add explicit dependency on MMU\n  drm/nouveau: Advertise correct modifiers on GB20x\n  drm: define NVIDIA DRM format modifiers for GB20x\n  drm/nouveau: set DMA mask before creating the flush page\n  drm/sched: Fix deadlock in drm_sched_entity_kill_jobs_cb\n  drm/amd/display: Fix NULL deref in debugfs odm_combine_segments\n  drm/amdkfd: Don't clear PT after process killed\n  drm/amdgpu/smu: Handle S0ix for vangogh\n  drm/amdgpu: Drop PMFW RLC notifier from amdgpu_device_suspend()\n  drm/amd/display: Fix black screen with HDMI outputs\n  drm/amd/display: Don't stretch non-native images by default in eDP\n  drm/amd/pm: fix missing device_attr cleanup in amdgpu_pm_sysfs_init()\n  ...",
+    "date": "2025-11-07T22:51:11",
+    "html_url": "https://github.com/torvalds/linux/commit/e811c33b1f137be26a20444b79db8cbc1fca1c89",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+        "additions": 0,
+        "deletions": 4
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c",
+        "additions": 7,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c",
+        "additions": 4,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/aqua_vanjaram.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v9_4_3.c",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/psp_v11_0.c",
+        "additions": 25,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c",
+        "additions": 10,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_debugfs.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/dc/link/link_detection.c",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_dpm.c",
+        "additions": 0,
+        "deletions": 18
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_pm.c",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/inc/amdgpu_dpm.h",
+        "additions": 0,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/amdgpu_smu.c",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/smu11/vangogh_ppt.c",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/i915/gt/intel_gt_clock_utils.c",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/i915/i915_vma.c",
+        "additions": 14,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/imagination/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_crtc.c",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_plane.c",
+        "additions": 1,
+        "deletions": 23
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.c",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.h",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndw.c",
+        "additions": 22,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndwca7e.c",
+        "additions": 33,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/nvkm/engine/device/pci.c",
+        "additions": 12,
+        "deletions": 12
+      },
+      {
+        "filename": "drivers/gpu/drm/scheduler/sched_entity.c",
+        "additions": 19,
+        "deletions": 15
+      },
+      {
+        "filename": "drivers/gpu/drm/tiny/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_device.c",
+        "additions": 7,
+        "deletions": 7
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue.c",
+        "additions": 14,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue_types.h",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_guc_ct.c",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa.c",
+        "additions": 30,
+        "deletions": 15
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa_types.h",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.c",
+        "additions": 15,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync_types.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_vm.c",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "include/uapi/drm/drm_fourcc.h",
+        "additions": 16,
+        "deletions": 9
+      }
+    ]
+  },
+  {
+    "sha": "d439acbbfb9a982f152c5f806b4592431a80c4fd",
+    "author": "airlied",
+    "message": "Merge tag 'drm-xe-fixes-2025-11-07' of https://gitlab.freedesktop.org/drm/xe/kernel into drm-fixes\n\nDriver Changes:\n - Fix missing  synchronization on unbind (Balasubramani Vivekanandan)\n - Fix device shutdown when doing FLR (Jouni Högander)\n - Fix user fence signaling order (Matthew Brost)\n\nSigned-off-by: Dave Airlie <airlied@redhat.com>\n\nFrom: Lucas De Marchi <lucas.demarchi@intel.com>\nLink: https://patch.msgid.link/mvfyflloncy76a7nmkatpj6f2afddavwsibz3y4u4wo6gznro5@rdulkuh5wvje",
+    "date": "2025-11-07T21:39:11",
+    "html_url": "https://github.com/torvalds/linux/commit/d439acbbfb9a982f152c5f806b4592431a80c4fd",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/xe/xe_device.c",
+        "additions": 7,
+        "deletions": 7
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue.c",
+        "additions": 14,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue_types.h",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_guc_ct.c",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa.c",
+        "additions": 30,
+        "deletions": 15
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa_types.h",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.c",
+        "additions": 15,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync_types.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_vm.c",
+        "additions": 4,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "38a2c275c3d3f7d7180d012386cd6fcf87854400",
+    "author": "torvalds",
+    "message": "Merge tag 'parisc-for-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/parisc-linux\n\nPull parisc fix from Helge Deller:\n\n - fix crash triggered by unaligned access in parisc unwinder\n\n* tag 'parisc-for-6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/parisc-linux:\n  parisc: Avoid crash due to unaligned access in unwinder",
+    "date": "2025-11-07T21:19:18",
+    "html_url": "https://github.com/torvalds/linux/commit/38a2c275c3d3f7d7180d012386cd6fcf87854400",
+    "files": [
+      {
+        "filename": "arch/parisc/kernel/unwind.c",
+        "additions": 10,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "a2e33fb92649f4efcc9e81c1d1a1905ca2a76d03",
+    "author": "torvalds",
+    "message": "Merge tag 'for-linus-iommufd' of git://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd\n\nPull iommufd fixes from Jason Gunthorpe:\n\n - Syzkaller found a case where maths overflows can cause divide by 0\n\n - Typo in a compiler bug warning fix in the selftests broke the\n   selftests\n\n - type1 compatability had a mismatch when unmapping an already unmapped\n   range, it should succeed\n\n* tag 'for-linus-iommufd' of git://git.kernel.org/pub/scm/linux/kernel/git/jgg/iommufd:\n  iommufd: Make vfio_compat's unmap succeed if the range is already empty\n  iommufd/selftest: Fix ioctl return value in _test_cmd_trigger_vevents()\n  iommufd: Don't overflow during division for dirty tracking",
+    "date": "2025-11-07T21:13:09",
+    "html_url": "https://github.com/torvalds/linux/commit/a2e33fb92649f4efcc9e81c1d1a1905ca2a76d03",
+    "files": [
+      {
+        "filename": "drivers/iommu/iommufd/io_pagetable.c",
+        "additions": 3,
+        "deletions": 9
+      },
+      {
+        "filename": "drivers/iommu/iommufd/ioas.c",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/iommu/iommufd/iova_bitmap.c",
+        "additions": 2,
+        "deletions": 3
+      },
+      {
+        "filename": "tools/testing/selftests/iommu/iommufd.c",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "tools/testing/selftests/iommu/iommufd_utils.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
     "sha": "da32d155f4a8937952ca6fd55d3270fec1c3799f",
     "author": "torvalds",
     "message": "Merge tag 'gpio-fixes-for-v6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux\n\nPull gpio fixes from Bartosz Golaszewski:\n\n - use the firmware node of the GPIO chip, not its label for software\n   node lookup\n\n - fix invalid pointer access in GPIO debugfs\n\n - drop unused functions from gpio-tb10x\n\n - fix a regression in gpio-aggregator: restore the set_config()\n   callback in the driver\n\n - correct schema $id path in ti,twl4030 DT bindings\n\n* tag 'gpio-fixes-for-v6.18-rc5' of git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux:\n  gpio: tb10x: Drop unused tb10x_set_bits() function\n  gpio: aggregator: restore the set_config operation\n  gpiolib: fix invalid pointer access in debugfs\n  gpio: swnode: don't use the swnode's name as the key for GPIO lookup\n  dt-bindings: gpio: ti,twl4030: Correct the schema $id path",
@@ -169,6 +500,121 @@
         "filename": "tools/tracing/latency/latency-collector.c",
         "additions": 1,
         "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "0995c2fc39b0f998d40f5d276f67ae22fc1c37c3",
+    "author": "mbrost05",
+    "message": "drm/xe: Enforce correct user fence signaling order using\n\nPrevent application hangs caused by out-of-order fence signaling when\nuser fences are attached. Use drm_syncobj (via dma-fence-chain) to\nguarantee that each user fence signals in order, regardless of the\nsignaling order of the attached fences. Ensure user fence writebacks to\nuser space occur in the correct sequence.\n\nv7:\n - Skip drm_syncbj create of error (CI)\n\nFixes: dd08ebf6c352 (\"drm/xe: Introduce a new DRM driver for Intel GPUs\")\nSigned-off-by: Matthew Brost <matthew.brost@intel.com>\nReviewed-by: Thomas Hellström <thomas.hellstrom@linux.intel.com>\nLink: https://patch.msgid.link/20251031234050.3043507-2-matthew.brost@intel.com\n(cherry picked from commit adda4e855ab6409a3edaa585293f1f2069ab7299)\nSigned-off-by: Lucas De Marchi <lucas.demarchi@intel.com>",
+    "date": "2025-10-31T23:40:45",
+    "html_url": "https://github.com/torvalds/linux/commit/0995c2fc39b0f998d40f5d276f67ae22fc1c37c3",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue.c",
+        "additions": 14,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_exec_queue_types.h",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa.c",
+        "additions": 30,
+        "deletions": 15
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_oa_types.h",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.c",
+        "additions": 15,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_sync_types.h",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/xe/xe_vm.c",
+        "additions": 4,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "b11a020d914c3b7628f56a9ea476a5b03679489b",
+    "author": "hogander",
+    "message": "drm/xe: Do clean shutdown also when using flr\n\nCurrently Xe driver is triggering flr without any clean-up on\nshutdown. This is causing random warnings from pending related works as the\nunderlying hardware is reset in the middle of their execution.\n\nFix this by performing clean shutdown also when using flr.\n\nFixes: 501d799a47e2 (\"drm/xe: Wire up device shutdown handler\")\nCc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>\nSigned-off-by: Jouni Högander <jouni.hogander@intel.com>\nReviewed-by: Maarten Lankhorst <dev@lankhorst.se>\nLink: https://patch.msgid.link/20251031122312.1836534-1-jouni.hogander@intel.com\nSigned-off-by: Maarten Lankhorst <dev@lankhorst.se>\n(cherry picked from commit a4ff26b7c8ef38e4dd34f77cbcd73576fdde6dd4)\nSigned-off-by: Lucas De Marchi <lucas.demarchi@intel.com>",
+    "date": "2025-10-31T12:23:11",
+    "html_url": "https://github.com/torvalds/linux/commit/b11a020d914c3b7628f56a9ea476a5b03679489b",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/xe/xe_device.c",
+        "additions": 9,
+        "deletions": 9
+      }
+    ]
+  },
+  {
+    "sha": "9cd27eec872f0b95dcdd811edc39d2d32e4158c8",
+    "author": "tejasup",
+    "message": "drm/xe: Move declarations under conditional branch\n\nThe xe_device_shutdown() function was needing a few declarations\nthat were only required under a specific condition. This change\nmoves those declarations to be within that conditional branch\nto avoid unnecessary declarations.\n\nReviewed-by: Nitin Gote <nitin.r.gote@intel.com>\nLink: https://patchwork.freedesktop.org/patch/msgid/20251007100208.1407021-1-tejas.upadhyay@intel.com\nSigned-off-by: Tejas Upadhyay <tejas.upadhyay@intel.com>\n(cherry picked from commit 15b3036045188f4da4ca62b2ed01b0f160252e9b)\nSigned-off-by: Lucas De Marchi <lucas.demarchi@intel.com>",
+    "date": "2025-10-07T10:02:08",
+    "html_url": "https://github.com/torvalds/linux/commit/9cd27eec872f0b95dcdd811edc39d2d32e4158c8",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/xe/xe_device.c",
+        "additions": 3,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "95af8f4fdce8349a5fe75264007f1af2aa1082ea",
+    "author": "baluvivek",
+    "message": "drm/xe/guc: Synchronize Dead CT worker with unbind\n\nCancel and wait for any Dead CT worker to complete before continuing\nwith device unbinding. Else the worker will end up using resources freed\nby the undind operation.\n\nCc: Zhanjun Dong <zhanjun.dong@intel.com>\nFixes: d2c5a5a926f4 (\"drm/xe/guc: Dead CT helper\")\nSigned-off-by: Balasubramani Vivekanandan <balasubramani.vivekanandan@intel.com>\nReviewed-by: Stuart Summers <stuart.summers@intel.com>\nLink: https://patch.msgid.link/20251103123144.3231829-6-balasubramani.vivekanandan@intel.com\nSigned-off-by: Lucas De Marchi <lucas.demarchi@intel.com>\n(cherry picked from commit 492671339114e376aaa38626d637a2751cdef263)\nSigned-off-by: Lucas De Marchi <lucas.demarchi@intel.com>",
+    "date": "2025-11-03T12:31:47",
+    "html_url": "https://github.com/torvalds/linux/commit/95af8f4fdce8349a5fe75264007f1af2aa1082ea",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/xe/xe_guc_ct.c",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "a18033f1309cdfd6772799a9b9e72a098c52268b",
+    "author": "airlied",
+    "message": "Merge tag 'mediatek-drm-fixes-20251105' of https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux into drm-fixes\n\nMediatek DRM Fixes - 20251105\n\n1. Disable AFBC support on Mediatek DRM driver\n2. Add pm_runtime support for GCE power control\n\nSigned-off-by: Dave Airlie <airlied@redhat.com>\n\nFrom: Chun-Kuang Hu <chunkuang.hu@kernel.org>\nLink: https://patch.msgid.link/20251105151443.3909-1-chunkuang.hu@kernel.org",
+    "date": "2025-11-07T02:41:23",
+    "html_url": "https://github.com/torvalds/linux/commit/a18033f1309cdfd6772799a9b9e72a098c52268b",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_crtc.c",
+        "additions": 7,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_plane.c",
+        "additions": 1,
+        "deletions": 23
       }
     ]
   },
@@ -392,6 +838,178 @@
     ]
   },
   {
+    "sha": "b57b47741ec15a7e15190c93ce5aa3198bd3cba4",
+    "author": "airlied",
+    "message": "Merge tag 'amd-drm-fixes-6.18-2025-11-06' of https://gitlab.freedesktop.org/agd5f/linux into drm-fixes\n\namd-drm-fixes-6.18-2025-11-06:\n\namdgpu:\n- Reset fixes\n- Misc fixes\n- Panel scaling fixes\n- HDMI fix\n- S0ix fixes\n- Hibernation fix\n- Secure display fix\n- Suspend fix\n- MST fix\n\namdkfd:\n- Process cleanup fix\n\nSigned-off-by: Dave Airlie <airlied@redhat.com>\n\nFrom: Alex Deucher <alexander.deucher@amd.com>\nLink: https://patch.msgid.link/20251106201326.807230-1-alexander.deucher@amd.com",
+    "date": "2025-11-06T23:20:30",
+    "html_url": "https://github.com/torvalds/linux/commit/b57b47741ec15a7e15190c93ce5aa3198bd3cba4",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+        "additions": 0,
+        "deletions": 4
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c",
+        "additions": 7,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c",
+        "additions": 4,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/aqua_vanjaram.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v9_4_3.c",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/psp_v11_0.c",
+        "additions": 25,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c",
+        "additions": 10,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_debugfs.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/display/dc/link/link_detection.c",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_dpm.c",
+        "additions": 0,
+        "deletions": 18
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_pm.c",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/inc/amdgpu_dpm.h",
+        "additions": 0,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/amdgpu_smu.c",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/smu11/vangogh_ppt.c",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "6ec8a47c553007aa97afb357bc24112effbabe5e",
+    "author": "airlied",
+    "message": "Merge tag 'drm-intel-fixes-2025-11-06' of https://gitlab.freedesktop.org/drm/i915/kernel into drm-fixes\n\n- Avoid lock inversion when pinning to GGTT on CHV/BXT+VTD (Janusz)\n- Fix conversion between clock ticks and nanoseconds (Umesh)\n\nSigned-off-by: Dave Airlie <airlied@redhat.com>\n\nFrom: Rodrigo Vivi <rodrigo.vivi@intel.com>\nLink: https://patch.msgid.link/aQyxT1D8IW-xcDbM@intel.com",
+    "date": "2025-11-06T23:14:55",
+    "html_url": "https://github.com/torvalds/linux/commit/6ec8a47c553007aa97afb357bc24112effbabe5e",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/i915/gt/intel_gt_clock_utils.c",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/i915/i915_vma.c",
+        "additions": 14,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "faf66a71079b5d916028fab51a9b537df7b28b9f",
+    "author": "airlied",
+    "message": "Merge tag 'drm-misc-fixes-2025-11-06' of https://gitlab.freedesktop.org/drm/misc/kernel into drm-fixes\n\nShort summary of fixes pull:\n\nimagination:\n- kconfig: Fix dependencies\n\nnouveau:\n- Set DMA mask earlier\n- Advertize correct modifiers for GB20x\n\npixpaper:\n- kconfig: Fix dependencies\n\nsched:\n- Fix deadlock\n\nSigned-off-by: Dave Airlie <airlied@redhat.com>\n\nFrom: Thomas Zimmermann <tzimmermann@suse.de>\nLink: https://patch.msgid.link/20251106131244.GA155679@2a02-2454-fd5e-fd00-d540-1fd5-75b4-d5e2.dyn6.pyur.net",
+    "date": "2025-11-06T22:21:15",
+    "html_url": "https://github.com/torvalds/linux/commit/faf66a71079b5d916028fab51a9b537df7b28b9f",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/imagination/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.c",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.h",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndw.c",
+        "additions": 22,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndwca7e.c",
+        "additions": 33,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/nvkm/engine/device/pci.c",
+        "additions": 12,
+        "deletions": 12
+      },
+      {
+        "filename": "drivers/gpu/drm/scheduler/sched_entity.c",
+        "additions": 19,
+        "deletions": 15
+      },
+      {
+        "filename": "drivers/gpu/drm/tiny/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "include/uapi/drm/drm_fourcc.h",
+        "additions": 16,
+        "deletions": 9
+      }
+    ]
+  },
+  {
     "sha": "c91afa7610235f89a5e8f5686aac23892ab227ed",
     "author": "mhiramat",
     "message": "tracing: tprobe-events: Fix to put tracepoint_user when disable the tprobe\n\n__unregister_trace_fprobe() checks tf->tuser to put it when removing\ntprobe. However, disable_trace_fprobe() does not use it and only calls\nunregister_fprobe(). Thus it forgets to disable tracepoint_user.\n\nIf the trace_fprobe has tuser, put it for unregistering the tracepoint\ncallbacks when disabling tprobe correctly.\n\nLink: https://lore.kernel.org/all/176244794466.155515.3971904050506100243.stgit@devnote2/\n\nFixes: 2867495dea86 (\"tracing: tprobe-events: Register tracepoint when enable tprobe event\")\nCc: stable@vger.kernel.org\nSigned-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>\nTested-by: Beau Belgrave <beaub@linux.microsoft.com>\nReviewed-by: Beau Belgrave <beaub@linux.microsoft.com>",
@@ -511,6 +1129,72 @@
         "filename": "drivers/gpio/gpio-tb10x.c",
         "additions": 0,
         "deletions": 19
+      }
+    ]
+  },
+  {
+    "sha": "3c6a743c6961cc2cab453b343bb157d6bbbf8120",
+    "author": "Wayne Lin",
+    "message": "drm/amd/display: Enable mst when it's detected but yet to be initialized\n\n[Why]\ndrm_dp_mst_topology_queue_probe() is used under the assumption that\nmst is already initialized. If we connect system with SST first\nthen switch to the mst branch during suspend, we will fail probing\ntopology by calling the wrong API since the mst manager is yet to\nbe initialized.\n\n[How]\nAt dm_resume(), once it's detected as mst branc connected, check if\nthe mst is initialized already. If not, call\ndm_helpers_dp_mst_start_top_mgr() instead to initialize mst\n\nV2: Adjust the commit msg a bit\n\nFixes: bc068194f548 (\"drm/amd/display: Don't write DP_MSTM_CTRL after LT\")\nCc: Fangzhi Zuo <jerry.zuo@amd.com>\nCc: Mario Limonciello <mario.limonciello@amd.com>\nCc: Alex Deucher <alexander.deucher@amd.com>\nReviewed-by: Tom Chung <chiahsuan.chung@amd.com>\nSigned-off-by: Wayne Lin <Wayne.Lin@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 62320fb8d91a0bddc44a228203cfa9bfbb5395bd)\nCc: stable@vger.kernel.org",
+    "date": "2025-11-05T02:36:31",
+    "html_url": "https://github.com/torvalds/linux/commit/3c6a743c6961cc2cab453b343bb157d6bbbf8120",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c",
+        "additions": 9,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "570a66b48c22214851949fcd71816fee280aa096",
+    "author": "Lijo Lazar",
+    "message": "drm/amdgpu: Fix wait after reset sequence in S3\n\nFor a mode-1 reset done at the end of S3 on PSPv11 dGPUs, only check if\nTOS is unloaded.\n\nFixes: 32f73741d6ee (\"drm/amdgpu: Wait for bootloader after PSPv11 reset\")\nCloses: https://gitlab.freedesktop.org/drm/amd/-/issues/4649\nSigned-off-by: Lijo Lazar <lijo.lazar@amd.com>\nAcked-by: Alex Deucher <alexander.deucher@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 1ad25fd272753db14c5d1cc8c68e20ce01f3f888)",
+    "date": "2025-11-03T10:51:50",
+    "html_url": "https://github.com/torvalds/linux/commit/570a66b48c22214851949fcd71816fee280aa096",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c",
+        "additions": 7,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/psp_v11_0.c",
+        "additions": 25,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "b09cb2996cdf50cd1ab4020e002c95d742c81313",
+    "author": "superm1",
+    "message": "drm/amd: Fix suspend failure with secure display TA\n\ncommit c760bcda83571 (\"drm/amd: Check whether secure display TA loaded\nsuccessfully\") attempted to fix extra messages, but failed to port the\ncleanup that was in commit 5c6d52ff4b61e (\"drm/amd: Don't try to enable\nsecure display TA multiple times\") to prevent multiple tries.\n\nAdd that to the failure handling path even on a quick failure.\n\nCloses: https://gitlab.freedesktop.org/drm/amd/-/issues/4679\nFixes: c760bcda8357 (\"drm/amd: Check whether secure display TA loaded successfully\")\nSigned-off-by: Mario Limonciello <mario.limonciello@amd.com>\nReviewed-by: Alex Deucher <alexander.deucher@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 4104c0a454f6a4d1e0d14895d03c0e7bdd0c8240)",
+    "date": "2025-11-04T19:38:02",
+    "html_url": "https://github.com/torvalds/linux/commit/b09cb2996cdf50cd1ab4020e002c95d742c81313",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c",
+        "additions": 4,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "eb6e7f520d6efa4d4ebf1671455abe4a681f7a05",
+    "author": "guoqzhan",
+    "message": "drm/amdgpu: fix gpu page fault after hibernation on PF passthrough\n\nOn PF passthrough environment, after hibernate and then resume, coralgemm\nwill cause gpu page fault.\n\nMode1 reset happens during hibernate, but partition mode is not restored\non resume, register mmCP_HYP_XCP_CTL and mmCP_PSP_XCP_CTL is not right\nafter resume. When CP access the MQD BO, wrong stride size is used,\nthis will cause out of bound access on the MQD BO, resulting page fault.\n\nThe fix is to ensure gfx_v9_4_3_switch_compute_partition() is called\nwhen resume from a hibernation.\nKFD resume is called separately during a reset recovery or resume from\nsuspend sequence. Hence it's not required to be called as part of\npartition switch.\n\nSigned-off-by: Samuel Zhang <guoqing.zhang@amd.com>\nReviewed-by: Lijo Lazar <lijo.lazar@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 5d1b32cfe4a676fe552416cb5ae847b215463a1a)",
+    "date": "2025-11-05T03:04:08",
+    "html_url": "https://github.com/torvalds/linux/commit/eb6e7f520d6efa4d4ebf1671455abe4a681f7a05",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/aqua_vanjaram.c",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v9_4_3.c",
+        "additions": 3,
+        "deletions": 1
       }
     ]
   },
@@ -1052,6 +1736,20 @@
     ]
   },
   {
+    "sha": "b750f5a9d64df6cfe9103c7feb7314694318818d",
+    "author": "lc-wang",
+    "message": "drm/tiny: pixpaper: add explicit dependency on MMU\n\nThe DRM_GEM_SHMEM_HELPER helper requires MMU enabled because it uses\nvmf_insert_pfn() in its mmap implementation. On NOMMU configurations\n(e.g. some RISC-V randconfig builds), this symbol is unavailable and\nselecting DRM_GEM_SHMEM_HELPER causes a modpost undefined reference:\n\n    ERROR: modpost: \"vmf_insert_pfn\" [drivers/gpu/drm/drm_shmem_helper.ko] undefined!\n\nNormally, Kconfig prevents this helper from being selected when\nCONFIG_MMU=n. However, in some randconfig builds (such as those used by\n0day CI), select statements can override unmet dependencies, triggering\nthe issue.\n\nAdd an explicit dependency on MMU to DRM_PIXPAPER to prevent this.\n\nReported-by: kernel test robot <lkp@intel.com>\nCloses: https://lore.kernel.org/oe-kbuild-all/202510280213.0rlYA4T3-lkp@intel.com/\nFixes: 0c4932f6ddf8 (\"drm/tiny: pixpaper: Fix missing dependency on DRM_GEM_SHMEM_HELPER\")\nAcked-by: Thomas Zimmermann <tzimmermann@suse.de>\nSigned-off-by: LiangCheng Wang <zaq14760@gmail.com>\nSigned-off-by: Thomas Zimmermann <tzimmermann@suse.de>\nLink: https://patch.msgid.link/20251028-bar-v1-1-edfbd13fafff@gmail.com",
+    "date": "2025-10-28T02:55:38",
+    "html_url": "https://github.com/torvalds/linux/commit/b750f5a9d64df6cfe9103c7feb7314694318818d",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/tiny/Kconfig",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
     "sha": "c379b745e12a99f0a54bafaaf75fc710614511ce",
     "author": "tehcaster",
     "message": "slab: prevent infinite loop in kmalloc_nolock() with debugging\n\nIn review of a followup work, Harry noticed a potential infinite loop.\nUpon closed inspection, it already exists for kmalloc_nolock() on a\ncache with debugging enabled, since commit af92793e52c3 (\"slab:\nIntroduce kmalloc_nolock() and kfree_nolock().\")\n\nWhen alloc_single_from_new_slab() fails to trylock node list_lock, we\nkeep retrying to get partial slab or allocate a new slab. If we indeed\ninterrupted somebody holding the list_lock, the trylock fill fail\ndeterministically and we end up allocating and defer-freeing slabs\nindefinitely with no progress.\n\nTo fix it, fail the allocation if spinning is not allowed. This is\nacceptable in the restricted context of kmalloc_nolock(), especially\nwith debugging enabled.\n\nReported-by: Harry Yoo <harry.yoo@oracle.com>\nCloses: https://lore.kernel.org/all/aQLqZjjq1SPD3Fml@hyeyoo/\nFixes: af92793e52c3 (\"slab: Introduce kmalloc_nolock() and kfree_nolock().\")\nAcked-by: Alexei Starovoitov <ast@kernel.org>\nReviewed-by: Harry Yoo <harry.yoo@oracle.com>\nLink: https://patch.msgid.link/20251103-fix-nolock-loop-v1-1-6e2b3e82b9da@suse.cz\nSigned-off-by: Vlastimil Babka <vbabka@suse.cz>",
@@ -1260,6 +1958,63 @@
     ]
   },
   {
+    "sha": "664ce10246ba00746af94a08b7fbda8ccaacd930",
+    "author": "cubanismo",
+    "message": "drm/nouveau: Advertise correct modifiers on GB20x\n\n8 and 16 bit formats use a different layout on\nGB20x than they did on prior chips. Add the\ncorresponding DRM format modifiers to the list of\nmodifiers supported by the display engine on such\nchips, and filter the supported modifiers for each\nformat based on its bytes per pixel in\nnv50_plane_format_mod_supported().\n\nNote this logic will need to be updated when GB10\nsupport is added, since it is a GB20x chip that\nuses the pre-GB20x sector layout for all formats.\n\nFixes: 6cc6e08d4542 (\"drm/nouveau/kms: add support for GB20x\")\nSigned-off-by: James Jones <jajones@nvidia.com>\nReviewed-by: Faith Ekstrand <faith.ekstrand@collabora.com>\nSigned-off-by: Dave Airlie <airlied@redhat.com>\nCc: stable@vger.kernel.org\nLink: https://patch.msgid.link/20251030181153.1208-3-jajones@nvidia.com",
+    "date": "2025-10-30T18:11:53",
+    "html_url": "https://github.com/torvalds/linux/commit/664ce10246ba00746af94a08b7fbda8ccaacd930",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.c",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/disp.h",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndw.c",
+        "additions": 22,
+        "deletions": 2
+      },
+      {
+        "filename": "drivers/gpu/drm/nouveau/dispnv50/wndwca7e.c",
+        "additions": 33,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "1cf52a0d4ba079fb354fa1339f5fb34142228dae",
+    "author": "cubanismo",
+    "message": "drm: define NVIDIA DRM format modifiers for GB20x\n\nThe layout of bits within the individual tiles\n(referred to as sectors in the\nDRM_FORMAT_MOD_NVIDIA_BLOCK_LINEAR_2D() macro)\nchanged for 8 and 16-bit surfaces starting in\nBlackwell 2 GPUs (With the exception of GB10).\nTo denote the difference, extend the sector field\nin the parametric format modifier definition used\nto generate modifier values for NVIDIA hardware.\n\nWithout this change, it would be impossible to\ndifferentiate the two layouts based on modifiers,\nand as a result software could attempt to share\nsurfaces directly between pre-GB20x and GB20x\ncards, resulting in corruption when the surface\nwas accessed on one of the GPUs after being\npopulated with content by the other.\n\nOf note: This change causes the\nDRM_FORMAT_MOD_NVIDIA_BLOCK_LINEAR_2D() macro to\nevaluate its \"s\" parameter twice, with the side\neffects that entails. I surveyed all usage of the\nmodifier in the kernel and Mesa code, and that\ndoes not appear to be problematic in any current\nusage, but I thought it was worth calling out.\n\nFixes: 6cc6e08d4542 (\"drm/nouveau/kms: add support for GB20x\")\nSigned-off-by: James Jones <jajones@nvidia.com>\nReviewed-by: Faith Ekstrand <faith.ekstrand@collabora.com>\nSigned-off-by: Dave Airlie <airlied@redhat.com>\nCc: stable@vger.kernel.org\nLink: https://patch.msgid.link/20251030181153.1208-2-jajones@nvidia.com",
+    "date": "2025-10-30T18:11:52",
+    "html_url": "https://github.com/torvalds/linux/commit/1cf52a0d4ba079fb354fa1339f5fb34142228dae",
+    "files": [
+      {
+        "filename": "include/uapi/drm/drm_fourcc.h",
+        "additions": 16,
+        "deletions": 9
+      }
+    ]
+  },
+  {
+    "sha": "ebe755605082eddff80eafe0c50915b1366ee98f",
+    "author": "ttabi",
+    "message": "drm/nouveau: set DMA mask before creating the flush page\n\nSet the DMA mask before calling nvkm_device_ctor(), so that when the\nflush page is created in nvkm_fb_ctor(), the allocation will not fail\nif the page is outside of DMA address space, which can easily happen if\nIOMMU is disable.  In such situations, you will get an error like this:\n\nnouveau 0000:65:00.0: DMA addr 0x0000000107c56000+4096 overflow (mask ffffffff, bus limit 0).\n\nCommit 38f5359354d4 (\"rm/nouveau/pci: set streaming DMA mask early\")\nset the mask after calling nvkm_device_ctor(), but back then there was\nno flush page being created, which might explain why the mask wasn't\nset earlier.\n\nFlush page allocation was added in commit 5728d064190e (\"drm/nouveau/fb:\nhandle sysmem flush page from common code\").  nvkm_fb_ctor() calls\nalloc_page(), which can allocate a page anywhere in system memory, but\nthen calls dma_map_page() on that page.  But since the DMA mask is still\nset to 32, the map can fail if the page is allocated above 4GB.  This is\neasy to reproduce on systems with a lot of memory and IOMMU disabled.\n\nAn alternative approach would be to force the allocation of the flush\npage to low memory, by specifying __GFP_DMA32.  However, this would\nalways allocate the page in low memory, even though the hardware can\naccess high memory.\n\nSigned-off-by: Timur Tabi <ttabi@nvidia.com>\nReviewed-by: Dave Airlie <airlied@redhat.com>\nSigned-off-by: Dave Airlie <airlied@redhat.com>\nLink: https://patch.msgid.link/20251014174512.3172102-1-ttabi@nvidia.com",
+    "date": "2025-10-14T17:45:12",
+    "html_url": "https://github.com/torvalds/linux/commit/ebe755605082eddff80eafe0c50915b1366ee98f",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/nouveau/nvkm/engine/device/pci.c",
+        "additions": 12,
+        "deletions": 12
+      }
+    ]
+  },
+  {
     "sha": "dc77806cf3b4788d328fddf245e86c5b529f31a2",
     "author": "torvalds",
     "message": "Merge tag 'rust-fixes-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/ojeda/linux\n\nPull rust fixes from Miguel Ojeda:\n\n - Fix/workaround a couple Rust 1.91.0 build issues when sanitizers are\n   enabled due to extra checking performed by the compiler and an\n   upstream issue already fixed for Rust 1.93.0\n\n - Fix future Rust 1.93.0 builds by supporting the stabilized name for\n   the 'no-jump-tables' flag\n\n - Fix a couple private/broken intra-doc links uncovered by the future\n   move of pin-init to 'syn'\n\n* tag 'rust-fixes-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/ojeda/linux:\n  rust: kbuild: support `-Cjump-tables=n` for Rust 1.93.0\n  rust: kbuild: workaround `rustdoc` doctests modifier bug\n  rust: kbuild: treat `build_error` and `rustdoc` as kernel objects\n  rust: condvar: fix broken intra-doc link\n  rust: devres: fix private intra-doc link",
@@ -1290,6 +2045,30 @@
         "filename": "rust/kernel/sync/condvar.rs",
         "additions": 1,
         "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "afb47765f9235181fddc61c8633b5a8cfae29fd2",
+    "author": "jgunthorpe",
+    "message": "iommufd: Make vfio_compat's unmap succeed if the range is already empty\n\niommufd returns ENOENT when attempting to unmap a range that is already\nempty, while vfio type1 returns success. Fix vfio_compat to match.\n\nFixes: d624d6652a65 (\"iommufd: vfio container FD ioctl compatibility\")\nLink: https://patch.msgid.link/r/0-v1-76be45eff0be+5d-iommufd_unmap_compat_jgg@nvidia.com\nReviewed-by: Nicolin Chen <nicolinc@nvidia.com>\nReviewed-by: Alex Mastro <amastro@fb.com>\nReported-by: Alex Mastro <amastro@fb.com>\nCloses: https://lore.kernel.org/r/aP0S5ZF9l3sWkJ1G@devgpu012.nha5.facebook.com\nSigned-off-by: Jason Gunthorpe <jgg@nvidia.com>",
+    "date": "2025-11-04T18:11:49",
+    "html_url": "https://github.com/torvalds/linux/commit/afb47765f9235181fddc61c8633b5a8cfae29fd2",
+    "files": [
+      {
+        "filename": "drivers/iommu/iommufd/io_pagetable.c",
+        "additions": 3,
+        "deletions": 9
+      },
+      {
+        "filename": "drivers/iommu/iommufd/ioas.c",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "tools/testing/selftests/iommu/iommufd.c",
+        "additions": 2,
+        "deletions": 0
       }
     ]
   },
@@ -1371,6 +2150,20 @@
         "filename": "drivers/net/wireless/virtual/mac80211_hwsim.c",
         "additions": 4,
         "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "487df8b698345dd5a91346335f05170ed5f29d4e",
+    "author": "peppsac",
+    "message": "drm/sched: Fix deadlock in drm_sched_entity_kill_jobs_cb\n\nThe Mesa issue referenced below pointed out a possible deadlock:\n\n[ 1231.611031]  Possible interrupt unsafe locking scenario:\n\n[ 1231.611033]        CPU0                    CPU1\n[ 1231.611034]        ----                    ----\n[ 1231.611035]   lock(&xa->xa_lock#17);\n[ 1231.611038]                                local_irq_disable();\n[ 1231.611039]                                lock(&fence->lock);\n[ 1231.611041]                                lock(&xa->xa_lock#17);\n[ 1231.611044]   <Interrupt>\n[ 1231.611045]     lock(&fence->lock);\n[ 1231.611047]\n                *** DEADLOCK ***\n\nIn this example, CPU0 would be any function accessing job->dependencies\nthrough the xa_* functions that don't disable interrupts (eg:\ndrm_sched_job_add_dependency(), drm_sched_entity_kill_jobs_cb()).\n\nCPU1 is executing drm_sched_entity_kill_jobs_cb() as a fence signalling\ncallback so in an interrupt context. It will deadlock when trying to\ngrab the xa_lock which is already held by CPU0.\n\nReplacing all xa_* usage by their xa_*_irq counterparts would fix\nthis issue, but Christian pointed out another issue: dma_fence_signal\ntakes fence.lock and so does dma_fence_add_callback.\n\n  dma_fence_signal() // locks f1.lock\n  -> drm_sched_entity_kill_jobs_cb()\n  -> foreach dependencies\n     -> dma_fence_add_callback() // locks f2.lock\n\nThis will deadlock if f1 and f2 share the same spinlock.\n\nTo fix both issues, the code iterating on dependencies and re-arming them\nis moved out to drm_sched_entity_kill_jobs_work().\n\nCc: stable@vger.kernel.org # v6.2+\nFixes: 2fdb8a8f07c2 (\"drm/scheduler: rework entity flush, kill and fini\")\nLink: https://gitlab.freedesktop.org/mesa/mesa/-/issues/13908\nReported-by: Mikhail Gavrilov <mikhail.v.gavrilov@gmail.com>\nSuggested-by: Christian König <christian.koenig@amd.com>\nReviewed-by: Christian König <christian.koenig@amd.com>\nSigned-off-by: Pierre-Eric Pelloux-Prayer <pierre-eric.pelloux-prayer@amd.com>\n[phasta: commit message nits]\nSigned-off-by: Philipp Stanner <phasta@kernel.org>\nLink: https://patch.msgid.link/20251104095358.15092-1-pierre-eric.pelloux-prayer@amd.com",
+    "date": "2025-11-04T09:53:57",
+    "html_url": "https://github.com/torvalds/linux/commit/487df8b698345dd5a91346335f05170ed5f29d4e",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/scheduler/sched_entity.c",
+        "additions": 19,
+        "deletions": 15
       }
     ]
   },
@@ -1745,6 +2538,143 @@
     ]
   },
   {
+    "sha": "6dd97ceb645c08aca9fc871a3006e47fe699f0ac",
+    "author": "Rongronggg9",
+    "message": "drm/amd/display: Fix NULL deref in debugfs odm_combine_segments\n\nWhen a connector is connected but inactive (e.g., disabled by desktop\nenvironments), pipe_ctx->stream_res.tg will be destroyed. Then, reading\nodm_combine_segments causes kernel NULL pointer dereference.\n\n BUG: kernel NULL pointer dereference, address: 0000000000000000\n #PF: supervisor read access in kernel mode\n #PF: error_code(0x0000) - not-present page\n PGD 0 P4D 0\n Oops: Oops: 0000 [#1] SMP NOPTI\n CPU: 16 UID: 0 PID: 26474 Comm: cat Not tainted 6.17.0+ #2 PREEMPT(lazy)  e6a17af9ee6db7c63e9d90dbe5b28ccab67520c6\n Hardware name: LENOVO 21Q4/LNVNB161216, BIOS PXCN25WW 03/27/2025\n RIP: 0010:odm_combine_segments_show+0x93/0xf0 [amdgpu]\n Code: 41 83 b8 b0 00 00 00 01 75 6e 48 98 ba a1 ff ff ff 48 c1 e0 0c 48 8d 8c 07 d8 02 00 00 48 85 c9 74 2d 48 8b bc 07 f0 08 00 00 <48> 8b 07 48 8b 80 08 02 00>\n RSP: 0018:ffffd1bf4b953c58 EFLAGS: 00010286\n RAX: 0000000000005000 RBX: ffff8e35976b02d0 RCX: ffff8e3aeed052d8\n RDX: 00000000ffffffa1 RSI: ffff8e35a3120800 RDI: 0000000000000000\n RBP: 0000000000000000 R08: ffff8e3580eb0000 R09: ffff8e35976b02d0\n R10: ffffd1bf4b953c78 R11: 0000000000000000 R12: ffffd1bf4b953d08\n R13: 0000000000040000 R14: 0000000000000001 R15: 0000000000000001\n FS:  00007f44d3f9f740(0000) GS:ffff8e3caa47f000(0000) knlGS:0000000000000000\n CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n CR2: 0000000000000000 CR3: 00000006485c2000 CR4: 0000000000f50ef0\n PKRU: 55555554\n Call Trace:\n  <TASK>\n  seq_read_iter+0x125/0x490\n  ? __alloc_frozen_pages_noprof+0x18f/0x350\n  seq_read+0x12c/0x170\n  full_proxy_read+0x51/0x80\n  vfs_read+0xbc/0x390\n  ? __handle_mm_fault+0xa46/0xef0\n  ? do_syscall_64+0x71/0x900\n  ksys_read+0x73/0xf0\n  do_syscall_64+0x71/0x900\n  ? count_memcg_events+0xc2/0x190\n  ? handle_mm_fault+0x1d7/0x2d0\n  ? do_user_addr_fault+0x21a/0x690\n  ? exc_page_fault+0x7e/0x1a0\n  entry_SYSCALL_64_after_hwframe+0x6c/0x74\n RIP: 0033:0x7f44d4031687\n Code: 48 89 fa 4c 89 df e8 58 b3 00 00 8b 93 08 03 00 00 59 5e 48 83 f8 fc 74 1a 5b c3 0f 1f 84 00 00 00 00 00 48 8b 44 24 10 0f 05 <5b> c3 0f 1f 80 00 00 00 00>\n RSP: 002b:00007ffdb4b5f0b0 EFLAGS: 00000202 ORIG_RAX: 0000000000000000\n RAX: ffffffffffffffda RBX: 00007f44d3f9f740 RCX: 00007f44d4031687\n RDX: 0000000000040000 RSI: 00007f44d3f5e000 RDI: 0000000000000003\n RBP: 0000000000040000 R08: 0000000000000000 R09: 0000000000000000\n R10: 0000000000000000 R11: 0000000000000202 R12: 00007f44d3f5e000\n R13: 0000000000000003 R14: 0000000000000000 R15: 0000000000040000\n  </TASK>\n Modules linked in: tls tcp_diag inet_diag xt_mark ccm snd_hrtimer snd_seq_dummy snd_seq_midi snd_seq_oss snd_seq_midi_event snd_rawmidi snd_seq snd_seq_device x>\n  snd_hda_codec_atihdmi snd_hda_codec_realtek_lib lenovo_wmi_helpers think_lmi snd_hda_codec_generic snd_hda_codec_hdmi snd_soc_core kvm snd_compress uvcvideo sn>\n  platform_profile joydev amd_pmc mousedev mac_hid sch_fq_codel uinput i2c_dev parport_pc ppdev lp parport nvme_fabrics loop nfnetlink ip_tables x_tables dm_cryp>\n CR2: 0000000000000000\n ---[ end trace 0000000000000000 ]---\n RIP: 0010:odm_combine_segments_show+0x93/0xf0 [amdgpu]\n Code: 41 83 b8 b0 00 00 00 01 75 6e 48 98 ba a1 ff ff ff 48 c1 e0 0c 48 8d 8c 07 d8 02 00 00 48 85 c9 74 2d 48 8b bc 07 f0 08 00 00 <48> 8b 07 48 8b 80 08 02 00>\n RSP: 0018:ffffd1bf4b953c58 EFLAGS: 00010286\n RAX: 0000000000005000 RBX: ffff8e35976b02d0 RCX: ffff8e3aeed052d8\n RDX: 00000000ffffffa1 RSI: ffff8e35a3120800 RDI: 0000000000000000\n RBP: 0000000000000000 R08: ffff8e3580eb0000 R09: ffff8e35976b02d0\n R10: ffffd1bf4b953c78 R11: 0000000000000000 R12: ffffd1bf4b953d08\n R13: 0000000000040000 R14: 0000000000000001 R15: 0000000000000001\n FS:  00007f44d3f9f740(0000) GS:ffff8e3caa47f000(0000) knlGS:0000000000000000\n CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\n CR2: 0000000000000000 CR3: 00000006485c2000 CR4: 0000000000f50ef0\n PKRU: 55555554\n\nFix this by checking pipe_ctx->stream_res.tg before dereferencing.\n\nFixes: 07926ba8a44f (\"drm/amd/display: Add debugfs interface for ODM combine info\")\nSigned-off-by: Rong Zhang <i@rong.moe>\nReviewed-by: Mario Limoncello <mario.limonciello@amd.com>\nSigned-off-by: Mario Limonciello <mario.limonciello@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit f19bbecd34e3c15eed7e5e593db2ac0fc7a0e6d8)\nCc: stable@vger.kernel.org",
+    "date": "2025-10-13T16:47:35",
+    "html_url": "https://github.com/torvalds/linux/commit/6dd97ceb645c08aca9fc871a3006e47fe699f0ac",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_debugfs.c",
+        "additions": 2,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "597eb70f7ff7551ff795cd51754b81aabedab67b",
+    "author": "PhilipYangA",
+    "message": "drm/amdkfd: Don't clear PT after process killed\n\nIf process is killed. the vm entity is stopped, submit pt update job\nwill trigger the error message \"*ERROR* Trying to push to a killed\nentity\", job will not execute.\n\nSuggested-by: Christian König <christian.koenig@amd.com>\nSigned-off-by: Philip Yang <Philip.Yang@amd.com>\nReviewed-by: Christian König <christian.koenig@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 10c382ec6c6d1e11975a11962bec21cba6360391)\nCc: stable@vger.kernel.org",
+    "date": "2025-10-31T14:50:02",
+    "html_url": "https://github.com/torvalds/linux/commit/597eb70f7ff7551ff795cd51754b81aabedab67b",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c",
+        "additions": 4,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "7c5609b72bfe57d8c601d9561e0d2551b605c017",
+    "author": "alexdeucher",
+    "message": "drm/amdgpu/smu: Handle S0ix for vangogh\n\nFix the flows for S0ix.  There is no need to stop\nrlc or reintialize PMFW in S0ix.\n\nCloses: https://gitlab.freedesktop.org/drm/amd/-/issues/4659\nReviewed-by: Mario Limonciello <mario.limonciello@amd.com>\nReported-by: Antheas Kapenekakis <lkml@antheas.dev>\nTested-by: Antheas Kapenekakis <lkml@antheas.dev>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit fd39b5a5830d8f2553e0c09d4d50bdff28b10080)\nCc: <stable@vger.kernel.org> # c81f5cebe849: drm/amdgpu: Drop PMFW RLC notifier from amdgpu_device_suspend()\nCc: <stable@vger.kernel.org>",
+    "date": "2025-10-24T17:08:11",
+    "html_url": "https://github.com/torvalds/linux/commit/7c5609b72bfe57d8c601d9561e0d2551b605c017",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/amdgpu_smu.c",
+        "additions": 6,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/swsmu/smu11/vangogh_ppt.c",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "c81f5cebe849a2beeed4c8f2b06a58dfc02d5350",
+    "author": "alexdeucher",
+    "message": "drm/amdgpu: Drop PMFW RLC notifier from amdgpu_device_suspend()\n\nFor S3 on vangogh, PMFW needs to be notified before the\ndriver powers down RLC.  This already happens in smu_disable_dpms()\nso drop the superfluous call in amdgpu_device_suspend().\n\nCo-developed-by: Mario Limonciello (AMD) <superm1@kernel.org>\nReviewed-by: Alex Deucher <alexander.deucher@amd.com>\nSigned-off-by: Mario Limonciello (AMD) <superm1@kernel.org>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 960e30a61e1a7ca5341a6cf9481e770e1cda24aa)",
+    "date": "2025-10-26T04:29:36",
+    "html_url": "https://github.com/torvalds/linux/commit/c81f5cebe849a2beeed4c8f2b06a58dfc02d5350",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+        "additions": 0,
+        "deletions": 4
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_dpm.c",
+        "additions": 0,
+        "deletions": 18
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/pm/inc/amdgpu_dpm.h",
+        "additions": 0,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "fdc93beeadc2439e5e85d056a8fe681dcced09da",
+    "author": "Alex Hung",
+    "message": "drm/amd/display: Fix black screen with HDMI outputs\n\n[Why & How]\nThis fixes the black screen issue on certain APUs with HDMI,\naccompanied by the following messages:\n\namdgpu 0000:c4:00.0: amdgpu: [drm] Failed to setup vendor info\n                     frame on connector DP-1: -22\namdgpu 0000:c4:00.0: [drm] Cannot find any crtc or sizes [drm]\n                     Cannot find any crtc or sizes\n\nFixes: 489f0f600ce2 (\"drm/amd/display: Fix DVI-D/HDMI adapters\")\nSuggested-by: Timur Kristóf <timur.kristof@gmail.com>\nReviewed-by: Harry Wentland <harry.wentland@amd.com>\nSigned-off-by: Alex Hung <alex.hung@amd.com>\nSigned-off-by: Ray Wu <ray.wu@amd.com>\nTested-by: Daniel Wheeler <daniel.wheeler@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 678c901443a6d2e909e3b51331a20f9d8f84ce82)",
+    "date": "2025-10-22T22:19:34",
+    "html_url": "https://github.com/torvalds/linux/commit/fdc93beeadc2439e5e85d056a8fe681dcced09da",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/display/dc/link/link_detection.c",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "3362692fea915ce56345366364a501c629c9ff17",
+    "author": "superm1",
+    "message": "drm/amd/display: Don't stretch non-native images by default in eDP\n\ncommit 978fa2f6d0b12 (\"drm/amd/display: Use scaling for non-native\nresolutions on eDP\") started using the GPU scaler hardware to scale\nwhen a non-native resolution was picked on eDP. This scaling was done\nto fill the screen instead of maintain aspect ratio.\n\nThe idea was supposed to be that if a different scaling behavior is\npreferred then the compositor would request it.  The not following\naspect ratio behavior however isn't desirable, so adjust it to follow\naspect ratio and still try to fill screen.\n\nNote: This will lead to black bars in some cases for non-native\nresolutions. Compositors can request the previous behavior if desired.\n\nFixes: 978fa2f6d0b1 (\"drm/amd/display: Use scaling for non-native resolutions on eDP\")\nCloses: https://gitlab.freedesktop.org/drm/amd/-/issues/4538\nSigned-off-by: Mario Limonciello (AMD) <superm1@kernel.org>\nAcked-by: Alex Deucher <alexander.deucher@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 825df7ff4bb1a383ad4827545e09aec60d230770)",
+    "date": "2025-10-30T19:39:43",
+    "html_url": "https://github.com/torvalds/linux/commit/3362692fea915ce56345366364a501c629c9ff17",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "37e3567dee273f68726373b342b38234bafe4cf9",
+    "author": "Yang Wang",
+    "message": "drm/amd/pm: fix missing device_attr cleanup in amdgpu_pm_sysfs_init()\n\nUse the correct label to complete all cleanup work.\n\nFixes: 4d154b1ca580 (\"drm/amd/pm: Add support for DPM policies\")\nFixes: 25e82f2e2c59 (\"drm/amd/pm: Add temperature metrics sysfs entry\")\nSigned-off-by: Yang Wang <kevinyang.wang@amd.com>\nReviewed-by: Lijo Lazar <lijo.lazar@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 4c4c138a1c86775c4d47e24f26357a1f8b64d0a3)",
+    "date": "2025-10-30T05:06:24",
+    "html_url": "https://github.com/torvalds/linux/commit/37e3567dee273f68726373b342b38234bafe4cf9",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/pm/amdgpu_pm.c",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "90b75e12a6e831c8516498f690058d4165d5a5d6",
+    "author": "alexdeucher",
+    "message": "drm/amdgpu: set default gfx reset masks for gfx6-8\n\nThese were not set so soft recovery was inadvertantly\ndisabled.\n\nFixes: 6ac55eab4fc4 (\"drm/amdgpu: move reset support type checks into the caller\")\nReviewed-by: Jesse Zhang <Jesse.Zhang@amd.com>\nSigned-off-by: Alex Deucher <alexander.deucher@amd.com>\n(cherry picked from commit 1972763505d728c604b537180727ec8132e619df)",
+    "date": "2025-10-14T20:45:17",
+    "html_url": "https://github.com/torvalds/linux/commit/90b75e12a6e831c8516498f690058d4165d5a5d6",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v6_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v7_0.c",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c",
+        "additions": 5,
+        "deletions": 0
+      }
+    ]
+  },
+  {
     "sha": "789521b4717fd6bd85164ba5c131f621a79c9736",
     "author": "ojeda",
     "message": "rust: kbuild: support `-Cjump-tables=n` for Rust 1.93.0\n\nRust 1.93.0 (expected 2026-01-22) is stabilizing `-Zno-jump-tables`\n[1][2] as `-Cjump-tables=n` [3].\n\nWithout this change, one would eventually see:\n\n      RUSTC L rust/core.o\n    error: unknown unstable option: `no-jump-tables`\n\nThus support the upcoming version.\n\nLink: https://github.com/rust-lang/rust/issues/116592 [1]\nLink: https://github.com/rust-lang/rust/pull/105812 [2]\nLink: https://github.com/rust-lang/rust/pull/145974 [3]\nReviewed-by: Alice Ryhl <aliceryhl@google.com>\nReviewed-by: Trevor Gross <tmgross@umich.edu>\nAcked-by: Nicolas Schier <nsc@kernel.org>\nLink: https://patch.msgid.link/20251101094011.1024534-1-ojeda@kernel.org\nSigned-off-by: Miguel Ojeda <ojeda@kernel.org>",
@@ -1816,6 +2746,20 @@
         "filename": "fs/smb/server/transport_rdma.c",
         "additions": 19,
         "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "fd9f30d1038ee1624baa17a6ff11effe5f7617cb",
+    "author": "hdeller",
+    "message": "parisc: Avoid crash due to unaligned access in unwinder\n\nGuenter Roeck reported this kernel crash on his emulated B160L machine:\n\nStarting network: udhcpc: started, v1.36.1\n Backtrace:\n  [<104320d4>] unwind_once+0x1c/0x5c\n  [<10434a00>] walk_stackframe.isra.0+0x74/0xb8\n  [<10434a6c>] arch_stack_walk+0x28/0x38\n  [<104e5efc>] stack_trace_save+0x48/0x5c\n  [<105d1bdc>] set_track_prepare+0x44/0x6c\n  [<105d9c80>] ___slab_alloc+0xfc4/0x1024\n  [<105d9d38>] __slab_alloc.isra.0+0x58/0x90\n  [<105dc80c>] kmem_cache_alloc_noprof+0x2ac/0x4a0\n  [<105b8e54>] __anon_vma_prepare+0x60/0x280\n  [<105a823c>] __vmf_anon_prepare+0x68/0x94\n  [<105a8b34>] do_wp_page+0x8cc/0xf10\n  [<105aad88>] handle_mm_fault+0x6c0/0xf08\n  [<10425568>] do_page_fault+0x110/0x440\n  [<10427938>] handle_interruption+0x184/0x748\n  [<11178398>] schedule+0x4c/0x190\n  BUG: spinlock recursion on CPU#0, ifconfig/2420\n  lock: terminate_lock.2+0x0/0x1c, .magic: dead4ead, .owner: ifconfig/2420, .owner_cpu: 0\n\nWhile creating the stack trace, the unwinder uses the stack pointer to guess\nthe previous frame to read the previous stack pointer from memory.  The crash\nhappens, because the unwinder tries to read from unaligned memory and as such\ntriggers the unalignment trap handler which then leads to the spinlock\nrecursion and finally to a deadlock.\n\nFix it by checking the alignment before accessing the memory.\n\nReported-by: Guenter Roeck <linux@roeck-us.net>\nSigned-off-by: Helge Deller <deller@gmx.de>\nTested-by: Guenter Roeck <linux@roeck-us.net>\nCc: stable@vger.kernel.org # v6.12+",
+    "date": "2025-11-03T21:38:26",
+    "html_url": "https://github.com/torvalds/linux/commit/fd9f30d1038ee1624baa17a6ff11effe5f7617cb",
+    "files": [
+      {
+        "filename": "arch/parisc/kernel/unwind.c",
+        "additions": 10,
+        "deletions": 3
       }
     ]
   },
@@ -2336,6 +3280,34 @@
     ]
   },
   {
+    "sha": "7d44ad6b43d0be43d080180413a1b6c24cfbd266",
+    "author": "unerlige",
+    "message": "drm/i915: Fix conversion between clock ticks and nanoseconds\n\nWhen tick values are large, the multiplication by NSEC_PER_SEC is larger\nthan 64 bits and results in bad conversions.\n\nThe issue is seen in PMU busyness counters that look like they have\nwrapped around due to bad conversion. i915 PMU implementation returns\nmonotonically increasing counters. If a count is lesser than previous\none, it will only return the larger value until the smaller value\ncatches up. The user will see this as zero delta between two\nmeasurements even though the engines are busy.\n\nFix it by using mul_u64_u32_div()\n\nFixes: 77cdd054dd2c (\"drm/i915/pmu: Connect engine busyness stats from GuC to pmu\")\nCloses: https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/14955\nSigned-off-by: Umesh Nerlige Ramappa <umesh.nerlige.ramappa@intel.com>\nReviewed-by: Ashutosh Dixit <ashutosh.dixit@intel.com>\nLink: https://lore.kernel.org/r/20251016000350.1152382-2-umesh.nerlige.ramappa@intel.com\n(cherry picked from commit 2ada9cb1df3f5405a01d013b708b1b0914efccfe)\nSigned-off-by: Rodrigo Vivi <rodrigo.vivi@intel.com>\n[Rodrigo: Added the Fixes tag while cherry-picking to fixes]",
+    "date": "2025-10-16T00:03:51",
+    "html_url": "https://github.com/torvalds/linux/commit/7d44ad6b43d0be43d080180413a1b6c24cfbd266",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/i915/gt/intel_gt_clock_utils.c",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "84bbe327a5cbb060f3321c9d9d4d53936fc1ef9b",
+    "author": "jkrzyszt-intel",
+    "message": "drm/i915: Avoid lock inversion when pinning to GGTT on CHV/BXT+VTD\n\nOn completion of i915_vma_pin_ww(), a synchronous variant of\ndma_fence_work_commit() is called.  When pinning a VMA to GGTT address\nspace on a Cherry View family processor, or on a Broxton generation SoC\nwith VTD enabled, i.e., when stop_machine() is then called from\nintel_ggtt_bind_vma(), that can potentially lead to lock inversion among\nreservation_ww and cpu_hotplug locks.\n\n[86.861179] ======================================================\n[86.861193] WARNING: possible circular locking dependency detected\n[86.861209] 6.15.0-rc5-CI_DRM_16515-gca0305cadc2d+ #1 Tainted: G     U\n[86.861226] ------------------------------------------------------\n[86.861238] i915_module_loa/1432 is trying to acquire lock:\n[86.861252] ffffffff83489090 (cpu_hotplug_lock){++++}-{0:0}, at: stop_machine+0x1c/0x50\n[86.861290]\nbut task is already holding lock:\n[86.861303] ffffc90002e0b4c8 (reservation_ww_class_mutex){+.+.}-{3:3}, at: i915_vma_pin.constprop.0+0x39/0x1d0 [i915]\n[86.862233]\nwhich lock already depends on the new lock.\n[86.862251]\nthe existing dependency chain (in reverse order) is:\n[86.862265]\n-> #5 (reservation_ww_class_mutex){+.+.}-{3:3}:\n[86.862292]        dma_resv_lockdep+0x19a/0x390\n[86.862315]        do_one_initcall+0x60/0x3f0\n[86.862334]        kernel_init_freeable+0x3cd/0x680\n[86.862353]        kernel_init+0x1b/0x200\n[86.862369]        ret_from_fork+0x47/0x70\n[86.862383]        ret_from_fork_asm+0x1a/0x30\n[86.862399]\n-> #4 (reservation_ww_class_acquire){+.+.}-{0:0}:\n[86.862425]        dma_resv_lockdep+0x178/0x390\n[86.862440]        do_one_initcall+0x60/0x3f0\n[86.862454]        kernel_init_freeable+0x3cd/0x680\n[86.862470]        kernel_init+0x1b/0x200\n[86.862482]        ret_from_fork+0x47/0x70\n[86.862495]        ret_from_fork_asm+0x1a/0x30\n[86.862509]\n-> #3 (&mm->mmap_lock){++++}-{3:3}:\n[86.862531]        down_read_killable+0x46/0x1e0\n[86.862546]        lock_mm_and_find_vma+0xa2/0x280\n[86.862561]        do_user_addr_fault+0x266/0x8e0\n[86.862578]        exc_page_fault+0x8a/0x2f0\n[86.862593]        asm_exc_page_fault+0x27/0x30\n[86.862607]        filldir64+0xeb/0x180\n[86.862620]        kernfs_fop_readdir+0x118/0x480\n[86.862635]        iterate_dir+0xcf/0x2b0\n[86.862648]        __x64_sys_getdents64+0x84/0x140\n[86.862661]        x64_sys_call+0x1058/0x2660\n[86.862675]        do_syscall_64+0x91/0xe90\n[86.862689]        entry_SYSCALL_64_after_hwframe+0x76/0x7e\n[86.862703]\n-> #2 (&root->kernfs_rwsem){++++}-{3:3}:\n[86.862725]        down_write+0x3e/0xf0\n[86.862738]        kernfs_add_one+0x30/0x3c0\n[86.862751]        kernfs_create_dir_ns+0x53/0xb0\n[86.862765]        internal_create_group+0x134/0x4c0\n[86.862779]        sysfs_create_group+0x13/0x20\n[86.862792]        topology_add_dev+0x1d/0x30\n[86.862806]        cpuhp_invoke_callback+0x4b5/0x850\n[86.862822]        cpuhp_issue_call+0xbf/0x1f0\n[86.862836]        __cpuhp_setup_state_cpuslocked+0x111/0x320\n[86.862852]        __cpuhp_setup_state+0xb0/0x220\n[86.862866]        topology_sysfs_init+0x30/0x50\n[86.862879]        do_one_initcall+0x60/0x3f0\n[86.862893]        kernel_init_freeable+0x3cd/0x680\n[86.862908]        kernel_init+0x1b/0x200\n[86.862921]        ret_from_fork+0x47/0x70\n[86.862934]        ret_from_fork_asm+0x1a/0x30\n[86.862947]\n-> #1 (cpuhp_state_mutex){+.+.}-{3:3}:\n[86.862969]        __mutex_lock+0xaa/0xed0\n[86.862982]        mutex_lock_nested+0x1b/0x30\n[86.862995]        __cpuhp_setup_state_cpuslocked+0x67/0x320\n[86.863012]        __cpuhp_setup_state+0xb0/0x220\n[86.863026]        page_alloc_init_cpuhp+0x2d/0x60\n[86.863041]        mm_core_init+0x22/0x2d0\n[86.863054]        start_kernel+0x576/0xbd0\n[86.863068]        x86_64_start_reservations+0x18/0x30\n[86.863084]        x86_64_start_kernel+0xbf/0x110\n[86.863098]        common_startup_64+0x13e/0x141\n[86.863114]\n-> #0 (cpu_hotplug_lock){++++}-{0:0}:\n[86.863135]        __lock_acquire+0x1635/0x2810\n[86.863152]        lock_acquire+0xc4/0x2f0\n[86.863166]        cpus_read_lock+0x41/0x100\n[86.863180]        stop_machine+0x1c/0x50\n[86.863194]        bxt_vtd_ggtt_insert_entries__BKL+0x3b/0x60 [i915]\n[86.863987]        intel_ggtt_bind_vma+0x43/0x70 [i915]\n[86.864735]        __vma_bind+0x55/0x70 [i915]\n[86.865510]        fence_work+0x26/0xa0 [i915]\n[86.866248]        fence_notify+0xa1/0x140 [i915]\n[86.866983]        __i915_sw_fence_complete+0x8f/0x270 [i915]\n[86.867719]        i915_sw_fence_commit+0x39/0x60 [i915]\n[86.868453]        i915_vma_pin_ww+0x462/0x1360 [i915]\n[86.869228]        i915_vma_pin.constprop.0+0x133/0x1d0 [i915]\n[86.870001]        initial_plane_vma+0x307/0x840 [i915]\n[86.870774]        intel_initial_plane_config+0x33f/0x670 [i915]\n[86.871546]        intel_display_driver_probe_nogem+0x1c6/0x260 [i915]\n[86.872330]        i915_driver_probe+0x7fa/0xe80 [i915]\n[86.873057]        i915_pci_probe+0xe6/0x220 [i915]\n[86.873782]        local_pci_probe+0x47/0xb0\n[86.873802]        pci_device_probe+0xf3/0x260\n[86.873817]        really_probe+0xf1/0x3c0\n[86.873833]        __driver_probe_device+0x8c/0x180\n[86.873848]        driver_probe_device+0x24/0xd0\n[86.873862]        __driver_attach+0x10f/0x220\n[86.873876]        bus_for_each_dev+0x7f/0xe0\n[86.873892]        driver_attach+0x1e/0x30\n[86.873904]        bus_add_driver+0x151/0x290\n[86.873917]        driver_register+0x5e/0x130\n[86.873931]        __pci_register_driver+0x7d/0x90\n[86.873945]        i915_pci_register_driver+0x23/0x30 [i915]\n[86.874678]        i915_init+0x37/0x120 [i915]\n[86.875347]        do_one_initcall+0x60/0x3f0\n[86.875369]        do_init_module+0x97/0x2a0\n[86.875385]        load_module+0x2c54/0x2d80\n[86.875398]        init_module_from_file+0x96/0xe0\n[86.875413]        idempotent_init_module+0x117/0x330\n[86.875426]        __x64_sys_finit_module+0x77/0x100\n[86.875440]        x64_sys_call+0x24de/0x2660\n[86.875454]        do_syscall_64+0x91/0xe90\n[86.875470]        entry_SYSCALL_64_after_hwframe+0x76/0x7e\n[86.875486]\nother info that might help us debug this:\n[86.875502] Chain exists of:\n  cpu_hotplug_lock --> reservation_ww_class_acquire --> reservation_ww_class_mutex\n[86.875539]  Possible unsafe locking scenario:\n[86.875552]        CPU0                    CPU1\n[86.875563]        ----                    ----\n[86.875573]   lock(reservation_ww_class_mutex);\n[86.875588]                                lock(reservation_ww_class_acquire);\n[86.875606]                                lock(reservation_ww_class_mutex);\n[86.875624]   rlock(cpu_hotplug_lock);\n[86.875637]\n *** DEADLOCK ***\n[86.875650] 3 locks held by i915_module_loa/1432:\n[86.875663]  #0: ffff888101f5c1b0 (&dev->mutex){....}-{3:3}, at: __driver_attach+0x104/0x220\n[86.875699]  #1: ffffc90002e0b4a0 (reservation_ww_class_acquire){+.+.}-{0:0}, at: i915_vma_pin.constprop.0+0x39/0x1d0 [i915]\n[86.876512]  #2: ffffc90002e0b4c8 (reservation_ww_class_mutex){+.+.}-{3:3}, at: i915_vma_pin.constprop.0+0x39/0x1d0 [i915]\n[86.877305]\nstack backtrace:\n[86.877326] CPU: 0 UID: 0 PID: 1432 Comm: i915_module_loa Tainted: G     U              6.15.0-rc5-CI_DRM_16515-gca0305cadc2d+ #1 PREEMPT(voluntary)\n[86.877334] Tainted: [U]=USER\n[86.877336] Hardware name:  /NUC5CPYB, BIOS PYBSWCEL.86A.0079.2020.0420.1316 04/20/2020\n[86.877339] Call Trace:\n[86.877344]  <TASK>\n[86.877353]  dump_stack_lvl+0x91/0xf0\n[86.877364]  dump_stack+0x10/0x20\n[86.877369]  print_circular_bug+0x285/0x360\n[86.877379]  check_noncircular+0x135/0x150\n[86.877390]  __lock_acquire+0x1635/0x2810\n[86.877403]  lock_acquire+0xc4/0x2f0\n[86.877408]  ? stop_machine+0x1c/0x50\n[86.877422]  ? __pfx_bxt_vtd_ggtt_insert_entries__cb+0x10/0x10 [i915]\n[86.878173]  cpus_read_lock+0x41/0x100\n[86.878182]  ? stop_machine+0x1c/0x50\n[86.878191]  ? __pfx_bxt_vtd_ggtt_insert_entries__cb+0x10/0x10 [i915]\n[86.878916]  stop_machine+0x1c/0x50\n[86.878927]  bxt_vtd_ggtt_insert_entries__BKL+0x3b/0x60 [i915]\n[86.879652]  intel_ggtt_bind_vma+0x43/0x70 [i915]\n[86.880375]  __vma_bind+0x55/0x70 [i915]\n[86.881133]  fence_work+0x26/0xa0 [i915]\n[86.881851]  fence_notify+0xa1/0x140 [i915]\n[86.882566]  __i915_sw_fence_complete+0x8f/0x270 [i915]\n[86.883286]  i915_sw_fence_commit+0x39/0x60 [i915]\n[86.884003]  i915_vma_pin_ww+0x462/0x1360 [i915]\n[86.884756]  ? i915_vma_pin.constprop.0+0x6c/0x1d0 [i915]\n[86.885513]  i915_vma_pin.constprop.0+0x133/0x1d0 [i915]\n[86.886281]  initial_plane_vma+0x307/0x840 [i915]\n[86.887049]  intel_initial_plane_config+0x33f/0x670 [i915]\n[86.887819]  intel_display_driver_probe_nogem+0x1c6/0x260 [i915]\n[86.888587]  i915_driver_probe+0x7fa/0xe80 [i915]\n[86.889293]  ? mutex_unlock+0x12/0x20\n[86.889301]  ? drm_privacy_screen_get+0x171/0x190\n[86.889308]  ? acpi_dev_found+0x66/0x80\n[86.889321]  i915_pci_probe+0xe6/0x220 [i915]\n[86.890038]  local_pci_probe+0x47/0xb0\n[86.890049]  pci_device_probe+0xf3/0x260\n[86.890058]  really_probe+0xf1/0x3c0\n[86.890067]  __driver_probe_device+0x8c/0x180\n[86.890072]  driver_probe_device+0x24/0xd0\n[86.890078]  __driver_attach+0x10f/0x220\n[86.890083]  ? __pfx___driver_attach+0x10/0x10\n[86.890088]  bus_for_each_dev+0x7f/0xe0\n[86.890097]  driver_attach+0x1e/0x30\n[86.890101]  bus_add_driver+0x151/0x290\n[86.890107]  driver_register+0x5e/0x130\n[86.890113]  __pci_register_driver+0x7d/0x90\n[86.890119]  i915_pci_register_driver+0x23/0x30 [i915]\n[86.890833]  i915_init+0x37/0x120 [i915]\n[86.891482]  ? __pfx_i915_init+0x10/0x10 [i915]\n[86.892135]  do_one_initcall+0x60/0x3f0\n[86.892145]  ? __kmalloc_cache_noprof+0x33f/0x470\n[86.892157]  do_init_module+0x97/0x2a0\n[86.892164]  load_module+0x2c54/0x2d80\n[86.892168]  ? __kernel_read+0x15c/0x300\n[86.892185]  ? kernel_read_file+0x2b1/0x320\n[86.892195]  init_module_from_file+0x96/0xe0\n[86.892199]  ? init_module_from_file+0x96/0xe0\n[86.892211]  idempotent_init_module+0x117/0x330\n[86.892224]  __x64_sys_finit_module+0x77/0x100\n[86.892230]  x64_sys_call+0x24de/0x2660\n[86.892236]  do_syscall_64+0x91/0xe90\n[86.892243]  ? irqentry_exit+0x77/0xb0\n[86.892249]  ? sysvec_apic_timer_interrupt+0x57/0xc0\n[86.892256]  entry_SYSCALL_64_after_hwframe+0x76/0x7e\n[86.892261] RIP: 0033:0x7303e1b2725d\n[86.892271] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 8b bb 0d 00 f7 d8 64 89 01 48\n[86.892276] RSP: 002b:00007ffddd1fdb38 EFLAGS: 00000246 ORIG_RAX: 0000000000000139\n[86.892281] RAX: ffffffffffffffda RBX: 00005d771d88fd90 RCX: 00007303e1b2725d\n[86.892285] RDX: 0000000000000000 RSI: 00005d771d893aa0 RDI: 000000000000000c\n[86.892287] RBP: 00007ffddd1fdbf0 R08: 0000000000000040 R09: 00007ffddd1fdb80\n[86.892289] R10: 00007303e1c03b20 R11: 0000000000000246 R12: 00005d771d893aa0\n[86.892292] R13: 0000000000000000 R14: 00005d771d88f0d0 R15: 00005d771d895710\n[86.892304]  </TASK>\n\nCall asynchronous variant of dma_fence_work_commit() in that case.\n\nv3: Provide more verbose in-line comment (Andi),\n  - mention target environments in commit message.\n\nFixes: 7d1c2618eac59 (\"drm/i915: Take reservation lock around i915_vma_pin.\")\nCloses: https://gitlab.freedesktop.org/drm/i915/kernel/-/issues/14985\nCc: Andi Shyti <andi.shyti@kernel.org>\nSigned-off-by: Janusz Krzysztofik <janusz.krzysztofik@linux.intel.com>\nReviewed-by: Sebastian Brzezinka <sebastian.brzezinka@intel.com>\nReviewed-by: Krzysztof Karas <krzysztof.karas@intel.com>\nAcked-by: Andi Shyti <andi.shyti@linux.intel.com>\nSigned-off-by: Andi Shyti <andi.shyti@linux.intel.com>\nLink: https://lore.kernel.org/r/20251023082925.351307-6-janusz.krzysztofik@linux.intel.com\n(cherry picked from commit 648ef1324add1c2e2b6041cdf0b28d31fbca5f13)\nSigned-off-by: Rodrigo Vivi <rodrigo.vivi@intel.com>",
+    "date": "2025-10-23T08:25:19",
+    "html_url": "https://github.com/torvalds/linux/commit/84bbe327a5cbb060f3321c9d9d4d53936fc1ef9b",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/i915/i915_vma.c",
+        "additions": 14,
+        "deletions": 2
+      }
+    ]
+  },
+  {
     "sha": "29e4d12a2957e4e7dcad2418c7251f36285d99d8",
     "author": "acmel",
     "message": "tools headers UAPI: Sync linux/kvm.h with the kernel sources\n\nTo pick the changes in:\n\n  fe2bf6234e947bf5 (\"KVM: guest_memfd: Add INIT_SHARED flag, reject user page faults if not set\")\n  d2042d8f96ddefde (\"KVM: Rework KVM_CAP_GUEST_MEMFD_MMAP into KVM_CAP_GUEST_MEMFD_FLAGS\")\n  3d3a04fad25a6621 (\"KVM: Allow and advertise support for host mmap() on guest_memfd files\")\n\nThat just rebuilds perf, as these patches don't add any new KVM ioctl to\nbe harvested for the 'perf trace' ioctl syscall argument beautifiers.\n\nThis addresses this perf build warning:\n\n  Warning: Kernel ABI header differences:\n    diff -u tools/include/uapi/linux/kvm.h include/uapi/linux/kvm.h\n\nPlease see tools/include/uapi/README for further details.\n\nCc: Sean Christopherson <seanjc@google.com>\nCc: Fuad Tabba <tabba@google.com>\nCc: Paolo Bonzini <pbonzini@redhat.com>\nSigned-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>",
@@ -2431,6 +3403,20 @@
         "filename": "drivers/gpio/gpiolib-swnode.c",
         "additions": 1,
         "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "b4cd8f94ae7e5b0d83041b186258eba0c8f7c5f7",
+    "author": "MTCoster",
+    "message": "drm/imagination: Optionally depend on POWER_SEQUENCING\n\nWhen the change using pwrseq was added, I nixed the dependency on\nPOWER_SEQUENCING since we didn't want it pulled in on platforms where\nit's not needed [1]. I hadn't, however, considered the link-time\nimplications of this for configs with POWER_SEQUENCING=m.\n\n[1]: https://lore.kernel.org/r/a265a20e-8908-40d8-b4e0-2c8b8f773742@imgtec.com/\n\nFixes: e38e8391f30b (\"drm/imagination: Use pwrseq for TH1520 GPU power management\")\nCc: stable@vger.kernel.org\nReported-by: kernel test robot <lkp@intel.com>\nCloses: https://lore.kernel.org/oe-kbuild-all/202510111806.CMulNMKW-lkp@intel.com/\nCloses: https://lore.kernel.org/oe-kbuild-all/202511011739.SONHjSfR-lkp@intel.com/\nReviewed-by: Alessio Belle <alessio.belle@imgtec.com>\nLink: https://patch.msgid.link/20251014-pwrseq-dep-v1-1-49aabd9d8fa1@imgtec.com\nSigned-off-by: Matt Coster <matt.coster@imgtec.com>",
+    "date": "2025-10-14T11:57:31",
+    "html_url": "https://github.com/torvalds/linux/commit/b4cd8f94ae7e5b0d83041b186258eba0c8f7c5f7",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/imagination/Kconfig",
+        "additions": 1,
+        "deletions": 0
       }
     ]
   },
@@ -2786,6 +3772,34 @@
         "filename": "tools/arch/x86/include/asm/msr-index.h",
         "additions": 19,
         "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "afcfb6c8474d9e750880aaa77952cc588f859613",
+    "author": "Jason-JH Lin",
+    "message": "drm/mediatek: Add pm_runtime support for GCE power control\n\nCall pm_runtime_resume_and_get() before accessing GCE hardware in\nmbox_send_message(), and invoke pm_runtime_put_autosuspend() in the\ncmdq callback to release the PM reference and start autosuspend for\nGCE. This ensures correct power management for the GCE device.\n\nFixes: 8afe816b0c99 (\"mailbox: mtk-cmdq-mailbox: Implement Runtime PM with autosuspend\")\nSigned-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>\nReviewed-by: CK Hu <ck.hu@mediatek.com>\nLink: https://patchwork.kernel.org/project/dri-devel/patch/20250829091727.3745415-3-jason-jh.lin@mediatek.com/\nSigned-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>",
+    "date": "2025-08-29T09:15:59",
+    "html_url": "https://github.com/torvalds/linux/commit/afcfb6c8474d9e750880aaa77952cc588f859613",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_crtc.c",
+        "additions": 7,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "9882a40640036d5bbc590426a78981526d4f2345",
+    "author": "adalessandro",
+    "message": "drm/mediatek: Disable AFBC support on Mediatek DRM driver\n\nCommit c410fa9b07c3 (\"drm/mediatek: Add AFBC support to Mediatek DRM\ndriver\") added AFBC support to Mediatek DRM and enabled the\n32x8/split/sparse modifier.\n\nHowever, this is currently broken on Mediatek MT8188 (Genio 700 EVK\nplatform); tested using upstream Kernel and Mesa (v25.2.1), AFBC is used by\ndefault since Mesa v25.0.\n\nKernel trace reports vblank timeouts constantly, and the render is garbled:\n\n```\n[CRTC:62:crtc-0] vblank wait timed out\nWARNING: CPU: 7 PID: 70 at drivers/gpu/drm/drm_atomic_helper.c:1835 drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c\n[...]\nHardware name: MediaTek Genio-700 EVK (DT)\nWorkqueue: events_unbound commit_work\npstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)\npc : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c\nlr : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c\nsp : ffff80008337bca0\nx29: ffff80008337bcd0 x28: 0000000000000061 x27: 0000000000000000\nx26: 0000000000000001 x25: 0000000000000000 x24: ffff0000c9dcc000\nx23: 0000000000000001 x22: 0000000000000000 x21: ffff0000c66f2f80\nx20: ffff0000c0d7d880 x19: 0000000000000000 x18: 000000000000000a\nx17: 000000040044ffff x16: 005000f2b5503510 x15: 0000000000000000\nx14: 0000000000000000 x13: 74756f2064656d69 x12: 742074696177206b\nx11: 0000000000000058 x10: 0000000000000018 x9 : ffff800082396a70\nx8 : 0000000000057fa8 x7 : 0000000000000cce x6 : ffff8000823eea70\nx5 : ffff0001fef5f408 x4 : ffff80017ccee000 x3 : ffff0000c12cb480\nx2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000c12cb480\nCall trace:\n drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c (P)\n drm_atomic_helper_commit_tail_rpm+0x64/0x80\n commit_tail+0xa4/0x1a4\n commit_work+0x14/0x20\n process_one_work+0x150/0x290\n worker_thread+0x2d0/0x3ec\n kthread+0x12c/0x210\n ret_from_fork+0x10/0x20\n---[ end trace 0000000000000000 ]---\n```\n\nUntil this gets fixed upstream, disable AFBC support on this platform, as\nit's currently broken with upstream Mesa.\n\nFixes: c410fa9b07c3 (\"drm/mediatek: Add AFBC support to Mediatek DRM driver\")\nCc: stable@vger.kernel.org\nSigned-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>\nReviewed-by: Daniel Stone <daniels@collabora.com>\nReviewed-by: CK Hu <ck.hu@mediatek.com>\nReviewed-by: Macpaul Lin <macpaul.lin@mediatek.com>\nLink: https://patchwork.kernel.org/project/dri-devel/patch/20251024202756.811425-1-ariel.dalessandro@collabora.com/\nSigned-off-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>",
+    "date": "2025-10-24T20:27:56",
+    "html_url": "https://github.com/torvalds/linux/commit/9882a40640036d5bbc590426a78981526d4f2345",
+    "files": [
+      {
+        "filename": "drivers/gpu/drm/mediatek/mtk_plane.c",
+        "additions": 1,
+        "deletions": 23
       }
     ]
   },
@@ -3992,2680 +5006,6 @@
         "filename": "sound/usb/mixer_s1810c.c",
         "additions": 19,
         "deletions": 16
-      }
-    ]
-  },
-  {
-    "sha": "3ad81aa52085a7e67edfa4bc8f518e5962196bb3",
-    "author": "torvalds",
-    "message": "Merge tag 'v6.18-p4' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/crypto-2.6\n\nPull crypto fixes from Herbert Xu:\n\n - Fix double free in aspeed\n\n - Fix req->nbytes clobbering in s390/phmac\n\n* tag 'v6.18-p4' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/crypto-2.6:\n  crypto: aspeed - fix double free caused by devm\n  crypto: s390/phmac - Do not modify the req->nbytes value",
-    "date": "2025-10-31T14:25:10",
-    "html_url": "https://github.com/torvalds/linux/commit/3ad81aa52085a7e67edfa4bc8f518e5962196bb3",
-    "files": [
-      {
-        "filename": "arch/s390/crypto/phmac_s390.c",
-        "additions": 34,
-        "deletions": 18
-      },
-      {
-        "filename": "drivers/crypto/aspeed/aspeed-acry.c",
-        "additions": 0,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "2d51cb1792c7b1d8d5daf55cc3eecf19ddc4500c",
-    "author": "torvalds",
-    "message": "Merge tag 'scsi-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi\n\nPull SCSI fixes from James Bottomley:\n \"ufs driver plus two core fixes.\n\n  One core fix makes the unit attention counters atomic (just in case\n  multiple commands detect them) and the other is fixing a merge window\n  regression caused by changes in the block tree\"\n\n* tag 'scsi-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi:\n  scsi: core: Fix the unit attention counter implementation\n  scsi: ufs: core: Declare tx_lanes witout initialization\n  scsi: ufs: core: Initialize value of an attribute returned by uic cmd\n  scsi: ufs: core: Fix error handler host_sem issue\n  scsi: core: Fix a regression triggered by scsi_host_busy()",
-    "date": "2025-10-31T14:08:47",
-    "html_url": "https://github.com/torvalds/linux/commit/2d51cb1792c7b1d8d5daf55cc3eecf19ddc4500c",
-    "files": [
-      {
-        "filename": "drivers/scsi/hosts.c",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/scsi/scsi_error.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/ufs/core/ufshcd.c",
-        "additions": 17,
-        "deletions": 11
-      },
-      {
-        "filename": "include/scsi/scsi_device.h",
-        "additions": 4,
-        "deletions": 6
-      }
-    ]
-  },
-  {
-    "sha": "0db22d7ee462c42c1284e98d47840932792c1adb",
-    "author": "Christoph Hellwig",
-    "message": "xfs: document another racy GC case in xfs_zoned_map_extent\n\nBesides blocks being invalidated, there is another case when the original\nmapping could have changed between querying the rmap for GC and calling\nxfs_zoned_map_extent.  Document it there as it took us quite some time\nto figure out what is going on while developing the multiple-GC\nprotection fix.\n\nSigned-off-by: Christoph Hellwig <hch@lst.de>\nReviewed-by: Hans Holmberg <hans.holmberg@wdc.com>\nReviewed-by: Damien Le Moal <dlemoal@kernel.org>\nReviewed-by: Carlos Maiolino <cmaiolino@redhat.com>\nReviewed-by: Darrick J. Wong <djwong@kernel.org>\nSigned-off-by: Carlos Maiolino <cem@kernel.org>",
-    "date": "2025-10-23T15:17:03",
-    "html_url": "https://github.com/torvalds/linux/commit/0db22d7ee462c42c1284e98d47840932792c1adb",
-    "files": [
-      {
-        "filename": "fs/xfs/xfs_zone_alloc.c",
-        "additions": 8,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "83bac569c762651ac6dff9a86f54ecc13d911f7d",
-    "author": "Christoph Hellwig",
-    "message": "xfs: prevent gc from picking the same zone twice\n\nWhen we are picking a zone for gc it might already be in the pipeline\nwhich can lead to us moving the same data twice resulting in in write\namplification and a very unfortunate case where we keep on garbage\ncollecting the zone we just filled with migrated data stopping all\nforward progress.\n\nFix this by introducing a count of on-going GC operations on a zone, and\nskip any zone with ongoing GC when picking a new victim.\n\nFixes: 080d01c41 (\"xfs: implement zoned garbage collection\")\nSigned-off-by: Hans Holmberg <hans.holmberg@wdc.com>\nCo-developed-by: Hans Holmberg <hans.holmberg@wdc.com>\nSigned-off-by: Christoph Hellwig <hch@lst.de>\nReviewed-by: Damien Le Moal <dlemoal@kernel.org>\nReviewed-by: Carlos Maiolino <cmaiolino@redhat.com>\nReviewed-by: Darrick J. Wong <djwong@kernel.org>\nTested-by: Damien Le Moal <dlemoal@kernel.org>\nSigned-off-by: Carlos Maiolino <cem@kernel.org>",
-    "date": "2025-10-23T15:17:02",
-    "html_url": "https://github.com/torvalds/linux/commit/83bac569c762651ac6dff9a86f54ecc13d911f7d",
-    "files": [
-      {
-        "filename": "fs/xfs/libxfs/xfs_rtgroup.h",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "fs/xfs/xfs_zone_gc.c",
-        "additions": 27,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "d127176862a93c4b3216bda533d2bee170af5e71",
-    "author": "torvalds",
-    "message": "Merge tag 'linux_kselftest-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest\n\nPull kselftest fixes from Shuah Khan:\n \"Fix build warning in cachestat found during clang build and add\n  tmpshmcstat to .gitignore\"\n\n* tag 'linux_kselftest-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest:\n  selftests: cachestat: Fix warning on declaration under label\n  selftests/cachestat: add tmpshmcstat file to .gitignore",
-    "date": "2025-10-31T02:48:13",
-    "html_url": "https://github.com/torvalds/linux/commit/d127176862a93c4b3216bda533d2bee170af5e71",
-    "files": [
-      {
-        "filename": "tools/testing/selftests/cachestat/.gitignore",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "tools/testing/selftests/cachestat/test_cachestat.c",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "1806838686ef74cde74e590d13984dec7c0233d6",
-    "author": "torvalds",
-    "message": "Merge tag 'linux_kselftest-kunit-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest\n\nPull kunit fixes from Shuah Khan:\n \"Fix log overwrite in param_tests and fixes incorrect cast of priv\n  pointer in test_dev_action().\n\n  Update email address for Rae Moar in MAINTAINERS KUnit entry\"\n\n* tag 'linux_kselftest-kunit-fixes-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/shuah/linux-kselftest:\n  MAINTAINERS: Update KUnit email address for Rae Moar\n  kunit: prevent log overwrite in param_tests\n  kunit: test_dev_action: Correctly cast 'priv' pointer to long*",
-    "date": "2025-10-31T02:11:27",
-    "html_url": "https://github.com/torvalds/linux/commit/1806838686ef74cde74e590d13984dec7c0233d6",
-    "files": [
-      {
-        "filename": ".mailmap",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "MAINTAINERS",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "lib/kunit/kunit-test.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "lib/kunit/test.c",
-        "additions": 2,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "a5355e98accb20d8ea06008fd8fb5755cc52e8c0",
-    "author": "torvalds",
-    "message": "Merge tag 'acpi-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm\n\nPull ACPI fixes from Rafael Wysocki:\n \"These fix three ACPI driver issues and add version checks to two ACPI\n  table parsers:\n\n   - Call input_free_device() on failing input device registration as\n     necessary (and mentioned in the input subsystem documentation) in\n     the ACPI button driver (Kaushlendra Kumar)\n\n   - Fix use-after-free in acpi_video_switch_brightness() by canceling a\n     delayed work during tear-down (Yuhao Jiang)\n\n   - Use platform device for devres-related actions in the ACPI fan\n     driver to allow device-managed resources to be cleaned up properly\n     (Armin Wolf)\n\n   - Add version checks to the MRRM and SPCR table parsers (Tony Luck\n     and Punit Agrawal)\"\n\n* tag 'acpi-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm:\n  ACPI: SPCR: Check for table version when using precise baudrate\n  ACPI: MRRM: Check revision of MRRM table\n  ACPI: fan: Use platform device for devres-related actions\n  ACPI: fan: Use ACPI handle when retrieving _FST\n  ACPI: video: Fix use-after-free in acpi_video_switch_brightness()\n  ACPI: button: Call input_free_device() on failing input device registration",
-    "date": "2025-10-31T02:05:46",
-    "html_url": "https://github.com/torvalds/linux/commit/a5355e98accb20d8ea06008fd8fb5755cc52e8c0",
-    "files": [
-      {
-        "filename": "drivers/acpi/acpi_mrrm.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/acpi/acpi_video.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/button.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/fan.h",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/acpi/fan_attr.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/fan_core.c",
-        "additions": 23,
-        "deletions": 13
-      },
-      {
-        "filename": "drivers/acpi/fan_hwmon.c",
-        "additions": 5,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/acpi/spcr.c",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "a5dbbb39e11d50a8c426b8d88f5b12031fee49f3",
-    "author": "torvalds",
-    "message": "Merge tag 'pm-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm\n\nPull power management fixes from Rafael Wysocki:\n \"These fix three regressions, two recent ones and one introduced during\n  the 6.17 development cycle:\n\n   - Add an exit latency check to the menu cpuidle governor in the case\n     when it considers using a real idle state instead of a polling one\n     to address a performance regression (Rafael Wysocki)\n\n   - Revert an attempted cleanup of a system suspend code path that\n     introduced a regression elsewhere (Samuel Wu)\n\n   - Allow pm_restrict_gfp_mask() to be called multiple times in a row\n     and adjust pm_restore_gfp_mask() accordingly to avoid having to\n     play nasty games with these calls during hibernation (Rafael\n     Wysocki)\"\n\n* tag 'pm-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm:\n  PM: sleep: Allow pm_restrict_gfp_mask() stacking\n  cpuidle: governors: menu: Select polling state in some more cases\n  Revert \"PM: sleep: Make pm_wakeup_clear() call more clear\"",
-    "date": "2025-10-31T02:02:16",
-    "html_url": "https://github.com/torvalds/linux/commit/a5dbbb39e11d50a8c426b8d88f5b12031fee49f3",
-    "files": [
-      {
-        "filename": "drivers/cpuidle/governors/menu.c",
-        "additions": 5,
-        "deletions": 2
-      },
-      {
-        "filename": "kernel/power/hibernate.c",
-        "additions": 0,
-        "deletions": 4
-      },
-      {
-        "filename": "kernel/power/main.c",
-        "additions": 17,
-        "deletions": 5
-      },
-      {
-        "filename": "kernel/power/process.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "kernel/power/suspend.c",
-        "additions": 0,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "a4819ac1913e78e41c8406df481a661d9469c350",
-    "author": "torvalds",
-    "message": "Merge tag 'fbdev-for-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/linux-fbdev\n\nPull fbdev fixes from Helge Deller:\n\n - atyfb: Avoid hard lock up when PLL not initialized (Daniel Palmer)\n\n - pvr2fb: Fix build error when CONFIG_PVR2_DMA enabled (Florian Fuchs)\n\n - bitblit: Fix out-of-bounds read in bit_putcs* (Junjie Cao)\n\n - valkyriefb: Fix reference count leak (Miaoqian Lin)\n\n - fbcon: Fix slab-use-after-free in fb_mode_is_equal (Quanmin Yan)\n\n - fb.h: Fix typo in \"vertical\" (Piyush Choudhary)\n\n* tag 'fbdev-for-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/deller/linux-fbdev:\n  fbdev: atyfb: Check if pll_ops->init_pll failed\n  fbcon: Set fb_display[i]->mode to NULL when the mode is released\n  fbdev: bitblit: bound-check glyph index in bit_putcs*\n  fbdev: pvr2fb: Fix leftover reference to ONCHIP_NR_DMA_CHANNELS\n  fbdev: valkyriefb: Fix reference count leak in valkyriefb_init\n  video: fb: Fix typo in comment in fb.h",
-    "date": "2025-10-31T01:58:49",
-    "html_url": "https://github.com/torvalds/linux/commit/a4819ac1913e78e41c8406df481a661d9469c350",
-    "files": [
-      {
-        "filename": "drivers/video/fbdev/aty/atyfb_base.c",
-        "additions": 6,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/video/fbdev/core/bitblit.c",
-        "additions": 12,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/video/fbdev/core/fbcon.c",
-        "additions": 19,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/video/fbdev/core/fbmem.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/video/fbdev/pvr2fb.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/video/fbdev/valkyriefb.c",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "include/linux/fbcon.h",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "include/uapi/linux/fb.h",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "e5763491237ffee22d9b554febc2d00669f81dee",
-    "author": "torvalds",
-    "message": "Merge tag 'net-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net\n\nPull networking fixes from Paolo Abeni:\n \"Including fixes from wireless, Bluetooth and netfilter.\n\n  Current release - regressions:\n\n    - tcp: fix too slow tcp_rcvbuf_grow() action\n\n    - bluetooth: fix corruption in h4_recv_buf() after cleanup\n\n  Previous releases - regressions:\n\n    - mptcp: restore window probe\n\n    - bluetooth:\n       - fix connection cleanup with BIG with 2 or more BIS\n       - fix crash in set_mesh_sync and set_mesh_complete\n\n    - batman-adv: release references to inactive interfaces\n\n    - nic:\n       - ice: fix usage of logical PF id\n       - sfc: fix potential memory leak in efx_mae_process_mport()\n\n  Previous releases - always broken:\n\n    - devmem: refresh devmem TX dst in case of route invalidation\n\n    - netfilter: add seqadj extension for natted connections\n\n    - wifi:\n       - iwlwifi: fix potential use after free in iwl_mld_remove_link()\n       - brcmfmac: fix crash while sending action frames in standalone AP Mode\n\n    - eth:\n       - mlx5e: cancel tls RX async resync request in error flows\n       - ixgbe: fix memory leak and use-after-free in ixgbe_recovery_probe()\n       - hibmcge: fix rx buf avl irq is not re-enabled in irq_handle issue\n       - cxgb4: fix potential use-after-free in ipsec callback\n       - nfp: fix memory leak in nfp_net_alloc()\"\n\n* tag 'net-6.18-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net: (75 commits)\n  net: sctp: fix KMSAN uninit-value in sctp_inq_pop\n  net: devmem: refresh devmem TX dst in case of route invalidation\n  net: stmmac: est: Fix GCL bounds checks\n  net: stmmac: Consider Tx VLAN offload tag length for maxSDU\n  net: stmmac: vlan: Disable 802.1AD tag insertion offload\n  net/mlx5e: kTLS, Cancel RX async resync request in error flows\n  net: tls: Cancel RX async resync request on rcd_delta overflow\n  net: tls: Change async resync helpers argument\n  net: phy: dp83869: fix STRAP_OPMODE bitmask\n  selftests: net: use BASH for bareudp testing\n  net: mctp: Fix tx queue stall\n  net/mlx5: Don't zero user_count when destroying FDB tables\n  net: usb: asix_devices: Check return value of usbnet_get_endpoints\n  mptcp: zero window probe mib\n  mptcp: restore window probe\n  mptcp: fix MSG_PEEK stream corruption\n  mptcp: drop bogus optimization in __mptcp_check_push()\n  netconsole: Fix race condition in between reader and writer of userdata\n  Documentation: netconsole: Remove obsolete contact people\n  nfp: xsk: fix memory leak in nfp_net_alloc()\n  ...",
-    "date": "2025-10-31T01:35:35",
-    "html_url": "https://github.com/torvalds/linux/commit/e5763491237ffee22d9b554febc2d00669f81dee",
-    "files": [
-      {
-        "filename": "CREDITS",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/devicetree/bindings/net/microchip,sparx5-switch.yaml",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "Documentation/netlink/specs/dpll.yaml",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/networking/netconsole.rst",
-        "additions": 0,
-        "deletions": 3
-      },
-      {
-        "filename": "MAINTAINERS",
-        "additions": 3,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/bcma/main.c",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/bluetooth/bpa10x.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/btintel_pcie.c",
-        "additions": 6,
-        "deletions": 5
-      },
-      {
-        "filename": "drivers/bluetooth/btmtksdio.c",
-        "additions": 12,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/bluetooth/btmtkuart.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/btnxpuart.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_ag6xx.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_aml.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_ath.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_bcm.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_h4.c",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/bluetooth/hci_intel.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_ll.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_mrvl.c",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/bluetooth/hci_nokia.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/bluetooth/hci_qca.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/bluetooth/hci_uart.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/dpll/dpll_netlink.c",
-        "additions": 20,
-        "deletions": 16
-      },
-      {
-        "filename": "drivers/dpll/zl3073x/dpll.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/chelsio/inline_crypto/ch_ipsec/chcr_ipsec.c",
-        "additions": 6,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hibmcge/hbg_common.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hibmcge/hbg_err.c",
-        "additions": 6,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hibmcge/hbg_hw.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hibmcge/hbg_irq.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hibmcge/hbg_mdio.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_main.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_mdio.c",
-        "additions": 6,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/net/ethernet/hisilicon/hns3/hns3pf/hclge_mdio.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ice/ice_common.c",
-        "additions": 33,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ice/ice_flex_pipe.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ice/ice_sbq_cmd.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/igb/igb_ethtool.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/igc/igc_ethtool.c",
-        "additions": 4,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbe/ixgbe_main.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbe/ixgbe_ptp.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls_rx.c",
-        "additions": 35,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls_txrx.h",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/mellanox/mlx5/core/en_rx.c",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/mellanox/mlx5/core/esw/legacy.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/netronome/nfp/nfp_net_common.c",
-        "additions": 4,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/ethernet/sfc/mae.c",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/stmicro/stmmac/stmmac_main.c",
-        "additions": 14,
-        "deletions": 18
-      },
-      {
-        "filename": "drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/mctp/mctp-usb.c",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/net/netconsole.c",
-        "additions": 13,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/net/phy/dp83867.c",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/phy/dp83869.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/usb/asix_devices.c",
-        "additions": 9,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/net/usb/usbnet.c",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/virtio_net.c",
-        "additions": 8,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/net/wireless/ath/ath10k/wmi.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/wireless/ath/ath11k/core.c",
-        "additions": 48,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/net/wireless/ath/ath11k/mac.c",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "drivers/net/wireless/ath/ath12k/mac.c",
-        "additions": 18,
-        "deletions": 16
-      },
-      {
-        "filename": "drivers/net/wireless/broadcom/brcm80211/brcmfmac/cfg80211.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/wireless/broadcom/brcm80211/brcmfmac/p2p.c",
-        "additions": 10,
-        "deletions": 18
-      },
-      {
-        "filename": "drivers/net/wireless/broadcom/brcm80211/brcmfmac/p2p.h",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/wireless/intel/iwlwifi/mld/link.c",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "include/net/bluetooth/hci.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "include/net/bluetooth/hci_core.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "include/net/bluetooth/l2cap.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "include/net/bluetooth/mgmt.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "include/net/tcp.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "include/net/tls.h",
-        "additions": 13,
-        "deletions": 12
-      },
-      {
-        "filename": "include/trace/events/tcp.h",
-        "additions": 9,
-        "deletions": 0
-      },
-      {
-        "filename": "net/batman-adv/originator.c",
-        "additions": 12,
-        "deletions": 2
-      },
-      {
-        "filename": "net/bluetooth/hci_conn.c",
-        "additions": 7,
-        "deletions": 0
-      },
-      {
-        "filename": "net/bluetooth/hci_event.c",
-        "additions": 9,
-        "deletions": 2
-      },
-      {
-        "filename": "net/bluetooth/hci_sync.c",
-        "additions": 13,
-        "deletions": 8
-      },
-      {
-        "filename": "net/bluetooth/iso.c",
-        "additions": 8,
-        "deletions": 2
-      },
-      {
-        "filename": "net/bluetooth/l2cap_core.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "net/bluetooth/mgmt.c",
-        "additions": 15,
-        "deletions": 11
-      },
-      {
-        "filename": "net/bluetooth/rfcomm/tty.c",
-        "additions": 11,
-        "deletions": 15
-      },
-      {
-        "filename": "net/core/devmem.c",
-        "additions": 24,
-        "deletions": 3
-      },
-      {
-        "filename": "net/ipv4/tcp_input.c",
-        "additions": 14,
-        "deletions": 7
-      },
-      {
-        "filename": "net/mac80211/cfg.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "net/mac80211/key.c",
-        "additions": 8,
-        "deletions": 3
-      },
-      {
-        "filename": "net/mptcp/mib.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "net/mptcp/mib.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "net/mptcp/protocol.c",
-        "additions": 53,
-        "deletions": 30
-      },
-      {
-        "filename": "net/mptcp/protocol.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "net/netfilter/nft_connlimit.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "net/netfilter/nft_ct.c",
-        "additions": 27,
-        "deletions": 3
-      },
-      {
-        "filename": "net/sctp/input.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "net/tls/tls_device.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "net/wireless/nl80211.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "tools/net/ynl/lib/ynl-priv.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tools/net/ynl/pyynl/ethtool.py",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "tools/testing/selftests/net/bareudp.sh",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "08d33390248f9e248bca970afc731a16aad4e348",
-    "author": "axboe",
-    "message": "Merge tag 'nvme-6.18-2025-10-30' of git://git.infradead.org/nvme into block-6.18\n\nPull NVMe fixes from Keith:\n\n\"- Target side authentication fixup (Hannes)\n - Peer-to-peer metadata fixup (Keith)\"\n\n* tag 'nvme-6.18-2025-10-30' of git://git.infradead.org/nvme:\n  nvme-pci: use blk_map_iter for p2p metadata\n  nvmet-auth: update sc_c in host response",
-    "date": "2025-10-31T01:26:19",
-    "html_url": "https://github.com/torvalds/linux/commit/08d33390248f9e248bca970afc731a16aad4e348",
-    "files": [
-      {
-        "filename": "drivers/nvme/host/pci.c",
-        "additions": 10,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/nvme/target/auth.c",
-        "additions": 3,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "a9fb41b5def8e1e0103d5fd1453787993587281e",
-    "author": "tdz",
-    "message": "drm/ast: Clear preserved bits from register output value\n\nPreserve the I/O register bits in __ast_write8_i_masked() as specified\nby preserve_mask. Accidentally OR-ing the output value into these will\noverwrite the register's previous settings.\n\nFixes display output on the AST2300, where the screen can go blank at\nboot. The driver's original commit 312fec1405dd (\"drm: Initial KMS\ndriver for AST (ASpeed Technologies) 2000 series (v2)\") already added\nthe broken code. Commit 6f719373b943 (\"drm/ast: Blank with VGACR17 sync\nenable, always clear VGACRB6 sync off\") triggered the bug.\n\nSigned-off-by: Thomas Zimmermann <tzimmermann@suse.de>\nReported-by: Peter Schneider <pschneider1968@googlemail.com>\nCloses: https://lore.kernel.org/dri-devel/a40caf8e-58ad-4f9c-af7f-54f6f69c29bb@googlemail.com/\nTested-by: Peter Schneider <pschneider1968@googlemail.com>\nReviewed-by: Jocelyn Falempe <jfalempe@redhat.com>\nFixes: 6f719373b943 (\"drm/ast: Blank with VGACR17 sync enable, always clear VGACRB6 sync off\")\nFixes: 312fec1405dd (\"drm: Initial KMS driver for AST (ASpeed Technologies) 2000 series (v2)\")\nCc: Thomas Zimmermann <tzimmermann@suse.de>\nCc: Nick Bowler <nbowler@draconx.ca>\nCc: Douglas Anderson <dianders@chromium.org>\nCc: Dave Airlie <airlied@redhat.com>\nCc: Jocelyn Falempe <jfalempe@redhat.com>\nCc: dri-devel@lists.freedesktop.org\nCc: <stable@vger.kernel.org> # v3.5+\nLink: https://patch.msgid.link/20251024073626.129032-1-tzimmermann@suse.de",
-    "date": "2025-10-24T07:35:53",
-    "html_url": "https://github.com/torvalds/linux/commit/a9fb41b5def8e1e0103d5fd1453787993587281e",
-    "files": [
-      {
-        "filename": "drivers/gpu/drm/ast/ast_drv.h",
-        "additions": 4,
-        "deletions": 4
-      }
-    ]
-  },
-  {
-    "sha": "8907226bed1ebd10d069f6f70ff0aaa8840f3267",
-    "author": "rafaeljw",
-    "message": "Merge branches 'acpi-button', 'acpi-video' and 'acpi-fan'\n\nMerge ACPI button, ACPI backlight (video), and ACPI fan driver fixes for\n6.18-rc4:\n\n - Call input_free_device() on failing input device registration as\n   necessary (and mentioned in the input subsystem documentation) in the\n   ACPI button driver (Kaushlendra Kumar)\n\n - Fix use-after-free in acpi_video_switch_brightness() by canceling\n   a delayed work during tear-down (Yuhao Jiang)\n\n - Use platform device for devres-related actions in the ACPI fan driver\n   to allow device-managed resources to be cleaned up properly (Armin\n   Wolf)\n\n* acpi-button:\n  ACPI: button: Call input_free_device() on failing input device registration\n\n* acpi-video:\n  ACPI: video: Fix use-after-free in acpi_video_switch_brightness()\n\n* acpi-fan:\n  ACPI: fan: Use platform device for devres-related actions\n  ACPI: fan: Use ACPI handle when retrieving _FST",
-    "date": "2025-10-30T19:40:49",
-    "html_url": "https://github.com/torvalds/linux/commit/8907226bed1ebd10d069f6f70ff0aaa8840f3267",
-    "files": [
-      {
-        "filename": "drivers/acpi/acpi_video.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/button.c",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/fan.h",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/acpi/fan_attr.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/acpi/fan_core.c",
-        "additions": 23,
-        "deletions": 13
-      },
-      {
-        "filename": "drivers/acpi/fan_hwmon.c",
-        "additions": 5,
-        "deletions": 6
-      }
-    ]
-  },
-  {
-    "sha": "590c5cd10675a6ae49f6019502dec5c87aba07e4",
-    "author": "rafaeljw",
-    "message": "Merge branches 'pm-cpuidle' and 'pm-sleep'\n\nMerge a cpuidle fix and two fixes related to system sleep for 6.18-rc4:\n\n - Add an exit latency check to the menu cpuidle governor in the case\n   when it considers using a real idle state instead of a polling one to\n   address a performance regression (Rafael Wysocki)\n\n - Revert an attempted cleanup of a system suspend code path that\n   introduced a regression elsewhere (Samuel Wu)\n\n - Allow pm_restrict_gfp_mask() to be called multiple times in a row\n   and adjust pm_restore_gfp_mask() accordingly to avoid having to play\n   nasty games with these calls during hibernation (Rafael Wysocki)\n\n* pm-cpuidle:\n  cpuidle: governors: menu: Select polling state in some more cases\n\n* pm-sleep:\n  PM: sleep: Allow pm_restrict_gfp_mask() stacking\n  Revert \"PM: sleep: Make pm_wakeup_clear() call more clear\"",
-    "date": "2025-10-30T19:25:18",
-    "html_url": "https://github.com/torvalds/linux/commit/590c5cd10675a6ae49f6019502dec5c87aba07e4",
-    "files": [
-      {
-        "filename": "kernel/power/hibernate.c",
-        "additions": 0,
-        "deletions": 4
-      },
-      {
-        "filename": "kernel/power/main.c",
-        "additions": 17,
-        "deletions": 5
-      },
-      {
-        "filename": "kernel/power/process.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "kernel/power/suspend.c",
-        "additions": 0,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "3b1a4a59a2086badab391687a6a0b86e03048393",
-    "author": "austin880625syno",
-    "message": "btrfs: mark dirty extent range for out of bound prealloc extents\n\nIn btrfs_fallocate(), when the allocated range overlaps with a prealloc\nextent and the extent starts after i_size, the range doesn't get marked\ndirty in file_extent_tree. This results in persisting an incorrect\ndisk_i_size for the inode when not using the no-holes feature.\n\nThis is reproducible since commit 41a2ee75aab0 (\"btrfs: introduce\nper-inode file extent tree\"), then became hidden since commit 3d7db6e8bd22\n(\"btrfs: don't allocate file extent tree for non regular files\") and then\nvisible again after commit 8679d2687c35 (\"btrfs: initialize\ninode::file_extent_tree after i_mode has been set\"), which fixes the\nprevious commit.\n\nThe following reproducer triggers the problem:\n\n$ cat test.sh\n\nMNT=/mnt/test\nDEV=/dev/vdb\n\nmkdir -p $MNT\n\nmkfs.btrfs -f -O ^no-holes $DEV\nmount $DEV $MNT\n\ntouch $MNT/file1\nfallocate -n -o 1M -l 2M $MNT/file1\n\numount $MNT\nmount $DEV $MNT\n\nlen=$((1 * 1024 * 1024))\n\nfallocate -o 1M -l $len $MNT/file1\n\ndu --bytes $MNT/file1\n\numount $MNT\nmount $DEV $MNT\n\ndu --bytes $MNT/file1\n\numount $MNT\n\nRunning the reproducer gives the following result:\n\n$ ./test.sh\n(...)\n2097152 /mnt/test/file1\n1048576 /mnt/test/file1\n\nThe difference is exactly 1048576 as we assigned.\n\nFix by adding a call to btrfs_inode_set_file_extent_range() in\nbtrfs_fallocate_update_isize().\n\nFixes: 41a2ee75aab0 (\"btrfs: introduce per-inode file extent tree\")\nSigned-off-by: austinchang <austinchang@synology.com>\nReviewed-by: Filipe Manana <fdmanana@suse.com>\nSigned-off-by: Filipe Manana <fdmanana@suse.com>\nSigned-off-by: David Sterba <dsterba@suse.com>",
-    "date": "2025-10-29T09:35:27",
-    "html_url": "https://github.com/torvalds/linux/commit/3b1a4a59a2086badab391687a6a0b86e03048393",
-    "files": [
-      {
-        "filename": "fs/btrfs/file.c",
-        "additions": 10,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "953902e4fb4c373c81a977f78e40f9f93a79e20f",
-    "author": "fdmanana",
-    "message": "btrfs: set inode flag BTRFS_INODE_COPY_EVERYTHING when logging new name\n\nIf we are logging a new name make sure our inode has the runtime flag\nBTRFS_INODE_COPY_EVERYTHING set so that at btrfs_log_inode() we will find\nnew inode refs/extrefs in the subvolume tree and copy them into the log\ntree.\n\nWe are currently doing it when adding a new link but we are missing it\nwhen renaming.\n\nAn example where this makes a new name not persisted:\n\n  1) create symlink with name foo in directory A\n  2) fsync directory A, which persists the symlink\n  3) rename the symlink from foo to bar\n  4) fsync directory A to persist the new symlink name\n\nStep 4 isn't working correctly as it's not logging the new name and also\nleaving the old inode ref in the log tree, so after a power failure the\nsymlink still has the old name of \"foo\". This is because when we first\nfsync directoy A we log the symlink's inode (as it's a new entry) and at\nbtrfs_log_inode() we set the log mode to LOG_INODE_ALL and then because\nwe are using that mode and the inode has the runtime flag\nBTRFS_INODE_NEEDS_FULL_SYNC set, we clear that flag as well as the flag\nBTRFS_INODE_COPY_EVERYTHING. That means the next time we log the inode,\nduring the rename through the call to btrfs_log_new_name() (calling\nbtrfs_log_inode_parent() and then btrfs_log_inode()), we will not search\nthe subvolume tree for new refs/extrefs and jump directory to the\n'log_extents' label.\n\nFix this by making sure we set BTRFS_INODE_COPY_EVERYTHING on an inode\nwhen we are about to log a new name. A test case for fstests will follow\nsoon.\n\nReported-by: Vyacheslav Kovalevsky <slava.kovalevskiy.2014@gmail.com>\nLink: https://lore.kernel.org/linux-btrfs/ac949c74-90c2-4b9a-b7fd-1ffc5c3175c7@gmail.com/\nReviewed-by: Boris Burkov <boris@bur.io>\nReviewed-by: Qu Wenruo <wqu@suse.com>\nSigned-off-by: Filipe Manana <fdmanana@suse.com>\nSigned-off-by: David Sterba <dsterba@suse.com>",
-    "date": "2025-10-24T11:30:56",
-    "html_url": "https://github.com/torvalds/linux/commit/953902e4fb4c373c81a977f78e40f9f93a79e20f",
-    "files": [
-      {
-        "filename": "fs/btrfs/inode.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "fs/btrfs/tree-log.c",
-        "additions": 3,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "f260c6aff0b8af236084012d14f9f1bf792ea883",
-    "author": "shardulsb08",
-    "message": "btrfs: fix memory leak of qgroup_list in btrfs_add_qgroup_relation\n\nWhen btrfs_add_qgroup_relation() is called with invalid qgroup levels\n(src >= dst), the function returns -EINVAL directly without freeing the\npreallocated qgroup_list structure passed by the caller. This causes a\nmemory leak because the caller unconditionally sets the pointer to NULL\nafter the call, preventing any cleanup.\n\nThe issue occurs because the level validation check happens before the\nmutex is acquired and before any error handling path that would free\nthe prealloc pointer. On this early return, the cleanup code at the\n'out' label (which includes kfree(prealloc)) is never reached.\n\nIn btrfs_ioctl_qgroup_assign(), the code pattern is:\n\n    prealloc = kzalloc(sizeof(*prealloc), GFP_KERNEL);\n    ret = btrfs_add_qgroup_relation(trans, sa->src, sa->dst, prealloc);\n    prealloc = NULL;  // Always set to NULL regardless of return value\n    ...\n    kfree(prealloc);  // This becomes kfree(NULL), does nothing\n\nWhen the level check fails, 'prealloc' is never freed by either the\ncallee or the caller, resulting in a 64-byte memory leak per failed\noperation. This can be triggered repeatedly by an unprivileged user\nwith access to a writable btrfs mount, potentially exhausting kernel\nmemory.\n\nFix this by freeing prealloc before the early return, ensuring prealloc\nis always freed on all error paths.\n\nFixes: 4addc1ffd67a (\"btrfs: qgroup: preallocate memory before adding a relation\")\nReviewed-by: Qu Wenruo <wqu@suse.com>\nSigned-off-by: Shardul Bankar <shardulsb08@gmail.com>\nSigned-off-by: David Sterba <dsterba@suse.com>",
-    "date": "2025-10-25T20:00:21",
-    "html_url": "https://github.com/torvalds/linux/commit/f260c6aff0b8af236084012d14f9f1bf792ea883",
-    "files": [
-      {
-        "filename": "fs/btrfs/qgroup.c",
-        "additions": 3,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "2618849f31e7cf51fadd4a5242458501a6d5b315",
-    "author": "adam900710",
-    "message": "btrfs: ensure no dirty metadata is written back for an fs with errors\n\n[BUG]\nDuring development of a minor feature (make sure all btrfs_bio::end_io()\nis called in task context), I noticed a crash in generic/388, where\nmetadata writes triggered new works after btrfs_stop_all_workers().\n\nIt turns out that it can even happen without any code modification, just\nusing RAID5 for metadata and the same workload from generic/388 is going\nto trigger the use-after-free.\n\n[CAUSE]\nIf btrfs hits an error, the fs is marked as error, no new\ntransaction is allowed thus metadata is in a frozen state.\n\nBut there are some metadata modifications before that error, and they are\nstill in the btree inode page cache.\n\nSince there will be no real transaction commit, all those dirty folios\nare just kept as is in the page cache, and they can not be invalidated\nby invalidate_inode_pages2() call inside close_ctree(), because they are\ndirty.\n\nAnd finally after btrfs_stop_all_workers(), we call iput() on btree\ninode, which triggers writeback of those dirty metadata.\n\nAnd if the fs is using RAID56 metadata, this will trigger RMW and queue\nnew works into rmw_workers, which is already stopped, causing warning\nfrom queue_work() and use-after-free.\n\n[FIX]\nAdd a special handling for write_one_eb(), that if the fs is already in\nan error state, immediately mark the bbio as failure, instead of really\nsubmitting them.\n\nThen during close_ctree(), iput() will just discard all those dirty\ntree blocks without really writing them back, thus no more new jobs for\nalready stopped-and-freed workqueues.\n\nThe extra discard in write_one_eb() also acts as an extra safenet.\nE.g. the transaction abort is triggered by some extent/free space\ntree corruptions, and since extent/free space tree is already corrupted\nsome tree blocks may be allocated where they shouldn't be (overwriting\nexisting tree blocks). In that case writing them back will further\ncorrupting the fs.\n\nCC: stable@vger.kernel.org # 6.6+\nReviewed-by: Filipe Manana <fdmanana@suse.com>\nSigned-off-by: Qu Wenruo <wqu@suse.com>\nSigned-off-by: David Sterba <dsterba@suse.com>",
-    "date": "2025-10-23T09:14:04",
-    "html_url": "https://github.com/torvalds/linux/commit/2618849f31e7cf51fadd4a5242458501a6d5b315",
-    "files": [
-      {
-        "filename": "fs/btrfs/extent_io.c",
-        "additions": 8,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "64e2f60f355e556337fcffe80b9bcff1b22c9c42",
-    "author": "hcahca",
-    "message": "s390: Disable ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP\n\nAs reported by Luiz Capitulino enabling HVO on s390 leads to reproducible\ncrashes. The problem is that kernel page tables are modified without\nflushing corresponding TLB entries.\n\nEven if it looks like the empty flush_tlb_all() implementation on s390 is\nthe problem, it is actually a different problem: on s390 it is not allowed\nto replace an active/valid page table entry with another valid page table\nentry without the detour over an invalid entry. A direct replacement may\nlead to random crashes and/or data corruption.\n\nIn order to invalidate an entry special instructions have to be used\n(e.g. ipte or idte). Alternatively there are also special instructions\navailable which allow to replace a valid entry with a different valid\nentry (e.g. crdte or cspg).\n\nGiven that the HVO code currently does not provide the hooks to allow for\nan implementation which is compliant with the s390 architecture\nrequirements, disable ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP again, which is\nbasically a revert of the original patch which enabled it.\n\nReported-by: Luiz Capitulino <luizcap@redhat.com>\nCloses: https://lore.kernel.org/all/20251028153930.37107-1-luizcap@redhat.com/\nFixes: 00a34d5a99c0 (\"s390: select ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP\")\nCc: stable@vger.kernel.org\nTested-by: Luiz Capitulino <luizcap@redhat.com>\nReviewed-by: Gerald Schaefer <gerald.schaefer@linux.ibm.com>\nReviewed-by: David Hildenbrand <david@redhat.com>\nSigned-off-by: Heiko Carstens <hca@linux.ibm.com>",
-    "date": "2025-10-30T14:55:05",
-    "html_url": "https://github.com/torvalds/linux/commit/64e2f60f355e556337fcffe80b9bcff1b22c9c42",
-    "files": [
-      {
-        "filename": "arch/s390/Kconfig",
-        "additions": 0,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "bf7e97910b9f4d9679e075a39be371a4ed65dbd4",
-    "author": "lucaceresoli",
-    "message": "drm/imx: parallel-display: add the bridge before attaching it\n\nInvoking drm_bridge_add() is good practice, so add it to this driver.\n\nLink: https://lore.kernel.org/all/DDHZ5GO9MPF0.CGYTVBI74FOZ@bootlin.com\nSigned-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>\nReviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>\nLink: https://patch.msgid.link/20251014-drm-bridge-alloc-imx-ipuv3-v1-2-a1bb1dcbff50@bootlin.com\nSigned-off-by: Philipp Zabel <p.zabel@pengutronix.de>",
-    "date": "2025-10-14T11:30:52",
-    "html_url": "https://github.com/torvalds/linux/commit/bf7e97910b9f4d9679e075a39be371a4ed65dbd4",
-    "files": [
-      {
-        "filename": "drivers/gpu/drm/imx/ipuv3/parallel-display.c",
-        "additions": 2,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "3257bd193fa1702791978d8418c9a96e3def082c",
-    "author": "lucaceresoli",
-    "message": "drm/imx: parallel-display: convert to devm_drm_bridge_alloc() API\n\nThis is the new API for allocating DRM bridges.\n\nThis conversion was missed during the initial conversion of all bridges to\nthe new API. Thus all kernels with commit 94d50c1a2ca3 (\"drm/bridge:\nget/put the bridge reference in drm_bridge_attach/detach()\") and using this\ndriver now warn due to drm_bridge_attach() incrementing the refcount, which\nis not initialized without using devm_drm_bridge_alloc() for allocation.\n\nTo make the conversion simple and straightforward without messing up with\nthe drmm_simple_encoder_alloc(), move the struct drm_bridge from struct\nimx_parallel_display_encoder to struct imx_parallel_display.\n\nAlso remove the 'struct imx_parallel_display *pd' from struct\nimx_parallel_display_encoder, not needed anymore.\n\nFixes: 94d50c1a2ca3 (\"drm/bridge: get/put the bridge reference in drm_bridge_attach/detach()\")\nReported-by: Ernest Van Hoecke <ernestvanhoecke@gmail.com>\nCloses: https://lore.kernel.org/all/hlf4wdopapxnh4rekl5s3kvoi6egaga3lrjfbx6r223ar3txri@3ik53xw5idyh/\nSigned-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>\nReviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>\nTested-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>\nLink: https://patch.msgid.link/20251014-drm-bridge-alloc-imx-ipuv3-v1-1-a1bb1dcbff50@bootlin.com\nSigned-off-by: Philipp Zabel <p.zabel@pengutronix.de>",
-    "date": "2025-10-14T11:30:51",
-    "html_url": "https://github.com/torvalds/linux/commit/3257bd193fa1702791978d8418c9a96e3def082c",
-    "files": [
-      {
-        "filename": "drivers/gpu/drm/imx/ipuv3/parallel-display.c",
-        "additions": 7,
-        "deletions": 9
-      }
-    ]
-  },
-  {
-    "sha": "0b39ca457241aeca07a613002512573e8804f93a",
-    "author": "Carlos Llamas",
-    "message": "blk-crypto: use BLK_STS_INVAL for alignment errors\n\nMake __blk_crypto_bio_prep() propagate BLK_STS_INVAL when IO segments\nfail the data unit alignment check.\n\nThis was flagged by an LTP test that expects EINVAL when performing an\nO_DIRECT read with a misaligned buffer [1].\n\nCc: Eric Biggers <ebiggers@kernel.org>\nCc: Christoph Hellwig <hch@lst.de>\nLink: https://lore.kernel.org/all/aP-c5gPjrpsn0vJA@google.com/ [1]\nSigned-off-by: Carlos Llamas <cmllamas@google.com>\nReviewed-by: Eric Biggers <ebiggers@kernel.org>\nSigned-off-by: Jens Axboe <axboe@kernel.dk>",
-    "date": "2025-10-30T04:39:18",
-    "html_url": "https://github.com/torvalds/linux/commit/0b39ca457241aeca07a613002512573e8804f93a",
-    "files": [
-      {
-        "filename": "block/blk-crypto.c",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "390db60f8e2bd21fae544917eb3a8618265c058c",
-    "author": "tiwai",
-    "message": "Merge tag 'asoc-fix-v6.18-rc2' of https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound into for-linus\n\nASoC: Fixes for v6.18\n\nA bigger batch of fixes than I'd like, things built up due to holidays\nand some last minute issues which caused me to hold off on sending a pul\nrequest.  None of these are super remarkable, and there's a few new\ndevice IDs in here too including a relatively big block of AMD devices.\n\nThe Cirrus Logic CS530x support subject line is actually a fix that was\non the start of that series and got pulled in here, I forgot to fix the\nsubject up when merging.",
-    "date": "2025-10-30T12:08:08",
-    "html_url": "https://github.com/torvalds/linux/commit/390db60f8e2bd21fae544917eb3a8618265c058c",
-    "files": [
-      {
-        "filename": ".mailmap",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/devicetree/bindings/i2c/apm,xgene-slimpro-i2c.yaml",
-        "additions": 36,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/devicetree/bindings/i2c/i2c-xgene-slimpro.txt",
-        "additions": 0,
-        "deletions": 15
-      },
-      {
-        "filename": "Documentation/devicetree/bindings/sound/qcom,pm4125-sdw.yaml",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "Documentation/filesystems/ext4/directory.rst",
-        "additions": 32,
-        "deletions": 31
-      },
-      {
-        "filename": "Documentation/networking/can.rst",
-        "additions": 67,
-        "deletions": 4
-      },
-      {
-        "filename": "Documentation/networking/seg6-sysctl.rst",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/rust/coding-guidelines.rst",
-        "additions": 75,
-        "deletions": 0
-      },
-      {
-        "filename": "Documentation/virt/kvm/api.rst",
-        "additions": 17,
-        "deletions": 3
-      },
-      {
-        "filename": "Documentation/virt/kvm/devices/arm-vgic-v3.rst",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "MAINTAINERS",
-        "additions": 11,
-        "deletions": 0
-      },
-      {
-        "filename": "Makefile",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/Kconfig",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arc/configs/axs101_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arc/configs/axs103_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arc/configs/axs103_smp_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arc/configs/hsdk_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arc/configs/vdk_hs38_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arc/configs/vdk_hs38_smp_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/axm55xx_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/bcm2835_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/davinci_all_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/dove_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/ep93xx_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/imx_v6_v7_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm/configs/ixp4xx_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/mmp2_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/moxart_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/multi_v5_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/mv78xx0_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/mvebu_v5_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/nhk8815_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/omap1_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/omap2plus_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/orion5x_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/pxa_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm/configs/qcom_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/rpc_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/s3c6400_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm/configs/sama7_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/socfpga_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/spear13xx_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/spear3xx_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/spear6xx_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/spitz_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm/configs/stm32_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/tegra_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm/configs/u8500_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm/configs/vexpress_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm64/include/asm/el2_setup.h",
-        "additions": 32,
-        "deletions": 6
-      },
-      {
-        "filename": "arch/arm64/include/asm/kvm_host.h",
-        "additions": 50,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arm64/include/asm/sysreg.h",
-        "additions": 10,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm64/kernel/entry-common.c",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm64/kvm/arch_timer.c",
-        "additions": 14,
-        "deletions": 91
-      },
-      {
-        "filename": "arch/arm64/kvm/arm.c",
-        "additions": 7,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arm64/kvm/at.c",
-        "additions": 5,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/arm64/kvm/config.c",
-        "additions": 90,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arm64/kvm/debug.c",
-        "additions": 10,
-        "deletions": 5
-      },
-      {
-        "filename": "arch/arm64/kvm/guest.c",
-        "additions": 0,
-        "deletions": 70
-      },
-      {
-        "filename": "arch/arm64/kvm/handle_exit.c",
-        "additions": 6,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/arm64/kvm/hyp/include/hyp/switch.h",
-        "additions": 17,
-        "deletions": 131
-      },
-      {
-        "filename": "arch/arm64/kvm/hyp/nvhe/pkvm.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arm64/kvm/nested.c",
-        "additions": 6,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/arm64/kvm/sys_regs.c",
-        "additions": 105,
-        "deletions": 26
-      },
-      {
-        "filename": "arch/arm64/kvm/sys_regs.h",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/arm64/kvm/vgic/vgic-v3.c",
-        "additions": 4,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/hexagon/configs/comet_defconfig",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/m68k/configs/stmark2_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/microblaze/configs/mmu_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/bigsur_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/cobalt_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/decstation_64_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/decstation_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/decstation_r4k_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/fuloong2e_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/ip22_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/ip27_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/ip28_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/ip30_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/ip32_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/jazz_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/lemote2f_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/loongson2k_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/loongson3_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/malta_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/malta_kvm_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/malta_qemu_32r6_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/maltaaprp_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/maltasmvp_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/maltasmvp_eva_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/maltaup_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/maltaup_xpa_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/mips/configs/mtx1_defconfig",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/mips/configs/rm200_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/openrisc/configs/or1klitex_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/openrisc/configs/virt_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/parisc/configs/generic-32bit_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/parisc/configs/generic-64bit_defconfig",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/powerpc/kernel/fadump.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/powerpc/kvm/book3s_xive.c",
-        "additions": 4,
-        "deletions": 8
-      },
-      {
-        "filename": "arch/powerpc/platforms/powernv/vas.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/powerpc/platforms/pseries/msi.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/powerpc/sysdev/xive/common.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/riscv/Kconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/riscv/include/asm/kgdb.h",
-        "additions": 7,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/riscv/kernel/cpu-hotplug.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/riscv/kernel/entry.S",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/riscv/kernel/probes/kprobes.c",
-        "additions": 9,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/riscv/kernel/setup.c",
-        "additions": 5,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/riscv/kernel/tests/kprobes/test-kprobes.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/ap325rxa_defconfig",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/sh/configs/apsh4a3a_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/apsh4ad0a_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/ecovec24_defconfig",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/sh/configs/edosk7760_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/espt_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/landisk_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/lboxre2_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/magicpanelr2_defconfig",
-        "additions": 2,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/sh/configs/r7780mp_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/r7785rp_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/rsk7264_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/rsk7269_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/sdk7780_defconfig",
-        "additions": 2,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/sh/configs/sdk7786_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/se7343_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/se7712_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/se7721_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/se7722_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/se7724_defconfig",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/sh/configs/sh03_defconfig",
-        "additions": 2,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/sh/configs/sh2007_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/sh/configs/sh7757lcr_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/sh/configs/sh7763rdp_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/sh7785lcr_32bit_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/sh7785lcr_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/shx3_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/titan_defconfig",
-        "additions": 2,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/sh/configs/ul2_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sh/configs/urquell_defconfig",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/sparc/configs/sparc64_defconfig",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/x86/kernel/cpu/amd.c",
-        "additions": 14,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/x86/kernel/cpu/resctrl/monitor.c",
-        "additions": 10,
-        "deletions": 4
-      },
-      {
-        "filename": "arch/x86/kvm/pmu.c",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/x86/kvm/x86.c",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "arch/x86/mm/pat/set_memory.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/x86/mm/tlb.c",
-        "additions": 22,
-        "deletions": 2
-      },
-      {
-        "filename": "arch/xtensa/configs/audio_kc705_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/cadence_csp_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/generic_kc705_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/nommu_kc705_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/smp_lx200_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/virt_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "arch/xtensa/configs/xip_kc705_defconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "block/blk-cgroup.c",
-        "additions": 4,
-        "deletions": 9
-      },
-      {
-        "filename": "block/blk-mq-sched.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "block/blk-mq-tag.c",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "block/blk-mq.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "block/blk-mq.h",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/accel/qaic/qaic.h",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/accel/qaic/qaic_control.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/accel/qaic/qaic_data.c",
-        "additions": 10,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/accel/qaic/qaic_debugfs.c",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/accel/qaic/qaic_drv.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/ata/libata-core.c",
-        "additions": 4,
-        "deletions": 7
-      },
-      {
-        "filename": "drivers/char/ipmi/ipmi_msghandler.c",
-        "additions": 4,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/char/tpm/tpm_crb.c",
-        "additions": 20,
-        "deletions": 9
-      },
-      {
-        "filename": "drivers/cxl/acpi.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/cxl/core/features.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/cxl/core/port.c",
-        "additions": 14,
-        "deletions": 12
-      },
-      {
-        "filename": "drivers/cxl/core/region.c",
-        "additions": 4,
-        "deletions": 7
-      },
-      {
-        "filename": "drivers/cxl/core/trace.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/devfreq/event/rockchip-dfi.c",
-        "additions": 22,
-        "deletions": 23
-      },
-      {
-        "filename": "drivers/dpll/zl3073x/core.c",
-        "additions": 21,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/dpll/zl3073x/fw.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/dpll/zl3073x/regs.h",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c",
-        "additions": 2,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c",
-        "additions": 7,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
-        "additions": 7,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_discovery.c",
-        "additions": 17,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c",
-        "additions": 7,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c",
-        "additions": 45,
-        "deletions": 9
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_jpeg.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c",
-        "additions": 11,
-        "deletions": 9
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_mes.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_virt.c",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/amdgpu_vram_mgr.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v11_0.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/gfx_v12_0.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c",
-        "additions": 3,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/mes_userqueue.c",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/mes_v11_0.c",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdgpu/mes_v12_0.c",
-        "additions": 11,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/amdkfd/kfd_device_queue_manager.c",
-        "additions": 21,
-        "deletions": 52
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c",
-        "additions": 4,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.h",
-        "additions": 0,
-        "deletions": 7
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/pm/legacy-dpm/si_dpm.c",
-        "additions": 5,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/ast/ast_mode.c",
-        "additions": 10,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/gpu/drm/ast/ast_reg.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/bridge/lontium-lt9211.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/drm_draw.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/drm_draw_internal.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/i915/display/intel_fb.c",
-        "additions": 20,
-        "deletions": 18
-      },
-      {
-        "filename": "drivers/gpu/drm/i915/display/intel_frontbuffer.c",
-        "additions": 9,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/i915/display/intel_psr.c",
-        "additions": 10,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/i915/gem/i915_gem_object_frontbuffer.h",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/i915/gt/uc/intel_guc_ct.c",
-        "additions": 8,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/panthor/panthor_fw.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/rockchip/rockchip_drm_vop2.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/scheduler/sched_main.c",
-        "additions": 7,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/regs/xe_gt_regs.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/tests/xe_pci.c",
-        "additions": 5,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_bo_evict.c",
-        "additions": 0,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_device.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_gt_idle.c",
-        "additions": 8,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_guc_submit.c",
-        "additions": 12,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_migrate.c",
-        "additions": 4,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_pci.c",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_svm.c",
-        "additions": 15,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_vm.c",
-        "additions": 23,
-        "deletions": 9
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_vm_types.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_vram.c",
-        "additions": 26,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/gpu/drm/xe/xe_vram.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/Kconfig",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/hid/hid-cp2112.c",
-        "additions": 24,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/hid/hid-debug.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/hid/hid-ids.h",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/hid-input.c",
-        "additions": 4,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/hid/hid-logitech-hidpp.c",
-        "additions": 21,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/hid-multitouch.c",
-        "additions": 15,
-        "deletions": 13
-      },
-      {
-        "filename": "drivers/hid/hid-nintendo.c",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/hid/hid-quirks.c",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/intel-thc-hid/intel-quicki2c/pci-quicki2c.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/hid/intel-thc-hid/intel-quickspi/pci-quickspi.c",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/intel-thc-hid/intel-quickspi/quickspi-dev.h",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/hid/intel-thc-hid/intel-quickspi/quickspi-protocol.c",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-amd-mp2.h",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-at91-core.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-at91-master.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-cadence.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-davinci.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-designware-master.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-hix5hd2.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-i801.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-img-scb.c",
-        "additions": 0,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-imx-lpi2c.c",
-        "additions": 0,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-imx.c",
-        "additions": 0,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-mv64xxx.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-nvidia-gpu.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-omap.c",
-        "additions": 0,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-qcom-cci.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-qcom-geni.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-qup.c",
-        "additions": 0,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-riic.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-rzv2m.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-sprd.c",
-        "additions": 0,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-stm32f7.c",
-        "additions": 0,
-        "deletions": 5
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-usbio.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/i2c/busses/i2c-xiic.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/mfd/ls2k-bmc-core.c",
-        "additions": 8,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/misc/ocxl/afu_irq.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/mmc/core/block.c",
-        "additions": 0,
-        "deletions": 42
-      },
-      {
-        "filename": "drivers/net/can/m_can/m_can.c",
-        "additions": 38,
-        "deletions": 28
-      },
-      {
-        "filename": "drivers/net/can/m_can/m_can_platform.c",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "drivers/net/can/usb/gs_usb.c",
-        "additions": 11,
-        "deletions": 12
-      },
-      {
-        "filename": "drivers/net/ethernet/airoha/airoha_eth.c",
-        "additions": 15,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/amd/xgbe/xgbe-drv.c",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/amd/xgbe/xgbe-mdio.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/broadcom/tg3.c",
-        "additions": 1,
-        "deletions": 4
-      },
-      {
-        "filename": "drivers/net/ethernet/dlink/dl2k.c",
-        "additions": 16,
-        "deletions": 7
-      },
-      {
-        "filename": "drivers/net/ethernet/google/gve/gve.h",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/google/gve/gve_desc_dqo.h",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/google/gve/gve_rx_dqo.c",
-        "additions": 12,
-        "deletions": 6
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/idpf/idpf_ptp.c",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/idpf/idpf_virtchnl_ptp.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbe/ixgbe_main.c",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbe/ixgbe_mbx.h",
-        "additions": 15,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbe/ixgbe_sriov.c",
-        "additions": 79,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/defines.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/ipsec.c",
-        "additions": 10,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/ixgbevf.h",
-        "additions": 7,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/ixgbevf_main.c",
-        "additions": 33,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/mbx.h",
-        "additions": 8,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/vf.c",
-        "additions": 150,
-        "deletions": 32
-      },
-      {
-        "filename": "drivers/net/ethernet/intel/ixgbevf/vf.h",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/marvell/octeontx2/af/cgx.c",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/ethernet/mediatek/mtk_wed.c",
-        "additions": 6,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/ethernet/realtek/r8169_main.c",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "drivers/net/netdevsim/netdev.c",
-        "additions": 7,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/net/phy/broadcom.c",
-        "additions": 19,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/phy/realtek/realtek_main.c",
-        "additions": 11,
-        "deletions": 12
-      },
-      {
-        "filename": "drivers/net/usb/lan78xx.c",
-        "additions": 11,
-        "deletions": 8
-      },
-      {
-        "filename": "drivers/net/usb/r8152.c",
-        "additions": 6,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/net/usb/usbnet.c",
-        "additions": 2,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "47a0925ee4bd2689f0aef4dbd67dd46442fe1ca2",
-    "author": "SpieringsAE",
-    "message": "regulator: bd718x7: Fix voltages scaled by resistor divider\n\nThe .min_sel and .max_sel fields remained uninitialized in the new\nlinear_range, causing an error further down the line. Copy the old\nvalues of these fields to the new one as they represent the range of\nregister values, which does not change.\n\nFixes: d2ad981151b3a (\"regulator: bd718x7: Support external connection to scale voltages\")\nSigned-off-by: Maud Spierings <maudspierings@gocontroll.com>\nReviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>\nLink: https://patch.msgid.link/20251030-mini_iv-v3-2-ef56c4d9f219@gocontroll.com\nSigned-off-by: Mark Brown <broonie@kernel.org>",
-    "date": "2025-10-30T06:35:38",
-    "html_url": "https://github.com/torvalds/linux/commit/47a0925ee4bd2689f0aef4dbd67dd46442fe1ca2",
-    "files": [
-      {
-        "filename": "drivers/regulator/bd718x7-regulator.c",
-        "additions": 2,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "89216c9051ef6635f1514f8e0d2f9cd63b37a3b6",
-    "author": "aegl",
-    "message": "x86/cpu: Add/fix core comments for {Panther,Nova} Lake\n\nThe E-core in Panther Lake is Darkmont, not Crestmont.\n\nNova Lake is built from Coyote Cove (P-core) and Arctic Wolf (E-core).\n\nFixes: 43bb700cff6b (\"x86/cpu: Update Intel Family comments\")\nSigned-off-by: Tony Luck <tony.luck@intel.com>\nSigned-off-by: Ingo Molnar <mingo@kernel.org>\nAcked-by: Dave Hansen <dave.hansen@linux.intel.com>\nCc: Peter Zijlstra <peterz@infradead.org>\nLink: https://patch.msgid.link/20251028172948.6721-1-tony.luck@intel.com",
-    "date": "2025-10-28T17:29:48",
-    "html_url": "https://github.com/torvalds/linux/commit/89216c9051ef6635f1514f8e0d2f9cd63b37a3b6",
-    "files": [
-      {
-        "filename": "arch/x86/include/asm/intel-family.h",
-        "additions": 3,
-        "deletions": 3
-      }
-    ]
-  },
-  {
-    "sha": "847ebc4476714f81d7dea73e5ea69448d7fe9d3a",
-    "author": "bp3tk0v",
-    "message": "x86/CPU/AMD: Extend Zen6 model range\n\nAdd some more Zen6 models.\n\nSigned-off-by: Borislav Petkov (AMD) <bp@alien8.de>\nSigned-off-by: Ingo Molnar <mingo@kernel.org>\nLink: https://patch.msgid.link/20251029123056.19987-1-bp@kernel.org",
-    "date": "2025-10-29T11:34:31",
-    "html_url": "https://github.com/torvalds/linux/commit/847ebc4476714f81d7dea73e5ea69448d7fe9d3a",
-    "files": [
-      {
-        "filename": "arch/x86/kernel/cpu/amd.c",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "51e5ad549c43b557c7da1e4d1a1dcf061b4a5f6c",
-    "author": "ranganathvn",
-    "message": "net: sctp: fix KMSAN uninit-value in sctp_inq_pop\n\nFix an issue detected by syzbot:\n\nKMSAN reported an uninitialized-value access in sctp_inq_pop\nBUG: KMSAN: uninit-value in sctp_inq_pop\n\nThe issue is actually caused by skb trimming via sk_filter() in sctp_rcv().\nIn the reproducer, skb->len becomes 1 after sk_filter(), which bypassed the\noriginal check:\n\n        if (skb->len < sizeof(struct sctphdr) + sizeof(struct sctp_chunkhdr) +\n                       skb_transport_offset(skb))\nTo handle this safely, a new check should be performed after sk_filter().\n\nReported-by: syzbot+d101e12bccd4095460e7@syzkaller.appspotmail.com\nTested-by: syzbot+d101e12bccd4095460e7@syzkaller.appspotmail.com\nCloses: https://syzkaller.appspot.com/bug?extid=d101e12bccd4095460e7\nFixes: 1da177e4c3f4 (\"Linux-2.6.12-rc2\")\nSuggested-by: Xin Long <lucien.xin@gmail.com>\nSigned-off-by: Ranganath V N <vnranganath.20@gmail.com>\nReviewed-by: Simon Horman <horms@kernel.org>\nLink: https://patch.msgid.link/20251026-kmsan_fix-v3-1-2634a409fa5f@gmail.com\nSigned-off-by: Paolo Abeni <pabeni@redhat.com>",
-    "date": "2025-10-26T16:33:12",
-    "html_url": "https://github.com/torvalds/linux/commit/51e5ad549c43b557c7da1e4d1a1dcf061b4a5f6c",
-    "files": [
-      {
-        "filename": "net/sctp/input.c",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "70e8335485966d7d4ed85976dceab52803b151a2",
-    "author": "Abdun Nihaal",
-    "message": "wifi: zd1211rw: fix potential memory leak in __zd_usb_enable_rx()\n\nThe memory allocated for urbs with kcalloc() is not freed on any error\npath. Fix that by freeing it in the error path.\n\nFixes: e85d0918b54f (\"[PATCH] ZyDAS ZD1211 USB-WLAN driver\")\nSigned-off-by: Abdun Nihaal <nihaal@cse.iitm.ac.in>\nLink: https://patch.msgid.link/20251028174341.139134-1-nihaal@cse.iitm.ac.in\nSigned-off-by: Johannes Berg <johannes.berg@intel.com>",
-    "date": "2025-10-28T17:43:39",
-    "html_url": "https://github.com/torvalds/linux/commit/70e8335485966d7d4ed85976dceab52803b151a2",
-    "files": [
-      {
-        "filename": "drivers/net/wireless/zydas/zd1211rw/zd_usb.c",
-        "additions": 1,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "4f4c654f5a0f6560b938a5ab05ec5940aa6c1c29",
-    "author": "drosdeck",
-    "message": "ALSA: hda/realtek: Enable mic on Vaio RPL\n\nVaio RPL is equipped with ACL256, and needs a\nfix to make the internal mic and headphone mic to work.\nAlso must to limits the internal microphone boost.\n\nSigned-off-by: Edson Juliano Drosdeck <edson.drosdeck@gmail.com>\nLink: https://patch.msgid.link/20251029181152.389302-1-edson.drosdeck@gmail.com\nSigned-off-by: Takashi Iwai <tiwai@suse.de>",
-    "date": "2025-10-29T18:11:52",
-    "html_url": "https://github.com/torvalds/linux/commit/4f4c654f5a0f6560b938a5ab05ec5940aa6c1c29",
-    "files": [
-      {
-        "filename": "sound/hda/codecs/realtek/alc269.c",
-        "additions": 12,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "a2b32bc1d9e359a9f90d0de6af16699facb10935",
-    "author": "ahunter6",
-    "message": "scsi: ufs: core: Fix invalid probe error return value\n\nAfter DME Link Startup, the error return value is set to the MIPI UniPro\nGenericErrorCode which can be 0 (SUCCESS) or 1 (FAILURE).  Upon failure\nduring driver probe, the error code 1 is propagated back to the driver\nprobe function which must return a negative value to indicate an error,\nbut 1 is not negative, so the probe is considered to be successful even\nthough it failed.  Subsequently, removing the driver results in an oops\nbecause it is not in a valid state.\n\nThis happens because none of the callers of ufshcd_init() expect a\nnon-negative error code.\n\nFix the return value and documentation to match actual usage.\n\nFixes: 69f5eb78d4b0 (\"scsi: ufs: core: Move the ufshcd_device_init(hba, true) call\")\nCc: stable@vger.kernel.org\nSigned-off-by: Adrian Hunter <adrian.hunter@intel.com>\nReviewed-by: Bart Van Assche <bvanassche@acm.org>\nLink: https://patch.msgid.link/20251024085918.31825-5-adrian.hunter@intel.com\nSigned-off-by: Martin K. Petersen <martin.petersen@oracle.com>",
-    "date": "2025-10-24T08:59:18",
-    "html_url": "https://github.com/torvalds/linux/commit/a2b32bc1d9e359a9f90d0de6af16699facb10935",
-    "files": [
-      {
-        "filename": "drivers/ufs/core/ufshcd.c",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "d968e99488c4b08259a324a89e4ed17bf36561a4",
-    "author": "ahunter6",
-    "message": "scsi: ufs: ufs-pci: Set UFSHCD_QUIRK_PERFORM_LINK_STARTUP_ONCE for Intel ADL\n\nLink startup becomes unreliable for Intel Alder Lake based host\ncontrollers when a 2nd DME_LINKSTARTUP is issued unnecessarily.  Employ\nUFSHCD_QUIRK_PERFORM_LINK_STARTUP_ONCE to suppress that from happening.\n\nFixes: 7dc9fb47bc9a (\"scsi: ufs: ufs-pci: Add support for Intel ADL\")\nCc: stable@vger.kernel.org\nSigned-off-by: Adrian Hunter <adrian.hunter@intel.com>\nReviewed-by: Bart Van Assche <bvanassche@acm.org>\nLink: https://patch.msgid.link/20251024085918.31825-4-adrian.hunter@intel.com\nSigned-off-by: Martin K. Petersen <martin.petersen@oracle.com>",
-    "date": "2025-10-24T08:59:17",
-    "html_url": "https://github.com/torvalds/linux/commit/d968e99488c4b08259a324a89e4ed17bf36561a4",
-    "files": [
-      {
-        "filename": "drivers/ufs/host/ufshcd-pci.c",
-        "additions": 2,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "d34caa89a132cd69efc48361d4772251546fdb88",
-    "author": "ahunter6",
-    "message": "scsi: ufs: core: Add a quirk to suppress link_startup_again\n\nufshcd_link_startup() has a facility (link_startup_again) to issue\nDME_LINKSTARTUP a 2nd time even though the 1st time was successful.\n\nSome older hardware benefits from that, however the behaviour is\nnon-standard, and has been found to cause link startup to be unreliable\nfor some Intel Alder Lake based host controllers.\n\nAdd UFSHCD_QUIRK_PERFORM_LINK_STARTUP_ONCE to suppress\nlink_startup_again, in preparation for setting the quirk for affected\ncontrollers.\n\nFixes: 7dc9fb47bc9a (\"scsi: ufs: ufs-pci: Add support for Intel ADL\")\nCc: stable@vger.kernel.org\nSigned-off-by: Adrian Hunter <adrian.hunter@intel.com>\nReviewed-by: Bart Van Assche <bvanassche@acm.org>\nLink: https://patch.msgid.link/20251024085918.31825-3-adrian.hunter@intel.com\nSigned-off-by: Martin K. Petersen <martin.petersen@oracle.com>",
-    "date": "2025-10-24T08:59:16",
-    "html_url": "https://github.com/torvalds/linux/commit/d34caa89a132cd69efc48361d4772251546fdb88",
-    "files": [
-      {
-        "filename": "drivers/ufs/core/ufshcd.c",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "include/ufs/ufshcd.h",
-        "additions": 7,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "sha": "bb44826c3bdbf1fa3957008a04908f45e5666463",
-    "author": "ahunter6",
-    "message": "scsi: ufs: ufs-pci: Fix S0ix/S3 for Intel controllers\n\nIntel platforms with UFS, can support Suspend-to-Idle (S0ix) and\nSuspend-to-RAM (S3).  For S0ix the link state should be HIBERNATE.  For\nS3, state is lost, so the link state must be OFF.  Driver policy,\nexpressed by spm_lvl, can be 3 (link HIBERNATE, device SLEEP) for S0ix\nbut must be changed to 5 (link OFF, device POWEROFF) for S3.\n\nFix support for S0ix/S3 by switching spm_lvl as needed.  During suspend\n->prepare(), if the suspend target state is not Suspend-to-Idle, ensure\nthe spm_lvl is at least 5 to ensure that resume will be possible from\ndeep sleep states.  During suspend ->complete(), restore the spm_lvl to\nits original value that is suitable for S0ix.\n\nThis fix is first needed in Intel Alder Lake based controllers.\n\nFixes: 7dc9fb47bc9a (\"scsi: ufs: ufs-pci: Add support for Intel ADL\")\nCc: stable@vger.kernel.org\nSigned-off-by: Adrian Hunter <adrian.hunter@intel.com>\nReviewed-by: Bart Van Assche <bvanassche@acm.org>\nLink: https://patch.msgid.link/20251024085918.31825-2-adrian.hunter@intel.com\nSigned-off-by: Martin K. Petersen <martin.petersen@oracle.com>",
-    "date": "2025-10-24T08:59:15",
-    "html_url": "https://github.com/torvalds/linux/commit/bb44826c3bdbf1fa3957008a04908f45e5666463",
-    "files": [
-      {
-        "filename": "drivers/ufs/host/ufshcd-pci.c",
-        "additions": 65,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "f838d624fd1183e07db86f3138bcd05fd7630a1e",
-    "author": "bvanassche",
-    "message": "scsi: ufs: core: Revert \"Make HID attributes visible\"\n\nPatch \"Make HID attributes visible\" is needed for older kernel versions\n(e.g. 6.12) where ufs_get_device_desc() is called from ufshcd_probe_hba().\nIn these older kernel versions ufshcd_get_device_desc() may be called\nafter the sysfs attributes have been added. In the upstream kernel however\nufshcd_get_device_desc() is called before ufs_sysfs_add_nodes(). See also\nthe ufshcd_device_params_init() call from ufshcd_init(). Hence, calling\nsysfs_update_group() is not necessary.\n\nSee also commit 69f5eb78d4b0 (\"scsi: ufs: core: Move the\nufshcd_device_init(hba, true) call\") in kernel v6.13.\n\nThis patch fixes the following kernel warning:\n\nsysfs: cannot create duplicate filename '/devices/platform/3c2d0000.ufs/hid'\nWorkqueue: async async_run_entry_fn\nCall trace:\n dump_backtrace+0xfc/0x17c\n show_stack+0x18/0x28\n dump_stack_lvl+0x40/0x104\n dump_stack+0x18/0x3c\n sysfs_warn_dup+0x6c/0xc8\n internal_create_group+0x1c8/0x504\n sysfs_create_groups+0x38/0x9c\n ufs_sysfs_add_nodes+0x20/0x58\n ufshcd_init+0x1114/0x134c\n ufshcd_pltfrm_init+0x728/0x7d8\n ufs_google_probe+0x30/0x84\n platform_probe+0xa0/0xe0\n really_probe+0x114/0x454\n __driver_probe_device+0xa4/0x160\n driver_probe_device+0x44/0x23c\n __device_attach_driver+0x15c/0x1f4\n bus_for_each_drv+0x10c/0x168\n __device_attach_async_helper+0x80/0xf8\n async_run_entry_fn+0x4c/0x17c\n process_one_work+0x26c/0x65c\n worker_thread+0x33c/0x498\n kthread+0x110/0x134\n ret_from_fork+0x10/0x20\nufshcd 3c2d0000.ufs: ufs_sysfs_add_nodes: sysfs groups creation failed (err = -17)\n\nCc: Daniel Lee <chullee@google.com>\nCc: Peter Wang <peter.wang@mediatek.com>\nCc: Bjorn Andersson <andersson@kernel.org>\nCc: Neil Armstrong <neil.armstrong@linaro.org>\nFixes: bb7663dec67b (\"scsi: ufs: sysfs: Make HID attributes visible\")\nSigned-off-by: Bart Van Assche <bvanassche@acm.org>\n\nFixes: bb7663dec67b (\"scsi: ufs: sysfs: Make HID attributes visible\")\nAcked-by: Neil Armstrong <neil.armstrong@linaro.org>\nReviewed-by: Peter Wang <peter.wang@mediatek.com>\nReviewed-by: Bjorn Andersson <andersson@kernel.org>\nLink: https://patch.msgid.link/20251028222433.1108299-1-bvanassche@acm.org\nSigned-off-by: Martin K. Petersen <martin.petersen@oracle.com>",
-    "date": "2025-10-28T22:24:24",
-    "html_url": "https://github.com/torvalds/linux/commit/f838d624fd1183e07db86f3138bcd05fd7630a1e",
-    "files": [
-      {
-        "filename": "drivers/ufs/core/ufs-sysfs.c",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/ufs/core/ufs-sysfs.h",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "drivers/ufs/core/ufshcd.c",
-        "additions": 0,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "c57f5fee54dfc83ee1d7f70f7beb9410b8466e9e",
-    "author": "nathanchance",
-    "message": "libeth: xdp: Disable generic kCFI pass for libeth_xdp_tx_xmit_bulk()\n\nWhen building drivers/net/ethernet/intel/idpf/xsk.c for ARCH=arm with\nCONFIG_CFI=y using a version of LLVM prior to 22.0.0, there is a\nBUILD_BUG_ON failure:\n\n  $ cat arch/arm/configs/repro.config\n  CONFIG_BPF_SYSCALL=y\n  CONFIG_CFI=y\n  CONFIG_IDPF=y\n  CONFIG_XDP_SOCKETS=y\n\n  $ make -skj\"$(nproc)\" ARCH=arm LLVM=1 clean defconfig repro.config drivers/net/ethernet/intel/idpf/xsk.o\n  In file included from drivers/net/ethernet/intel/idpf/xsk.c:4:\n  include/net/libeth/xsk.h:205:2: error: call to '__compiletime_assert_728' declared with 'error' attribute: BUILD_BUG_ON failed: !__builtin_constant_p(tmo == libeth_xsktmo)\n    205 |         BUILD_BUG_ON(!__builtin_constant_p(tmo == libeth_xsktmo));\n        |         ^\n  ...\n\nlibeth_xdp_tx_xmit_bulk() indirectly calls libeth_xsk_xmit_fill_buf()\nbut these functions are marked as __always_inline so that the compiler\ncan turn these indirect calls into direct ones and see that the tmo\nparameter to __libeth_xsk_xmit_fill_buf_md() is ultimately libeth_xsktmo\nfrom idpf_xsk_xmit().\n\nUnfortunately, the generic kCFI pass in LLVM expands the kCFI bundles\nfrom the indirect calls in libeth_xdp_tx_xmit_bulk() in such a way that\nlater optimizations cannot turn these calls into direct ones, making the\nBUILD_BUG_ON fail because it cannot be proved at compile time that tmo\nis libeth_xsktmo.\n\nDisable the generic kCFI pass for libeth_xdp_tx_xmit_bulk() to ensure\nthese indirect calls can always be turned into direct calls to avoid\nthis error.\n\nCloses: https://github.com/ClangBuiltLinux/linux/issues/2124\nFixes: 9705d6552f58 (\"idpf: implement Rx path for AF_XDP\")\nSigned-off-by: Nathan Chancellor <nathan@kernel.org>\nReviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>\nAcked-by: Alexander Lobakin <aleksander.lobakin@intel.com>\nLink: https://patch.msgid.link/20251025-idpf-fix-arm-kcfi-build-error-v1-3-ec57221153ae@kernel.org\nSigned-off-by: Kees Cook <kees@kernel.org>",
-    "date": "2025-10-25T20:53:20",
-    "html_url": "https://github.com/torvalds/linux/commit/c57f5fee54dfc83ee1d7f70f7beb9410b8466e9e",
-    "files": [
-      {
-        "filename": "include/net/libeth/xdp.h",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "1ed9e6b1004f786d036eaabffb4ee6db9405e117",
-    "author": "nathanchance",
-    "message": "ARM: Select ARCH_USES_CFI_GENERIC_LLVM_PASS\n\nPrior to clang 22.0.0 [1], ARM did not have an architecture specific\nkCFI bundle lowering in the backend, which may cause issues. Select\nCONFIG_ARCH_USES_CFI_GENERIC_LLVM_PASS to enable use of __nocfi_generic.\n\nLink: https://github.com/llvm/llvm-project/commit/d130f402642fba3d065aacb506cb061c899558de [1]\nLink: https://github.com/ClangBuiltLinux/linux/issues/2124\nSigned-off-by: Nathan Chancellor <nathan@kernel.org>\nLink: https://patch.msgid.link/20251025-idpf-fix-arm-kcfi-build-error-v1-2-ec57221153ae@kernel.org\nSigned-off-by: Kees Cook <kees@kernel.org>",
-    "date": "2025-10-25T20:53:19",
-    "html_url": "https://github.com/torvalds/linux/commit/1ed9e6b1004f786d036eaabffb4ee6db9405e117",
-    "files": [
-      {
-        "filename": "arch/arm/Kconfig",
-        "additions": 2,
-        "deletions": 0
       }
     ]
   }
