@@ -1,12 +1,1 @@
-[
-  {
-    "number": 3,
-    "title": "Test Issue for automation",
-    "user": "ab-412-bansal",
-    "created_at": "2025-10-11T21:22:13",
-    "updated_at": "2025-10-11T21:22:13",
-    "body": "This is the test issue for the Github automation project",
-    "html_url": "https://github.com/ab-412-bansal/Test-Security-Repository/issues/3",
-    "labels": []
-  }
-]
+[]

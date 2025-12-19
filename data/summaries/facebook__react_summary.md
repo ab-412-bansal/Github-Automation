@@ -4,216 +4,316 @@
 
 - **Open PRs:** 30
 - **Open Issues:** 50
-- **Recent Commits (30d):** 119
+- **Recent Commits (60d):** 154
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-### Open Pull Requests (Last 30 Days)
+### Open Pull Requests (Last 60 Days)
 
-- [#34908](https://github.com/facebook/react/pull/34908): [DevTools] Apply Activity slice filter when double clicking Activity (by @eps1lon, opened 2025-10-19)
-- [#34996](https://github.com/facebook/react/pull/34996): Improve completeSegment for safer DOM manipulation (by @leog, opened 2025-10-28)
-- [#35062](https://github.com/facebook/react/pull/35062): [compiler] Allow ref access in callbacks passed to event handler props (by @kolvian, opened 2025-11-06)
-- [#33692](https://github.com/facebook/react/pull/33692): add type to priorityLevel (by @bubucuo, opened 2025-07-04)
-- [#35052](https://github.com/facebook/react/pull/35052): fix(beforeinput): handle native beforeinput events (Firefox replacement flows) — fixes #24358 (by @ruidosujeira, opened 2025-11-05)
-- [#35071](https://github.com/facebook/react/pull/35071): [DevTools] Special case the selected root outline (by @sebmarkbage, opened 2025-11-07)
+- [#35371](https://github.com/facebook/react/pull/35371): Upgrade GitHub Actions for Node 24 compatibility (by @salmanmkc, opened 2025-12-16)
+- [#35137](https://github.com/facebook/react/pull/35137): [compiler] Detect snake_case_ref as a ref-like name (by @mdmower-csnw, opened 2025-11-14)
+- [#34529](https://github.com/facebook/react/pull/34529): fix: replace en-dash with hyphen in fixture filenames (#34489) (by @VaishnaviShirishBorkar, opened 2025-09-19)
+- [#34527](https://github.com/facebook/react/pull/34527): [compiler] Implement ValidateNoDerivedComputationsInEffects for calculate in render solvable cases (by @jorge-cab, opened 2025-09-18)
+- [#35376](https://github.com/facebook/react/pull/35376): [DevTools] Fix crash on reorder operation mismatch (by @shash-hq, opened 2025-12-16)
+- [#35370](https://github.com/facebook/react/pull/35370): Performance: store effects in array instead of linked list (by @romgrk, opened 2025-12-16)
+- [#35383](https://github.com/facebook/react/pull/35383): fix(compiler): use globalThis.Symbol to prevent shadowing by user components (by @gowthamrdyy, opened 2025-12-17)
+- [#35384](https://github.com/facebook/react/pull/35384): Add helpful suggestion for `use(uncachedPromise)`. (by @cpojer, opened 2025-12-17)
+- [#35378](https://github.com/facebook/react/pull/35378): [react] Optimize escape function by hoisting regex and lookup table (by @suekou, opened 2025-12-17)
+- [#35373](https://github.com/facebook/react/pull/35373): Bump jws from 3.2.2 to 3.2.3 (by @dependabot[bot], opened 2025-12-16)
+- [#35374](https://github.com/facebook/react/pull/35374): Bump @modelcontextprotocol/sdk from 1.9.0 to 1.24.0 in /compiler (by @dependabot[bot], opened 2025-12-16)
+- [#35363](https://github.com/facebook/react/pull/35363): Upgrade node-forge to ^1.3.2 (by @EugeneChoi4, opened 2025-12-15)
+- [#35364](https://github.com/facebook/react/pull/35364): [compiler] proof of concept to validate relay derived setStates (by @jorge-cab, opened 2025-12-15)
+- [#35175](https://github.com/facebook/react/pull/35175): [compiler] Hoisting State Up draft (by @jorge-cab, opened 2025-11-19)
+- [#35280](https://github.com/facebook/react/pull/35280): [compiler] Fix `set-state-in-effect` validation for `React.useEffect` (by @jynxio, opened 2025-12-03)
+- [#35265](https://github.com/facebook/react/pull/35265): Fix: Prevent false positives in rules-of-hooks for regular classesFix: Prevent false positives in rules-of-hooks for regular classes (by @hukshh, opened 2025-12-01)
 - [#34956](https://github.com/facebook/react/pull/34956): [DevTools] Revert Measure the Rectangle of Suspense boundaries as we reconcile (by @meet-student, opened 2025-10-23)
-- [#35050](https://github.com/facebook/react/pull/35050): Fix: Should not already be working error in Firefox after breakpoint/… (by @Mario5T, opened 2025-11-05)
-- [#35020](https://github.com/facebook/react/pull/35020): [compiler] Don't validate when effect cleanup function depends on effect localized setState state derived values (by @jorge-cab, opened 2025-10-30)
-- [#34995](https://github.com/facebook/react/pull/34995): [compiler] Fix false negatives and add data flow tree to compiler error for `no-deriving-state-in-effects` (by @jorge-cab, opened 2025-10-27)
-- [#34973](https://github.com/facebook/react/pull/34973): [compiler] Switch to track setStates by aliasing and id instead of identifier names (by @jorge-cab, opened 2025-10-24)
-- [#34972](https://github.com/facebook/react/pull/34972): [compiler] Update ValidateNoDerivedComputationsInEffects_exp to log the error instead of throwing (by @jorge-cab, opened 2025-10-24)
-- [#34967](https://github.com/facebook/react/pull/34967): [compiler] Prevent overriding a derivationEntry on effect mutation and instead update typeOfValue and fix infinite loops (by @jorge-cab, opened 2025-10-23)
-- [#35044](https://github.com/facebook/react/pull/35044): [compiler] Prevent local state source variables from depending on other state (by @jorge-cab, opened 2025-11-04)
-- [#34136](https://github.com/facebook/react/pull/34136): Update index.js (by @adriancuadrado, opened 2025-08-08)
-- [#33964](https://github.com/facebook/react/pull/33964): [devtools]: Prevent false positive render detection in profiler (#33423, #19732) (by @developerjhp, opened 2025-07-22)
-- [#35057](https://github.com/facebook/react/pull/35057): fix(react-dom): add null checks to completeSegment to prevent race condition (by @ponharu, opened 2025-11-06)
-- [#35054](https://github.com/facebook/react/pull/35054): DevTools: guard against undefined component stack in Profiler SidebarEventInfo (by @Abhra0404, opened 2025-11-06)
-- [#34983](https://github.com/facebook/react/pull/34983): fix: prevent metadata hoisting in hidden Activity boundaries (by @ronnakamoto, opened 2025-10-26)
-- [#34984](https://github.com/facebook/react/pull/34984): [Flight] Do not redefine debugInfo on JSX elements (by @devongovett, opened 2025-10-26)
-- [#34999](https://github.com/facebook/react/pull/34999): Fix event listener option object types (by @thegreatercurve, opened 2025-10-28)
-- [#34990](https://github.com/facebook/react/pull/34990): Fix: Submitter missing when form includes input[name="id"] (by @SahilMotiramani, opened 2025-10-27)
-- [#34540](https://github.com/facebook/react/pull/34540): Add fast path for React.memo with custom compare (by @barryam3, opened 2025-09-20)
-- [#34848](https://github.com/facebook/react/pull/34848): Add readTypeof helper to `ReactPerformanceTrackProperties` (by @jzhan-canva, opened 2025-10-14)
-- [#34994](https://github.com/facebook/react/pull/34994): [eprh] Adhere to ESLint.Plugin type (by @mdmower-csnw, opened 2025-10-27)
-- [#29046](https://github.com/facebook/react/pull/29046): fix(eslint-plugin-react-hooks): "additionalHooks" docs are misleading (by @StyleShit, opened 2024-05-12)
-- [#33804](https://github.com/facebook/react/pull/33804): Allow button tags in select tags for customizable selects (by @phidol, opened 2025-07-17)
-- [#35047](https://github.com/facebook/react/pull/35047): [healthcheck] correct yargs scriptName and usage (by @henryqdineen, opened 2025-11-05)
-- [#35046](https://github.com/facebook/react/pull/35046): [healthcheck] fix error false negatives (by @henryqdineen, opened 2025-11-05)
-- [#34804](https://github.com/facebook/react/pull/34804): Update HTML parser rules for new select parser (by @josepharhar, opened 2025-10-10)
+- [#35359](https://github.com/facebook/react/pull/35359): Fix: Controlled checkboxes and radio buttons reset on form submission (by @rdanciu11, opened 2025-12-15)
+- [#35358](https://github.com/facebook/react/pull/35358): [jest] Handle Windows backslashes in preprocessor path matching (by @HM-23-HM, opened 2025-12-14)
+- [#34496](https://github.com/facebook/react/pull/34496): [DevTools] Update ReadMe Docs For WebExtensions (by @ospira, opened 2025-09-15)
+- [#35297](https://github.com/facebook/react/pull/35297): [react-reconciler] Fix typos in comments (by @yujiteshima, opened 2025-12-05)
+- [#34721](https://github.com/facebook/react/pull/34721): [typo] Fix common spelling errors across codebase (by @SeaOtocinclus, opened 2025-10-03)
+- [#35198](https://github.com/facebook/react/pull/35198): Improve TypeScript type definitions in jest.d.ts (by @Rezakarimzadeh98, opened 2025-11-24)
+- [#35123](https://github.com/facebook/react/pull/35123): Improve the detection of changed hooks (by @blazejkustra, opened 2025-11-13)
+- [#35200](https://github.com/facebook/react/pull/35200): chore: add .nvmrc to specify Node 18 for development consistency (by @sudip-kumar-prasad, opened 2025-11-24)
+- [#34141](https://github.com/facebook/react/pull/34141): fix: prevent false positive static flag error for conditional hook calls (by @dev-priyanshu15, opened 2025-08-08)
+- [#35248](https://github.com/facebook/react/pull/35248): [compiler] Fix computed property keys in object method shorthand (by @lluisemper, opened 2025-11-29)
+- [#34996](https://github.com/facebook/react/pull/34996): Improve completeSegment for safer DOM manipulation (by @leog, opened 2025-10-28)
+- [#35328](https://github.com/facebook/react/pull/35328): test(compiler): Add todo regression tests for UpdateExpression (by @tennisleng, opened 2025-12-08)
+- [#35304](https://github.com/facebook/react/pull/35304): fix: correctly compile post-increment assignment (by @tennisleng, opened 2025-12-05)
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 30 Days)
+### Pull Request History (Last 60 Days)
 
-- [#34547](https://github.com/facebook/react/pull/34547): Fix indices of hooks in devtools when using useSyncExternalStore (by @blazejkustra) — **Closed (merged), closed at 2025-10-21T12:59:21**
-- [#34908](https://github.com/facebook/react/pull/34908): [DevTools] Apply Activity slice filter when double clicking Activity (by @eps1lon) — **Open**
-- [#34996](https://github.com/facebook/react/pull/34996): Improve completeSegment for safer DOM manipulation (by @leog) — **Open**
-- [#35062](https://github.com/facebook/react/pull/35062): [compiler] Allow ref access in callbacks passed to event handler props (by @kolvian) — **Open**
-- [#33692](https://github.com/facebook/react/pull/33692): add type to priorityLevel (by @bubucuo) — **Open**
-- [#35074](https://github.com/facebook/react/pull/35074): Fix: Errors should not escape a hidden Activity (by @acdlite) — **Closed (merged), closed at 2025-11-07T23:18:25**
-- [#31655](https://github.com/facebook/react/pull/31655): Upgrade devtools dependency update-notifier to 5.x (by @stianjensen) — **Closed (merged), closed at 2025-11-07T18:43:43**
-- [#35052](https://github.com/facebook/react/pull/35052): fix(beforeinput): handle native beforeinput events (Firefox replacement flows) — fixes #24358 (by @ruidosujeira) — **Open**
-- [#35071](https://github.com/facebook/react/pull/35071): [DevTools] Special case the selected root outline (by @sebmarkbage) — **Open**
+- [#35391](https://github.com/facebook/react/pull/35391): Use globalThis.Symbol.for to avoid Symbol shadowing (by @Mudavath-Giri-Naik) — **Closed, closed at 2025-12-19T09:31:20**
+- [#35371](https://github.com/facebook/react/pull/35371): Upgrade GitHub Actions for Node 24 compatibility (by @salmanmkc) — **Open**
+- [#35137](https://github.com/facebook/react/pull/35137): [compiler] Detect snake_case_ref as a ref-like name (by @mdmower-csnw) — **Open**
+- [#35354](https://github.com/facebook/react/pull/35354): Fix: Forms should not reset when action fails (by @rdanciu11) — **Closed, closed at 2025-12-18T10:34:18**
+- [#24344](https://github.com/facebook/react/pull/24344): let react-hooks/exhaustive-deps additionalHooks have a callback in a different position from 0 (by @joeflateau) — **Closed, closed at 2025-09-24T08:07:24**
+- [#34529](https://github.com/facebook/react/pull/34529): fix: replace en-dash with hyphen in fixture filenames (#34489) (by @VaishnaviShirishBorkar) — **Open**
+- [#34990](https://github.com/facebook/react/pull/34990): Fix: Submitter missing when form includes input[name="id"] (by @SahilMotiramani) — **Closed, closed at 2025-12-18T10:34:18**
+- [#29028](https://github.com/facebook/react/pull/29028): Use `FormData` `submitter` parameter (by @jenseng) — **Closed (merged), closed at 2025-12-18T10:34:16**
+- [#35388](https://github.com/facebook/react/pull/35388): Add failing test for #35387 (by @gaearon) — **Closed, closed at 2025-12-18T02:02:44**
+- [#34527](https://github.com/facebook/react/pull/34527): [compiler] Implement ValidateNoDerivedComputationsInEffects for calculate in render solvable cases (by @jorge-cab) — **Open**
+- [#35347](https://github.com/facebook/react/pull/35347): [test] Add tests for cyclic arrays in Flight and Flight Reply (by @unstubbable) — **Closed (merged), closed at 2025-12-17T17:08:17**
+- [#35376](https://github.com/facebook/react/pull/35376): [DevTools] Fix crash on reorder operation mismatch (by @shash-hq) — **Open**
+- [#35380](https://github.com/facebook/react/pull/35380): Skip hydration errors when a view transition has been applied (by @sebmarkbage) — **Closed (merged), closed at 2025-12-17T14:37:43**
+- [#35370](https://github.com/facebook/react/pull/35370): Performance: store effects in array instead of linked list (by @romgrk) — **Open**
+- [#35375](https://github.com/facebook/react/pull/35375): Fix cyclic thenable detection for multi-node cycles (#35368) (by @parisaghm) — **Closed, closed at 2025-12-17T11:26:37**
+- [#35369](https://github.com/facebook/react/pull/35369): Improve cyclic thenable detection in ReactFlightReplyServer (by @cvan20191) — **Closed (merged), closed at 2025-12-17T11:22:26**
+- [#35385](https://github.com/facebook/react/pull/35385): dinesh added (by @Dineshcs234) — **Closed, closed at 2025-12-17T10:57:42**
+- [#35383](https://github.com/facebook/react/pull/35383): fix(compiler): use globalThis.Symbol to prevent shadowing by user components (by @gowthamrdyy) — **Open**
+- [#35384](https://github.com/facebook/react/pull/35384): Add helpful suggestion for `use(uncachedPromise)`. (by @cpojer) — **Open**
+- [#35382](https://github.com/facebook/react/pull/35382): test(compiler): remove obsolete fixtures (by @Lolavice9019) — **Closed, closed at 2025-12-17T07:35:47**
+- [#35366](https://github.com/facebook/react/pull/35366): Fix: Make 'use no memo' apply recursively (#35350) (by @gowthamrdyy) — **Closed, closed at 2025-12-17T03:36:32**
+- [#35378](https://github.com/facebook/react/pull/35378): [react] Optimize escape function by hoisting regex and lookup table (by @suekou) — **Open**
+- [#35373](https://github.com/facebook/react/pull/35373): Bump jws from 3.2.2 to 3.2.3 (by @dependabot[bot]) — **Open**
+- [#35374](https://github.com/facebook/react/pull/35374): Bump @modelcontextprotocol/sdk from 1.9.0 to 1.24.0 in /compiler (by @dependabot[bot]) — **Open**
+- [#35363](https://github.com/facebook/react/pull/35363): Upgrade node-forge to ^1.3.2 (by @EugeneChoi4) — **Open**
+- [#35362](https://github.com/facebook/react/pull/35362): Update license link in README.md (by @aloky) — **Closed, closed at 2025-12-16T10:21:52**
+- [#35365](https://github.com/facebook/react/pull/35365): Add reporting modes for react-hooks/exhaustive-effect-dependencies and temporarily enable (by @jackpope) — **Closed (merged), closed at 2025-12-15T23:59:27**
+- [#35364](https://github.com/facebook/react/pull/35364): [compiler] proof of concept to validate relay derived setStates (by @jorge-cab) — **Open**
+- [#35175](https://github.com/facebook/react/pull/35175): [compiler] Hoisting State Up draft (by @jorge-cab) — **Open**
+- [#34392](https://github.com/facebook/react/pull/34392): [compiler] Add catching useStates that shadow a reactive value (by @jorge-cab) — **Closed, closed at 2025-12-15T16:36:44**
+- [#35207](https://github.com/facebook/react/pull/35207): Devtools disable log dimming strict mode setting (by @emily8rown) — **Closed (merged), closed at 2025-12-15T13:41:44**
+- [#35361](https://github.com/facebook/react/pull/35361): [test] Exclude repository root from assertions (by @eps1lon) — **Closed (merged), closed at 2025-12-15T10:45:17**
+- [#35280](https://github.com/facebook/react/pull/35280): [compiler] Fix `set-state-in-effect` validation for `React.useEffect` (by @jynxio) — **Open**
+- [#35265](https://github.com/facebook/react/pull/35265): Fix: Prevent false positives in rules-of-hooks for regular classesFix: Prevent false positives in rules-of-hooks for regular classes (by @hukshh) — **Open**
 - [#34956](https://github.com/facebook/react/pull/34956): [DevTools] Revert Measure the Rectangle of Suspense boundaries as we reconcile (by @meet-student) — **Open**
-- [#35068](https://github.com/facebook/react/pull/35068): [Fizz] Unify preamble only fields to save a field (by @sebmarkbage) — **Closed (merged), closed at 2025-11-07T14:19:19**
-- [#35067](https://github.com/facebook/react/pull/35067): [Fizz] Unify prerender only fields to save a field (by @sebmarkbage) — **Closed (merged), closed at 2025-11-07T14:18:28**
-- [#35050](https://github.com/facebook/react/pull/35050): Fix: Should not already be working error in Firefox after breakpoint/… (by @Mario5T) — **Open**
-- [#35066](https://github.com/facebook/react/pull/35066): Don't skip content in visible offscreen trees for Gesture View Transitions (by @sebmarkbage) — **Closed (merged), closed at 2025-11-07T01:59:08**
-- [#35053](https://github.com/facebook/react/pull/35053): Store instance handles in an internal map behind flag (by @jackpope) — **Closed (merged), closed at 2025-11-06T23:17:53**
-- [#35020](https://github.com/facebook/react/pull/35020): [compiler] Don't validate when effect cleanup function depends on effect localized setState state derived values (by @jorge-cab) — **Open**
-- [#34995](https://github.com/facebook/react/pull/34995): [compiler] Fix false negatives and add data flow tree to compiler error for `no-deriving-state-in-effects` (by @jorge-cab) — **Open**
-- [#34973](https://github.com/facebook/react/pull/34973): [compiler] Switch to track setStates by aliasing and id instead of identifier names (by @jorge-cab) — **Open**
-- [#34972](https://github.com/facebook/react/pull/34972): [compiler] Update ValidateNoDerivedComputationsInEffects_exp to log the error instead of throwing (by @jorge-cab) — **Open**
-- [#34967](https://github.com/facebook/react/pull/34967): [compiler] Prevent overriding a derivationEntry on effect mutation and instead update typeOfValue and fix infinite loops (by @jorge-cab) — **Open**
-- [#35044](https://github.com/facebook/react/pull/35044): [compiler] Prevent local state source variables from depending on other state (by @jorge-cab) — **Open**
-- [#35059](https://github.com/facebook/react/pull/35059): Escape View Transition Name Strings (by @sebmarkbage) — **Closed, closed at 2025-11-06T21:07:15**
-- [#34136](https://github.com/facebook/react/pull/34136): Update index.js (by @adriancuadrado) — **Open**
-- [#35063](https://github.com/facebook/react/pull/35063): Don't skip content in visible offscreen trees for View Transitions (by @sebmarkbage) — **Closed (merged), closed at 2025-11-06T21:03:03**
-- [#35060](https://github.com/facebook/react/pull/35060): Escape View Transition Name Strings as base64 (by @sebmarkbage) — **Closed (merged), closed at 2025-11-06T21:02:06**
-- [#33964](https://github.com/facebook/react/pull/33964): [devtools]: Prevent false positive render detection in profiler (#33423, #19732) (by @developerjhp) — **Open**
-- [#35057](https://github.com/facebook/react/pull/35057): fix(react-dom): add null checks to completeSegment to prevent race condition (by @ponharu) — **Open**
-- [#35054](https://github.com/facebook/react/pull/35054): DevTools: guard against undefined component stack in Profiler SidebarEventInfo (by @Abhra0404) — **Open**
-- [#35010](https://github.com/facebook/react/pull/35010): Optimize Dangerfile for better performance (by @hsparks-codes) — **Closed, closed at 2025-11-05T22:38:19**
-- [#34983](https://github.com/facebook/react/pull/34983): fix: prevent metadata hoisting in hidden Activity boundaries (by @ronnakamoto) — **Open**
-- [#34959](https://github.com/facebook/react/pull/34959): Update bug report template for eslint plugin label (by @kachkaev) — **Closed (merged), closed at 2025-11-05T21:57:26**
-- [#32944](https://github.com/facebook/react/pull/32944): Fix typo: outweight -> outweigh (by @DoozkuV) — **Closed, closed at 2025-11-05T21:43:26**
-- [#34984](https://github.com/facebook/react/pull/34984): [Flight] Do not redefine debugInfo on JSX elements (by @devongovett) — **Open**
-- [#35008](https://github.com/facebook/react/pull/35008): chore: clean up RootLayout and Page components (by @Sabirrh) — **Closed, closed at 2025-11-05T21:40:11**
-- [#34999](https://github.com/facebook/react/pull/34999): Fix event listener option object types (by @thegreatercurve) — **Open**
-- [#34990](https://github.com/facebook/react/pull/34990): Fix: Submitter missing when form includes input[name="id"] (by @SahilMotiramani) — **Open**
-- [#34540](https://github.com/facebook/react/pull/34540): Add fast path for React.memo with custom compare (by @barryam3) — **Open**
-- [#34848](https://github.com/facebook/react/pull/34848): Add readTypeof helper to `ReactPerformanceTrackProperties` (by @jzhan-canva) — **Open**
-- [#35051](https://github.com/facebook/react/pull/35051): Remove unstable_expectedLoadTime option (by @sebmarkbage) — **Closed (merged), closed at 2025-11-05T20:52:22**
-- [#35022](https://github.com/facebook/react/pull/35022): Rename <Suspense unstable_expectedLoadTime> to <Suspense defer> and implement in SSR (by @sebmarkbage) — **Closed (merged), closed at 2025-11-05T19:12:10**
-- [#34994](https://github.com/facebook/react/pull/34994): [eprh] Adhere to ESLint.Plugin type (by @mdmower-csnw) — **Open**
-- [#29046](https://github.com/facebook/react/pull/29046): fix(eslint-plugin-react-hooks): "additionalHooks" docs are misleading (by @StyleShit) — **Open**
-- [#33804](https://github.com/facebook/react/pull/33804): Allow button tags in select tags for customizable selects (by @phidol) — **Open**
-- [#35048](https://github.com/facebook/react/pull/35048): Clean up enablePostpone Experiment (by @sebmarkbage) — **Closed (merged), closed at 2025-11-05T05:05:59**
-- [#31042](https://github.com/facebook/react/pull/31042): Disable enablePostpone flag in experimental (by @sebmarkbage) — **Closed (merged), closed at 2025-11-05T04:23:26**
-- [#35042](https://github.com/facebook/react/pull/35042): [Fiber] SuspenseList with "hidden" tail row should "catch" suspense (by @sebmarkbage) — **Closed (merged), closed at 2025-11-05T03:11:33**
-- [#35047](https://github.com/facebook/react/pull/35047): [healthcheck] correct yargs scriptName and usage (by @henryqdineen) — **Open**
-- [#35046](https://github.com/facebook/react/pull/35046): [healthcheck] fix error false negatives (by @henryqdineen) — **Open**
-- [#35041](https://github.com/facebook/react/pull/35041): [eslint] Fix useEffectEvent checks in component syntax (by @jbrown215) — **Closed (merged), closed at 2025-11-04T19:59:29**
-- [#34804](https://github.com/facebook/react/pull/34804): Update HTML parser rules for new select parser (by @josepharhar) — **Open**
-- [#34961](https://github.com/facebook/react/pull/34961): [Tracks] Annotate devtools.performanceIssue for Cascading Updates in DEV (by @huntie) — **Closed (merged), closed at 2025-11-04T17:07:32**
-- [#35039](https://github.com/facebook/react/pull/35039): [Flight] Fix `hasReadable` flag in Node.js clients' debug channel (by @unstubbable) — **Closed (merged), closed at 2025-11-04T15:30:08**
-- [#34935](https://github.com/facebook/react/pull/34935): Add fragment handles to children of FragmentInstances  (by @jackpope) — **Closed (merged), closed at 2025-11-03T22:51:00**
-- [#35036](https://github.com/facebook/react/pull/35036): [Flight] Fix debug info filtering to include later resolved I/O (by @unstubbable) — **Closed (merged), closed at 2025-11-03T21:59:41**
-- [#32703](https://github.com/facebook/react/pull/32703): [DevTools] Use Popover API for component inspect overlays (by @yongsk0066) — **Closed, closed at 2025-11-03T13:13:45**
-- [#28491](https://github.com/facebook/react/pull/28491): Add `React.useActionState` (by @rickhanlonii) — **Closed (merged), closed at 2024-03-22T17:03:45**
-- [#34979](https://github.com/facebook/react/pull/34979): [eprh] Fix typo in plugin name (by @aicest) — **Closed, closed at 2025-11-02T13:02:04**
-- [#31882](https://github.com/facebook/react/pull/31882): [compiler] Migrate PruneNonEscapingScopes to HIR (by @mvitousek) — **Open**
-- [#35032](https://github.com/facebook/react/pull/35032): chore(react-reconciler/README.md): replace older Medium links with Software Mansion's 2025 Medium link (by @onstash) — **Open**
-- [#35019](https://github.com/facebook/react/pull/35019): [Fizz] Push halted await to the owner stack for late-arriving I/O info (by @unstubbable) — **Closed (merged), closed at 2025-11-01T15:03:09**
-- [#34013](https://github.com/facebook/react/pull/34013): fix(devtools): remove hardcoded hsl border style from SidebarCommitInfo (by @ZunedKhan07) — **Closed, closed at 2025-11-01T11:04:29**
-- [#35027](https://github.com/facebook/react/pull/35027): test: add coverage for zero-length style values (by @Biki-das) — **Open**
-- [#35021](https://github.com/facebook/react/pull/35021): Render children passed to "backwards" SuspenseList in reverse mount order (by @sebmarkbage) — **Closed (merged), closed at 2025-10-31T17:33:23**
-- [#35018](https://github.com/facebook/react/pull/35018): Switch the default revealOrder to "forwards" and tail "hidden" on SuspenseList (by @sebmarkbage) — **Closed (merged), closed at 2025-10-31T16:58:18**
-- [#34010](https://github.com/facebook/react/pull/34010): docs(devtools): Add bug-fix guide for build errors in monorepo (by @firozzorif) — **Closed, closed at 2025-10-31T16:06:35**
-- [#34948](https://github.com/facebook/react/pull/34948): refactor: renderer config to provide async stack tagging api implementation (by @hoxyq) — **Closed, closed at 2025-10-31T15:39:37**
-- [#35014](https://github.com/facebook/react/pull/35014): [DevTools] Adjust aspect ratio of "x ray" viewport to the same as the window (by @sebmarkbage) — **Closed, closed at 2025-10-31T15:33:02**
-- [#34929](https://github.com/facebook/react/pull/34929): [DevTools] Reset forced states when changing component filters (by @eps1lon) — **Closed (merged), closed at 2025-10-31T11:57:11**
-- [#34910](https://github.com/facebook/react/pull/34910): [Compiler] Fix ref validation false positives for props property access (#34775) (by @kuomars110) — **Closed, closed at 2025-10-30T23:34:28**
-- [#29028](https://github.com/facebook/react/pull/29028): Use `FormData` `submitter` parameter (by @jenseng) — **Open**
-- [#35012](https://github.com/facebook/react/pull/35012): [DevTools] Render selected outline on top of every other rect (by @sebmarkbage) — **Closed (merged), closed at 2025-10-30T19:26:49**
-- [#32667](https://github.com/facebook/react/pull/32667): feat: Add isValidNode function to validate React nodes (by @clicktodev) — **Closed, closed at 2025-10-30T16:06:58**
-- [#33998](https://github.com/facebook/react/pull/33998): fix: memory leak when with setState returning the same value (by @kizzx2) — **Closed, closed at 2025-10-30T16:06:54**
-- [#35016](https://github.com/facebook/react/pull/35016): Make `detachDeletedInstance` 30% faster (by @MrFlashAccount) — **Open**
-- [#33575](https://github.com/facebook/react/pull/33575): [polyfill] Add warning for bad Map/Set polyfills (by @leeguooooo) — **Open**
-- [#34641](https://github.com/facebook/react/pull/34641): [DevTools] Synchronize Scroll Position Between Suspense Tab and Main Document (by @sebmarkbage) — **Closed (merged), closed at 2025-10-30T01:49:35**
-- [#35013](https://github.com/facebook/react/pull/35013): fix: BigInt serialization issue in the development environment (by @nuintun) — **Open**
-- [#35011](https://github.com/facebook/react/pull/35011): [DevTools] Sort suspense timeline by end time instead of just document order (by @sebmarkbage) — **Closed (merged), closed at 2025-10-29T19:05:04**
-- [#35005](https://github.com/facebook/react/pull/35005): [Flight] Cache the value if we visit the same I/O or Promise multiple times along different paths (by @sebmarkbage) — **Closed (merged), closed at 2025-10-29T14:55:43**
-- [#33705](https://github.com/facebook/react/pull/33705): feat(scrollbar): replace TODO colors with React-defined tokens (by @kamja44) — **Closed, closed at 2025-10-29T06:08:14**
-- [#34365](https://github.com/facebook/react/pull/34365): Add a missing `@types` package to `eslint-plugin-react-hooks` (by @fluiderson) — **Open**
-- [#35003](https://github.com/facebook/react/pull/35003): [Flight] Clone subsequent I/O nodes if it's resolved more than once (by @sebmarkbage) — **Closed (merged), closed at 2025-10-28T17:27:36**
-- [#34638](https://github.com/facebook/react/pull/34638): [Flight] Improve aborted hanging promise stacks (by @unstubbable) — **Closed, closed at 2025-10-28T17:20:06**
-- [#34755](https://github.com/facebook/react/pull/34755): [Flight] Improve owner and component stacks when aborting (by @unstubbable) — **Closed, closed at 2025-10-28T17:19:46**
-- [#35002](https://github.com/facebook/react/pull/35002): [tests] disableLegacyMode in test-renderer (by @rickhanlonii) — **Closed (merged), closed at 2025-10-28T16:53:30**
-- [#35001](https://github.com/facebook/react/pull/35001): Update package.json (by @Dhanusha2426) — **Closed, closed at 2025-10-28T14:32:28**
-- [#34992](https://github.com/facebook/react/pull/34992): [generate-changelog] Add `--format` option (by @poteto) — **Closed (merged), closed at 2025-10-27T21:54:09**
-- [#34993](https://github.com/facebook/react/pull/34993): [generate-changelog] Refactor (by @poteto) — **Closed (merged), closed at 2025-10-27T22:04:49**
-- [#34193](https://github.com/facebook/react/pull/34193): [react-dom] Include all Node.js APIs in Bun entrypoint for `/server` (by @RiskyMH) — **Closed (merged), closed at 2025-10-27T22:06:45**
-- [#34947](https://github.com/facebook/react/pull/34947): [rn] enabled disableLegacyMode everywhere (by @rickhanlonii) — **Closed (merged), closed at 2025-10-27T21:48:33**
-- [#34946](https://github.com/facebook/react/pull/34946): [rn] delete the legacy renderers from the sync (by @rickhanlonii) — **Closed (merged), closed at 2025-10-27T21:38:56**
-- [#34988](https://github.com/facebook/react/pull/34988): [Flight] Don't hang after resolving cyclic references (by @unstubbable) — **Closed (merged), closed at 2025-10-27T21:06:29**
-- [#34962](https://github.com/facebook/react/pull/34962): [script] Add yarn generate-changelog (by @poteto) — **Closed (merged), closed at 2025-10-27T19:48:37**
-- [#33795](https://github.com/facebook/react/pull/33795): Replace `rm -rf` with `fs-extra.remove` for cross-platform script compatibility (by @suwakei) — **Open**
-- [#33942](https://github.com/facebook/react/pull/33942): Fix: Ignore Symbol/Function in input defaultValue (fixes #27896) (by @yogendradayal) — **Closed, closed at 2025-10-27T19:04:38**
-- [#34991](https://github.com/facebook/react/pull/34991): [playground] Upgrade playwright (by @EugeneChoi4) — **Closed (merged), closed at 2025-10-27T17:42:02**
-- [#34987](https://github.com/facebook/react/pull/34987): Create react (by @aureumstream-eng) — **Closed, closed at 2025-10-27T09:50:25**
-- [#34524](https://github.com/facebook/react/pull/34524): [Flight] Ensure blocked debug info is handled properly (by @unstubbable) — **Closed (merged), closed at 2025-09-25T13:13:16**
-- [#32063](https://github.com/facebook/react/pull/32063): fix: ExhaustiveDeps elements length check (by @dislido) — **Closed, closed at 2025-10-26T05:09:36**
-- [#34980](https://github.com/facebook/react/pull/34980): minor changes (by @amit-lgmt) — **Closed, closed at 2025-10-26T08:14:41**
+- [#35359](https://github.com/facebook/react/pull/35359): Fix: Controlled checkboxes and radio buttons reset on form submission (by @rdanciu11) — **Open**
+- [#35357](https://github.com/facebook/react/pull/35357): Update README.md (by @VL9mHv0OoK) — **Closed, closed at 2025-12-14T22:01:01**
+- [#35358](https://github.com/facebook/react/pull/35358): [jest] Handle Windows backslashes in preprocessor path matching (by @HM-23-HM) — **Open**
+- [#34496](https://github.com/facebook/react/pull/34496): [DevTools] Update ReadMe Docs For WebExtensions (by @ospira) — **Open**
+- [#35297](https://github.com/facebook/react/pull/35297): [react-reconciler] Fix typos in comments (by @yujiteshima) — **Open**
+- [#34147](https://github.com/facebook/react/pull/34147): Fix eslint rules of hooks inconsistency (by @dev-priyanshu15) — **Closed, closed at 2025-12-14T00:10:55**
+- [#34542](https://github.com/facebook/react/pull/34542): Fix: Handle named functions calling other named functions when defined in different order (by @pritjasani08) — **Closed, closed at 2025-12-13T12:50:47**
+- [#34721](https://github.com/facebook/react/pull/34721): [typo] Fix common spelling errors across codebase (by @SeaOtocinclus) — **Open**
+- [#35356](https://github.com/facebook/react/pull/35356): Fix: Compiler now memoizes when const is between hooks (#35355) (by @pritjasani08) — **Closed, closed at 2025-12-13T21:20:11**
+- [#35198](https://github.com/facebook/react/pull/35198): Improve TypeScript type definitions in jest.d.ts (by @Rezakarimzadeh98) — **Open**
+- [#35123](https://github.com/facebook/react/pull/35123): Improve the detection of changed hooks (by @blazejkustra) — **Open**
+- [#35344](https://github.com/facebook/react/pull/35344): Add initial devcontainer configuration (by @kingoncloud69) — **Closed, closed at 2025-12-13T10:50:50**
+- [#35199](https://github.com/facebook/react/pull/35199): fix: update root package.json (metadata + scripts fix) (by @sudip-kumar-prasad) — **Closed, closed at 2025-12-13T08:39:13**
+- [#35200](https://github.com/facebook/react/pull/35200): chore: add .nvmrc to specify Node 18 for development consistency (by @sudip-kumar-prasad) — **Open**
+- [#28000](https://github.com/facebook/react/pull/28000): Convert ReactFreshMultipleRenderer to createRoot (by @eps1lon) — **Closed (merged), closed at 2024-01-19T17:21:15**
+- [#34141](https://github.com/facebook/react/pull/34141): fix: prevent false positive static flag error for conditional hook calls (by @dev-priyanshu15) — **Open**
+- [#34213](https://github.com/facebook/react/pull/34213): [DevTools] Add regression test for custom hook named "useState" crash (by @Raghuboi) — **Closed, closed at 2025-10-16T17:51:34**
+- [#35248](https://github.com/facebook/react/pull/35248): [compiler] Fix computed property keys in object method shorthand (by @lluisemper) — **Open**
+- [#35353](https://github.com/facebook/react/pull/35353): Upgrade nextjs for compiler playground (by @jackpope) — **Closed (merged), closed at 2025-12-12T14:06:31**
+- [#26360](https://github.com/facebook/react/pull/26360): [Flight Reply] Add Reply Encoding (by @sebmarkbage) — **Closed (merged), closed at 2023-03-10T16:36:16**
+- [#35216](https://github.com/facebook/react/pull/35216): [compiler] Only run validations with env.logErrors on outputMode: 'lint' (by @jorge-cab) — **Closed (merged), closed at 2025-12-12T00:36:36**
+- [#35348](https://github.com/facebook/react/pull/35348): [compiler] Fix VariableDeclarator source location (by @nathanmarks) — **Closed (merged), closed at 2025-12-11T23:02:06**
+- [#35351](https://github.com/facebook/react/pull/35351): [Flight] Add extra loop protection (by @sebmarkbage) — **Closed (merged), closed at 2025-12-11T22:23:01**
+- [#35129](https://github.com/facebook/react/pull/35129): [compiler] Fix VariableDeclarator source location (by @nathanmarks) — **Closed (merged), closed at 2025-12-11T19:35:03**
+- [#34996](https://github.com/facebook/react/pull/34996): Improve completeSegment for safer DOM manipulation (by @leog) — **Open**
+- [#35346](https://github.com/facebook/react/pull/35346): Revert "[compiler] Fix VariableDeclarator source location (#35129)" (by @sebmarkbage) — **Closed (merged), closed at 2025-12-11T20:27:07**
+- [#35345](https://github.com/facebook/react/pull/35345): [Flight] Patch Promise cycles and toString on Server Functions (by @sebmarkbage) — **Closed (merged), closed at 2025-12-11T20:24:24**
+- [#35328](https://github.com/facebook/react/pull/35328): test(compiler): Add todo regression tests for UpdateExpression (by @tennisleng) — **Open**
+- [#35304](https://github.com/facebook/react/pull/35304): fix: correctly compile post-increment assignment (by @tennisleng) — **Open**
+- [#35343](https://github.com/facebook/react/pull/35343): fix[devtools]: feature-check document with typeof instead of direct reference (by @hoxyq) — **Closed (merged), closed at 2025-12-11T12:15:00**
+- [#29925](https://github.com/facebook/react/pull/29925): Fix issue with single prop added in spread with binary conditional when used with legacy JSX transform in dev env (by @undeletable) — **Open**
+- [#33455](https://github.com/facebook/react/pull/33455): Fix the "Unsupported node type: PrivateIdentifier" in `react-hooks/exhaustive-deps` ESLint rule (by @kossnocorp) — **Closed, closed at 2025-12-11T06:09:24**
+- [#35124](https://github.com/facebook/react/pull/35124): Fix : Compiler eslint suppression silent skip 35105 (by @manNomi) — **Open**
+- [#35293](https://github.com/facebook/react/pull/35293): fix[devtools]: feature-check structure stack trace methods (by @hoxyq) — **Closed (merged), closed at 2025-12-10T19:21:54**
+- [#35294](https://github.com/facebook/react/pull/35294): fix[devtools]: still show overlay, if getClientRects is not implemented (by @hoxyq) — **Closed (merged), closed at 2025-12-10T19:21:28**
+- [#35341](https://github.com/facebook/react/pull/35341): Attach instance handle to DOM in DEV for enableInternalInstanceMap (by @jackpope) — **Closed (merged), closed at 2025-12-10T18:35:20**
+- [#35238](https://github.com/facebook/react/pull/35238): [Devtools] Navigating commits performance panel hotkey (by @emily8rown) — **Closed (merged), closed at 2025-12-10T13:07:35**
+- [#35287](https://github.com/facebook/react/pull/35287): [compiler]: Incorrectly uses variable name issue 35268 (by @kostya-gromov) — **Open**
+- [#27733](https://github.com/facebook/react/pull/27733): Add reload and profile to react-devtools-inline (by @Jack-Works) — **Open**
+- [#35334](https://github.com/facebook/react/pull/35334): [flow] Upgrade from 0.286 -> 0.292 (by @poteto) — **Open**
+- [#35208](https://github.com/facebook/react/pull/35208): [DevTools] Fix developer tools not working in tabs restricted by CSP (by @mochiya98) — **Open**
+- [#35335](https://github.com/facebook/react/pull/35335): fix(compiler): avoid false-positive for destructured hook identifiers that are only called (by @karankumbhare90) — **Closed, closed at 2025-12-10T00:01:02**
+- [#35277](https://github.com/facebook/react/pull/35277): Patch FlightReplyServer with fixes from ReactFlightClient (by @sebmarkbage) — **Closed (merged), closed at 2025-12-03T15:41:19**
+- [#35338](https://github.com/facebook/react/pull/35338): [eprh] Enable enableUseKeyedState and enableVerboseNoSetStateInEffect (by @poteto) — **Closed (merged), closed at 2025-12-09T19:20:23**
+- [#35337](https://github.com/facebook/react/pull/35337): Fix ViewTransition crash in Mobile Safari (by @gaearon) — **Closed (merged), closed at 2025-12-09T18:35:16**
+- [#33554](https://github.com/facebook/react/pull/33554): Bump the npm_and_yarn group across 9 directories with 28 updates (by @AIC-HMV) — **Closed, closed at 2025-07-01T19:37:08**
+- [#35329](https://github.com/facebook/react/pull/35329): [flow] Upgrade from 0.279 -> 0.280 (by @poteto) — **Open**
+- [#35330](https://github.com/facebook/react/pull/35330): [flow] Upgrade from 0.280 -> 0.281 (by @poteto) — **Open**
+- [#35331](https://github.com/facebook/react/pull/35331): [flow] Upgrade from 0.281 -> 0.282 (by @poteto) — **Open**
+- [#35332](https://github.com/facebook/react/pull/35332): [flow] Upgrade from 0.282 -> 0.286 (by @poteto) — **Open**
+- [#35333](https://github.com/facebook/react/pull/35333): [flow] Upgrade from 0.286 -> 0.288 (by @poteto) — **Open**
+- [#35317](https://github.com/facebook/react/pull/35317): [playground] Downgrade Next.js to a secure version (by @eps1lon) — **Closed (merged), closed at 2025-12-08T19:06:58**
+- [#34118](https://github.com/facebook/react/pull/34118): fix: correct spelling mistakes in code and error messages (by @rinilkunhiraman) — **Closed, closed at 2025-12-08T18:08:35**
+- [#34218](https://github.com/facebook/react/pull/34218): Dev: warn when slider controls missing an accessible name (help with … (by @Pseudo-Sid26) — **Closed, closed at 2025-12-08T18:08:33**
+- [#34326](https://github.com/facebook/react/pull/34326): docs: outdated Flow URL in pull request template (by @wo-o29) — **Closed, closed at 2025-12-08T18:08:29**
+- [#34362](https://github.com/facebook/react/pull/34362): Add allowClientFallback option to use() hook (by @amansoomro062) — **Closed, closed at 2025-12-08T18:08:25**
+- [#35299](https://github.com/facebook/react/pull/35299): fix(compiler): detect setState in effects when useState declared later (#35291) (by @Garvitpant777) — **Closed, closed at 2025-12-06T20:01:06**
+- [#35306](https://github.com/facebook/react/pull/35306): [compiler] Add enableVerboseNoSetStateInEffect to suggest options to user/agent (by @poteto) — **Closed (merged), closed at 2025-12-08T17:16:28**
+- [#35321](https://github.com/facebook/react/pull/35321): test(compiler): Add regression tests for UpdateExpression (by @tennisleng) — **Closed, closed at 2025-12-08T16:41:17**
+- [#35320](https://github.com/facebook/react/pull/35320): fix(compiler): Support UpdateExpression on captured variables logic (by @tennisleng) — **Closed, closed at 2025-12-08T16:40:06**
+- [#35324](https://github.com/facebook/react/pull/35324): wip: separate lint compile pipeline (by @apoeco) — **Closed, closed at 2025-12-08T16:38:14**
+- [#35285](https://github.com/facebook/react/pull/35285): [compiler][poc] Reuse ValidateExhaustiveDeps for effect dep validation (by @josephsavona) — **Closed (merged), closed at 2025-12-08T15:58:38**
+- [#26254](https://github.com/facebook/react/pull/26254): Add support for SyntheticKeyboardEvent `isComposing` (by @bhbs) — **Open**
+- [#35305](https://github.com/facebook/react/pull/35305): fix(compiler): support UpdateExpression on captured variables (by @tennisleng) — **Closed, closed at 2025-12-08T00:44:01**
+- [#35318](https://github.com/facebook/react/pull/35318): Support `module.property.useHook()` in Fast Refresh (by @ArnaudBarre) — **Open**
 
 ---
 
 ## ❗ Open Issues
 
-### Open Issues (Last 30 Days)
+### Open Issues (Last 60 Days)
 
-- [#35028](https://github.com/facebook/react/issues/35028): Bug: state changes inside forwardRef change the props object reference (by @Hypnosphi, opened 2025-10-31)
-- [#33580](https://github.com/facebook/react/issues/33580): Bug: Rendered more hooks than during the previous render when component calls use(thenable) after hydration in a specific transition (by @RobPruzan, opened 2025-06-20)
-- [#35081](https://github.com/facebook/react/issues/35081): {R#oyal Caribbe#an ]Como falar com Royal Caribbean pelo telefone para reservas? (by @viajanteLivre, opened 2025-11-07)
-- [#35080](https://github.com/facebook/react/issues/35080): {!!Ethiopian^$^Airli#nes TeleFONE] Como falar com a Ethiopian Airlines no Brasil? (by @viajanteLivre, opened 2025-11-07)
-- [#35079](https://github.com/facebook/react/issues/35079): {Delta ^-^ Air#lines ^-^TeleF$ONE} Como falar com o suporte ao cliente da Delta Airlines no Brasil? (by @viajanteLivre, opened 2025-11-07)
-- [#35078](https://github.com/facebook/react/issues/35078): {Br}|Tur!ki$sh Air#lin$es}| Como posso alterar assentos na Turkish Airlines? (by @viajanteLivre, opened 2025-11-07)
-- [#35077](https://github.com/facebook/react/issues/35077): |La#ta!m| {TEle&FoNe} | Como falar com a Latam Brasil Airlines? (by @viajanteLivre, opened 2025-11-07)
-- [#35076](https://github.com/facebook/react/issues/35076): {KL$$M Te$$leFO$$NE} Como posso entrar em contato com um agente da KLM? (by @viajanteLivre, opened 2025-11-07)
-- [#35075](https://github.com/facebook/react/issues/35075): ||TeleF$$ONE] Luf#tha%nsa| Como falar com a Lufthansa Brasil pelo telefone? (by @viajanteLivre, opened 2025-11-07)
-- [#34142](https://github.com/facebook/react/issues/34142): Bug: Temporal objects (from temporal-polyfill, at least) can't be passed to a client component from server component (by @rikbrown, opened 2025-08-08)
-- [#32561](https://github.com/facebook/react/issues/32561): Bug: `StrictMode` reruns effects when a child is moved in an array (by @krispya, opened 2025-03-09)
-- [#35072](https://github.com/facebook/react/issues/35072): [Proposal] Server-Side React Specification with Declarative Side-Effects and Query-Based Selectivity (by @phitonias, opened 2025-11-07)
-- [#35069](https://github.com/facebook/react/issues/35069): Bug: 6https://github.com/facebook/react/issues/new/choose (by @fishar52, opened 2025-11-07)
-- [#33489](https://github.com/facebook/react/issues/33489): Bug: infinite re-renders when queueing state updates via promises during render (by @mjesun, opened 2025-06-09)
-- [#35049](https://github.com/facebook/react/issues/35049): [DevTools Bug] Cannot read properties of undefined (reading 'map') (by @Amurmurmur, opened 2025-11-05)
-- [#32852](https://github.com/facebook/react/issues/32852): [DevTools Bug] Cannot add node "909" because a node with that id is already in the Store. (by @IvanGoranov02, opened 2025-04-11)
-- [#35055](https://github.com/facebook/react/issues/35055): [DevTools Bug]: DevTools in Edge constantly display "Looks like this page doesn't have React, or it hasn't been loaded yet." (by @mgrosperrin, opened 2025-11-06)
-- [#26052](https://github.com/facebook/react/issues/26052): [DevTools Bug]: event.metaKey + f to focus SearchInput doesn't work on Windows (by @kamranayub, opened 2023-01-26)
-- [#35058](https://github.com/facebook/react/issues/35058): Bug: wrong module identifer (by @Ludea, opened 2025-11-06)
-- [#35061](https://github.com/facebook/react/issues/35061): [Compiler Bug]: Compiler doesn't memoize if const is between hooks (by @Mati20041, opened 2025-11-06)
-- [#34966](https://github.com/facebook/react/issues/34966): Bug: [19.2.0] Streaming scripts injected in `onAllReady` in `renderToPipeableStream` and `prerenderToNodeStream` (by @jereaa, opened 2025-10-23)
-- [#20065](https://github.com/facebook/react/issues/20065): Bug: onCompositionEnd not called (by @Mkamvi, opened 2020-10-21)
-- [#35056](https://github.com/facebook/react/issues/35056): Bug: Race condition in completeSegment ($RS) causes "Cannot read properties of null (reading 'parentNode')" error (by @ponharu, opened 2025-11-06)
-- [#35040](https://github.com/facebook/react/issues/35040): Bug:  Getting `Cannot access refs during render` error from event handler. (by @siamahnaf, opened 2025-11-04)
-- [#17355](https://github.com/facebook/react/issues/17355): "Should not already be working" in Firefox after a breakpoint/alert (by @gzzo, opened 2019-11-13)
-- [#21139](https://github.com/facebook/react/issues/21139): [Fast Refresh] Don’t Scan the Tree (by @gaearon, opened 2021-03-30)
-- [#32251](https://github.com/facebook/react/issues/32251): [React 19] aria attributes on custom elements behave maybe incorrectly (by @epmatsw, opened 2025-01-28)
+- [#35389](https://github.com/facebook/react/issues/35389): Bug: react-devtools 7.0.1 - Electron failed to install correctly (by @dougg0k, opened 2025-12-18)
+- [#35379](https://github.com/facebook/react/issues/35379): React Compiler generates erroneous code when an app contains a component named `Symbol` (by @devuxer, opened 2025-12-17)
+- [#35390](https://github.com/facebook/react/issues/35390): [Compiler Bug]: useEffectEvent bypasses react-hooks/set-state-in-effect lint rule (by @zyzo, opened 2025-12-19)
+- [#30580](https://github.com/facebook/react/issues/30580): [React 19] Controlled `<select>` component is subject to automatic form reset (by @cjg1122, opened 2024-08-02)
+- [#35377](https://github.com/facebook/react/issues/35377): Bug: `react-hooks/set-state-in-effect` doesn't work in `React.useState` and `React.useEffect` (by @appellation, opened 2025-12-16)
+- [#35381](https://github.com/facebook/react/issues/35381): Bug: I have found one issue on your blog. (by @mahesh-yadav-hipl, opened 2025-12-17)
+- [#32135](https://github.com/facebook/react/issues/32135): Bug: Properties are not passed to Custom Elements that extend built-in elements (by @edoardocavazza, opened 2025-01-20)
+- [#20895](https://github.com/facebook/react/issues/20895): Bug: React roots are announced as clickable to screen readers (by @timogasda, opened 2021-02-26)
+- [#34769](https://github.com/facebook/react/issues/34769): Bug: ViewTransition animations broken when using React Portal (by @nikhilsnayak, opened 2025-10-08)
+- [#35386](https://github.com/facebook/react/issues/35386): [Compiler Bug]: .map() callback extracted to module scope breaks closure over locally-scoped variables (by @Omarov3000, opened 2025-12-17)
+- [#26465](https://github.com/facebook/react/issues/26465): [DevTools Bug] Cannot add child "1161" to parent "942" because parent node was not found in the Store. (by @bhanuUdai, opened 2023-03-23)
+- [#28492](https://github.com/facebook/react/issues/28492): Bug: onBlur is not firing in IOS Chrome when trigger done button (by @youryu0212, opened 2024-03-05)
 - [#24669](https://github.com/facebook/react/issues/24669): Bug: `useId()` not working inside `<Suspense>` (by @brillout, opened 2022-06-03)
-- [#35024](https://github.com/facebook/react/issues/35024): [Compiler Bug]: TanStack Form incompatibility  (by @JamesHyot, opened 2025-10-31)
-- [#31981](https://github.com/facebook/react/issues/31981): [React 19] Reintroduce debugSource in some kind of opt-in way (by @Artur-, opened 2025-01-05)
-- [#32574](https://github.com/facebook/react/issues/32574): [React 19] Need Bring Back `_debugSource` or Provide an Equivalent for Better Developer Experience (by @zthxxx, opened 2025-03-11)
-- [#34729](https://github.com/facebook/react/issues/34729): Bug: Using the new <Activity> component inside AnimatePresence (Framer Motion) (by @alirezahematidev, opened 2025-10-04)
-- [#35007](https://github.com/facebook/react/issues/35007): [Compiler Bug]: MDX content isn’t handled by React compiler (by @remcohaszing, opened 2025-10-29)
-- [#34917](https://github.com/facebook/react/issues/34917): [Compiler: suggestion] Use const for strings (by @budarin, opened 2025-10-19)
-- [#35017](https://github.com/facebook/react/issues/35017): Bug: useEffect does not run twice due to remounting in strict mode and dev run (by @TaiseiYokoshima, opened 2025-10-30)
-- [#32478](https://github.com/facebook/react/issues/32478): Bug: Support command event (by @o-t-w, opened 2025-02-26)
-- [#35045](https://github.com/facebook/react/issues/35045): Bug: `eslint-plugin-react-hooks` - Broken resolution in `7.0.1` (by @eidryn, opened 2025-11-04)
-- [#33057](https://github.com/facebook/react/issues/33057): [Compiler Bug]: React Compiler breaks most functionality of TanStack Table (by @skoshx, opened 2025-04-29)
-- [#34048](https://github.com/facebook/react/issues/34048): Question about "calling an impure function can produce unstable results..." lint (by @controversial, opened 2025-07-29)
-- [#35043](https://github.com/facebook/react/issues/35043): Bug: (by @b2232206-cmyk, opened 2025-11-04)
-- [#32743](https://github.com/facebook/react/issues/32743): Bug: React Dev Tools does not have a Google Chrome Store Established Publisher badge (by @sygint, opened 2025-03-25)
-- [#31689](https://github.com/facebook/react/issues/31689): Bug: React overwrites functions on customElements (by @mrginglymus, opened 2024-12-06)
-- [#34957](https://github.com/facebook/react/issues/34957): [Compiler Bug]: `react-hooks/preserve-manual-memoization` is triggered for state setter depending on position of `useState` (by @kachkaev, opened 2025-10-23)
-- [#35038](https://github.com/facebook/react/issues/35038): Bug: IntersectionObserver causing effect to run again even when dependencies don't change (by @AbdulAhadKhan0308, opened 2025-11-04)
+- [#35372](https://github.com/facebook/react/issues/35372): Bug: Fiber Scheduler Overhead Under Heavy Suspense Trees (by @shareefmx, opened 2025-12-16)
+- [#35133](https://github.com/facebook/react/issues/35133): Bug: Fallback image unnecessarily downloaded in `<picture>` element on Safari (by @bviale, opened 2025-11-13)
+- [#34884](https://github.com/facebook/react/issues/34884): Bug: Flow definitions are missing for React 19 (by @Dagur, opened 2025-10-16)
+- [#19991](https://github.com/facebook/react/issues/19991): Bug: Infinite rendering resulting in freezing of tab/browser (by @palerdot, opened 2020-10-09)
+- [#35276](https://github.com/facebook/react/issues/35276): Bug: react-hooks/set-state-in-effect: false-positive with ternary (by @silverwind, opened 2025-12-03)
+- [#35360](https://github.com/facebook/react/issues/35360): [DevTools Bug] Children cannot be added or removed during a reorder operation. (by @marinspira, opened 2025-12-15)
+- [#34489](https://github.com/facebook/react/issues/34489): en-dash in filenames (by @Zyphdoz, opened 2025-09-15)
+- [#34934](https://github.com/facebook/react/issues/34934): Bug: Unable to run `yarn build` on the newest main (by @blazejkustra, opened 2025-10-21)
+- [#35187](https://github.com/facebook/react/issues/35187): Bug: `useEffectEvent` retain the first render value when is used inside a component wrapped in `memo()` (by @gffuma, opened 2025-11-21)
+- [#34484](https://github.com/facebook/react/issues/34484): Bug: Expected static flag was missing (by @Raulzito311, opened 2025-09-14)
+- [#24740](https://github.com/facebook/react/issues/24740): Bug: `hidden` attribute does not accept string values (by @jantimon, opened 2022-06-16)
+- [#34743](https://github.com/facebook/react/issues/34743): Bug: react-hooks/set-state-in-effect overly strict? (by @karlhorky, opened 2025-10-05)
+- [#35350](https://github.com/facebook/react/issues/35350): [Compiler Bug]: 'use no memo' does not apply recursively (by @yepitschunked, opened 2025-12-11)
+- [#35349](https://github.com/facebook/react/issues/35349): Bug: Can't really access component stack `errorInfo.componentStack` on server (by @brillout, opened 2025-12-11)
+- [#35210](https://github.com/facebook/react/issues/35210): Bug: A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. (by @sovetski, opened 2025-11-25)
+- [#35182](https://github.com/facebook/react/issues/35182): Bug: (by @luisfernando30077-lgtm, opened 2025-11-20)
+- [#34998](https://github.com/facebook/react/issues/34998): Bug: eslint(react-hooks/set-state-in-effect) not work with try catch function (by @757566833, opened 2025-10-28)
 - [#34045](https://github.com/facebook/react/issues/34045): [Compiler Bug]: False positives “calling setState synchronously within an effect body” with stable primitive values (by @controversial, opened 2025-07-29)
-- [#35033](https://github.com/facebook/react/issues/35033): Typo in comment: “untill” → “until” in ReactDOMRoot.js (by @Ashish-coder-gif, opened 2025-11-02)
-- [#34775](https://github.com/facebook/react/issues/34775): Bug: eslint-react-hooks false positives on refs rule (by @marcospgp, opened 2025-10-08)
-- [#35026](https://github.com/facebook/react/issues/35026): Bug: &copysr; is escaped as text (by @lfuelling, opened 2025-10-31)
-- [#33360](https://github.com/facebook/react/issues/33360): [Compiler Bug]: (by @yungsters, opened 2025-05-27)
-- [#33315](https://github.com/facebook/react/issues/33315): [Compiler Bug]: Todo: (BuildHIR::lowerExpression) Handle ??= operators in AssignmentExpression (164:164) (by @Daniel3711997, opened 2025-05-20)
+- [#35342](https://github.com/facebook/react/issues/35342): [Compiler Bug]: React Compiler incorrectly hoists inner function outside closure, breaking variable reference (by @purpletortoise-choi, opened 2025-12-11)
+- [#12615](https://github.com/facebook/react/issues/12615): Unexpected warning when hydrating with portal and SSR (by @majelbstoat, opened 2018-04-15)
+- [#35327](https://github.com/facebook/react/issues/35327): Bug: Suspense fallback streaming not working without html/body/head components (by @HenriqueLimas, opened 2025-12-08)
+- [#33635](https://github.com/facebook/react/issues/33635): Bug: Hydration issue involving __gchrome_uniqueid on iPad Chrome/Edge browser (by @danvim, opened 2025-06-25)
+- [#35340](https://github.com/facebook/react/issues/35340): Bug: Server Components error when directly rendering a Context (by @samselikoff, opened 2025-12-09)
+- [#26608](https://github.com/facebook/react/issues/26608): Bug: MessageChannel in Scheduler prevents Jest test from exiting (by @victor-homyakov, opened 2023-04-12)
+- [#34008](https://github.com/facebook/react/issues/34008): Bug: [React 19] Script tags not executing when embedded in components. (by @DigitalNaut, opened 2025-07-26)
+- [#35319](https://github.com/facebook/react/issues/35319): [Compiler Bug]: Cannot reassign component props (by @otomad, opened 2025-12-07)
+- [#31819](https://github.com/facebook/react/issues/31819): [React 19] Suspense throttling behavior (`FALLBACK_THROTTLE_MS`) kicks in too often (by @uhyo, opened 2024-12-17)
+- [#35004](https://github.com/facebook/react/issues/35004): Bug: React 19 Uncaught TypeError: Do not know how to serialize a BigInt (by @nuintun, opened 2025-10-29)
+- [#30363](https://github.com/facebook/react/issues/30363): Feature Request: ESLint hooks rule for accessing previous state when deriving new state  (by @SamuelT-Beslogic, opened 2024-07-17)
+- [#35326](https://github.com/facebook/react/issues/35326): [Compiler Bug]: False positive on "Hooks may not be referenced as normal values, they must be called" (by @oliverlaz, opened 2025-12-08)
+- [#19150](https://github.com/facebook/react/issues/19150): Proposition about onInput/onChange (by @mr21, opened 2020-06-18)
+- [#26374](https://github.com/facebook/react/issues/26374): Bug: `createRoot` function from React@18 break the css `:target` (by @magic-akari, opened 2023-03-12)
+- [#35220](https://github.com/facebook/react/issues/35220): Bug: useState hook not updating state correctly in async functions (by @Arun24-8, opened 2025-11-26)
+- [#34866](https://github.com/facebook/react/issues/34866): [DevTools Bug]: CSS Animation Errors When Using Devtools (by @SocietyNiu, opened 2025-10-15)
+- [#33738](https://github.com/facebook/react/issues/33738): [DevTools Bug] Cannot remove node "810" because no matching node was found in the Store. (by @mazamine, opened 2025-07-08)
+- [#29045](https://github.com/facebook/react/issues/29045): Bug: eslint-plugin-react-hooks documentation might be misleading (by @StyleShit, opened 2024-05-12)
+- [#31906](https://github.com/facebook/react/issues/31906): Bug: source maps are missing from react npm packages (by @asvishnyakov, opened 2024-12-25)
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 30 Days)
+### Recent Commits (Last 60 Days)
 
+- [65eec42](https://github.com/facebook/react/commit/65eec428c40d542d4d5a9c1af5c3f406aecf3440): Use `FormData` `submitter` parameter (#29028) (by @jenseng, 2025-12-18)
+- [454fc41](https://github.com/facebook/react/commit/454fc41fc7d50f8abbcfb9595b01e8ea8bfcc265): [test] Add tests for cyclic arrays in Flight and Flight Reply (#35347) (by @unstubbable, 2025-12-17)
+- [f93b9fd](https://github.com/facebook/react/commit/f93b9fd44b576c1e0233f854cd986cbf08b7a5c4): Skip hydration errors when a view transition has been applied (#35380) (by @sebmarkbage, 2025-12-17)
+- [b731fe2](https://github.com/facebook/react/commit/b731fe28cc492cb36c51c89866f5b63a3ffae2aa): Improve cyclic thenable detection in ReactFlightReplyServer (#35369) (by @cvan20191, 2025-12-17)
+- [88ee1f5](https://github.com/facebook/react/commit/88ee1f595572b1dcf8f45897cb115b4bbd1aefb8): Add reporting modes for react-hooks/exhaustive-effect-dependencies and temporarily enable (#35365) (by @jackpope, 2025-12-15)
+- [bcf97c7](https://github.com/facebook/react/commit/bcf97c7564cbe0c903a16a8d6ff52f124f2f06ff): Devtools disable log dimming strict mode setting (#35207) (by @emily8rown, 2025-12-15)
+- [ba5b843](https://github.com/facebook/react/commit/ba5b843692519a226347aecfb789d90fcb24b4bc): [test] Exclude repository root from assertions (#35361) (by @eps1lon, 2025-12-15)
+- [b061b59](https://github.com/facebook/react/commit/b061b597f77c979531a3f2c9c04ba435342b0043): Upgrade nextjs for compiler playground (#35353) (by @jackpope, 2025-12-12)
+- [38a6f4e](https://github.com/facebook/react/commit/38a6f4e4a11f128a2f83047c5e64512f7678d450): [compiler] Only run validations with env.logErrors on outputMode: 'lint' (#35216) (by @jorge-cab, 2025-12-12)
+- [b85cf6a](https://github.com/facebook/react/commit/b85cf6af3de99dce3674dadebcc1493b77a64606): [compiler] Fix VariableDeclarator source location (#35348) (by @nathanmarks, 2025-12-11)
+- [b45bb33](https://github.com/facebook/react/commit/b45bb335db5b3632329d6b41e5a790ff6f1a7ff7): [Flight] Add extra loop protection (#35351) (by @sebmarkbage, 2025-12-11)
+- [80cb7a9](https://github.com/facebook/react/commit/80cb7a99255fb030bf11cb8a8298d94f379563c7): Revert "[compiler] Fix VariableDeclarator source location (#35129)" (#35346) (by @sebmarkbage, 2025-12-11)
+- [894bc73](https://github.com/facebook/react/commit/894bc73cb493487c48d57f4508e6278db58e673a): [Flight] Patch Promise cycles and toString on Server Functions (#35345) (by @sebmarkbage, 2025-12-11)
+- [d3eb566](https://github.com/facebook/react/commit/d3eb566291ee5507b3912fe3c0cd6886167fe398): [compiler] Fix VariableDeclarator source location (#35129) (by @nathanmarks, 2025-12-11)
+- [37bcdcd](https://github.com/facebook/react/commit/37bcdcde044131d49f11b2f62873a200a94ec756): fix[devtools]: feature-check document with typeof instead of direct reference (#35343) (by @hoxyq, 2025-12-11)
+- [5a97093](https://github.com/facebook/react/commit/5a970933c0aa5c5cfb9793cce49f3a282b191716): fix[devtools]: feature-check structure stack trace methods (#35293) (by @hoxyq, 2025-12-10)
+- [5d80124](https://github.com/facebook/react/commit/5d801243459cc18a768c9b291355943366730539): fix[devtools]: still show overlay, if getClientRects is not implemented (#35294) (by @hoxyq, 2025-12-10)
+- [eade0d0](https://github.com/facebook/react/commit/eade0d0fb78e327c5624f53753126687f05c0d16): Attach instance handle to DOM in DEV for enableInternalInstanceMap (#35341) (by @jackpope, 2025-12-10)
+- [d763f31](https://github.com/facebook/react/commit/d763f3131e689d077a93fd45c1fdf220be796279): [Devtools] Navigating commits performance panel hotkey (#35238) (by @emily8rown, 2025-12-10)
+- [734f1bf](https://github.com/facebook/react/commit/734f1bf1ac2a065f9ae9c74b94560b2b5239bee7): [eprh] Enable enableUseKeyedState and enableVerboseNoSetStateInEffect (#35338) (by @poteto, 2025-12-09)
+- [61331f3](https://github.com/facebook/react/commit/61331f3c9e9ea93d866273567d38e23ef4bc4c5b): Fix ViewTransition crash in Mobile Safari (#35337) (by @gaearon, 2025-12-09)
+- [55480b4](https://github.com/facebook/react/commit/55480b4d228986e502f4651f8e53a6f264a1858e): [playground] Downgrade Next.js to a secure version (#35317) (by @eps1lon, 2025-12-08)
+- [3640f38](https://github.com/facebook/react/commit/3640f38a728f3a057649cf7aec65a6ce14c2eac0): [compiler] Add enableVerboseNoSetStateInEffect to suggest options to user/agent (#35306) (by @poteto, 2025-12-08)
+- [ec9cc00](https://github.com/facebook/react/commit/ec9cc003d232b5a3eed735311df152463a883b32): [compiler][poc] Reuse ValidateExhaustiveDeps for effect dep validation (#35285) (by @josephsavona, 2025-12-08)
+- [380778d](https://github.com/facebook/react/commit/380778d296478d675846668f96b0ee3e8f7fe810): [test] Cleanup stack assertions in tests mixing React Server and Client (#35316) (by @eps1lon, 2025-12-07)
+- [4174533](https://github.com/facebook/react/commit/41745339cd258065e47a692bb29d925561b70f08): Run CI for backport releases (#35313) (by @eps1lon, 2025-12-07)
+- [c0b7c0d](https://github.com/facebook/react/commit/c0b7c0d31fc325d6933cfe8f81dd23ccfdffa004): [scripts] Remove `perf-counters` (#35308) (by @eps1lon, 2025-12-06)
+- [2cb08e6](https://github.com/facebook/react/commit/2cb08e65b39d1bd184803cc8e4d1081f9c801f69): [compiler] Fix bug w functions depending on hoisted primitives (#35284) (by @josephsavona, 2025-12-05)
+- [ad5971f](https://github.com/facebook/react/commit/ad5971febdf6cc3103fa51121d4015832f2af5f8): fix[devtools]: no-op unsupported backend bridge events (#35296) (by @hoxyq, 2025-12-05)
+- [378973b](https://github.com/facebook/react/commit/378973b387b6a6f287e451dd0356099180684c3c): [Flight] Move `react-server-dom-webpack/*.unbundled` to private `react-server-dom-unbundled` (#35290) (by @eps1lon, 2025-12-05)
+- [3016ff8](https://github.com/facebook/react/commit/3016ff87d87aeff5181d95348d609039fdcad94a): [Flight] Never parse "then" functions (#35289) (by @sebmarkbage, 2025-12-05)
+- [f99241b](https://github.com/facebook/react/commit/f99241b2e6cec825dfbdbb878755f12e1f510ca9): [compiler] Add enableUseKeyedState flag and improve setState-in-render errors (#35230) (by @poteto, 2025-12-04)
+- [66ae640](https://github.com/facebook/react/commit/66ae640b362d75555649701e91c5ae26363db45b): [eprh] fix react-compiler rules missing `meta.docs.url` property (#35258) (by @k-yle, 2025-12-04)
+- [bf1afad](https://github.com/facebook/react/commit/bf1afade8d95d2ef6e862d995ee74921ca8d47c7): [react-dom/server] Fix hanging on Deno (#35235) (by @fraidev, 2025-12-04)
+- [0526c79](https://github.com/facebook/react/commit/0526c799d4df2815aed73912bfbd26fc0102ffc3): Update changelog with latest releases (#35279) (by @eps1lon, 2025-12-03)
+- [7dc903c](https://github.com/facebook/react/commit/7dc903cd29dac55efb4424853fd0442fef3a8700): Patch FlightReplyServer with fixes from ReactFlightClient (#35277) (by @sebmarkbage, 2025-12-03)
+- [36df5e8](https://github.com/facebook/react/commit/36df5e8b42a97df4092f9584e4695bf4537853d5): [release] Allow building single release channel with processed versions (#35270) (by @eps1lon, 2025-12-02)
+- [09f0569](https://github.com/facebook/react/commit/09f05694a25578c46e846e4ff9495f7c1352c29c): [compiler] Extend setState in effect validation to useEffectEvent (#35214) (by @jackpope, 2025-12-01)
+- [0af4fd8](https://github.com/facebook/react/commit/0af4fd80ed0ceb85b472b079c94a96b8526fcd06): [test] Update ESLint e2e tests (#35233) (by @eps1lon, 2025-12-01)
+- [1721e73](https://github.com/facebook/react/commit/1721e73e149d482a4421d4ea9f76d36a2c79ad02): [test] Fix Error Proxy in Node.js 21+ (#35227) (by @eps1lon, 2025-11-29)
+- [6875c3e](https://github.com/facebook/react/commit/6875c3eab48179f3c74a8a9f825c09554f683d7d): [test] Only run tests overriding fallback and error states in supported versions (#35234) (by @eps1lon, 2025-11-27)
+- [74fa166](https://github.com/facebook/react/commit/74fa1667a7355fd55591d82b0e1e992909b1dca0): [DevTools] Move "Back to full tree view" into Activity list item (#35164) (by @eps1lon, 2025-11-26)
+- [627b583](https://github.com/facebook/react/commit/627b583650078514eff22498514682a8522282b1): [compiler][snap] Fix for filter mode with nested files, 'error.' prefix (#35215) (by @josephsavona, 2025-11-25)
+- [fb18ad3](https://github.com/facebook/react/commit/fb18ad3fd372623190a8f74387b79e28151cefc4): [compiler] Exhaustive deps: extra tests, improve diagnostic (#35213) (by @josephsavona, 2025-11-25)
+- [ddff354](https://github.com/facebook/react/commit/ddff35441a63d573ef41fcedabc32105e0ac3122): [compiler] Enable validateExhaustiveMemoizationDependencies by default (#35201) (by @josephsavona, 2025-11-25)
+- [d39a1d6](https://github.com/facebook/react/commit/d39a1d6b638de6b990ea783544df775b8be59f1a): [compiler] Distingush optional/extraneous deps (#35204) (by @josephsavona, 2025-11-25)
+- [16e16ec](https://github.com/facebook/react/commit/16e16ec6ffe159ba831203eeeb7efe72df82c4be): [compiler] Script to enable a feature by default and update tests (#35202) (by @josephsavona, 2025-11-24)
+- [9599e7a](https://github.com/facebook/react/commit/9599e7a787cce2a41c35d783d45a160dfebab277): [compiler] Adjustments to exhaustive deps messages, disable the lint rule (#35192) (by @josephsavona, 2025-11-24)
+- [67c1487](https://github.com/facebook/react/commit/67c1487ffd872c95a3bb7d8104eac6eca79fe8cb): [compiler] Allow extraneous non-reactive locals (#35190) (by @josephsavona, 2025-11-24)
+- [454e01e](https://github.com/facebook/react/commit/454e01e603464b19ec3b6991a7a781cf1908ac84): [compiler] Allow manual dependencies to have different optionality than inferred deps (#35186) (by @josephsavona, 2025-11-24)
+- [c9a8cf3](https://github.com/facebook/react/commit/c9a8cf3411baed43d4e24fab6ec895768b297fd2): [compiler] Allow nonreactive stable types as extraneous deps (#35185) (by @josephsavona, 2025-11-24)
+- [fca172e](https://github.com/facebook/react/commit/fca172e3f3b29aee12e4e99b8f151e7fd138a8db): [compiler] Ignore ESLint suppressions when ValidateMemoDeps enabled (#35184) (by @josephsavona, 2025-11-24)
+- [fd524fe](https://github.com/facebook/react/commit/fd524fe02a86c3e92a207d90da970941320f337f): [DevTools] hotkey to start/stop profiling (#35160) (by @emily8rown, 2025-11-21)
+- [40b4a5b](https://github.com/facebook/react/commit/40b4a5bf71ba7864556a5589b270b237f453c032): [compiler] ValidateExhaustiveDeps disallows unnecessary non-reactive deps (#34472) (by @josephsavona, 2025-11-21)
+- [df75af4](https://github.com/facebook/react/commit/df75af4edca7f316e6bfcfcde67197e8a57d1101): [compiler] Auto-fix for non-exhaustive deps (#34471) (by @josephsavona, 2025-11-21)
+- [bcc3fd8](https://github.com/facebook/react/commit/bcc3fd8b05acc6cb4947b15938dc55b4b72fe31f): [compiler] Implement exhaustive dependency checking for manual memoization (#34394) (by @josephsavona, 2025-11-21)
+- [50e7ec8](https://github.com/facebook/react/commit/50e7ec8a694072fd6fcd52182df8a75211bf084d): [compiler] Deprecate noEmit, add outputMode (#35112) (by @josephsavona, 2025-11-20)
+- [4cf770d](https://github.com/facebook/react/commit/4cf770d7e1a52c66401b42c7d135f40b7dc23981): [compiler][poc] Quick experiment with SSR-optimization pass (#35102) (by @josephsavona, 2025-11-20)
+- [7d67591](https://github.com/facebook/react/commit/7d67591041e3ac47eac3bab6cff209071d4c0c6c): [compiler] Remove useState argument constraint. no-derived-computations-in-effects (#35174) (by @jorge-cab, 2025-11-20)
+- [7ee974d](https://github.com/facebook/react/commit/7ee974de927e9bbe10a44441ab49bafd9f5467a2): [compiler] Prevent innaccurate derivation recording on FunctionExpressions on no-derived-computation-in-effects (#35173) (by @jorge-cab, 2025-11-20)
+- [8ac5f4e](https://github.com/facebook/react/commit/8ac5f4eb3601f7381462f8b74ecf24d47259cc20): Fix form status reset when component state is updated (#34075) (by @eps1lon, 2025-11-19)
+- [eb89912](https://github.com/facebook/react/commit/eb89912ee5ace8bf8e616cca5a6aeebcd274b521): Add expertimental `optimisticKey` behind a flag (#35162) (by @sebmarkbage, 2025-11-18)
+- [0972e23](https://github.com/facebook/react/commit/0972e23908b573faa5beebc0eb1154f792c53b62): [compiler] Consider setter from useOptimistic non-reactive (#35141) (by @rickhanlonii, 2025-11-18)
+- [194c12d](https://github.com/facebook/react/commit/194c12d949cb142d2f29637fbee2ab4cec057eef): [DevTools] Name root "Transition" when focusing on Activity (#35108) (by @eps1lon, 2025-11-18)
+- [7f1a085](https://github.com/facebook/react/commit/7f1a085b282d30dbb151f40c41bd53fc9045deb1): [DevTools] Show list of named Activities in Suspense tab (#35092) (by @eps1lon, 2025-11-18)
+- [ea4899e](https://github.com/facebook/react/commit/ea4899e13f9e29815321e3cac70fa08bb8ed790a): [compiler][snap] Support pattern of files to test as CLI argument (#35148) (by @josephsavona, 2025-11-17)
+- [b946a24](https://github.com/facebook/react/commit/b946a249b560a2d3afe1a1c8553d5491b1767cb3): [compiler] Improve setState-in-effects rule to account for ref-gated conditionals (#35147) (by @josephsavona, 2025-11-17)
+- [d6b1a05](https://github.com/facebook/react/commit/d6b1a0573b4c43e5222aee1de5b11a8e4b575c8e): [compiler] Extract reusable logic for control dominators (#35146) (by @josephsavona, 2025-11-17)
+- [b315a0f](https://github.com/facebook/react/commit/b315a0f7133a3251f72970d56c2ad454bdd47003): [compiler] Fix for destructuring with mixed declaration/reassignment (#35144) (by @josephsavona, 2025-11-17)
+- [7df96b0](https://github.com/facebook/react/commit/7df96b0c1a1a65c46130628899a2e2098e30cbfd): [Flight] Complete list of Node.js' internal Promise awaits (#35161) (by @eps1lon, 2025-11-17)
+- [45bc3c9](https://github.com/facebook/react/commit/45bc3c9f04b96e1dbf23d5d0bbac435fc2bafcda): [Flight] Reduce risk of maximum call stack exceeded when emitting async sequence (#35159) (by @eps1lon, 2025-11-17)
+- [fb2177c](https://github.com/facebook/react/commit/fb2177c153353621c5e343b0386993e5084f641e): [Flight] Fix pending chunks count for streams & async iterables in DEV (#35143) (by @unstubbable, 2025-11-14)
+- [647e133](https://github.com/facebook/react/commit/647e13366cfacd4f922ef287cef7a14e4ee60f52): [compiler] fix bad rebase from sapling (#35145) (by @josephsavona, 2025-11-14)
+- [19b769f](https://github.com/facebook/react/commit/19b769fa5f143f9c23424cd744d85e3742450235): [compiler] Fix for inferring props-derived-value as mutable (#35140) (by @josephsavona, 2025-11-14)
+- [dbf2538](https://github.com/facebook/react/commit/dbf2538355c288c984a58f4d417aff2396924882): [compiler] Repro for false positive mutation of a value derived from props (#35139) (by @josephsavona, 2025-11-14)
+- [21f2824](https://github.com/facebook/react/commit/21f282425c751ee7926416642a0aded88d218623): [compiler] Allow ref access in callbacks passed to event handler props (#35062) (by @kolvian, 2025-11-14)
+- [257b033](https://github.com/facebook/react/commit/257b033fc7b0518e7b1db32ca24e2354933b9d0e): [Compiler] Avoid capturing global setStates for no-derived-computations lint (#35135) (by @jorge-cab, 2025-11-14)
+- [de97ef9](https://github.com/facebook/react/commit/de97ef9ad510352ba37434085098bf026dd46b9b): [Compiler] Don't count a setState in the dependency array of the effect it is called on as a usage (#35134) (by @jorge-cab, 2025-11-14)
+- [93fc574](https://github.com/facebook/react/commit/93fc57400b0cf9a2bfdc2765d94ee9984f2fd97f): [Flight] Fix broken byte stream parsing caused by buffer detachment (#35127) (by @unstubbable, 2025-11-13)
+- [093b324](https://github.com/facebook/react/commit/093b3246e162c2a6fd1a376506ed1144ed140226): [react-dom] Batch updates from `resize` until next frame (#35117) (by @eps1lon, 2025-11-13)
+- [3a495ae](https://github.com/facebook/react/commit/3a495ae72264c46b4a4355904c6b4958b0a2f9b2): [compiler] source location validator (#35109) (by @nathanmarks, 2025-11-13)
+- [bbe3f4d](https://github.com/facebook/react/commit/bbe3f4d322846083c57009dbd6121900f120b389): [flags] disableLegacyMode in native-fb (#35120) (by @rickhanlonii, 2025-11-12)
+- [1ea46df](https://github.com/facebook/react/commit/1ea46df8ba9d7d90a13c8668c2642cb21a259aa5): [DevTools] Batch updates when updating component filters (#35093) (by @eps1lon, 2025-11-11)
+- [8c15edd](https://github.com/facebook/react/commit/8c15edd57c41871dc4f0b997a6501bb7b997ba7f): [DevTools] Send root unmount as a regular removal operation (#35107) (by @eps1lon, 2025-11-11)
+- [5e94655](https://github.com/facebook/react/commit/5e94655cbbeae6f4b1806fdbfbb9902b136fa574): [compiler] _exp version of ValidateNoDerivedComputationsInEffects take precedence over stable version when enabled (#35099) (by @jorge-cab, 2025-11-11)
+- [db8273c](https://github.com/facebook/react/commit/db8273c12f363f350330c4712aeaf969a3eee820): [compiler] Update test snap to include fixture comment (#35100) (by @jorge-cab, 2025-11-11)
+- [04ee54c](https://github.com/facebook/react/commit/04ee54cd128a48cb3fdac7256e1a45d6d9743d8c): [tests] add more portal activity tests (#35095) (by @rickhanlonii, 2025-11-11)
+- [100fc4a](https://github.com/facebook/react/commit/100fc4a8cf3b97de53b3566ed726b8ea7e6d7f81): [compiler] Prevent local state source variables from depending on other state (#35044) (by @jorge-cab, 2025-11-10)
+- [92ac4e8](https://github.com/facebook/react/commit/92ac4e8b80cb51a1be7071e8338176680ce8f619): [compiler] Don't validate when effect cleanup function depends on effect localized setState state derived values (#35020) (by @jorge-cab, 2025-11-10)
+- [f76c361](https://github.com/facebook/react/commit/f76c3617e0f00c98656a36d1b4083b397c7638f2): [compiler] Switch to track setStates by aliasing and id instead of identifier names (#34973) (by @jorge-cab, 2025-11-10)
+- [7296120](https://github.com/facebook/react/commit/72961203966a2f1d34dfca089e0a94a94ead7658): [compiler] Update ValidateNoDerivedComputationsInEffects_exp to log the error instead of throwing (#34972) (by @jorge-cab, 2025-11-10)
+- [6347c6d](https://github.com/facebook/react/commit/6347c6d37336c7791098d2d817b22f02ea41a5d3): [compiler] Fix false negatives and add data flow tree to compiler error for `no-deriving-state-in-effects` (#34995) (by @jorge-cab, 2025-11-10)
+- [01fb328](https://github.com/facebook/react/commit/01fb3286321b6190b06b1cc86c7c1cd9e2d884d9): [compiler] Prevent overriding a derivationEntry on effect mutation and instead update typeOfValue and fix infinite loops (#34967) (by @jorge-cab, 2025-11-10)
+- [ce4054e](https://github.com/facebook/react/commit/ce4054ebdd550237cf20a509f8503d4624cbaffa): [DevTools] Measure when reconnecting Suspense (#35098) (by @eps1lon, 2025-11-10)
+- [21c1d51](https://github.com/facebook/react/commit/21c1d51acb2c38b774e254e2a0022b044eacb548): [DevTools] Don't attempt to draw bounding box if inspected element is not a Suspense (#35097) (by @eps1lon, 2025-11-10)
+- [be48396](https://github.com/facebook/react/commit/be48396dbd77a54e86dd4622678559be96706991): Remove Dead Code in WWW JS (by @facebook-github-bot, 2025-11-10)
+- [5268492](https://github.com/facebook/react/commit/52684925368a41a0c9fbfca9016cdcbb72fc9d1e): Fix: Activity should hide portal contents (#35091) (by @acdlite, 2025-11-10)
+- [c83be7d](https://github.com/facebook/react/commit/c83be7da9f0861770d7df52842d1c3dfe60f0927): [Fizz] Simplify createSuspenseBoundary path (#35087) (by @sebmarkbage, 2025-11-09)
+- [6362b5c](https://github.com/facebook/react/commit/6362b5c7118f925acbee884e61ab0fd0b8f14c20): [DevTools] Special case the selected root outline (#35071) (by @sebmarkbage, 2025-11-09)
+- [5a9921b](https://github.com/facebook/react/commit/5a9921b839ad8e3cf0069f23c75045fa94373643): [DevTools] Apply Activity slice filter when double clicking Activity (#34908) (by @eps1lon, 2025-11-08)
 - [717e708](https://github.com/facebook/react/commit/717e70843e68db648d2fc75c57d1a61465a9f7f9): Fix: Errors should not escape a hidden Activity (#35074) (by @acdlite, 2025-11-07)
 - [a10ff9c](https://github.com/facebook/react/commit/a10ff9c8577004fa054be4f83906a29289bbffb9): Upgrade devtools dependency update-notifier to 5.x (#31655) (by @stianjensen, 2025-11-07)
 - [fa50caf](https://github.com/facebook/react/commit/fa50caf5f84bb8976aa1dbff7f15a821e44e7af7): [Fizz] Unify preamble only fields to save a field (#35068) (by @sebmarkbage, 2025-11-07)
@@ -268,83 +368,18 @@
 - [3cde211](https://github.com/facebook/react/commit/3cde211b0cb1c707114c27d7fd23683d02086e31): React DevTools 7.0.0 -> 7.0.1 (#34926) (by @hoxyq, 2025-10-20)
 - [1d36646](https://github.com/facebook/react/commit/1d3664665b4e52bd1daee775e1e95feb563799d9): [DevTools] Text layout fixes for stack traces with badges (#34925) (by @eps1lon, 2025-10-20)
 - [2bcbf25](https://github.com/facebook/react/commit/2bcbf254f168ddec567156f802d19315e64e4aa8): [compiler] Fix false positive for useMemo reassigning context vars (#34904) (by @josephsavona, 2025-10-20)
-- [aaad0ea](https://github.com/facebook/react/commit/aaad0ea055ce0c10b263db8505338cb1eedb86de): [DevTools] chore: read from build/COMMIT_SHA fle as fallback for commit hash (#34915) (by @hoxyq, 2025-10-20)
-- [02c80f0](https://github.com/facebook/react/commit/02c80f0d8702cb894f6ef9748e7b18ffdd388a55): [DevTools] fix: dont ship source maps for css in prod builds (#34913) (by @hoxyq, 2025-10-20)
-- [21272a6](https://github.com/facebook/react/commit/21272a680f07cb69873eb3668e7baaebfcf05606): Lower case "rsc stream" debug info (#34921) (by @sebmarkbage, 2025-10-20)
-- [1440f4f](https://github.com/facebook/react/commit/1440f4f42d59a7de4559dac972b62d9be771d1d9): [DevTools] BuiltInCallSite should have padding-left (#34922) (by @sebmarkbage, 2025-10-20)
-- [f6a4882](https://github.com/facebook/react/commit/f6a4882859e6e894a39e9216d01005212855689e): [DevTools] Show the Suspense boundary name in the rect if there's no overlap (#34918) (by @sebmarkbage, 2025-10-20)
-- [b485f7c](https://github.com/facebook/react/commit/b485f7cf64118fc8729181f46fe5e2edd47bea43): [DevTools] Don't attach filtered IO to grandparent Suspense (#34916) (by @eps1lon, 2025-10-19)
-- [2cfb221](https://github.com/facebook/react/commit/2cfb221937eac48209d01d5dda5664de473b1953): [Flight] Allow passing DEV only startTime as an option (#34912) (by @sebmarkbage, 2025-10-19)
-- [58bdc0b](https://github.com/facebook/react/commit/58bdc0bb967098f14562cd76af0668f2056459a0): [Flight] Ignore bound-anonymous-fn resources as they're not considered I/O (#34911) (by @sebmarkbage, 2025-10-19)
-- [bf11d2f](https://github.com/facebook/react/commit/bf11d2fb2f01174974b7e1fa5b1c01d34936724b): [DevTools] Infer name from stack if it's the generic "lazy" name (#34907) (by @sebmarkbage, 2025-10-19)
-- [ec7d9a7](https://github.com/facebook/react/commit/ec7d9a7249e84e841fbe1e4c22e1be2c0c15dae4): Resolve the .default export of a React.lazy as the canonical value (#34906) (by @sebmarkbage, 2025-10-19)
-- [40c7a7f](https://github.com/facebook/react/commit/40c7a7f6cac62bd6721328524cc787475ce026eb): [DevTools] Use same Suspense naming heuristics when reconnecting (#34898) (by @eps1lon, 2025-10-18)
-- [3a66917](https://github.com/facebook/react/commit/3a669170e96a63a4ce3a44f78401fb9f4f803510): [DevTools] Assign a different color and label based on environment (#34893) (by @sebmarkbage, 2025-10-17)
-- [a083344](https://github.com/facebook/react/commit/a0833446991a913349309861338da6ab68b637a3): [DevTools] Compute environment names for the timeline (#34892) (by @sebmarkbage, 2025-10-17)
-- [423c44b](https://github.com/facebook/react/commit/423c44b88611afd9bf332fd1a91b5afdca8a48be): [DevTools] Don't highlight the root rect if no roots has unique suspenders (#34885) (by @sebmarkbage, 2025-10-17)
-- [f970d5f](https://github.com/facebook/react/commit/f970d5ff325b49d3e675c9e72025834ddc86879d): [DevTools] Highlight the rect when the corresponding timeline bean is hovered (#34881) (by @sebmarkbage, 2025-10-17)
-- [724e7bf](https://github.com/facebook/react/commit/724e7bfb40ad4f08b7f59f23db22e5fa7eda965a): [DevTools] Repeat the "name" if there's no short description in groups (#34894) (by @sebmarkbage, 2025-10-17)
-- [ef88c58](https://github.com/facebook/react/commit/ef88c588d51366d16c5323dba4bd197aeb85e4ea): [DevTools] Tweak the rects design and create multi-environment color scheme (#34880) (by @sebmarkbage, 2025-10-17)
-- [dc485c7](https://github.com/facebook/react/commit/dc485c7303f0d7d10fdbd2ccd4a020574e679840): [Flight] Fix detached `ArrayBuffer` error when streaming typed arrays (#34849) (by @unstubbable, 2025-10-17)
-- [c35f6a3](https://github.com/facebook/react/commit/c35f6a3041816613e704772ca9dafb26568d9f89): [compiler] Optimize props spread for common cases (#34900) (by @josephsavona, 2025-10-17)
-- [adbc32d](https://github.com/facebook/react/commit/adbc32de32bc52f9014cedb5ff5a502be35aff51): [compiler] More fbt compatibility (#34887) (by @josephsavona, 2025-10-17)
-- [1324e1b](https://github.com/facebook/react/commit/1324e1bb1f867e8b2108ca52a1d4e2d4ef56d2d9): [compiler] Cleanup and enable validateNoVoidUseMemo (#34882) (by @josephsavona, 2025-10-16)
-- [7f5ea1b](https://github.com/facebook/react/commit/7f5ea1bf67a1a920919ebe2ae6657bdebe505aa0): [compiler] More useMemo validation (#34868) (by @josephsavona, 2025-10-16)
-- [0e32da7](https://github.com/facebook/react/commit/0e32da71c7540f50ef6bb4bf084043678daae28b): Add MIT license header to feature flag utility script (#34833) (by @pet210702, 2025-10-16)
-- [2381ecc](https://github.com/facebook/react/commit/2381ecc290c588f6366bdcf377529668bb3cc360): [ESLint] Disallow passing effect event down when inlined as a prop (#34820) (by @jf-eirinha, 2025-10-16)
-- [5418d8b](https://github.com/facebook/react/commit/5418d8bdc12ae00859029bcd2abc9eb65e8f4fb4): Fix changelog link (#34879) (by @rickhanlonii, 2025-10-16)
-- [ed1351c](https://github.com/facebook/react/commit/ed1351c4fb92f84657a0c1a2af5ccef2484f7bd7): [compiler] improve zod v3 backwards compat (#34877) (by @henryqdineen, 2025-10-16)
-- [93f8593](https://github.com/facebook/react/commit/93f8593289538b0be7b0eefec85e9a6ca8f56738): [DevTools] Adjust the rects size by one pixel smaller (#34876) (by @sebmarkbage, 2025-10-16)
-- [dc1becd](https://github.com/facebook/react/commit/dc1becd8937b5ff4e188fe5e9e5552740ef915e1): [DevTools] Remove steps title from scrubber (#34878) (by @sebmarkbage, 2025-10-16)
-- [d8aa94b](https://github.com/facebook/react/commit/d8aa94b0f4f22aadd4762b7ca1c690d3d85ae776): Only capture stacks for up to 10 frames for Owner Stacks (#34864) (by @eps1lon, 2025-10-16)
-- [03ba0c7](https://github.com/facebook/react/commit/03ba0c76e15967fe0ac0413e9a8a55eb55f9e55f): [DevTools] Include some sub-pixel precision in rects (#34873) (by @sebmarkbage, 2025-10-16)
-- [4e00747](https://github.com/facebook/react/commit/4e0074737826a1296eb028c53ce4f6b6db8d09ba): [DevTools] Don't pluralize if already plural (#34870) (by @sebmarkbage, 2025-10-16)
-- [7bd8716](https://github.com/facebook/react/commit/7bd8716acdd9a484e81addcaa923e0a69e61d533): [DevTools] Don't try to load anonymous or empty urls (#34869) (by @sebmarkbage, 2025-10-16)
-- [7385d1f](https://github.com/facebook/react/commit/7385d1f61ac6fedb1473ee5aafb2c39d1a620a4b): [DevTools] Add inspection button to Suspense tab (#34867) (by @sebmarkbage, 2025-10-16)
-- [85f415e](https://github.com/facebook/react/commit/85f415e33b95d65aaa29f92268b31d33060628ac): [compiler] Fix fbt for the ∞th time (#34865) (by @josephsavona, 2025-10-15)
-- [903366b](https://github.com/facebook/react/commit/903366b8b1ee4206020492c6e8140645c0cb563e): [DevTools] Don't select on hover (#34860) (by @sebmarkbage, 2025-10-15)
-- [0fbb9b3](https://github.com/facebook/react/commit/0fbb9b368393a85c728806e16630712bdafdd6b1): [DevTools] Don't highlight on timeline (#34861) (by @sebmarkbage, 2025-10-15)
-- [e096403](https://github.com/facebook/react/commit/e096403c595d67b689473908a52979c76bbefb9e): [compiler] Infer types for properties after holes in array patterns (#34847) (by @josephsavona, 2025-10-15)
-- [1873ad7](https://github.com/facebook/react/commit/1873ad7960da8fd8d497d03da8050ad88b8bcacf): [DevTools] The bridge event types should only be defined in one direction (#34859) (by @sebmarkbage, 2025-10-15)
-- [77b2f90](https://github.com/facebook/react/commit/77b2f909f6261ec2c5de75dbe76287ec6fead0d0): [DevTools] Attempt at a better "unique suspender" text (#34854) (by @sebmarkbage, 2025-10-15)
-- [6773248](https://github.com/facebook/react/commit/6773248311fca29669283e1059f11c9009f8f51b): [DevTools] Track whether a boundary is currently suspended and make transparent (#34853) (by @sebmarkbage, 2025-10-15)
-- [5747cad](https://github.com/facebook/react/commit/5747cadf44c0895a891f8c17489b8516829ef6ef): [DevTools] Don't hide overflow rectangles (#34852) (by @sebmarkbage, 2025-10-15)
-- [751edd6](https://github.com/facebook/react/commit/751edd6e2cd2cb44aa302ffa667a0693e84e579d): [DevTools] Measure text nodes (#34851) (by @sebmarkbage, 2025-10-15)
-- [6cfc9c1](https://github.com/facebook/react/commit/6cfc9c1ff3138ba0d107b9e6249f47032c4da02d): [DevTools] Don't measure fallbacks when suspended (#34850) (by @sebmarkbage, 2025-10-15)
-- [e798465](https://github.com/facebook/react/commit/e7984651e4f123d8112f5abab39782ee70d8f4aa): [playground] Allow accordion tabs to open on error (#34844) (by @EugeneChoi4, 2025-10-14)
-- [5f2b571](https://github.com/facebook/react/commit/5f2b571878ec3b5884f5739915a974b98d7384d5): [DevTools] Filter out built-in stack frames (#34828) (by @sebmarkbage, 2025-10-14)
-- [56e8469](https://github.com/facebook/react/commit/56e846921d600878ae0ab7bb400fdeba97d81827): [Flight] Exclude RSC Stream if the stream resolves in a task (#34838) (by @sebmarkbage, 2025-10-14)
-- [19b7167](https://github.com/facebook/react/commit/19b71673b103f49daa3c7fc0cd70a29356826143): [Flight] Forward the current environment when forwarding I/O entries (#34836) (by @sebmarkbage, 2025-10-14)
-- [73507ec](https://github.com/facebook/react/commit/73507ec457349263bffa4c8132b2674664d5f421): [DevTools] Exclude Suspense boundaries in hidden Activity (#34756) (by @eps1lon, 2025-10-14)
-- [03a62b2](https://github.com/facebook/react/commit/03a62b20fddb197876ce20ac5ea34994b0e5b242): [Flight] Look for moved debugInfo when logging component performance track (#34839) (by @sebmarkbage, 2025-10-14)
-- [b9ec735](https://github.com/facebook/react/commit/b9ec735de248f46da181afbc12aa906422be0dba): [Perf Tracks]: Clear potentially large measures (#34803) (by @hoxyq, 2025-10-13)
-- [47905a7](https://github.com/facebook/react/commit/47905a79507f9ae5fc1bf633f7cbbd1894b9523b): Fix/add missing else branch for renders with no props change (#34837) (by @hoxyq, 2025-10-13)
-- [7b971c0](https://github.com/facebook/react/commit/7b971c0a5536f7cd4573ff574921463acf947b14): Current behavior for excluding Component render with unchanged props from Components track (#34822) (by @eps1lon, 2025-10-13)
-- [83ea655](https://github.com/facebook/react/commit/83ea655a0ba1de44c933368cd7f56c8f0418f07f): [DevTools] Group consecutive suspended by rows by the same name (#34830) (by @sebmarkbage, 2025-10-13)
-- [026abea](https://github.com/facebook/react/commit/026abeaa5f3fdb5f5fdef7ebd699e3ed8e64a506): [Flight] Respect displayName of Promise instances on the server (#34825) (by @sebmarkbage, 2025-10-13)
-- [d7215b4](https://github.com/facebook/react/commit/d7215b4970858ea45db924e1ec435a9a3e5cff40): [DevTools] Preserve the original index when sorting suspended by (#34829) (by @sebmarkbage, 2025-10-13)
-- [e2ce64a](https://github.com/facebook/react/commit/e2ce64acb94968d8ca464f37fab2a7ed77848fa9): [DevTools] Don't show the root as being non-compliant (#34827) (by @sebmarkbage, 2025-10-13)
-- [34b1567](https://github.com/facebook/react/commit/34b15674272b153f34d3bf535bcdb7a36b4b391e): [DevTools] Ignore suspense boundaries, without visual representation, in the timeline (#34824) (by @sebmarkbage, 2025-10-13)
-- [b467c6e](https://github.com/facebook/react/commit/b467c6e9493a484d89b4c4c09d61add968a0b3c3): [DevTools] Explicitly say which id to scroll to and only once (#34823) (by @sebmarkbage, 2025-10-13)
-- [93d4458](https://github.com/facebook/react/commit/93d4458fdc054929e54fb25017d237ed85415533): [Fiber] Ensure `useEffectEvent` reads latest values in `forwardRef` and `memo()` Components (#34831) (by @eps1lon, 2025-10-13)
-- [1d68bce](https://github.com/facebook/react/commit/1d68bce19c9409ed70604d1d16b70b68ce71dc4a): [Fiber] Don't unhide a node if a direct parent offscreen is still hidden (#34821) (by @sebmarkbage, 2025-10-12)
-- [ead9218](https://github.com/facebook/react/commit/ead92181bdbecc332a98daa808f341726dcaa414): [Flight] Avoid unnecessary indirection when serializing debug info (#34797) (by @unstubbable, 2025-10-10)
-- [d446597](https://github.com/facebook/react/commit/d44659744fd09736793c73e93ea79048f45570ea): [Flight] Fix preload `as` attribute for stylesheets (#34760) (by @unstubbable, 2025-10-10)
-- [8454a32](https://github.com/facebook/react/commit/8454a32f3cacdcb11465cfd14d68fb3eb613815f): devtools: fix ellipsis truncation for key values (#34796) (by @sophiebits, 2025-10-10)
-- [06fcc8f](https://github.com/facebook/react/commit/06fcc8f380c6a905c7bc18d94453f623cf8cbc81): [playground] Fix syntax error from crashing the Compiler playground (#34623) (by @ianduvall, 2025-10-09)
-- [91e5c3d](https://github.com/facebook/react/commit/91e5c3daf11408262e1345cbbbbadd943859b748): fix(devtools): remove duplicated "Display density" field in General settings (#34792) (by @Anatole-Godard, 2025-10-09)
 
 ---
 
-### 📈 Commit Activity (Last 30 Days)
+### 📈 Commit Activity (Last 60 Days)
 - **Top Contributors:**
-  - @sebmarkbage — 56 commits
-  - @eps1lon — 8 commits
-  - @josephsavona — 8 commits
+  - @sebmarkbage — 27 commits
+  - @josephsavona — 26 commits
+  - @eps1lon — 25 commits
 - **Most Modified Files:**
-  - packages/react-devtools-shared/src/backend/fiber/renderer.js (12 changes)
-  - packages/react-devtools-shared/src/devtools/views/SuspenseTab/SuspenseRects.js (11 changes)
-  - packages/react-client/src/ReactFlightClient.js (8 changes)
+  - compiler/packages/babel-plugin-react-compiler/src/HIR/Environment.ts (12 changes)
+  - compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateExhaustiveDependencies.ts (11 changes)
+  - compiler/packages/babel-plugin-react-compiler/src/Validation/ValidateNoDerivedComputationsInEffects_exp.ts (11 changes)
 
 ---
 

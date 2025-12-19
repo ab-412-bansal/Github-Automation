@@ -1,1206 +1,976 @@
 [
   {
-    "number": 104017,
-    "title": "Automated Code Change",
+    "number": 106213,
+    "title": "Refactor XLA Profiler to be Framework-Agnostic via Shared C-State",
     "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T11:45:38",
-    "updated_at": "2025-11-08T11:45:38",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104017",
+    "created_at": "2025-12-14T13:17:36",
+    "updated_at": "2025-12-19T15:25:04",
+    "body": "Refactor XLA Profiler to be Framework-Agnostic via Shared C-State\n\nThis CL refactors the XLA profiler to eliminate its direct C++ dependency on TensorFlow's Python modules. This change resolves deadlocks that occurred in non-TensorFlow environments (e.g., JAX-only) and creates a more robust, high-performance, and architecturally clean solution.\n\n## Problem\nPreviously, the C++ PythonHookContext would directly import the tensorflow.python.profiler.trace Python module to set an enabled flag. This operation was performed while the C++ thread already held Python's Global Interpreter Lock (GIL).\n\nThis caused several critical issues:\n\n* GIL Deadlocks: If the import failed (e.g., because TensorFlow was not installed), pybind11's exception handler would attempt to re-acquire the GIL. This caused the thread to deadlock by waiting for a lock it already held.\n* Fragile Architecture: This made the profiler fragile and unusable outside of a full TensorFlow environment, affecting JAX-only users.\n* Tight Coupling: It created an architecturally unsound dependency from a low-level C++ library to a high-level Python module.\n\n## Solution\nThis change decouples the C++ profiler from Python's module structure by using a shared C++ memory location as the single source of truth for the profiler's state.\n\n1. Shared C++ State (traceme_state):\n\n    * A new, minimal cc_library     (//third_party/tensorflow/compiler/xla/python/profiler/internal:traceme_state) is introduced.\n    * It owns a global std::atomic<bool> that serves as the definitive \"TraceMe enabled\" state.\n    * The C++ PythonHookContext now writes directly to this C++ variable, removing all Python module interactions.\n\n2. High-Performance Python Access via ctypes:\n\n   * The _pywrap_traceme pybind extension is updated with a get_traceme_enabled_addr() function that returns the raw memory address of the C++ atomic boolean.\n   * In Python, trace.py calls this function once on import and uses the ctypes library to create a direct pointer to this memory address.\nThis allows Python code to check the trace.enabled status with the performance of a direct memory read, completely avoiding any pybind function call overhead.\n\n## Benefits\n* Fixes Deadlocks: By removing the cross-language import, the GIL deadlock issue is completely resolved.\n* Decouples Code: The profiler's C++ core is now truly framework-agnostic.\nHigh Performance: The critical trace.enabled check in Python remains a fast, overhead-free memory access.\n* Clean Architecture: The dependency is now unidirectional and logical—Python reads from a C++ utility, not the other way around.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106213",
     "files": [
       {
-        "filename": "tensorflow/python/kernel_tests/sparse_ops/BUILD",
-        "additions": 0,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 104015,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T10:18:05",
-    "updated_at": "2025-11-08T10:18:05",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104015",
-    "files": [
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/case_format.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/case_format.h",
+        "filename": "tensorflow/compiler/jit/BUILD",
         "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/case_format_test.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/controller.cc",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/controller.h",
-        "additions": 2,
         "deletions": 1
       },
       {
-        "filename": "tensorflow/c/experimental/ops/gen/common/path_config.cc",
-        "additions": 6,
-        "deletions": 5
+        "filename": "tensorflow/python/profiler/internal/BUILD",
+        "additions": 1,
+        "deletions": 0
       },
       {
-        "filename": "tensorflow/c/experimental/ops/gen/common/path_config.h",
-        "additions": 10,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/source_code.cc",
+        "filename": "tensorflow/python/profiler/internal/traceme_wrapper.cc",
         "additions": 8,
-        "deletions": 7
+        "deletions": 0
       },
       {
-        "filename": "tensorflow/c/experimental/ops/gen/common/source_code.h",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/view_util.cc",
-        "additions": 7,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/common/view_util.h",
-        "additions": 5,
-        "deletions": 4
-      }
-    ]
-  },
-  {
-    "number": 104014,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T08:44:53",
-    "updated_at": "2025-11-08T08:44:53",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104014",
-    "files": [
-      {
-        "filename": "tensorflow/compiler/mlir/lite/quantization/common/BUILD",
-        "additions": 1,
-        "deletions": 6
-      }
-    ]
-  },
-  {
-    "number": 104013,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T08:30:36",
-    "updated_at": "2025-11-08T08:30:36",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104013",
-    "files": [
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/model/arg_spec.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/model/arg_type.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/model/attr_spec.h",
+        "filename": "tensorflow/python/profiler/profiler_v2_test.py",
         "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/model/op_spec.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/gen/model/op_spec.h",
-        "additions": 7,
-        "deletions": 7
-      }
-    ]
-  },
-  {
-    "number": 104012,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T08:18:01",
-    "updated_at": "2025-11-08T08:18:01",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104012",
-    "files": [
-      {
-        "filename": "tensorflow/c/experimental/filesystem/modular_filesystem.h",
-        "additions": 4,
-        "deletions": 4
-      }
-    ]
-  },
-  {
-    "number": 103834,
-    "title": "[XLA:GPU][XTile] Remove xtile.to_tensor/scalar.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-06T15:12:39",
-    "updated_at": "2025-11-08T08:07:04",
-    "body": "[XLA:GPU][XTile] Remove xtile.to_tensor/scalar.\n\nThese ops were implemented as a quick stop gap to enable less test churn as they had symmetric folding but the tensor equivalent have more well defined semantics, obvious lowering patterns and will generally just make CPU lowering simpler.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103834",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/fusion_emitter.cc",
-        "additions": 23,
-        "deletions": 23
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/fusion_emitter_device_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/BUILD",
-        "additions": 0,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/stablehlo_lower_to_triton.cc",
-        "additions": 13,
-        "deletions": 11
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/tensor_lower_to_triton.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/triton_xla_convert_tensor_to_scalar_pass.cc",
-        "additions": 4,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/triton_xla_lower_xtile_pass.cc",
-        "additions": 5,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/xtile/ir/tests/to_from_tensor.mlir",
-        "additions": 0,
-        "deletions": 17
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/xtile/ir/xtile_ops.cc",
-        "additions": 0,
-        "deletions": 54
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/xtile/ir/xtile_ops.td",
-        "additions": 0,
-        "deletions": 21
-      }
-    ]
-  },
-  {
-    "number": 100882,
-    "title": "build(aarch64): Update Compute Library to 52.4.0",
-    "user": "almayne",
-    "created_at": "2025-09-23T09:47:08",
-    "updated_at": "2025-11-08T07:33:10",
-    "body": "Bumps the Compute Library version from v24.12 to v52.4.0. This brings numerous bug fixes and performance improvements over the previous version. It also introduces a new dependency on a fixed version of KleidiAI. Compute Library patches have been deleted where the changes are part of this update or updated where still required.",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/100882",
-    "files": [
-      {
-        "filename": ".bazelrc",
-        "additions": 11,
         "deletions": 0
       },
       {
-        "filename": "tensorflow/workspace2.bzl",
-        "additions": 11,
-        "deletions": 5
-      },
-      {
-        "filename": "third_party/xla/third_party/compute_library/acl_gemm_scheduling_heuristic.patch",
-        "additions": 0,
-        "deletions": 145
-      },
-      {
-        "filename": "third_party/xla/third_party/compute_library/acl_stateless_gemm_workspace.patch",
-        "additions": 0,
-        "deletions": 1463
-      },
-      {
-        "filename": "third_party/xla/third_party/compute_library/compute_library.patch",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "third_party/xla/third_party/compute_library/exclude_omp_scheduler.patch",
-        "additions": 10,
-        "deletions": 12
-      },
-      {
-        "filename": "third_party/xla/third_party/compute_library/include_string.patch",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/workspace2.bzl",
-        "additions": 11,
-        "deletions": 5
-      }
-    ]
-  },
-  {
-    "number": 104006,
-    "title": "Add support for CollectivePermuteThunk in Command Buffer.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T05:41:31",
-    "updated_at": "2025-11-08T07:08:11",
-    "body": "Add support for CollectivePermuteThunk in Command Buffer.\n\nThis change contains the following:\n- Adds CollectivePermuteCmd class\n- Integrates `CollectivePermuteStartThunk` and `CollectivePermuteDoneThunk` into the command buffer execution framework, allowing them to be converted into command buffer commands.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104006",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/BUILD",
-        "additions": 38,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/collective_permute_thunk.h",
-        "additions": 29,
-        "deletions": 5
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/collective_permute_thunk_test.cc",
-        "additions": 213,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/command_buffer_cmd.cc",
-        "additions": 83,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/command_buffer_cmd.h",
-        "additions": 29,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/command_buffer_cmd_emitter.cc",
-        "additions": 11,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/service/gpu/ir_emitter_unnested.cc",
-        "additions": 2,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 104007,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T05:46:56",
-    "updated_at": "2025-11-08T05:46:56",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104007",
-    "files": [
-      {
-        "filename": "tensorflow/tools/graph_transforms/add_default_attributes_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/backports.cc",
-        "additions": 9,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/backports_test.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/compare_graphs.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/file_utils.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/file_utils.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/file_utils_test.cc",
-        "additions": 6,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/flatten_atrous.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fold_batch_norms.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fold_constants_lib.cc",
-        "additions": 16,
-        "deletions": 16
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fold_constants_test.cc",
-        "additions": 10,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fold_old_batch_norms.cc",
+        "filename": "tensorflow/python/profiler/trace.py",
         "additions": 14,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fold_old_batch_norms_test.cc",
-        "additions": 3,
         "deletions": 3
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/freeze_requantization_ranges.cc",
-        "additions": 27,
-        "deletions": 24
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/freeze_requantization_ranges_test.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fuse_convolutions.cc",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/fuse_convolutions_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/insert_logging.cc",
-        "additions": 18,
-        "deletions": 17
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/insert_logging_test.cc",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/obfuscate_names.cc",
-        "additions": 13,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/obfuscate_names_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/quantize_nodes.cc",
-        "additions": 75,
-        "deletions": 69
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/quantize_nodes_test.cc",
-        "additions": 46,
-        "deletions": 45
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/quantize_weights.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/quantize_weights_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/remove_attribute.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/remove_attribute_test.cc",
+        "filename": "third_party/xla/xla/python/profiler/internal/BUILD",
         "additions": 15,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/remove_device_test.cc",
-        "additions": 1,
         "deletions": 1
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/remove_nodes.cc",
-        "additions": 14,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/remove_nodes_test.cc",
-        "additions": 14,
-        "deletions": 14
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/rename_attribute.cc",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/rename_attribute_test.cc",
-        "additions": 15,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/rename_node_test.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/rename_op.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/rename_op_test.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/round_weights.cc",
+        "filename": "third_party/xla/xla/python/profiler/internal/python_hooks.cc",
         "additions": 3,
-        "deletions": 2
+        "deletions": 13
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/round_weights_test.cc",
-        "additions": 1,
+        "filename": "third_party/xla/xla/python/profiler/internal/python_hooks.h",
+        "additions": 0,
         "deletions": 1
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/set_device.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/set_device_test.cc",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/sort_by_execution_order_test.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/sparsify_gather.cc",
-        "additions": 34,
-        "deletions": 29
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/sparsify_gather_test.cc",
-        "additions": 25,
-        "deletions": 24
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/strip_unused_nodes.cc",
-        "additions": 21,
-        "deletions": 18
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/strip_unused_nodes_test.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/summarize_graph_main.cc",
+        "filename": "third_party/xla/xla/python/profiler/internal/traceme_state.cc",
         "additions": 28,
-        "deletions": 26
+        "deletions": 0
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/transform_graph.cc",
-        "additions": 24,
-        "deletions": 23
+        "filename": "third_party/xla/xla/python/profiler/internal/traceme_state.h",
+        "additions": 30,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106749,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T15:15:30",
+    "updated_at": "2025-12-19T15:15:30",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106749",
+    "files": [
+      {
+        "filename": "tensorflow/python/eager/BUILD",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 106640,
+    "title": "[XLA:GPU] Allow to fuse iotas into sort.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-18T10:44:36",
+    "updated_at": "2025-12-19T15:13:25",
+    "body": "[XLA:GPU] Allow to fuse iotas into sort.\n\nAlso adjust alias info logic to allow sharing the sort fusion operands with the\nright sort fusion outputs.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106640",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/service/gpu/BUILD",
+        "additions": 1,
+        "deletions": 1
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/transform_graph.h",
-        "additions": 4,
+        "filename": "third_party/xla/xla/service/gpu/alias_info.cc",
+        "additions": 9,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/alias_info_test.cc",
+        "additions": 118,
+        "deletions": 51
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/fusion_pipeline.cc",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/tests/sorting_test.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/BUILD",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/priority_fusion.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion.cc",
+        "additions": 70,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion.h",
+        "additions": 39,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion_test.cc",
+        "additions": 71,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106748,
+    "title": "Update Keras nightly version and drop Python 3.9 support to fix vulnerability (CVE-2025-8747) in Keras 3.10.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T15:13:19",
+    "updated_at": "2025-12-19T15:13:19",
+    "body": "Update Keras nightly version and drop Python 3.9 support to fix vulnerability (CVE-2025-8747) in Keras 3.10.\nKeras +3.11 no longer supports Python 3.9.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106748",
+    "files": [
+      {
+        "filename": "ci/official/requirements_updater/numpy1_requirements/requirements.in",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "ci/official/requirements_updater/requirements.in",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/tools/pip_package/setup.py.tpl",
+        "additions": 2,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "number": 106594,
+    "title": "Link Eigen IR module into XLA JITted code. Attempt 4.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-18T00:06:02",
+    "updated_at": "2025-12-19T15:08:45",
+    "body": "Link Eigen IR module into XLA JITted code. Attempt 4.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106594",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/codegen/BUILD",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/BUILD",
+        "additions": 86,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/cc_to_llvm_ir.bzl",
+        "additions": 189,
+        "deletions": 105
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/cpp_gen_intrinsics.cc",
+        "additions": 100,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/cpp_gen_intrinsics.h",
+        "additions": 61,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/dump_llvm_ir.cc",
+        "additions": 54,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/eigen_unary.cc",
+        "additions": 21,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/eigen_unary.h",
+        "additions": 9,
         "deletions": 4
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/transform_graph_test.cc",
-        "additions": 12,
-        "deletions": 12
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/eigen_unary_test.cc",
+        "additions": 69,
+        "deletions": 5
       },
       {
-        "filename": "tensorflow/tools/graph_transforms/transform_utils.cc",
-        "additions": 104,
-        "deletions": 98
-      },
-      {
-        "filename": "tensorflow/tools/graph_transforms/transform_utils.h",
-        "additions": 51,
-        "deletions": 46
-      }
-    ]
-  },
-  {
-    "number": 104004,
-    "title": "Add GPUOptions support to Go bindings",
-    "user": "meghana459",
-    "created_at": "2025-11-08T05:24:51",
-    "updated_at": "2025-11-08T05:44:55",
-    "body": "Adds a Go representation of GPUOptions and integrates it into SessionOptions.Config.\r\nSerializes to ConfigProto and passes to TF_SetConfig() before creating sessions.\r\n\r\nFixes: tensorflow/tensorflow#22926\r\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104004",
-    "files": [
-      {
-        "filename": "tensorflow/go/gpu_options.go",
-        "additions": 22,
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/intrinsic_declarations.h",
+        "additions": 53,
         "deletions": 0
       },
       {
-        "filename": "tensorflow/go/gpu_options_test.go",
-        "additions": 24,
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/ir_to_string.cc",
+        "additions": 92,
         "deletions": 0
       },
       {
-        "filename": "tensorflow/go/session.go",
-        "additions": 46,
+        "filename": "third_party/xla/xla/codegen/intrinsic/cpp/tanh_test.cc",
+        "additions": 21,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic_lib.cc",
+        "additions": 31,
         "deletions": 9
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic_lib.h",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic_lib_test.cc",
+        "additions": 1,
+        "deletions": 3
       }
     ]
   },
   {
-    "number": 104005,
-    "title": "Automated Code Change",
+    "number": 106387,
+    "title": "[PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only.",
     "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T05:35:20",
-    "updated_at": "2025-11-08T05:35:20",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104005",
+    "created_at": "2025-12-16T17:59:48",
+    "updated_at": "2025-12-19T14:48:34",
+    "body": "[PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only.\n\nThe current Execute() method executes all the chunks at one time. This refactoring is in preparation for software pipelining transposes with DMAs. Execute() now calls ExecuteChunk() for each chunk.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106387",
     "files": [
       {
-        "filename": "tensorflow/tools/graph_transforms/transform_utils_test.cc",
-        "additions": 35,
+        "filename": "third_party/xla/xla/pjrt/transpose.cc",
+        "additions": 50,
+        "deletions": 47
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/transpose.h",
+        "additions": 6,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106747,
+    "title": "Moving definitions to cpp file, match function definition declaration order",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T14:46:28",
+    "updated_at": "2025-12-19T14:46:28",
+    "body": "Moving definitions to cpp file, match function definition declaration order\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106747",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/hlo/ir/mesh_and_axis.cc",
+        "additions": 54,
+        "deletions": 19
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/mesh_and_axis.h",
+        "additions": 3,
         "deletions": 34
       }
     ]
   },
   {
-    "number": 104003,
-    "title": "Add `kDotDependent` to `DimensionInfo`, to indicate a DOT operation can reach the operands of the operation through def-use chains.",
+    "number": 106740,
+    "title": "[XLA:GPU] Hoist fused bitcasts across transposes with size-1 dimensions.",
     "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T05:19:18",
-    "updated_at": "2025-11-08T05:19:19",
-    "body": "Add `kDotDependent` to `DimensionInfo`, to indicate a DOT operation can reach the operands of the operation through def-use chains.\n\nExtend `HloDimensionAnalysis` to collect such information.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104003",
+    "created_at": "2025-12-19T11:00:24",
+    "updated_at": "2025-12-19T14:45:37",
+    "body": "[XLA:GPU] Hoist fused bitcasts across transposes with size-1 dimensions.\n\nThis change allows the hoist_fused_bitcasts pass to handle bitcasts that introduce or remove size-1 dimensions when they are fused with transposes. Size-1 dimensions are now ignored when checking for contiguity and are dropped from the shapes of the new bitcast/transpose created during hoisting.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106740",
     "files": [
       {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis.cc",
-        "additions": 159,
-        "deletions": 76
-      },
-      {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis.h",
-        "additions": 59,
-        "deletions": 29
-      },
-      {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis_test.cc",
-        "additions": 32,
-        "deletions": 4
-      }
-    ]
-  },
-  {
-    "number": 104002,
-    "title": "Rename `WeightInfo` to `DimensionInfo`, `HloWeightPropagation` to `HloDimensionInfoPropagation\".",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T05:13:51",
-    "updated_at": "2025-11-08T05:13:52",
-    "body": "Rename `WeightInfo` to `DimensionInfo`, `HloWeightPropagation` to `HloDimensionInfoPropagation\".\n\nThis change renames the `WeightInfo` enum and related types/methods to `DimensionInfo` to better reflect that the analysis can be extended beyond just identifying weights.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104002",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis.cc",
-        "additions": 72,
-        "deletions": 63
-      },
-      {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis.h",
-        "additions": 26,
-        "deletions": 25
-      },
-      {
-        "filename": "third_party/xla/xla/hlo/analysis/hlo_dimension_analysis_test.cc",
-        "additions": 4,
-        "deletions": 4
-      }
-    ]
-  },
-  {
-    "number": 103654,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-06T04:04:24",
-    "updated_at": "2025-11-08T04:44:17",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103654",
-    "files": [
-      {
-        "filename": "tensorflow/c/experimental/ops/resource_variable_ops.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/c/experimental/ops/resource_variable_ops.h",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 103883,
-    "title": "Automated Code Change",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T03:34:47",
-    "updated_at": "2025-11-08T04:42:07",
-    "body": "Automated Code Change\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103883",
-    "files": [
-      {
-        "filename": "tensorflow/c/eager/abstract_context.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/c/eager/abstract_operation.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_experimental.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_experimental_test.cc",
-        "additions": 11,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_test_util.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_test_util.h",
-        "additions": 9,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_unified_experimental.cc",
-        "additions": 5,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_unified_experimental_graph.cc",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_unified_experimental_internal.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/c/eager/c_api_unified_experimental_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/eager/custom_device_test.cc",
-        "additions": 8,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/c/eager/custom_device_testutil.cc",
-        "additions": 6,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/c/eager/gradients.cc",
-        "additions": 9,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/c/eager/gradients.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/c/eager/gradients_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/c/eager/immediate_execution_context.h",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/c/eager/tape.h",
-        "additions": 11,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/c/eager/tfe_monitoring_internal.h",
-        "additions": 6,
-        "deletions": 6
-      }
-    ]
-  },
-  {
-    "number": 103988,
-    "title": "Introduce methods to query host, chip, and device IDs from PjRtTopologyDescription.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T21:42:49",
-    "updated_at": "2025-11-08T04:23:41",
-    "body": "Introduce methods to query host, chip, and device IDs from PjRtTopologyDescription.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103988",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/pjrt/BUILD",
+        "filename": "third_party/xla/xla/service/gpu/transforms/BUILD",
         "additions": 1,
         "deletions": 0
       },
       {
-        "filename": "third_party/xla/xla/pjrt/pjrt_common.h",
-        "additions": 16,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/pjrt_compiler.h",
-        "additions": 39,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103478,
-    "title": "[PJRT] Add tests for the PJRT C API cross-host transfer extension.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-03T22:54:24",
-    "updated_at": "2025-11-08T03:35:30",
-    "body": "[PJRT] Add tests for the PJRT C API cross-host transfer extension.\n\nAlso moves `CppCrossHostRecvNotifierToC` into the extension so it can be imported by the tests without circular dependencies.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103478",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/pjrt/c_api_client/pjrt_c_api_client.cc",
-        "additions": 1,
-        "deletions": 44
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/extensions/cross_host_transfers/BUILD",
-        "additions": 55,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/extensions/cross_host_transfers/pjrt_c_api_cross_host_transfers_extension.cc",
-        "additions": 47,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/extensions/cross_host_transfers/pjrt_c_api_cross_host_transfers_extension.h",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/extensions/cross_host_transfers/pjrt_c_api_cross_host_transfers_extension_gpu_test.cc",
-        "additions": 366,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 104000,
-    "title": "Integrate LLVM at llvm/llvm-project@2bc22ea02edd",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-08T03:33:33",
-    "updated_at": "2025-11-08T03:33:33",
-    "body": "Integrate LLVM at llvm/llvm-project@2bc22ea02edd\n\nUpdates LLVM usage to match\n[2bc22ea02edd](https://github.com/llvm/llvm-project/commit/2bc22ea02edd)\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/104000",
-    "files": [
-      {
-        "filename": "third_party/xla/third_party/llvm/generated.patch",
-        "additions": 88,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/third_party/llvm/workspace.bzl",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/third_party/shardy/temporary.patch",
-        "additions": 99,
-        "deletions": 5
-      },
-      {
-        "filename": "third_party/xla/third_party/shardy/workspace.bzl",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/third_party/triton/llvm_integration/cl829655639.patch",
-        "additions": 12,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/third_party/triton/llvm_integration/series.bzl",
-        "additions": 1,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103989,
-    "title": "XProf GPU - Expose # of Chips to Profile",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T22:25:16",
-    "updated_at": "2025-11-08T01:30:40",
-    "body": "XProf GPU - Expose # of Chips to Profile\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103989",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/profiler/gpu/cupti_tracer_options_utils.cc",
-        "additions": 9,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/profiler/gpu/device_tracer_cuda.cc",
-        "additions": 13,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 103993,
-    "title": "[StableHLO Optim] Coalesce adjacent concatenated splats",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T23:16:24",
-    "updated_at": "2025-11-08T01:15:00",
-    "body": "[StableHLO Optim] Coalesce adjacent concatenated splats\n\n`Pattern: concat(splat_a, splat_a, X) -> concat(splat_a_resize, X)`\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103993",
-    "files": [
-      {
-        "filename": "third_party/xla/third_party/stablehlo/temporary.patch",
-        "additions": 154,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "number": 103991,
-    "title": "build_config: Disable gtest_fail_if_no_test_selected.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T22:41:33",
-    "updated_at": "2025-11-07T22:41:33",
-    "body": "build_config: Disable gtest_fail_if_no_test_selected.\n\nThe iteration loop of debugging sharded tests with this flag is very painful,\nand internal tests can't run with it in presubmit, so we end up with empty\nshards failing because of this in postsubmit, which then need aggravating\ntrivial fixes.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103991",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/tsl/platform/default/build_config.bzl",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 103990,
-    "title": "Make the NormalizeTimestamps() for proflier lines more robust.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T22:40:07",
-    "updated_at": "2025-11-07T22:40:07",
-    "body": "Make the NormalizeTimestamps() for proflier lines more robust.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103990",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/tsl/profiler/utils/xplane_utils.cc",
-        "additions": 3,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103987,
-    "title": "Add int32 type to AdvancedConfigValue in ProfilerOptions.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T21:34:12",
-    "updated_at": "2025-11-07T21:34:14",
-    "body": "Add int32 type to AdvancedConfigValue in ProfilerOptions.\n\nThis allows `AdvancedConfigValue` to store `int32` values, expanding the types of configurations that can be represented.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103987",
-    "files": [
-      {
-        "filename": "third_party/xla/third_party/tsl/tsl/profiler/protobuf/profiler_options.proto",
-        "additions": 3,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 103053,
-    "title": "[XLA][codegen] Emit stablehlo dot and addition and then lower it to triton dot.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-10-29T16:44:29",
-    "updated_at": "2025-11-07T21:28:47",
-    "body": "[XLA][codegen] Emit stablehlo dot and addition and then lower it to triton dot.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103053",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/BUILD",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/dot_algorithms.cc",
-        "additions": 104,
-        "deletions": 71
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/fusion_emitter_device_test.cc",
-        "additions": 112,
-        "deletions": 17
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/fusion_emitter_shared_dialect_test.cc",
-        "additions": 55,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/BUILD",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/stablehlo_lower_to_triton.cc",
-        "additions": 175,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/tests/stable_hlo_to_triton_lowering.mlir",
-        "additions": 28,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103985,
-    "title": "Abort GPU communicators concurrently to avoid getting stuck.",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T21:24:36",
-    "updated_at": "2025-11-07T21:24:36",
-    "body": "Abort GPU communicators concurrently to avoid getting stuck.\n\nRecall that when a GPU PjRt client detects that a process has failed, it will\nattempt to abort all communicators with that process as a participant.\nPreviously, the communicators were aborted serially, but this was leading to a\ndeadlock.\n\nConsider a deployment with three processes: A, B, and C. There are two\ncommunicators: one for A, B, and C and one for A and C. Imagine C fails during\na collective on the ABC communicator. If process A attempts to abort the AC\ncommunicator before the ABC communicator, the cancellation of the AC\ncommunicator gets blocked by the pending collective, and the collective is\nnever cancelled because the ABC communicator is not aborted until after the AC\ncommunicator.\n\nThis commit changes the aborts to happen concurrently and was suggested by the\nNCCL team. Emprically, it has solved the problem so far.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103985",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/gpu/collectives/BUILD",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/collectives/gpu_cliques.cc",
-        "additions": 38,
-        "deletions": 7
-      }
-    ]
-  },
-  {
-    "number": 103984,
-    "title": "Improve the performance in `StreamExecutorGpuTopologyDescription::LogicalDeviceOfDefaultTypeForId`",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T21:17:44",
-    "updated_at": "2025-11-07T21:17:45",
-    "body": "Improve the performance in `StreamExecutorGpuTopologyDescription::LogicalDeviceOfDefaultTypeForId`\n\nThis change introduces a `CreateDeviceDescription` helper function to generate a single device description. This allows `LogicalDeviceOfDefaultTypeForId` to directly create the description for a given device ID instead of creating and iterating through all possible device descriptions, improving lookup performance.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103984",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/pjrt/gpu/se_gpu_topology_description.cc",
-        "additions": 64,
-        "deletions": 64
-      },
-      {
-        "filename": "third_party/xla/xla/pjrt/gpu/se_gpu_topology_description.h",
-        "additions": 3,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103380,
-    "title": "[xprof] Add support for tracemark_lower and tracemark_upper profiler options",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-10-31T21:52:58",
-    "updated_at": "2025-11-07T21:03:35",
-    "body": "[xprof] Add support for tracemark_lower and tracemark_upper profiler options\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103380",
-    "files": [
-      {
-        "filename": "third_party/xla/third_party/tsl/tsl/profiler/protobuf/profiler_options.proto",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/profiler/utils/profiler_options_util.cc",
-        "additions": 3,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/profiler/utils/profiler_options_util.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/profiler/utils/profiler_options_util_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/profiler/utils/session_manager.cc",
-        "additions": 24,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 103983,
-    "title": "Reverts 9d7262d8b365f33e1b9d629405505ee26117e420",
-    "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T19:34:40",
-    "updated_at": "2025-11-07T19:34:40",
-    "body": "Reverts 9d7262d8b365f33e1b9d629405505ee26117e420\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103983",
-    "files": [
-      {
-        "filename": "tensorflow/core/tfrt/fallback/op_kernel_runner.cc",
-        "additions": 3,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/tfrt/fallback/op_kernel_runner.h",
-        "additions": 1,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/BUILD",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/collective_permute_thunk.cc",
-        "additions": 6,
-        "deletions": 20
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/nvshmem_collective_permute_thunk.cc",
-        "additions": 3,
-        "deletions": 22
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/p2p_thunk_common.cc",
-        "additions": 20,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/backends/gpu/runtime/p2p_thunk_common.h",
-        "additions": 4,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/service/BUILD",
-        "additions": 3,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/service/hlo_runner_pjrt.cc",
-        "additions": 23,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/service/hlo_runner_pjrt.h",
-        "additions": 16,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/xla/service/hlo_runner_pjrt_test.cc",
+        "filename": "third_party/xla/xla/service/gpu/transforms/hoist_fused_bitcasts.cc",
         "additions": 36,
-        "deletions": 0
+        "deletions": 21
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/hoist_fused_bitcasts_test.cc",
+        "additions": 87,
+        "deletions": 6
       }
     ]
   },
   {
-    "number": 103979,
-    "title": "Relax the check on situations where we cannot schedule all annotated nodes in the same group as a whole.",
+    "number": 106746,
+    "title": "Have autotuner control the register spilling strategy rather than the ptx compiler",
     "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T18:30:12",
-    "updated_at": "2025-11-07T18:30:12",
-    "body": "Relax the check on situations where we cannot schedule all annotated nodes in the same group as a whole.\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103979",
+    "created_at": "2025-12-19T14:40:33",
+    "updated_at": "2025-12-19T14:40:33",
+    "body": "Have autotuner control the register spilling strategy rather than the ptx compiler\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106746",
     "files": [
       {
-        "filename": "third_party/xla/xla/service/latency_hiding_scheduler.cc",
-        "additions": 20,
+        "filename": "third_party/xla/xla/backends/autotuner/BUILD",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/backends/autotuner/autotuner.cc",
+        "additions": 23,
+        "deletions": 5
+      },
+      {
+        "filename": "third_party/xla/xla/backends/autotuner/autotuner.h",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/autotuner/gpu_codegen_backend.h",
+        "additions": 3,
+        "deletions": 19
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/autotuning/autotuner_pass.cc",
+        "additions": 13,
+        "deletions": 4
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/autotuning/autotuner_pass.h",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/nvptx_compiler.cc",
+        "additions": 3,
         "deletions": 3
       }
     ]
   },
   {
-    "number": 103900,
-    "title": "PR #33656: [ROCm] Fix rocm device lib failure due to clash in include dirs",
+    "number": 106744,
+    "title": "Automated Code Change",
     "user": "copybara-service[bot]",
-    "created_at": "2025-11-07T07:12:21",
-    "updated_at": "2025-11-07T18:03:06",
-    "body": "PR #33656: [ROCm] Fix rocm device lib failure due to clash in include dirs\n\nImported from GitHub PR https://github.com/openxla/xla/pull/33656\n\n📝 Summary of Changes\nFix build error reported here: https://github.com/openxla/xla/issues/33589\n\n🎯 Justification\nhttps://github.com/openxla/xla/issues/33589\nThe issue happens because we add the same directory twice once with the headr the second on as a directory itself\nto the sources of the genrule\n\n🚀 Kind of Contribution\nPlease remove what does not apply: 🐛 Bug Fix,\n\n📊 Benchmark (for Performance Improvements)\nNot relevant, build fix.\n\n🧪 Unit Tests:\nNot relevant build fix.\n\n🧪 Execution Tests:\nNot relevant build fix.\n\nCopybara import of the project:\n\n--\n7b05237a5003a39c4ef1e27cd455651c12aa7b60 by Alexandros Theodoridis <atheodor@amd.com>:\n\nFix rocm device lib failure due to clash in include dirs\n\n--\ndcc33693d2ec741321025eb6546546cdd445f6f3 by Alexandros Theodoridis <atheodor@amd.com>:\n\nUse paths to extract the include paths from the hdrs\n\n--\n588ef972239cda0a9216fb3bb89ed98ec8da65b0 by Alexandros Theodoridis <atheodor@amd.com>:\n\nTranform to custom bazel rule\n\nMerging this change closes #33656\n\nFUTURE_COPYBARA_INTEGRATE_REVIEW=https://github.com/openxla/xla/pull/33656 from ROCm:fix_rocm_device_lib_failure 588ef972239cda0a9216fb3bb89ed98ec8da65b0\n",
-    "html_url": "https://github.com/tensorflow/tensorflow/pull/103900",
+    "created_at": "2025-12-19T13:46:56",
+    "updated_at": "2025-12-19T13:46:56",
+    "body": "Automated Code Change\n\nFUTURE_COPYBARA_INTEGRATE_REVIEW=https://github.com/openxla/xla/pull/35354 from ROCm:pemeliya/sort_rewriter_fix_upstream 2ef0f6553a3255d3f66535fd01abfd0aa3f68ef4\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106744",
     "files": [
       {
-        "filename": "third_party/xla/third_party/rocm_device_libs/build_defs.bzl",
-        "additions": 129,
+        "filename": "third_party/xla/xla/service/gpu/transforms/BUILD",
+        "additions": 0,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_rewriter_test.cc",
+        "additions": 22,
+        "deletions": 6
+      },
+      {
+        "filename": "third_party/xla/xla/stream_executor/rocm/cub_sort_kernel_rocm.cu.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system_helper.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 106743,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T13:22:20",
+    "updated_at": "2025-12-19T13:22:20",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106743",
+    "files": [
+      {
+        "filename": "tensorflow/core/function/transform/BUILD",
+        "additions": 0,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "number": 104779,
+    "title": "Use the XNNPack packing fingerprints to invalidate the weight cache.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-11-19T20:37:28",
+    "updated_at": "2025-12-19T12:03:29",
+    "body": "Use the XNNPack packing fingerprints to invalidate the weight cache.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/104779",
+    "files": [
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/BUILD",
+        "additions": 35,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/channelwise_quantized_conv_2d_test.cc",
+        "additions": 20,
+        "deletions": 71
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/channelwise_quantized_depthwise_conv_2d_test.cc",
+        "additions": 24,
+        "deletions": 92
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/conv_2d_test.cc",
+        "additions": 33,
+        "deletions": 126
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/depthwise_conv_2d_test.cc",
+        "additions": 33,
+        "deletions": 137
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_conv_2d_test.cc",
+        "additions": 24,
+        "deletions": 155
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_fully_connected_test.cc",
+        "additions": 6,
+        "deletions": 107
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_transpose_conv_test.cc",
+        "additions": 14,
+        "deletions": 46
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_transpose_conv_tester.cc",
+        "additions": 6,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/fingerprint_test_helpers.h",
+        "additions": 112,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/fully_connected_test.cc",
+        "additions": 29,
+        "deletions": 123
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_conv_2d_test.cc",
+        "additions": 22,
+        "deletions": 75
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_depthwise_conv_2d_test.cc",
+        "additions": 27,
         "deletions": 95
       },
       {
-        "filename": "third_party/xla/third_party/rocm_device_libs/rocm_device_libs.BUILD",
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_fully_connected_test.cc",
+        "additions": 19,
+        "deletions": 72
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_transpose_conv_test.cc",
+        "additions": 26,
+        "deletions": 101
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/transpose_conv_test.cc",
+        "additions": 38,
+        "deletions": 161
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_conv_2d_test.cc",
+        "additions": 22,
+        "deletions": 75
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_depthwise_conv_2d_test.cc",
+        "additions": 27,
+        "deletions": 94
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_fully_connected_test.cc",
+        "additions": 17,
+        "deletions": 68
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_transpose_conv_test.cc",
+        "additions": 26,
+        "deletions": 101
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache.cc",
+        "additions": 64,
+        "deletions": 21
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache.h",
+        "additions": 3,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache_schema.fbs",
+        "additions": 4,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache_test.cc",
+        "additions": 134,
+        "deletions": 58
+      }
+    ]
+  },
+  {
+    "number": 106741,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T11:57:39",
+    "updated_at": "2025-12-19T11:57:39",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106741",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system_helper.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 106733,
+    "title": "Fix configure.py sysconfig fallback used for Python library path detection",
+    "user": "TerryTaoYY",
+    "created_at": "2025-12-19T07:50:44",
+    "updated_at": "2025-12-19T10:38:45",
+    "body": "### Summary\r\n`configure.py:get_python_path()` probes Python’s site-packages via a `python -c` snippet using `site.getsitepackages()`. When that probe fails, it falls back to a `sysconfig.get_path(\"purelib\")` snippet.\r\n\r\nThe fallback snippet was missing a closing `)`, causing the `python -c` call to raise a `SyntaxError` and potentially breaking `./configure` on environments where the fallback path is exercised.\r\n\r\n### Changes\r\n- Fix the sysconfig fallback `python -c` snippet in `configure.py`.\r\n- Add a regression test that forces the `site.getsitepackages()` probe to fail and asserts the corrected sysconfig fallback snippet is used.\r\n\r\n### Testing\r\n- `python3 -m unittest -v configure_test`\r\n\r\n### Notes\r\n- Only the fallback command string is changed; the common `site.getsitepackages()` path is unchanged.",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106733",
+    "files": [
+      {
+        "filename": "configure.py",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "configure_test.py",
+        "additions": 50,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106703,
+    "title": "Upgrade GitHub Actions to latest versions",
+    "user": "salmanmkc",
+    "created_at": "2025-12-19T00:26:12",
+    "updated_at": "2025-12-19T10:38:10",
+    "body": "## Summary\n\nUpgrade GitHub Actions to their latest versions for improved features, bug fixes, and security updates.\n\n## Changes\n\n| Action | Old Version(s) | New Version | Release | Files |\n|--------|---------------|-------------|---------|-------|\n| `peter-evans/create-pull-request` | [`84ae59a`](https://github.com/peter-evans/create-pull-request/commit/84ae59a2cdc2258d6fa0732dd66352dddae2a412) | [`98357b1`](https://github.com/peter-evans/create-pull-request/commit/98357b18bf14b5342f975ff684046ec3b2a07725) | [Release](https://github.com/peter-evans/create-pull-request/releases/tag/v8) | release-branch-cherrypick.yml, update-rbe.yml |\n\n## Why upgrade?\n\nKeeping GitHub Actions up to date ensures:\n- **Security**: Latest security patches and fixes\n- **Features**: Access to new functionality and improvements\n- **Compatibility**: Better support for current GitHub features\n- **Performance**: Optimizations and efficiency improvements\n\n### Security Note\n\nActions that were previously pinned to commit SHAs remain pinned to SHAs (updated to the latest release SHA) to maintain the security benefits of immutable references.\n\n### Testing\n\nThese changes only affect CI/CD workflow configurations and should not impact application functionality. The workflows should be tested by running them on a branch before merging.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106703",
+    "files": [
+      {
+        "filename": ".github/workflows/release-branch-cherrypick.yml",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": ".github/workflows/update-rbe.yml",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 106691,
+    "title": "Warn users about GPU support on Windows",
+    "user": "MERT-CKR",
+    "created_at": "2025-12-18T21:53:49",
+    "updated_at": "2025-12-19T10:37:42",
+    "body": "### Summary\r\nAdds a one-time runtime warning for TensorFlow >= 2.11 on native Windows\r\nto clarify that GPU support is not available, even if CUDA/cuDNN are installed.\r\n\r\n### Motivation\r\nMany Windows users believe their GPU setup is broken when\r\n`tf.config.list_physical_devices(\"GPU\")` returns an empty list.\r\nThis change provides an explicit warning explaining the platform limitation.\r\n\r\nFixes #106684\r\n\r\n### Behavior\r\n- No behavior change in device discovery\r\n- Warning is emitted once per process\r\n- No new dependencies introduced\r\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106691",
+    "files": [
+      {
+        "filename": "tensorflow/python/framework/config.py",
+        "additions": 24,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 106645,
+    "title": "Fix TFL to TOSA constant truncation to i48 that broke tosa.greater legalization",
+    "user": "deeptanshusekhri",
+    "created_at": "2025-12-18T11:09:16",
+    "updated_at": "2025-12-19T10:37:06",
+    "body": "- removed the legacy code path that truncated every 64-bit TFLite constant down to 48 bits, which produced `tosa.greater` ops whose operands having mismatched integer widths violating the TOSA spec.\r\n\r\n- updated the broadcast-to tests so their CHECK lines now expect i64 constants, as legalization now preserves the original element types all the way through.",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106645",
+    "files": [
+      {
+        "filename": "tensorflow/compiler/mlir/tosa/tests/tfl-to-tosa-pipeline.mlir",
         "additions": 4,
         "deletions": 4
       },
       {
-        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/compilation_pipeline_rocm.cc",
+        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_tfl.cc",
+        "additions": 0,
+        "deletions": 8
+      }
+    ]
+  },
+  {
+    "number": 106638,
+    "title": "Fix dynamic batch handling for TFL FullyConnected in TOSA legalization",
+    "user": "deeptanshusekhri",
+    "created_at": "2025-12-18T10:24:36",
+    "updated_at": "2025-12-19T10:36:39",
+    "body": "Fixing TFLite to TOSA legalization of `tfl.fully_connected` when the batch dimension is dynamic.\r\n\r\n- The previous code always divided `input_type.getNumElements()` by the filter depth, which returns `0` for partially dynamic tensors, producing reshape shapes like `[0, 512]` and finally a `tosa.reshape` with a 0-sized batch\r\n\r\n- To fix this I am adding a guard the batch computation so that dynamic inputs keep `ShapedType::kDynamic`, allowing the pattern to respect dynamic batch sizes reported in #104313\r\n\r\n- Also adding `test_fullyconnected_dynamic_batch` test to `tfl-to-tosa-pipeline.mlir`, checking the generated `tosa.const_shape` ops and reshape flow to prevent regressions.\r\n\r\nFixes #104313",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106638",
+    "files": [
+      {
+        "filename": "tensorflow/compiler/mlir/tosa/tests/tfl-to-tosa-pipeline.mlir",
+        "additions": 15,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_tfl.cc",
+        "additions": 4,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 106738,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T09:55:05",
+    "updated_at": "2025-12-19T09:55:05",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106738",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system_helper.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 106737,
+    "title": "Remove redundant TENSORFLOW_USE_ROCM define.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T09:28:01",
+    "updated_at": "2025-12-19T09:47:49",
+    "body": "Remove redundant TENSORFLOW_USE_ROCM define.\n\nThe `TENSORFLOW_USE_ROCM=1` local define is no longer required for the `rocm_solver_context` target.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106737",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/stream_executor/rocm/BUILD",
+        "additions": 0,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "number": 106736,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T08:23:19",
+    "updated_at": "2025-12-19T08:23:19",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106736",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system_helper.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 106621,
+    "title": "[XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-18T05:55:26",
+    "updated_at": "2025-12-19T07:50:04",
+    "body": "[XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass\n\nThis updates the original value of a conditional op when unused tuple elements are removed.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106621",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/hlo/ir/BUILD",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instruction.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_module.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value.cc",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value.h",
+        "additions": 0,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_test.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_util.cc",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_util.h",
+        "additions": 69,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/parser/hlo_parser.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/BUILD",
         "additions": 4,
         "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/conditional_simplifier.cc",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/conditional_simplifier_test.cc",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/while_loop_simplifier.cc",
+        "additions": 3,
+        "deletions": 33
+      },
+      {
+        "filename": "third_party/xla/xla/tuple_tree.h",
+        "additions": 2,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106726,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T05:26:10",
+    "updated_at": "2025-12-19T07:09:45",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106726",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/backends/gpu/codegen/BUILD",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/codegen/fusion_emitter.cc",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106730,
+    "title": "[XLA:GPU] Improve read order when not using shared memory.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T07:08:18",
+    "updated_at": "2025-12-19T07:08:19",
+    "body": "[XLA:GPU] Improve read order when not using shared memory.\n\nWhen we use shared memory, we have special logic to avoid bank conflicts. This\nis not needed however when we don't use shared memory.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106730",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/backends/gpu/codegen/llvm/sort_util.cc",
+        "additions": 10,
+        "deletions": 7
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/tests/sorting.hlo",
+        "additions": 20,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106729,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T06:38:16",
+    "updated_at": "2025-12-19T06:38:16",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106729",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/tsl/platform/file_system_helper.h",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "number": 106693,
+    "title": "[StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-18T21:57:21",
+    "updated_at": "2025-12-19T06:38:04",
+    "body": "[StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106693",
+    "files": [
+      {
+        "filename": "third_party/xla/third_party/stablehlo/temporary.patch",
+        "additions": 560,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106717,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T05:00:51",
+    "updated_at": "2025-12-19T06:32:44",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106717",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/python/ifrt/attribute_map_test.cc",
+        "additions": 0,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 101917,
+    "title": "[PJRT_C_API] Allow `PJRT_Event` to be set as well as signal completion.",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-10-09T00:23:45",
+    "updated_at": "2025-12-19T06:13:38",
+    "body": "[PJRT_C_API] Allow `PJRT_Event` to be set as well as signal completion.\n\nThe implementation now wraps a Promise as well as a Future.\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/101917",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/pjrt/c/CHANGELOG.md",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api.h",
+        "additions": 34,
+        "deletions": 7
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api_gpu_test.cc",
+        "additions": 44,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api_test.cc",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api_wrapper_impl.cc",
+        "additions": 22,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api_wrapper_impl.h",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106714,
+    "title": "Automated Code Change",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-19T04:35:33",
+    "updated_at": "2025-12-19T05:49:32",
+    "body": "Automated Code Change\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106714",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/pjrt/gpu/se_gpu_pjrt_compiler_aot_test.cc",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "number": 106698,
+    "title": "Update pinned dependencies and update an issue with installing gcloud in the ARM64 container",
+    "user": "copybara-service[bot]",
+    "created_at": "2025-12-18T23:38:29",
+    "updated_at": "2025-12-19T05:39:41",
+    "body": "Update pinned dependencies and update an issue with installing gcloud in the ARM64 container\n",
+    "html_url": "https://github.com/tensorflow/tensorflow/pull/106698",
+    "files": [
+      {
+        "filename": "ci/official/containers/ml_build_arm64/Dockerfile",
+        "additions": 14,
+        "deletions": 8
       }
     ]
   }

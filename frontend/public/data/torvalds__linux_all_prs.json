@@ -1,5 +1,48 @@
 [
   {
+    "number": 175,
+    "title": "Fixed License",
+    "user": "revmischa",
+    "state": "closed",
+    "merged": false,
+    "created_at": "2015-04-05T18:13:30",
+    "updated_at": "2025-12-16T19:21:11",
+    "closed_at": "2025-09-22T18:16:21",
+    "body": "I fixed the license\n",
+    "html_url": "https://github.com/torvalds/linux/pull/175",
+    "files": [
+      {
+        "filename": "COPYING",
+        "additions": 6,
+        "deletions": 335
+      },
+      {
+        "filename": "README",
+        "additions": 1,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "number": 437,
+    "title": "this code very fast",
+    "user": "ahmetilgin",
+    "state": "closed",
+    "merged": false,
+    "created_at": "2017-07-17T16:03:21",
+    "updated_at": "2025-12-03T09:57:21",
+    "closed_at": "2025-09-22T18:14:04",
+    "body": "remove empty characters",
+    "html_url": "https://github.com/torvalds/linux/pull/437",
+    "files": [
+      {
+        "filename": "init/main.c",
+        "additions": 1,
+        "deletions": 996
+      }
+    ]
+  },
+  {
     "number": 637,
     "title": "-",
     "user": "orhanerday",
@@ -15,104 +58,6 @@
         "filename": "arch/alpha/kernel/core_tsunami.c",
         "additions": 0,
         "deletions": 484
-      }
-    ]
-  },
-  {
-    "number": 1355,
-    "title": "-",
-    "user": "vmfunc",
-    "state": "closed",
-    "merged": false,
-    "created_at": "2025-09-19T18:04:37",
-    "updated_at": "2025-10-15T08:15:25",
-    "closed_at": "2025-09-22T16:21:17",
-    "body": "hi maintainers, i’ve come across a critical bug in my life:  \r\n\r\n- status: single  \r\n- expected behavior:\r\n        -  dom gf (preferably linux-compatible) who is okay with having a dog\r\n        -  treats, walks, headpats on demand (via ioctl)\r\n        -  boots into cuddles, not init 3\r\n- actual behavior: literally cannot get gf to dom me in a t4r kernel dev way\r\n\r\ntried grepping for \"mommy\" in the source, only found deprecation warnings\r\n\r\nsteps to reproduce:\r\n1. post thirst on lkml\r\n2. wait patiently for gf to appear  \r\n3. modprobe dom_gf; dmesg | grep \"wagging tail\"\r\n4. still waiting \r\n\r\nlog dump:\r\n[   0.420000] puppygirl: module not found, try therapy\r\n[   1.133700] genderfluid kernel detected, still lonely\r\n[   3.141592] uwu: syntax error, invalid argument ‘gf’\r\n\r\nexpected result once this issue gets resolved:\r\n- dom gf in latex, preferably open source\r\n- receive belly rubs on merge request\r\n- t4r, will submit bug reports for snacks\r\n\r\ntried rebooting, only got more zoomies, gentoo stage3 also didn’t include gf (btw)\r\n\r\nany help from the community would be greatly appreciated. thank you for attending my ted talk\r\n\r\nif anyone RTMs and still wants to apply, i promise to fetch snacks and debug cuddles",
-    "html_url": "https://github.com/torvalds/linux/pull/1355",
-    "files": [
-      {
-        "filename": "README",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "number": 1290,
-    "title": "Make the kernel cute",
-    "user": "nambona890",
-    "state": "closed",
-    "merged": false,
-    "created_at": "2025-07-08T09:30:40",
-    "updated_at": "2025-10-11T15:41:21",
-    "closed_at": "2025-09-22T16:22:49",
-    "body": "The demographic for Linux has a higher than average enjoyment of cuteness, especially with regards to anime. This PR will make the Linux kernel more comfortable and easier to maintain and use for people like me who enjoy cute things.",
-    "html_url": "https://github.com/torvalds/linux/pull/1290",
-    "files": [
-      {
-        "filename": "README",
-        "additions": 16,
-        "deletions": 0
-      },
-      {
-        "filename": "arch/Kconfig",
-        "additions": 1,
-        "deletions": 0
-      },
-      {
-        "filename": "drivers/accessibility/Makefile",
-        "additions": 16,
-        "deletions": 0
-      },
-      {
-        "filename": "fs/fat/fat.h",
-        "additions": 18,
-        "deletions": 0
-      },
-      {
-        "filename": "include/linux/shrinker.h",
-        "additions": 19,
-        "deletions": 0
-      },
-      {
-        "filename": "include/net/9p/9p.h",
-        "additions": 20,
-        "deletions": 0
-      },
-      {
-        "filename": "include/xen/xen.h",
-        "additions": 11,
-        "deletions": 0
-      },
-      {
-        "filename": "kernel/panic.c",
-        "additions": 33,
-        "deletions": 2
-      },
-      {
-        "filename": "security/landlock/errata.h",
-        "additions": 16,
-        "deletions": 0
-      },
-      {
-        "filename": "security/security.c",
-        "additions": 22,
-        "deletions": 0
-      },
-      {
-        "filename": "sound/sound_core.c",
-        "additions": 19,
-        "deletions": 0
-      },
-      {
-        "filename": "sound/synth/emux/emux_synth.c",
-        "additions": 24,
-        "deletions": 0
-      },
-      {
-        "filename": "tools/perf/perf-archive.sh",
-        "additions": 16,
-        "deletions": 0
       }
     ]
   }
