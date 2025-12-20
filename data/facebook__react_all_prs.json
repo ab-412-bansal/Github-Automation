@@ -1,5 +1,247 @@
 [
   {
+    "number": 35359,
+    "title": "Fix: Controlled form inputs reset on form submission",
+    "user": "rdanciu11",
+    "state": "open",
+    "merged": false,
+    "created_at": "2025-12-15T01:46:10",
+    "updated_at": "2025-12-19T23:42:43",
+    "closed_at": null,
+    "body": "## Summary\r\nFixes controlled form inputs incorrectly resetting after form submission with form actions.\r\n\r\n## Fixes\r\n- Fixes #31695\r\n- Fixes #30580 \r\n\r\n## The Bug\r\nWhen a form with a function `action` is submitted, controlled form inputs (those with `checked` or `value` props) are incorrectly reset to their default values. This breaks the expected behavior where controlled inputs should maintain their state.\r\n\r\n**Affected input types:**\r\n- Text inputs (`<input type=\"text\">`)\r\n- Select elements (`<select>`)\r\n- Textareas (`<textarea>`)\r\n- Checkboxes (`<input type=\"checkbox\">`)\r\n- Radio buttons (`<input type=\"radio\">`)\r\n\r\n## The Fix\r\nEnhanced `resetFormInstance()` in `ReactFiberConfigDOM.js` to:\r\n1. Check React's internal fiber tree to determine if an input is controlled\r\n2. Examine `memoizedProps` for control props:\r\n   - `value` prop for text inputs, select elements, and textareas\r\n   - `checked` prop for checkboxes and radio buttons\r\n3. Skip reset for controlled inputs\r\n4. Only reset truly uncontrolled inputs\r\n\r\nThis ensures controlled inputs maintain their state after form submission while uncontrolled inputs still reset as expected.\r\n\r\n## Tests\r\nAdded comprehensive test coverage in `ReactDOMForm-test.js`:\r\n\r\n**Controlled inputs (should NOT reset):**\r\n- Controlled checkboxes don't reset on form submission\r\n- Controlled radio buttons don't reset on form submission\r\n- Controlled select elements don't reset on form submission\r\n- Controlled textarea elements don't reset on form submission\r\n\r\n**Uncontrolled inputs (should still reset):**\r\n- Uncontrolled checkboxes still reset correctly\r\n- Uncontrolled select elements still reset correctly\r\n- Uncontrolled textarea elements still reset correctly\r\n\r\nAll existing tests continue to pass\r\n\r\n## How Has This Been Tested?\r\n- Ran full test suite: `yarn test ReactDOMForm-test`\r\n- Verified reproduction case scenarios\r\n- Tested with both controlled and uncontrolled inputs across all affected input types",
+    "html_url": "https://github.com/facebook/react/pull/35359",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/client/ReactFiberConfigDOM.js",
+        "additions": 64,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/react-dom/src/__tests__/ReactDOMForm-test.js",
+        "additions": 414,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberHooks.js",
+        "additions": 40,
+        "deletions": 13
+      }
+    ]
+  },
+  {
+    "number": 1,
+    "title": "Run each test in its own <iframe>",
+    "user": "benjamn",
+    "state": "closed",
+    "merged": true,
+    "created_at": "2013-05-29T20:20:53",
+    "updated_at": "2025-12-19T20:59:36",
+    "closed_at": "2013-06-03T17:58:02",
+    "body": "This is not blocking the initial launch, so feel free to put it on the back-burner for now.\n\nThe Jasmine test harness still runs in the parent window and reports to PhantomJS via `window.callPhantom`, but each test `<iframe>` has its own copy of `react-test.js` and each individual test module is required in the global context of a separate `<iframe>`.\n\nThis gives us a significant approximation of the benefits of mocking, at least in terms of isolating tests from one another.\n\ncr @jeffmo @zpao\n",
+    "html_url": "https://github.com/facebook/react/pull/1",
+    "files": [
+      {
+        "filename": "Gruntfile.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "grunt/config/browserify.js",
+        "additions": 15,
+        "deletions": 1
+      },
+      {
+        "filename": "grunt/config/jsx/jsx.js",
+        "additions": 19,
+        "deletions": 3
+      },
+      {
+        "filename": "grunt/config/phantom.js",
+        "additions": 4,
+        "deletions": 1
+      },
+      {
+        "filename": "grunt/tasks/browserify.js",
+        "additions": 14,
+        "deletions": 4
+      },
+      {
+        "filename": "grunt/tasks/jsx.js",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "grunt/tasks/phantom.js",
+        "additions": 8,
+        "deletions": 0
+      },
+      {
+        "filename": "src/test/all.js",
+        "additions": 48,
+        "deletions": 9
+      },
+      {
+        "filename": "src/utils/__tests__/ImmutableObject-test.js",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "test/frame.html",
+        "additions": 18,
+        "deletions": 0
+      },
+      {
+        "filename": "test/index.html",
+        "additions": 9,
+        "deletions": 3
+      },
+      {
+        "filename": "test/phantom-harness.js",
+        "additions": 33,
+        "deletions": 11
+      },
+      {
+        "filename": "vendor/jasmine/HtmlReporter.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/PrintReporter.js",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "vendor/jasmine/ReporterView.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/SpecView.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/SuiteView.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/all.js",
+        "additions": 38,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/console.js",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/diff.js",
+        "additions": 0,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/jasmine-html.js",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "vendor/jasmine/jasmine-support.js",
+        "additions": 3,
+        "deletions": 10
+      },
+      {
+        "filename": "vendor/jasmine/jasmine.js",
+        "additions": 12,
+        "deletions": 14
+      },
+      {
+        "filename": "vendor/jasmine/phantom.js",
+        "additions": 0,
+        "deletions": 20
+      }
+    ]
+  },
+  {
+    "number": 35392,
+    "title": "[wip] experiment to entangle less often",
+    "user": "rickhanlonii",
+    "state": "open",
+    "merged": false,
+    "created_at": "2025-12-19T16:42:54",
+    "updated_at": "2025-12-19T16:46:19",
+    "closed_at": null,
+    "body": "",
+    "html_url": "https://github.com/facebook/react/pull/35392",
+    "files": [
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberLane.js",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactConcurrentErrorRecovery-test.js",
+        "additions": 13,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactHooksWithNoopRenderer-test.js",
+        "additions": 10,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactSuspenseWithNoopRenderer-test.js",
+        "additions": 22,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactTransition-test.js",
+        "additions": 350,
+        "deletions": 3
+      },
+      {
+        "filename": "packages/shared/ReactFeatureFlags.js",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.native-fb.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.native-oss.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.native-fb.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.www.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.www-dynamic.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.www.js",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
     "number": 35391,
     "title": "Use globalThis.Symbol.for to avoid Symbol shadowing",
     "user": "Mudavath-Giri-Naik",
@@ -19105,35 +19347,6 @@
     ]
   },
   {
-    "number": 35359,
-    "title": "Fix: Controlled checkboxes and radio buttons reset on form submission",
-    "user": "rdanciu11",
-    "state": "open",
-    "merged": false,
-    "created_at": "2025-12-15T01:46:10",
-    "updated_at": "2025-12-15T02:04:35",
-    "closed_at": null,
-    "body": "## Summary\r\nFixes controlled checkboxes and radio buttons incorrectly resetting after form submission with form actions.\r\n\r\n## Fixes\r\nFixes #31695\r\n\r\n## The Bug\r\nWhen a form with a function `action` is submitted, controlled checkboxes and radio buttons (those with a `checked` prop) are incorrectly reset to their default values. This breaks expected React behavior where controlled inputs should maintain their state.\r\n\r\n**Reproduction:** https://codesandbox.io/p/sandbox/checkbox-reset-repro-sff3sr\r\n\r\n## The Fix\r\nEnhanced `resetFormInstance()` in `ReactFiberConfigDOM.js` to:\r\n1. Check React's internal fiber tree to determine if an input is controlled\r\n2. Skip reset for inputs controlled by `checked` or `value` props\r\n3. Only reset truly uncontrolled inputs\r\n\r\nThis ensures controlled inputs maintain their state after form submission while uncontrolled inputs still reset as expected.\r\n\r\n## Tests\r\nAdded 3 new test cases in `ReactDOMForm-test.js`:\r\n- Controlled checkboxes don't reset on form submission\r\n- Controlled radio buttons don't reset on form submission  \r\n- Uncontrolled checkboxes still reset correctly\r\n\r\nAll existing tests continue to pass (48/48).\r\n\r\n## How Has This Been Tested?\r\n- Ran full test suite: `yarn test ReactDOMForm-test`\r\n- Verified reproduction case scenario\r\n- Tested with both controlled and uncontrolled inputs",
-    "html_url": "https://github.com/facebook/react/pull/35359",
-    "files": [
-      {
-        "filename": "packages/react-dom-bindings/src/client/ReactFiberConfigDOM.js",
-        "additions": 64,
-        "deletions": 1
-      },
-      {
-        "filename": "packages/react-dom/src/__tests__/ReactDOMForm-test.js",
-        "additions": 224,
-        "deletions": 0
-      },
-      {
-        "filename": "packages/react-reconciler/src/ReactFiberHooks.js",
-        "additions": 40,
-        "deletions": 13
-      }
-    ]
-  },
-  {
     "number": 35357,
     "title": "Update README.md",
     "user": "VL9mHv0OoK",
@@ -27162,74 +27375,6 @@
       {
         "filename": "packages/react-dom-bindings/src/events/SyntheticEvent.js",
         "additions": 1,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 35305,
-    "title": "fix(compiler): support UpdateExpression on captured variables",
-    "user": "tennisleng",
-    "state": "closed",
-    "merged": false,
-    "created_at": "2025-12-05T21:17:12",
-    "updated_at": "2025-12-08T00:44:01",
-    "closed_at": "2025-12-08T00:44:01",
-    "body": "This PR implements support for `UpdateExpression` (e.g. `x++`) on variables captured by closures (context identifiers). Previously, this would throw a Todo error. The implementation emulates the behavior of member expression updates by explicitly loading the current value, calculating the new value with a BinaryExpression, and storing it back using StoreContext.",
-    "html_url": "https://github.com/facebook/react/pull/35305",
-    "files": [
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts",
-        "additions": 56,
-        "deletions": 8
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/bug-post-increment-assignment.expect.md",
-        "additions": 0,
-        "deletions": 0
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/bug-post-increment-assignment.js",
-        "additions": 14,
-        "deletions": 0
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/update-expression-captured-variable.expect.md",
-        "additions": 50,
-        "deletions": 0
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/update-expression-captured-variable.js",
-        "additions": 13,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 35318,
-    "title": "Support `module.property.useHook()` in Fast Refresh",
-    "user": "ArnaudBarre",
-    "state": "open",
-    "merged": false,
-    "created_at": "2025-12-07T15:10:19",
-    "updated_at": "2025-12-07T17:07:13",
-    "closed_at": null,
-    "body": "## Summary\r\n\r\nFixes https://github.com/vitejs/vite-plugin-react/issues/1006\r\n\r\nI'm not sure a lot of users do nest hooks at the second level, but the added complexity to the Babel plugin fells low enough to add support to it.\r\n\r\nBefore this change, the signature for the test would have been `_s(App, \"useNestedThing{foo}\", true)` which would force reset on HMR.",
-    "html_url": "https://github.com/facebook/react/pull/35318",
-    "files": [
-      {
-        "filename": "packages/react-refresh/src/ReactFreshBabelPlugin.js",
-        "additions": 6,
-        "deletions": 0
-      },
-      {
-        "filename": "packages/react-refresh/src/__tests__/ReactFreshBabelPlugin-test.js",
-        "additions": 13,
-        "deletions": 0
-      },
-      {
-        "filename": "packages/react-refresh/src/__tests__/__snapshots__/ReactFreshBabelPlugin-test.js.snap",
-        "additions": 16,
         "deletions": 0
       }
     ]

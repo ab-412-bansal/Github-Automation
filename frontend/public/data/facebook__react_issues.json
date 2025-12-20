@@ -1,5 +1,91 @@
 [
   {
+    "number": 35379,
+    "title": "React Compiler generates erroneous code when an app contains a component named `Symbol`",
+    "user": "devuxer",
+    "created_at": "2025-12-17T03:03:34",
+    "updated_at": "2025-12-19T23:12:00",
+    "body": "### What kind of issue is this?\n\n- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)\n- [ ] babel-plugin-react-compiler (build issue installing or using the Babel plugin)\n- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)\n- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)\n\n### Link to repro\n\nhttps://playground.react.dev/#N4Igzg9grgTgxgUxALhAejQAgMIwQQwBcFN9M4IBbABwgDsE7DM79KEATTAZQE9KARhAA2AHToAzKHTiEAlvR78hwgBQBKTMHGZMeQrDqYAPBzkA3AHwBJUpVJLBI8lVoMmxtGasBucQF9xcQxMAFUwEjlmOSMAQWpqcQQAD1oYZg4ECXwoYWYpGXlFeOoNLR09BAMYI1UK3VMLS3rdEwALAEZLACUCWRxXOWEEGEwAISgAc0xe6hgIDihZBTpPTuajVoa+J2FMNA2tz29DzHU-On8QABoQCkk5SZQQORoIdMxCXmoSYEwABWEUxiAHlqEU6GBMP5MBJ5vYAOQCfACBDCAC01CBkxi6Lw+Fk6IoNCGIy8cjAhARF3Eqm0mwwxOoQyIKwAsgsEMhMKIQPhhGIQAFMGBWWAJHIEFDAcC6GCIWBzjdwG0IAB3axMEasYRgFDZXUIfxAA\n\n### Repro steps\n\n1. Configure a React app to run React Compiler.\n2. Create a component named `Symbol`.\n3. Run the app.\n\nThe issue relates to the fact that React Compiler generates output with a call to `Symbol.for`. As shown in the playground link, if a component is in scope with the name `Symbol`, the compiler-generated code tries to call the `for` method on the React component rather than `globalThis.Symbol`. This results in the runtime error \"Symbol.for is not a function\".\n\n### How often does this bug happen?\n\nEvery time\n\n### What version of React are you using?\n\n19.2.3\n\n### What version of React Compiler are you using?\n\n1.0.0",
+    "html_url": "https://github.com/facebook/react/issues/35379",
+    "labels": [
+      "Type: Bug",
+      "Status: Unconfirmed"
+    ]
+  },
+  {
+    "number": 35395,
+    "title": "Bug: react-hooks ESLint plugin (eslint-plugin-react-hooks) rules are extremely slow, dominating lint time",
+    "user": "jordan-cutler",
+    "created_at": "2025-12-19T22:30:46",
+    "updated_at": "2025-12-19T22:41:19",
+    "body": "# react-hooks ESLint plugin rules are extremely slow, dominating lint time\n\n- React version: `react@19.2.3`\n- `eslint-plugin-react-hooks` version: `eslint-plugin-react-hooks@7.0.1`\n- `eslint` version: `eslint@9.39.1`\n\n## Steps To Reproduce\n\n1. Install `eslint-plugin-react-hooks` (the React Compiler ESLint plugin)\n2. Enable the recommended plugin rules: e.g. `reactHooksPlugin.configs.flat.recommended, jstsFiles`\n3. Run ESLint with `TIMING=50` on a large codebase (~15k+ files)\n4. Observe that `react-hooks/static-components` takes 42-56% of total lint time\n\n## Link to code example\n\nUnfortunately, we cannot share a minimal reproduction as this occurs on a large proprietary codebase. However, the performance data should be reproducible on any sufficiently large React codebase.\n\n## The current behavior\n\nWhen running ESLint with the `TIMING` flag on our codebase, the `react-hooks` plugin rules dominate lint time:\n\n```\nRule                                       |  Time (ms) | Relative\n:------------------------------------------|-----------:|--------:\nreact-hooks/static-components              | 393394.236 |    56.2%\nunused-imports/no-unused-imports           |  62579.162 |     8.9%\nredos-detector/no-unsafe-regex             |  35114.790 |     5.0%\nimport/named                               |  24641.617 |     3.5%\nreact-hooks/rules-of-hooks                 |  16596.903 |     2.4%\n...\n```\n\n**Key findings:**\n- `react-hooks/static-components` takes **~393 seconds** (6.5 minutes) — more than **5x longer** than the next slowest rule\n- The react-hooks plugin nearly **doubles total lint time**: ~3 minutes without the plugin vs ~6 minutes with it enabled\n- With 4x parallelism (`--concurrency=4`), total ESLint time goes from ~190 seconds to ~370 seconds when the plugin is enabled\n- Even if we disable `react-hooks/static-components`, another rule jumps up to take the top spot. It seems to trigger from the plugin itself, not any particular rule.\n\n## The expected behavior\n\nThe `react-hooks` rules should have comparable performance to other ESLint rules. A single rule taking 42-56% of total lint time and being 5x slower than any other rule suggests there may be optimization opportunities in the rule implementation.\n\n---\n\n**Impact:** This performance issue significantly affects CI pipeline times and local development experience. We're considering running these rules as a separate parallel step or disabling them entirely, which isn't ideal.",
+    "html_url": "https://github.com/facebook/react/issues/35395",
+    "labels": [
+      "Status: Unconfirmed"
+    ]
+  },
+  {
+    "number": 29034,
+    "title": "[React 19] allow opting out of automatic form reset when Form Actions are used",
+    "user": "stefanprobst",
+    "created_at": "2024-05-09T05:46:15",
+    "updated_at": "2025-12-19T22:24:16",
+    "body": "## Summary\r\n\r\nrepo: https://github.com/stefanprobst/issue-react-19-form-reset\r\n\r\nreact 19@beta currently will automatically reset a form with uncontrolled components after submission. it would be really cool if there was a way to opt out of this behavior, without having to fall back to using controlled components - especially since component libraries (e.g. [`react-aria`](https://react-spectrum.adobe.com/react-aria/forms.html)) have invested quite a bit of time to work well as uncontrolled form elements.\r\n\r\nthe main usecase i am thinking of are forms which allow saving progress, or saving a draft, before final submit. currently, every \"save progress\" would reset the form.",
+    "html_url": "https://github.com/facebook/react/issues/29034",
+    "labels": [
+      "React 19"
+    ]
+  },
+  {
+    "number": 30580,
+    "title": "[React 19] Controlled `<select>` component is subject to automatic form reset",
+    "user": "cjg1122",
+    "created_at": "2024-08-02T10:01:56",
+    "updated_at": "2025-12-19T22:17:47",
+    "body": "The controlled component also resets the \"select\" after the action is triggered.\r\nbut the \"input\" component does not.\r\n\r\n```jsx\r\n\"use client\";\r\nimport { useActionState, useState } from \"react\";\r\nfunction add() {\r\n  return Date.now();\r\n}\r\nexport default function Page() {\r\n  const [state, formAction] = useActionState(add, 0);\r\n  const [name, setName] = useState(\"\");\r\n  const [type, setType] = useState(\"2\");\r\n  return (\r\n    <form action={formAction}>\r\n      <p>{state}</p>\r\n      <p>\r\n        <input\r\n          type=\"text\"\r\n          value={name}\r\n          onChange={(e) => setName(e.target.value)}\r\n        />\r\n      </p>\r\n      <p>\r\n        <select\r\n          name=\"gender\"\r\n          value={type}\r\n          onChange={(e) => setType(e.target.value)}\r\n        >\r\n          <option value=\"1\">1</option>\r\n          <option value=\"2\">2</option>\r\n          <option value=\"3\">3</option>\r\n        </select>\r\n      </p>\r\n      <button>submit</button>\r\n    </form>\r\n  );\r\n}\r\n```\r\n\r\n![20240802-193357](https://github.com/user-attachments/assets/c61f2b1c-a00c-4982-aba3-5061770f719a)\r\n\r\nRepro: https://codesandbox.io/p/sandbox/stupefied-cohen-n578l6",
+    "html_url": "https://github.com/facebook/react/issues/30580",
+    "labels": [
+      "Type: Bug",
+      "React 19"
+    ]
+  },
+  {
+    "number": 34966,
+    "title": "Bug: [19.2.0] Streaming scripts injected in `onAllReady` in `renderToPipeableStream` and `prerenderToNodeStream`",
+    "user": "jereaa",
+    "created_at": "2025-10-23T19:49:14",
+    "updated_at": "2025-12-19T21:30:18",
+    "body": "When using [`renderToPipeableStream` with `onAllReady`](https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation), while also using [lazy loading components with React.lazy](https://react.dev/reference/react/lazy#suspense-for-code-splitting), React is injecting streaming scripts and hidden HTML elements into the resulting HTML.\n\n[React recommends using `onAllReady` for crawlers](https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation), like SEO crawlers, logically, but this new behaviour injects scripts and hidden HTML elements, impacting negatively in SEO scores.\n\nReferences:\n- https://prerender.io/blog/hidden-content-that-hurts-seo/\n- https://wolf-of-seo.de/en/what-is/hidden-content-2/\n\nThis same issue also occurs with the [`prerenderToNodeStream` API](https://react.dev/reference/react-dom/static/prerenderToNodeStream)\n\nReact version: 19.2.0\nReact DOM version: 19.2.0\n\n## Steps To Reproduce\n\n<details>\n  <summary>Show steps to reproduce</summary>\n1. Create a component to lazy load later in our app. Be sure to bloat it with attributes like data attributes\n\n```js\n// Button.js\nimport { createElement } from \"react\";\n\nconst Button = () =>\n  createElement(\n    \"button\",\n    {\n      type: \"button\",\n      \"data-test-button-value1\": \"some-value-for-test\",\n      \"data-test-button-value2\": \"some-value-for-test\",\n      \"data-test-button-value3\": \"some-value-for-test\",\n      \"data-test-button-value4\": \"some-value-for-test\",\n      \"data-test-button-value5\": \"some-value-for-test\",\n      \"data-test-button-value6\": \"some-value-for-test\",\n      \"data-test-button-value7\": \"some-value-for-test\",\n      \"data-test-button-value8\": \"some-value-for-test\",\n      \"data-test-button-value9\": \"some-value-for-test\",\n      \"data-test-button-value10\": \"some-value-for-test\",\n      \"data-test-button-value11\": \"some-value-for-test\",\n      \"data-test-button-value12\": \"some-value-for-test\",\n      \"data-test-button-value13\": \"some-value-for-test\",\n      \"data-test-button-value14\": \"some-value-for-test\",\n      \"data-test-button-value15\": \"some-value-for-test\",\n      \"data-test-button-value16\": \"some-value-for-test\",\n      \"data-test-button-value17\": \"some-value-for-test\",\n      \"data-test-button-value18\": \"some-value-for-test\",\n      \"data-test-button-value19\": \"some-value-for-test\",\n      \"data-test-button-value20\": \"some-value-for-test\",\n    },\n    \"Test\"\n  );\n\nexport default Button;\n```\n\n2. Create `App` Component and lazy load Button component. Be sure to bloat Head tag to trigger bug.\n\n```js\n// App.js\nimport { createElement, lazy, Suspense } from \"react\";\n\nconst TEST_DATA = Object.fromEntries(\n  Array.from({ length: 200 }, (_, i) => [`key${i}`, \"x\".repeat(99)])\n);\n\nconst LazyButton = lazy(async () => import(\"./Button.mjs\"));\n\nconst App = () =>\n  createElement(\n    \"html\",\n    null,\n    createElement(\n      \"head\",\n      null,\n      createElement(\"script\", null, `console.log(${JSON.stringify(TEST_DATA)})`)\n    ),\n    createElement(\n      \"body\",\n      null,\n      createElement(\n        Suspense,\n        { fallback: createElement(\"h1\", null, \"Loading...\") },\n        createElement(LazyButton)\n      )\n    )\n  );\n```\n\n3. Serve the app via `renderToPipeableStream` and `onAllReady`\n\n```js\nimport http from \"node:http\";\nimport { renderToPipeableStream } from \"react-dom/server\";\n\nhttp\n  .createServer(function (req, res) {\n    const { pipe } = renderToPipeableStream(App, {\n    onAllReady: () => {\n      res.setHeader(\"content-type\", \"text/plain\");\n      pipe(res);\n    },\n  })\n  .listen(8080);\n```\n\nSame thing happens with `prerenderToNodeStream`\n</details>\n\n<details>\n<summary>Scripts and hidden elements injected</summary>\n\nBloated Head script and Button data attributes removed for better readability.\n\n```html\n<!DOCTYPE html>\n<html>\n  <head></head>\n  <body>\n    <!--$?--><template id=\"B:0\"></template>\n    <h1>Loading...</h1>\n    <!--/$-->\n    <script id=\"_R_\">\n      requestAnimationFrame(function () {\n        $RT = performance.now();\n      });\n    </script>\n    <div hidden id=\"S:0\">\n      <button\n        type=\"button\"\n        data-test-button-value1=\"some-value-for-test\"\n      >\n        Test\n      </button>\n    </div>\n    <script>\n      $RB = [];\n      $RV = function (a) {\n        $RT = performance.now();\n        for (var b = 0; b < a.length; b += 2) {\n          var c = a[b],\n            e = a[b + 1];\n          null !== e.parentNode && e.parentNode.removeChild(e);\n          var f = c.parentNode;\n          if (f) {\n            var g = c.previousSibling,\n              h = 0;\n            do {\n              if (c && 8 === c.nodeType) {\n                var d = c.data;\n                if (\"/$\" === d || \"/&\" === d)\n                  if (0 === h) break;\n                  else h--;\n                else\n                  (\"$\" !== d &&\n                    \"$?\" !== d &&\n                    \"$~\" !== d &&\n                    \"$!\" !== d &&\n                    \"&\" !== d) ||\n                    h++;\n              }\n              d = c.nextSibling;\n              f.removeChild(c);\n              c = d;\n            } while (c);\n            for (; e.firstChild; ) f.insertBefore(e.firstChild, c);\n            g.data = \"$\";\n            g._reactRetry && requestAnimationFrame(g._reactRetry);\n          }\n        }\n        a.length = 0;\n      };\n      $RC = function (a, b) {\n        if ((b = document.getElementById(b)))\n          (a = document.getElementById(a))\n            ? ((a.previousSibling.data = \"$~\"),\n              $RB.push(a, b),\n              2 === $RB.length &&\n                (\"number\" !== typeof $RT\n                  ? requestAnimationFrame($RV.bind(null, $RB))\n                  : ((a = performance.now()),\n                    setTimeout(\n                      $RV.bind(null, $RB),\n                      2300 > a && 2e3 < a ? 2300 - a : $RT + 300 - a\n                    ))))\n            : b.parentNode.removeChild(b);\n      };\n      $RC(\"B:0\", \"S:0\");\n    </script>\n  </body>\n</html>\n\n```\n</details>\n\nLink to code example: https://codesandbox.io/p/devbox/wghlmy\n\n## The current behavior\n\nStreaming scripts and hidden elements in the resulting HTML when using `onAllReady` in `renderToPipeableStream` and `prerenderToNodeStream`.\n\n## The expected behavior\n\nSame as in React 19.1.1. No streaming scripts or hidden elements in the resulting HTML.",
+    "html_url": "https://github.com/facebook/react/issues/34966",
+    "labels": [
+      "Status: Unconfirmed"
+    ]
+  },
+  {
+    "number": 35394,
+    "title": "Bug: `eslint-plugin-react-hooks` hides all errors on multiple findings",
+    "user": "trapgar",
+    "created_at": "2025-12-19T18:39:27",
+    "updated_at": "2025-12-19T18:40:33",
+    "body": "<!--\n  Please provide a clear and concise description of what the bug is. Include\n  screenshots if needed. Please test using the latest version of the relevant\n  React packages to make sure your issue has not already been fixed.\n-->\n\nWhat kind of issue is this?\n\n- [ ] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)\n- [ ] babel-plugin-react-compiler (build issue installing or using the Babel plugin)\n- [x] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)\n- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)\n\nReact version: 19.2.0\n\n## Steps To Reproduce\n\n1. Add `eslint-plugin-react-hooks` to your project\n2. Open a tsx file\n3. Intentionally add a violation of the `react-hooks/set-state-in-effect` rule\n4. In the same file, intentionally add a violation of `react-hooks/static-components` rule\n5. Uncomment 1 of the 2 commented lines of code below\n\n<!--\n  Your bug will get fixed much faster if we can run your code and it doesn't\n  have dependencies other than React. Issues without reproduction steps or\n  code examples may be immediately closed as not actionable.\n-->\n\nLink to code example:\n\n<!--\n  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a\n  repository on GitHub, or provide a minimal code example that reproduces the\n  problem. You may provide a screenshot of the application if you think it is\n  relevant to your bug report. Here are some tips for providing a minimal\n  example: https://stackoverflow.com/help/mcve.\n-->\n\n```tsx\nexport default function App() {\n  const [foo, setFoo] = useState(false);\n\n  useEffect(() => {\n    setFoo(!foo);\n  }, []);\n\n  const ViolateStaticComponents = () => {\n    // const [counter, setCounter] = useState(0);\n    return (\n      <h1>Hello, World!</h1>\n    );\n  };\n\n  // const date = Intl.DateTimeFormat().format(new Date());\n\n  return (\n    <>\n      <ViolateStaticComponents />\n      ...\n    </>\n  );\n}\n```\n\n## The current behavior\nIf you uncomment the code on either line 9 or 15, the linter no longer picks up either set-state-in-effect or static-components rules.\n\n## The expected behavior\nBoth lint rule violations are correctly identified.\n\n---\n\nNot sure why the linter breaks on the 2nd `useState` reference, but I think it's breaking on the `Intl.DateTimeFormat` code because `Intl` isn't marked as a global.",
+    "html_url": "https://github.com/facebook/react/issues/35394",
+    "labels": [
+      "Status: Unconfirmed"
+    ]
+  },
+  {
+    "number": 35393,
+    "title": "Bug:",
+    "user": "RIMKALAND",
+    "created_at": "2025-12-19T18:25:13",
+    "updated_at": "2025-12-19T18:25:13",
+    "body": "<!--\n  Please provide a clear and concise description of what the bug is. Include\n  screenshots if needed. Please test using the latest version of the relevant\n  React packages to make sure your issue has not already been fixed.\n-->\n\nReact version:\n\n## Steps To Reproduce\n\n1.\n2.\n\n<!--\n  Your bug will get fixed much faster if we can run your code and it doesn't\n  have dependencies other than React. Issues without reproduction steps or\n  code examples may be immediately closed as not actionable.\n-->\n\nLink to code example:\n\n<!--\n  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a\n  repository on GitHub, or provide a minimal code example that reproduces the\n  problem. You may provide a screenshot of the application if you think it is\n  relevant to your bug report. Here are some tips for providing a minimal\n  example: https://stackoverflow.com/help/mcve.\n-->\n\n## The current behavior\n\n\n## The expected behavior\n",
+    "html_url": "https://github.com/facebook/react/issues/35393",
+    "labels": [
+      "Status: Unconfirmed"
+    ]
+  },
+  {
     "number": 35389,
     "title": "Bug: react-devtools 7.0.1 - Electron failed to install correctly",
     "user": "dougg0k",
@@ -8,19 +94,6 @@
     "body": "<!--\n  Please provide a clear and concise description of what the bug is. Include\n  screenshots if needed. Please test using the latest version of the relevant\n  React packages to make sure your issue has not already been fixed.\n-->\n\nReact version: Latest\n\n## Steps To Reproduce\n\n1. Install `react-devtools` as global package.\n2. Try running it.\n\n<!--\n  Your bug will get fixed much faster if we can run your code and it doesn't\n  have dependencies other than React. Issues without reproduction steps or\n  code examples may be immediately closed as not actionable.\n-->\n\nLink to code example:\n\n<!--\n  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a\n  repository on GitHub, or provide a minimal code example that reproduces the\n  problem. You may provide a screenshot of the application if you think it is\n  relevant to your bug report. Here are some tips for providing a minimal\n  example: https://stackoverflow.com/help/mcve.\n-->\n\n## The current behavior\n```\n❯ react-devtools         \n~/.local/share/mise/installs/npm-react-devtools/7.0.1/5/.pnpm/electron@23.3.13/node_modules/electron/index.js:17\n    throw new Error('Electron failed to install correctly, please delete node_modules/electron and try installing again');\n    ^\n\nError: Electron failed to install correctly, please delete node_modules/electron and try installing again\n    at getElectronPath (~/.local/share/mise/installs/npm-react-devtools/7.0.1/5/.pnpm/electron@23.3.13/node_modules/electron/index.js:17:11)\n    at Object.<anonymous> (~/.local/share/mise/installs/npm-react-devtools/7.0.1/5/.pnpm/electron@23.3.13/node_modules/electron/index.js:21:18)\n    at Module._compile (node:internal/modules/cjs/loader:1761:14)\n    at Object..js (node:internal/modules/cjs/loader:1893:10)\n    at Module.load (node:internal/modules/cjs/loader:1481:32)\n    at Module._load (node:internal/modules/cjs/loader:1300:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n    at Module.require (node:internal/modules/cjs/loader:1504:12)\n    at require (node:internal/modules/helpers:152:16)\n\nNode.js v24.12.0\n```\n\n## The expected behavior\nTo open the devtools window.\n\n---\n\n\n```\n❯ ll ~/.local/share/mise/installs/npm-react-devtools/7.0.1/5/.pnpm/electron@23.3.13/node_modules/electron \nOctal Permissions Links Size User    Group   Date Modified    Name\n0755  drwxr-xr-x      1    - user user 2025-12-13 08:30  node_modules/\n0644  .rw-r--r--      1 8,2k user user 2025-12-13 08:30  checksums.json\n0755  .rwxr-xr-x      1  612 user user 2025-12-13 08:30  cli.js*\n0644  .rw-r--r--      1 761k user user 2025-12-13 08:30  electron.d.ts\n0644  .rw-r--r--      1  659 user user 2025-12-13 08:30  index.js\n0644  .rw-r--r--      1 3,1k user user 2025-12-13 08:30  install.js\n0644  .rw-r--r--      1 1,1k user user 2025-12-13 08:30  LICENSE\n0644  .rw-r--r--      1  589 user user 2025-12-13 08:30  package.json\n0644  .rw-r--r--      1 5,4k user user 2025-12-13 08:30 󰂺 README.md\n```\n\nI tried to set `ELECTRON_OVERRIDE_DIST_PATH` to the `electron` installed locally.\n\n`ELECTRON_OVERRIDE_DIST_PATH=\"/usr/bin/electron\"` \n\nBut then, no error occur, but also doesnt work.\n\n```\n❯ react-devtools                                                                         \n\n~\n```\n\nPerhaps if electron were upgraded to latest. Latest being `extra/electron39 39.2.7-1 [installed]`, yet it is still using version `23`.",
     "html_url": "https://github.com/facebook/react/issues/35389",
     "labels": [
-      "Status: Unconfirmed"
-    ]
-  },
-  {
-    "number": 35379,
-    "title": "React Compiler generates erroneous code when an app contains a component named `Symbol`",
-    "user": "devuxer",
-    "created_at": "2025-12-17T03:03:34",
-    "updated_at": "2025-12-19T13:22:02",
-    "body": "### What kind of issue is this?\n\n- [x] React Compiler core (the JS output is incorrect, or your app works incorrectly after optimization)\n- [ ] babel-plugin-react-compiler (build issue installing or using the Babel plugin)\n- [ ] eslint-plugin-react-hooks (build issue installing or using the eslint plugin)\n- [ ] react-compiler-healthcheck (build issue installing or using the healthcheck script)\n\n### Link to repro\n\nhttps://playground.react.dev/#N4Igzg9grgTgxgUxALhAejQAgMIwQQwBcFN9M4IBbABwgDsE7DM79KEATTAZQE9KARhAA2AHToAzKHTiEAlvR78hwgBQBKTMHGZMeQrDqYAPBzkA3AHwBJUpVJLBI8lVoMmxtGasBucQF9xcQxMAFUwEjlmOSMAQWpqcQQAD1oYZg4ECXwoYWYpGXlFeOoNLR09BAMYI1UK3VMLS3rdEwALAEZLACUCWRxXOWEEGEwAISgAc0xe6hgIDihZBTpPTuajVoa+J2FMNA2tz29DzHU-On8QABoQCkk5SZQQORoIdMxCXmoSYEwABWEUxiAHlqEU6GBMP5MBJ5vYAOQCfACBDCAC01CBkxi6Lw+Fk6IoNCGIy8cjAhARF3Eqm0mwwxOoQyIKwAsgsEMhMKIQPhhGIQAFMGBWWAJHIEFDAcC6GCIWBzjdwG0IAB3axMEasYRgFDZXUIfxAA\n\n### Repro steps\n\n1. Configure a React app to run React Compiler.\n2. Create a component named `Symbol`.\n3. Run the app.\n\nThe issue relates to the fact that React Compiler generates output with a call to `Symbol.for`. As shown in the playground link, if a component is in scope with the name `Symbol`, the compiler-generated code tries to call the `for` method on the React component rather than `globalThis.Symbol`. This results in the runtime error \"Symbol.for is not a function\".\n\n### How often does this bug happen?\n\nEvery time\n\n### What version of React are you using?\n\n19.2.3\n\n### What version of React Compiler are you using?\n\n1.0.0",
-    "html_url": "https://github.com/facebook/react/issues/35379",
-    "labels": [
-      "Type: Bug",
       "Status: Unconfirmed"
     ]
   },
@@ -35,19 +108,6 @@
     "labels": [
       "Type: Bug",
       "Status: Unconfirmed"
-    ]
-  },
-  {
-    "number": 30580,
-    "title": "[React 19] Controlled `<select>` component is subject to automatic form reset",
-    "user": "cjg1122",
-    "created_at": "2024-08-02T10:01:56",
-    "updated_at": "2025-12-18T19:25:03",
-    "body": "The controlled component also resets the \"select\" after the action is triggered.\r\nbut the \"input\" component does not.\r\n\r\n```jsx\r\n\"use client\";\r\nimport { useActionState, useState } from \"react\";\r\nfunction add() {\r\n  return Date.now();\r\n}\r\nexport default function Page() {\r\n  const [state, formAction] = useActionState(add, 0);\r\n  const [name, setName] = useState(\"\");\r\n  const [type, setType] = useState(\"2\");\r\n  return (\r\n    <form action={formAction}>\r\n      <p>{state}</p>\r\n      <p>\r\n        <input\r\n          type=\"text\"\r\n          value={name}\r\n          onChange={(e) => setName(e.target.value)}\r\n        />\r\n      </p>\r\n      <p>\r\n        <select\r\n          name=\"gender\"\r\n          value={type}\r\n          onChange={(e) => setType(e.target.value)}\r\n        >\r\n          <option value=\"1\">1</option>\r\n          <option value=\"2\">2</option>\r\n          <option value=\"3\">3</option>\r\n        </select>\r\n      </p>\r\n      <button>submit</button>\r\n    </form>\r\n  );\r\n}\r\n```\r\n\r\n![20240802-193357](https://github.com/user-attachments/assets/c61f2b1c-a00c-4982-aba3-5061770f719a)\r\n\r\nRepro: https://codesandbox.io/p/sandbox/stupefied-cohen-n578l6",
-    "html_url": "https://github.com/facebook/react/issues/30580",
-    "labels": [
-      "Type: Bug",
-      "React 19"
     ]
   },
   {
@@ -556,70 +616,6 @@
     "updated_at": "2025-12-08T07:08:45",
     "body": "## Keywords\r\n\r\n- React 18\r\n- createRoot\r\n- CSS selector\r\n- CSS Target\r\n- :target\r\n\r\n<!--\r\n  Please provide a clear and concise description of what the bug is. Include\r\n  screenshots if needed. Please test using the latest version of the relevant\r\n  React packages to make sure your issue has not already been fixed.\r\n-->\r\n\r\n## React version: React@18\r\n\r\n## Steps To Reproduce\r\n\r\n1. open https://joyful-kelpie-c3bb20.netlify.app/buggy.html\r\n2. click `go to react id target` link\r\n3. You should see the `react id target` with green background\r\n4. Refresh page. The green background disappears\r\n\r\n<!--\r\n  Your bug will get fixed much faster if we can run your code and it doesn't\r\n  have dependencies other than React. Issues without reproduction steps or\r\n  code examples may be immediately closed as not actionable.\r\n-->\r\n\r\nLink to code example:\r\n\r\nThe webpage source code is simple. You could check the source code directly.\r\n\r\nOr, you can check this:\r\nhttps://gist.github.com/magic-akari/475a13219394fb938cff4169a9b61eb7\r\n\r\n\r\n<!--\r\n  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a\r\n  repository on GitHub, or provide a minimal code example that reproduces the\r\n  problem. You may provide a screenshot of the application if you think it is\r\n  relevant to your bug report. Here are some tips for providing a minimal\r\n  example: https://stackoverflow.com/help/mcve.\r\n-->\r\n\r\n\r\n## The current behavior\r\nCSS target selector does not work.\r\nThe green background disappears after refresh pages.\r\n\r\n## The expected behavior\r\n\r\nCSS target selector should work after refresh pages.\r\n\r\nSee: https://joyful-kelpie-c3bb20.netlify.app/ok.html",
     "html_url": "https://github.com/facebook/react/issues/26374",
-    "labels": [
-      "Status: Unconfirmed"
-    ]
-  },
-  {
-    "number": 35220,
-    "title": "Bug: useState hook not updating state correctly in async functions",
-    "user": "Arun24-8",
-    "created_at": "2025-11-26T10:27:48",
-    "updated_at": "2025-12-08T06:52:55",
-    "body": "## Bug Description\nWhen using useState hook inside an async function, the state doesn't update correctly after awaiting a promise.\n\n## Steps To Reproduce\n1. Create a component with useState\n2. Create an async function that awaits a promise\n3. Try to update state after the await\n4. State shows stale value\n\n## Expected Behavior\nState should update correctly after async operations\n\n## Actual Behavior\nState retains old value\n\nReact version: 19.0.0",
-    "html_url": "https://github.com/facebook/react/issues/35220",
-    "labels": [
-      "Status: Unconfirmed"
-    ]
-  },
-  {
-    "number": 34866,
-    "title": "[DevTools Bug]: CSS Animation Errors When Using Devtools",
-    "user": "SocietyNiu",
-    "created_at": "2025-10-15T23:52:23",
-    "updated_at": "2025-12-08T06:20:04",
-    "body": "### Website or app\n\nhttps://stackblitz.com/edit/stackblitz-starters-n26smqed?file=pages%2Findex.js\n\n### Repro steps\n\nRepro steps:\n1.  Install 7.0.0 React DevTools\n2.  Use this [sample project](https://stackblitz.com/edit/stackblitz-starters-n26smqed?file=pages%2Findex.js)\n3. Open preview **in new tab**\n4. Run the animation and disable the DevTools to run it again\n\nThe animation becomes abnormal after using DevTools 7.0.0\nThe error happens not only the browser extension, but also local terminal.\n\nhttps://github.com/user-attachments/assets/95960302-f3d3-4acb-b8d4-f511ecdd2ad1\n\n### How often does this bug happen?\n\nEvery time\n\n### DevTools package (automated)\n\n_No response_\n\n### DevTools version (automated)\n\n_No response_\n\n### Error message (automated)\n\n_No response_\n\n### Error call stack (automated)\n\n```text\n\n```\n\n### Error component stack (automated)\n\n```text\n\n```\n\n### GitHub query string (automated)\n\n```text\n\n```",
-    "html_url": "https://github.com/facebook/react/issues/34866",
-    "labels": [
-      "Type: Bug",
-      "Status: Unconfirmed",
-      "Component: Developer Tools"
-    ]
-  },
-  {
-    "number": 33738,
-    "title": "[DevTools Bug] Cannot remove node \"810\" because no matching node was found in the Store.",
-    "user": "mazamine",
-    "created_at": "2025-07-08T19:14:57",
-    "updated_at": "2025-12-07T12:05:50",
-    "body": "### Website or app\n\nhttps://www.intermarche.com/\n\n### Repro steps\n\nit doesn't work with the updated version of chrome\n\n\n### How often does this bug happen?\n\nEvery time\n\n### DevTools package (automated)\n\nreact-devtools-extensions\n\n### DevTools version (automated)\n\n6.1.5-5d87cd2244\n\n### Error message (automated)\n\nCannot remove node \"810\" because no matching node was found in the Store.\n\n### Error call stack (automated)\n\n```text\nat chrome-extension://fmkadmapgofadopljbjfkapdkoienihi/build/main.js:1:1238165\n    at v.emit (chrome-extension://fmkadmapgofadopljbjfkapdkoienihi/build/main.js:1:1203447)\n    at chrome-extension://fmkadmapgofadopljbjfkapdkoienihi/build/main.js:1:1205054\n    at bridgeListener (chrome-extension://fmkadmapgofadopljbjfkapdkoienihi/build/main.js:1:1620565)\n```\n\n### Error component stack (automated)\n\n```text\n\n```\n\n### GitHub query string (automated)\n\n```text\nhttps://api.github.com/search/issues?q=Cannot remove node  because no matching node was found in the Store. in:title is:issue is:open is:public label:\"Component: Developer Tools\" repo:facebook/react\n```",
-    "html_url": "https://github.com/facebook/react/issues/33738",
-    "labels": [
-      "Type: Bug",
-      "Status: Unconfirmed",
-      "Component: Developer Tools"
-    ]
-  },
-  {
-    "number": 29045,
-    "title": "Bug: eslint-plugin-react-hooks documentation might be misleading",
-    "user": "StyleShit",
-    "created_at": "2024-05-12T19:16:25",
-    "updated_at": "2025-12-07T06:07:31",
-    "body": "Splits from https://github.com/WordPress/gutenberg/issues/61598 & https://github.com/WordPress/gutenberg/pull/61599\r\n\r\nThe current explanation about \"[additionalHooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks#advanced-configuration)\" under `react-hooks/exhaustive-deps` might be misleading. The regex in the example catches more than needed.\r\n\r\nThis:\r\n```json\r\n\"additionalHooks\": \"(useMyCustomHook|useMyOtherCustomHook)\"\r\n```\r\n\r\nWill catch also things like this:\r\n```js\r\nfunction App() {\r\n\tconst data1 = useMyCustomHook2();\r\n\tconst data2 = useMyOtherCustomHookTest();\r\n\r\n\t// ...\r\n}\r\n```\r\n\r\nThis might be the reason why Gutenberg used the same approach (which caused the bug mentioned above):\r\nhttps://github.com/WordPress/gutenberg/blob/2df566c771dba22eec2841081a00963a2e56658c/packages/eslint-plugin/configs/react.js#L37-L42",
-    "html_url": "https://github.com/facebook/react/issues/29045",
-    "labels": [
-      "Status: Unconfirmed"
-    ]
-  },
-  {
-    "number": 31906,
-    "title": "Bug: source maps are missing from react npm packages",
-    "user": "asvishnyakov",
-    "created_at": "2024-12-25T04:10:50",
-    "updated_at": "2025-12-06T00:23:30",
-    "body": "<!--\r\n  Please provide a clear and concise description of what the bug is. Include\r\n  screenshots if needed. Please test using the latest version of the relevant\r\n  React packages to make sure your issue has not already been fixed.\r\n-->\r\n\r\nReact version: 19.0.0, applicable to lower versions\r\n\r\n## Steps To Reproduce\r\n\r\nInstall react npm package\r\n\r\n<!--\r\n  Your bug will get fixed much faster if we can run your code and it doesn't\r\n  have dependencies other than React. Issues without reproduction steps or\r\n  code examples may be immediately closed as not actionable.\r\n-->\r\n\r\nLink to code example:\r\n\r\n<!--\r\n  Please provide a CodeSandbox (https://codesandbox.io/s/new), a link to a\r\n  repository on GitHub, or provide a minimal code example that reproduces the\r\n  problem. You may provide a screenshot of the application if you think it is\r\n  relevant to your bug report. Here are some tips for providing a minimal\r\n  example: https://stackoverflow.com/help/mcve.\r\n-->\r\n\r\n## The current behavior\r\nSource maps is missing\r\n\r\n## The expected behavior\r\nSource maps should be generated and present",
-    "html_url": "https://github.com/facebook/react/issues/31906",
     "labels": [
       "Status: Unconfirmed"
     ]

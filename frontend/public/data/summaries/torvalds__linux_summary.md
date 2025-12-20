@@ -4,36 +4,35 @@
 
 - **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (60d):** 200
+- **Recent Commits (30d):** 200
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-No open pull requests in the last 60 days.
+No open pull requests in the last 30 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 60 Days)
+### Pull Request History (Last 30 Days)
 
 - [#175](https://github.com/torvalds/linux/pull/175): Fixed License (by @revmischa) — **Closed, closed at 2025-09-22T18:16:21**
 - [#437](https://github.com/torvalds/linux/pull/437): this code very fast (by @ahmetilgin) — **Closed, closed at 2025-09-22T18:14:04**
-- [#637](https://github.com/torvalds/linux/pull/637): - (by @orhanerday) — **Closed, closed at 2019-02-13T08:35:13**
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 60 days.
+No open issues in the last 30 days.
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 60 Days)
+### Recent Commits (Last 30 Days)
 
 - [dd9b004](https://github.com/torvalds/linux/commit/dd9b004b7ff3289fb7bae35130c0a5c0537266af): Merge tag 'trace-v6.19-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace (by @torvalds, 2025-12-18)
 - [5164715](https://github.com/torvalds/linux/commit/516471569089749163be24b973ea928b56ac20d9): Merge tag 'libcrypto-fixes-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux (by @torvalds, 2025-12-18)
@@ -238,7 +237,7 @@ No open issues in the last 60 days.
 
 ---
 
-### 📈 Commit Activity (Last 60 Days)
+### 📈 Commit Activity (Last 30 Days)
 - **Top Contributors:**
   - @torvalds — 51 commits
   - @Mikulas Patocka — 7 commits

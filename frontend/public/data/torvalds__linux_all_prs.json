@@ -41,24 +41,5 @@
         "deletions": 996
       }
     ]
-  },
-  {
-    "number": 637,
-    "title": "-",
-    "user": "orhanerday",
-    "state": "closed",
-    "merged": false,
-    "created_at": "2018-12-29T21:59:04",
-    "updated_at": "2025-10-21T09:50:28",
-    "closed_at": "2019-02-13T08:35:13",
-    "body": "# This PR opened in 2018 \r\n\r\n\r\n## UPDATE 2025\r\n\r\nHi everyone,\r\n\r\nI’d like to sincerely apologise for this pull request.\r\nLooking back, I realise it was completely unnecessary and not an appropriate way to engage with the Linux kernel project.\r\n\r\nAt the time (2018), I was still learning how GitHub works and how contributions to large projects like the kernel are supposed to be made. My intent wasn’t to waste anyone’s time or cause a distraction, but I now understand that even small, non-functional changes can create noise and take attention away from important work.\r\n\r\nTo all the contributors (listed below) and especially @torvalds, I apologize for any inconvenience or disruption this may have caused. I appreciate the work you all do and have a much greater respect for the proper contribution process now.\r\n\r\nThank you for your understanding,\r\n\r\nBR,\r\nOrhan\r\n\r\n\r\n@cioccarellia, @bigodines, @legiorange, @Trumeet, @Mervin1024, @gs666, @imzf, @phariel, @geminate, @ansonsiva, @nickdine, @xpiaoyu, @zhangguanzhang, @AwadYoo, @Liam0205, @BaiBaiRTC, @monkey-soft, @Ted-Zhang, @0x750, @tennessine, @Germey, @cavin2012, @Sup0rsonic, @MrAMS, @nabilfreeman, @kwilliams1987, @bechedire, @sn99, @Mikotochan, @deyikong, @axegon, @thearyong, @yai-dev, @newdee, @MrZhaii, @maldiohead, @alfedsun, @cybertxt, @munizart, @immarktube, @whberet, @kkjinping, @skymei, @annazhong, @samzhangss, @carlosbridi, @hochbaum, @skylar2k, @roccodev, @z-zkagami, @vinkdong, @FateForWindows, @LeoEatle, @code-written-by-monkeys , @flouthoc, @JamesTheHacker, @me11203sci, @PatoCinza, @resynth1943\r\n",
-    "html_url": "https://github.com/torvalds/linux/pull/637",
-    "files": [
-      {
-        "filename": "arch/alpha/kernel/core_tsunami.c",
-        "additions": 0,
-        "deletions": 484
-      }
-    ]
   }
 ]

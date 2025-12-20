@@ -1,5 +1,1805 @@
 [
   {
+    "sha": "4baf6a3d215f91e4a58c3fa0cb1fd890248bebbb",
+    "author": "yashk2810",
+    "message": "Add replicated -> unreduced test coverage\n\nPiperOrigin-RevId: 846930629",
+    "date": "2025-12-20T02:06:03",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/4baf6a3d215f91e4a58c3fa0cb1fd890248bebbb",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/python/version.h",
+        "additions": 1,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "8f784b11c3dc5106065bc9b9089eb80f004ea747",
+    "author": "jcai19",
+    "message": "[XLA][Numerics][HLO Value Tracking] Support HLO original value in CopyFusion pass\n\nThis updates the HLO orignal value of a fusion accordingly if its shape is updated in the pass.\n\nPiperOrigin-RevId: 846927675",
+    "date": "2025-12-20T01:55:17",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/8f784b11c3dc5106065bc9b9089eb80f004ea747",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/copy_fusion.cc",
+        "additions": 9,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/copy_fusion_test.cc",
+        "additions": 27,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "9d833374f9caee892d2e915623bbf67fca7c4b26",
+    "author": "pschuh",
+    "message": "Move mutability tracking from Tracked buffers to RawBuffers as this is only used for importing foreign memory and clutters the API.\n\nPiperOrigin-RevId: 846916941",
+    "date": "2025-12-20T01:06:23",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/9d833374f9caee892d2e915623bbf67fca7c4b26",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/pjrt/common_pjrt_client.cc",
+        "additions": 18,
+        "deletions": 23
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/common_pjrt_client.h",
+        "additions": 2,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/cpu_client.cc",
+        "additions": 19,
+        "deletions": 15
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/cpu_client.h",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/raw_buffer.cc",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/raw_buffer.h",
+        "additions": 9,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer.cc",
+        "additions": 1,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer.h",
+        "additions": 1,
+        "deletions": 6
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer_test.cc",
+        "additions": 4,
+        "deletions": 6
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/gpu/se_gpu_pjrt_client.cc",
+        "additions": 2,
+        "deletions": 4
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/gpu/se_gpu_pjrt_client_test.cc",
+        "additions": 1,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/host_to_device_transfer_manager.cc",
+        "additions": 1,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/pjrt_stream_executor_client.cc",
+        "additions": 1,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/pjrt_stream_executor_client.h",
+        "additions": 1,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "f4a923fa821e2c25d9670ae33e443742f4fc1201",
+    "author": "ZixuanJiang",
+    "message": "Add a walk to convert unreduced `sdy.constant` to replicated `sdy.constant` and `sdy.replicated_to_unreduced`.\n\nPiperOrigin-RevId: 846916791",
+    "date": "2025-12-20T01:05:56",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/f4a923fa821e2c25d9670ae33e443742f4fc1201",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/service/spmd/shardy/stablehlo_round_trip/export_manual_reduction_collectives.cc",
+        "additions": 20,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/spmd/shardy/test/stablehlo_export_manual_reduction_collectives.mlir",
+        "additions": 31,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "911ce60c2902b58cd892ca05f2297d72ef624e5f",
+    "author": "qukhan",
+    "message": "Use the XNNPack packing fingerprints to invalidate the weight cache.\n\nPiperOrigin-RevId: 846914182",
+    "date": "2025-12-20T00:58:16",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/911ce60c2902b58cd892ca05f2297d72ef624e5f",
+    "files": [
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/BUILD",
+        "additions": 35,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/channelwise_quantized_conv_2d_test.cc",
+        "additions": 20,
+        "deletions": 71
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/channelwise_quantized_depthwise_conv_2d_test.cc",
+        "additions": 24,
+        "deletions": 92
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/conv_2d_test.cc",
+        "additions": 33,
+        "deletions": 126
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/depthwise_conv_2d_test.cc",
+        "additions": 33,
+        "deletions": 137
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_conv_2d_test.cc",
+        "additions": 24,
+        "deletions": 155
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_fully_connected_test.cc",
+        "additions": 6,
+        "deletions": 107
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_transpose_conv_test.cc",
+        "additions": 14,
+        "deletions": 46
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/dynamically_quantized_transpose_conv_tester.cc",
+        "additions": 6,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/fingerprint_test_helpers.h",
+        "additions": 112,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/fully_connected_test.cc",
+        "additions": 29,
+        "deletions": 123
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_conv_2d_test.cc",
+        "additions": 22,
+        "deletions": 75
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_depthwise_conv_2d_test.cc",
+        "additions": 27,
+        "deletions": 95
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_fully_connected_test.cc",
+        "additions": 19,
+        "deletions": 72
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/signed_quantized_transpose_conv_test.cc",
+        "additions": 26,
+        "deletions": 101
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/transpose_conv_test.cc",
+        "additions": 38,
+        "deletions": 161
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_conv_2d_test.cc",
+        "additions": 22,
+        "deletions": 75
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_depthwise_conv_2d_test.cc",
+        "additions": 27,
+        "deletions": 94
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_fully_connected_test.cc",
+        "additions": 17,
+        "deletions": 68
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/unsigned_quantized_transpose_conv_test.cc",
+        "additions": 26,
+        "deletions": 101
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache.cc",
+        "additions": 64,
+        "deletions": 21
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache.h",
+        "additions": 3,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache_schema.fbs",
+        "additions": 4,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/lite/delegates/xnnpack/weight_cache_test.cc",
+        "additions": 134,
+        "deletions": 58
+      }
+    ]
+  },
+  {
+    "sha": "49fda87ad762c8210eeac05926ce0281230a7d36",
+    "author": "tensorflower-gardener",
+    "message": "Update usage of llvm::PointerType::getUnqual to use non-deprecated version\n\nPiperOrigin-RevId: 846902320",
+    "date": "2025-12-20T00:14:19",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/49fda87ad762c8210eeac05926ce0281230a7d36",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/vector_ir_builder.cc",
+        "additions": 4,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "cb2c66e7150d69af0473ff2ceffab7980111e727",
+    "author": "vksnk",
+    "message": "[XLA:CPU] Enable window dilation support in XLA CPU YNN convolution.\n\nPiperOrigin-RevId: 846895590",
+    "date": "2025-12-19T23:55:14",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/cb2c66e7150d69af0473ff2ceffab7980111e727",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/backends/cpu/ynn_emitter.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/ynn_support.cc",
+        "additions": 2,
+        "deletions": 4
+      }
+    ]
+  },
+  {
+    "sha": "3feec3590c4d9d8d00e54954f4da05c7c3e72bcc",
+    "author": "nvgrw",
+    "message": "Migrate reshape_motion_test to PjRt.\n\nPiperOrigin-RevId: 846886339",
+    "date": "2025-12-19T23:23:06",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/3feec3590c4d9d8d00e54954f4da05c7c3e72bcc",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/tests/BUILD",
+        "additions": 5,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/tests/reshape_motion_test.cc",
+        "additions": 7,
+        "deletions": 18
+      }
+    ]
+  },
+  {
+    "sha": "af8c7d0e2e006be6e69b0034d3d2d9fb1e744179",
+    "author": "tensorflower-gardener",
+    "message": "Apply llvm-use-new-mlir-op-builder fixes\n\nThis migrates `builder.create<Op>()` => `Op::create()`\n\nPiperOrigin-RevId: 846865415",
+    "date": "2025-12-19T22:17:57",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/af8c7d0e2e006be6e69b0034d3d2d9fb1e744179",
+    "files": [
+      {
+        "filename": "tensorflow/compiler/mlir/stablehlo/transforms/utils.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/cluster_formation.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/cluster_ops_by_policy.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/convert_control_to_data_outputs.cc",
+        "additions": 13,
+        "deletions": 11
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/decompose_resource_ops.cc",
+        "additions": 18,
+        "deletions": 17
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/einsum.cc",
+        "additions": 31,
+        "deletions": 31
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/extract_tpu_copy_with_dynamic_shape_op.cc",
+        "additions": 7,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/fused_kernel_matcher.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/hoist_replicate_invariant_resource_writes.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/host_runtime/tpu_merge_variables_with_execute.cc",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/lower_tf.cc",
+        "additions": 314,
+        "deletions": 299
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/prepare_tpu_computation_for_tf_export.cc",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/replicate_invariant_op_hoisting.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/rewrite_tpu_embedding_ops.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/sparsecore/embedding_program_key.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/tf_data_optimization.cc",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/tpu_parallel_execute_sink_resource_write.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/tpu_resource_read_for_write.cc",
+        "additions": 6,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/transforms/unroll_batch_matmul.cc",
+        "additions": 14,
+        "deletions": 14
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/utils/parallel_execute_util.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/utils/tpu_rewrite_device_util_test.cc",
+        "additions": 28,
+        "deletions": 28
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/utils/xla_rewrite_util.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tensorflow/utils/xla_sharding_util.cc",
+        "additions": 31,
+        "deletions": 29
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/legalize_tf.cc",
+        "additions": 710,
+        "deletions": 653
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/legalize_tf_collective.cc",
+        "additions": 11,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/legalize_tf_communication.cc",
+        "additions": 22,
+        "deletions": 22
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/split_into_island_per_op_pass.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/split_into_island_per_op_pass_test.cc",
+        "additions": 8,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/tfxla_device_specific_transforms.cc",
+        "additions": 3,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/utils.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/utils.h",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tf2xla/transforms/xla_legalize_targets_test.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfr/ir/tfr_ops.cc",
+        "additions": 70,
+        "deletions": 60
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfr/passes/canonicalize.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfr/passes/raise_to_tf.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/deduplicate_if_result_pass.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/fuse_tpu_compile_and_execute_ops.cc",
+        "additions": 5,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/ifrt/rewrite_cluster_to_ifrt_call.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/ifrt/tf_restore_merging.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/ifrt/tf_restore_splitting.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/lower_saved_model.cc",
+        "additions": 17,
+        "deletions": 17
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tfrt/transforms/merge_tf_if_ops.cc",
+        "additions": 8,
+        "deletions": 7
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/broadcast_propagation_pass.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/embed_tf_framework.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/func_to_jit_invocations.cc",
+        "additions": 33,
+        "deletions": 33
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/merge_assuming_ops_pass.cc",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/rewrite_tf_framework_assert.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/tensorflow_abi_knowledge_propagation.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/tf_framework_legalize_to_llvm.cc",
+        "additions": 63,
+        "deletions": 60
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/tf_kernel_to_llvm_pass.cc",
+        "additions": 23,
+        "deletions": 22
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/tools/kernel_gen/transforms/utils.cc",
+        "additions": 6,
+        "deletions": 5
+      }
+    ]
+  },
+  {
+    "sha": "84ad581652911f91120f53bb07bcaeed812f34a3",
+    "author": "tensorflower-gardener",
+    "message": "Apply llvm-use-new-mlir-op-builder fixes\n\nThis migrates `builder.create<Op>()` => `Op::create()`\n\nPiperOrigin-RevId: 846862419",
+    "date": "2025-12-19T22:10:03",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/84ad581652911f91120f53bb07bcaeed812f34a3",
+    "files": [
+      {
+        "filename": "tensorflow/compiler/tf2xla/kernels/xla_call_module_op.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/core/function/testing/test_pass.h",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/core/transforms/eliminate_passthrough_iter_args/pass.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/core/transforms/func_to_graph/func_to_graph.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/core/transforms/functional_to_region/impl.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/core/transforms/graph_to_func/graph_to_func.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/core/transforms/region_to_functional/impl.cc",
+        "additions": 21,
+        "deletions": 21
+      },
+      {
+        "filename": "tensorflow/dtensor/cc/save_restore_util.cc",
+        "additions": 6,
+        "deletions": 7
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/cluster_function_conversion.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/collectives.cc",
+        "additions": 56,
+        "deletions": 52
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/device_mesh_cluster_coarsening.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_allreduce_combine_optimization.cc",
+        "additions": 16,
+        "deletions": 16
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_allreduce_scatter_optimization.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_allreduce_sum_optimization.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_layout_to_xla_sharding_op.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_mixed_precision_reduce.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_replace_relayout_with_identity.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/dtensor_send_recv.cc",
+        "additions": 66,
+        "deletions": 66
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/argmax_spmd_expander.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/dataparallel_spmd_expander.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/io_op_spmd_expander.cc",
+        "additions": 9,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/iterator_spmd_expander.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/meta_spmd_expander.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/optional_spmd_expander.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/random_op_spmd_expander.cc",
+        "additions": 21,
+        "deletions": 20
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/replicated_spmd_expander.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/segmentation_spmd_expander.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/slice_spmd_expander.cc",
+        "additions": 4,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/softmax_spmd_expander.cc",
+        "additions": 48,
+        "deletions": 52
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/expansions/tensorlist_reserve_spmd_expander.cc",
+        "additions": 3,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/handle_cross_cluster_dependencies.cc",
+        "additions": 10,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/layout_propagation_v2.cc",
+        "additions": 15,
+        "deletions": 19
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/lower_send_recv.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/merge_clusters.cc",
+        "additions": 20,
+        "deletions": 20
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/move_compilation_to_host.cc",
+        "additions": 18,
+        "deletions": 18
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/op_to_device_cluster.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/op_utils.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/propagate_default_layout.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/propagate_device_id_to_function_args.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/restore_shape_inference.cc",
+        "additions": 7,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/sparse_expansions/dynamic_enqueue_sparse_expander.cc",
+        "additions": 14,
+        "deletions": 15
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/sparse_expansions/matmul_sparse_expander.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/spmd_expander_common.cc",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/tpu_integration.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/utils/collective_lowering.cc",
+        "additions": 91,
+        "deletions": 84
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/utils/update_tpu_metadata.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/dtensor/mlir/value_utils.cc",
+        "additions": 46,
+        "deletions": 42
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/emitters/cpu_fusion_emitter.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/emitters/cpu_scatter_emitter.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/emitters/transforms/peel_workgroup_loop.cc",
+        "additions": 14,
+        "deletions": 14
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/emitters/transforms/xla_cpu_rewrite_patterns.cc",
+        "additions": 37,
+        "deletions": 35
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/tiled/transforms/lower_xtile_entry.cc",
+        "additions": 29,
+        "deletions": 26
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/tiled/transforms/lowering_utils.cc",
+        "additions": 6,
+        "deletions": 5
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/tiled/transforms/shlo_to_vector.cc",
+        "additions": 12,
+        "deletions": 11
+      },
+      {
+        "filename": "third_party/xla/xla/backends/cpu/codegen/tiled/transforms/vectorized_reduce_emitter.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/codegen/triton/transforms/int4_passes.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/expand_float_ops.cc",
+        "additions": 59,
+        "deletions": 59
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/flatten_tensors.cc",
+        "additions": 19,
+        "deletions": 19
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_xla_intrinsic_lib.cc",
+        "additions": 7,
+        "deletions": 7
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_xla_to_scf.cc",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/unswitch_loops.cc",
+        "additions": 12,
+        "deletions": 9
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/emitters/transforms/vectorize_loads_stores.cc",
+        "additions": 19,
+        "deletions": 19
+      },
+      {
+        "filename": "third_party/xla/xla/codegen/intrinsic/intrinsic.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/experimental/auto_sharding/auto_sharding_stablehlo_pass.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/translate/hlo_to_mhlo/async_importer.cc",
+        "additions": 21,
+        "deletions": 21
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/translate/hlo_to_mhlo/custom_call_importer.cc",
+        "additions": 15,
+        "deletions": 18
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/translate/hlo_to_mhlo/hlo_utils.cc",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/mlir/framework/transforms/outline_with_xla_framework.cc",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "third_party/xla/xla/mlir/framework/transforms/xla_framework_to_llvm_pass.cc",
+        "additions": 23,
+        "deletions": 17
+      },
+      {
+        "filename": "third_party/xla/xla/mlir_hlo/utils/hlo_utils.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/python/ifrt/ir/transforms/ifrt_merge_reshards_pass.cc",
+        "additions": 7,
+        "deletions": 7
+      }
+    ]
+  },
+  {
+    "sha": "b35e4ed192d1e9cefcf6be5e5657e4256d778787",
+    "author": "Varcho",
+    "message": "[ReplicaGroupV3][Refactor][4/n] Update replica group classes to hide implementation details (via private/protected) to external callers.\n\nPiperOrigin-RevId: 846860541",
+    "date": "2025-12-19T22:05:31",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/b35e4ed192d1e9cefcf6be5e5657e4256d778787",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/hlo/ir/replica_group.h",
+        "additions": 34,
+        "deletions": 41
+      }
+    ]
+  },
+  {
+    "sha": "d6a407c9f5e0774e26b2f85b420381ff72d7ea67",
+    "author": "tensorflower-gardener",
+    "message": "Integrate LLVM at llvm/llvm-project@7d381f2a5634\n\nUpdates LLVM usage to match\n[7d381f2a5634](https://github.com/llvm/llvm-project/commit/7d381f2a5634)\n\nPiperOrigin-RevId: 846858892",
+    "date": "2025-12-19T22:02:02",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/d6a407c9f5e0774e26b2f85b420381ff72d7ea67",
+    "files": [
+      {
+        "filename": "third_party/xla/third_party/llvm/generated.patch",
+        "additions": 151,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/third_party/llvm/workspace.bzl",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/third_party/shardy/temporary.patch",
+        "additions": 471,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/third_party/shardy/workspace.bzl",
+        "additions": 2,
+        "deletions": 2
+      }
+    ]
+  },
+  {
+    "sha": "5e685fb6e1e645a3af69c1b462d2329abdac7357",
+    "author": "tensorflower-gardener",
+    "message": "Apply llvm-use-new-mlir-op-builder fixes\n\nThis migrates `builder.create<Op>()` => `Op::create()`\n\nPiperOrigin-RevId: 846854812",
+    "date": "2025-12-19T21:53:16",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/5e685fb6e1e645a3af69c1b462d2329abdac7357",
+    "files": [
+      {
+        "filename": "tensorflow/compiler/mlir/lite/debug/debug_test.cc",
+        "additions": 7,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/experimental/common/outline_operations.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/experimental/tac/transforms/device_transform.cc",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/experimental/tac/transforms/device_transform_patterns.cc",
+        "additions": 9,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/experimental/tac/transforms/pick_subgraphs.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/quantization/common/quantization_lib/quantization_utils.h",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/quantization/tensorflow/tf_to_quant.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/compose_uniform_quantized_type_pass.cc",
+        "additions": 44,
+        "deletions": 52
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo.cc",
+        "additions": 268,
+        "deletions": 252
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/conv_util.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/custom_call.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/dot_general.cc",
+        "additions": 59,
+        "deletions": 54
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/fft.cc",
+        "additions": 27,
+        "deletions": 23
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/gelu.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/if.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/reduce.cc",
+        "additions": 19,
+        "deletions": 18
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/reduce_window.cc",
+        "additions": 13,
+        "deletions": 13
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/scatter.cc",
+        "additions": 11,
+        "deletions": 11
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/slice.cc",
+        "additions": 21,
+        "deletions": 21
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/util.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/util.h",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_hlo_conversions/while.cc",
+        "additions": 4,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_stablehlo_custom_call_to_composite.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_stablehlo_to_vhlo.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/legalize_tf_xla_call_module_to_stablehlo_pass.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/optimize.cc",
+        "additions": 11,
+        "deletions": 10
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/smuggle_disallowed_ops.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/stablehlo_fuse_convolution_pass.cc",
+        "additions": 11,
+        "deletions": 9
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/tflite_legalize_hlo.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/stablehlo/transforms/unfold_splat_constant_pass.cc",
+        "additions": 5,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/decompose_hybrid_quantization.cc",
+        "additions": 5,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/if_outline.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/insert_call_once_op.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/optimize_batch_matmul_pass.cc",
+        "additions": 29,
+        "deletions": 25
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/optimize_broadcast_like_pass.cc",
+        "additions": 7,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/optimize_pass.cc",
+        "additions": 140,
+        "deletions": 127
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/pin_ops_with_side_effects.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/post_quantize.cc",
+        "additions": 15,
+        "deletions": 14
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/prepare_tf.cc",
+        "additions": 77,
+        "deletions": 74
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/push_transpose_through_ewise_pass.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/quantize.cc",
+        "additions": 5,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/quantize_variables.cc",
+        "additions": 22,
+        "deletions": 21
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/raise_custom_ops.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/reduce_type_precision.cc",
+        "additions": 6,
+        "deletions": 6
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/transforms/tflite_passes/unfold_large_splat_constants_pass.cc",
+        "additions": 15,
+        "deletions": 17
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/fake_quant_utils.h",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/lstm_utils.cc",
+        "additions": 27,
+        "deletions": 28
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/nms_utils.cc",
+        "additions": 8,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/perception_ops_utils.cc",
+        "additions": 10,
+        "deletions": 10
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/region_isolation_test.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/lite/utils/tftext_utils.cc",
+        "additions": 12,
+        "deletions": 12
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/common/attrs_and_constraints.h",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/common/quantization_lib/quantization_utils.h",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/bridge/convert_tf_quant_to_mhlo_int_test.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/bridge/convert_tf_quant_types.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/convert_func_to_bfloat16.cc",
+        "additions": 6,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/convert_xla_call_module_op_to_bfloat16.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/defer_activation_transpose.cc",
+        "additions": 19,
+        "deletions": 20
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/fold_constant_transpose.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/insert_calibration_statistics_saver.cc",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/merge_fusion_with_dequantize.cc",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/nchw_convolution_to_nhwc.cc",
+        "additions": 11,
+        "deletions": 8
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/prepare_quantize.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/quantize_weight.cc",
+        "additions": 5,
+        "deletions": 5
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/stablehlo/passes/unwrap_xla_call_module_op.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/tensorflow/cc/constant_fold.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/tensorflow/passes/cast_bf16_ops_to_f32.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/tensorflow/passes/prepare_quantize_drq.cc",
+        "additions": 4,
+        "deletions": 4
+      },
+      {
+        "filename": "tensorflow/compiler/mlir/quantization/tensorflow/utils/tf_to_xla_attribute_utils.cc",
+        "additions": 38,
+        "deletions": 37
+      }
+    ]
+  },
+  {
+    "sha": "d11a803d83c3040078ebcb854d99d9f93377a39d",
+    "author": "akuegel",
+    "message": "[XLA:GPU] Allow to fuse iotas into sort.\n\nAlso adjust alias info logic to allow sharing the sort fusion operands with the\nright sort fusion outputs.\n\nPiperOrigin-RevId: 846841000",
+    "date": "2025-12-19T21:07:58",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/d11a803d83c3040078ebcb854d99d9f93377a39d",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/service/gpu/BUILD",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/alias_info.cc",
+        "additions": 9,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/alias_info_test.cc",
+        "additions": 118,
+        "deletions": 51
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/fusion_pipeline.cc",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/tests/sorting_test.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/BUILD",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/priority_fusion.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion.cc",
+        "additions": 70,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion.h",
+        "additions": 39,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/transforms/sort_iota_fusion_test.cc",
+        "additions": 71,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "e961b236974e99cca6434b14f8a0d80ecbce803f",
+    "author": "vsytch",
+    "message": "[XLA] Continue trying to unroll pipelined loops after failure\n\nPiperOrigin-RevId: 846839467",
+    "date": "2025-12-19T21:03:01",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/e961b236974e99cca6434b14f8a0d80ecbce803f",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/service/BUILD",
+        "additions": 2,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/xla/service/while_loop_pipeline_unroller.cc",
+        "additions": 16,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/service/while_loop_pipeline_unroller_test.cc",
+        "additions": 102,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "453b5bbfdeecf05f3a5bc60af1ef770bca7d3c3a",
+    "author": "fengwuyao",
+    "message": "Internal changes only.\n\nPiperOrigin-RevId: 846835877",
+    "date": "2025-12-19T20:54:13",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/453b5bbfdeecf05f3a5bc60af1ef770bca7d3c3a",
+    "files": [
+      {
+        "filename": "tensorflow/lite/types/fp16.h",
+        "additions": 9,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "07acbd560e5d2ee59f8df8d4d0a7797d9cf03f9a",
+    "author": "Varcho",
+    "message": "[ReplicaGroupV3][Refactor][3/n] Use CollectiveDeviceListBase for polymorphic device list support.\n\nPiperOrigin-RevId: 846825118",
+    "date": "2025-12-19T20:19:51",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/07acbd560e5d2ee59f8df8d4d0a7797d9cf03f9a",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instruction.cc",
+        "additions": 29,
+        "deletions": 30
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instruction.h",
+        "additions": 9,
+        "deletions": 9
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instructions.cc",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instructions.h",
+        "additions": 9,
+        "deletions": 9
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/replica_group.cc",
+        "additions": 27,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/replica_group.h",
+        "additions": 38,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/collective_ops_utils.cc",
+        "additions": 22,
+        "deletions": 18
+      },
+      {
+        "filename": "third_party/xla/xla/service/collective_ops_utils.h",
+        "additions": 15,
+        "deletions": 9
+      },
+      {
+        "filename": "third_party/xla/xla/service/collective_ops_utils_test.cc",
+        "additions": 40,
+        "deletions": 41
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/model/collective_interpolator.cc",
+        "additions": 18,
+        "deletions": 11
+      },
+      {
+        "filename": "third_party/xla/xla/service/gpu/model/sol_latency_estimator_test.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/service/spmd/spmd_partitioner.h",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/service/spmd/spmd_partitioner_test.cc",
+        "additions": 24,
+        "deletions": 23
+      }
+    ]
+  },
+  {
+    "sha": "068c5bfe9599738011d094d48db431dd5aff97f5",
+    "author": "pschuh",
+    "message": "Simplify TrackedCpuDeviceBuffer.\n\nUpdate CpuRawBuffer to always have the size available and remove AfterAll implementation in TrackedCpuDeviceBuffer.\n\nPiperOrigin-RevId: 846812637",
+    "date": "2025-12-19T19:44:27",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/068c5bfe9599738011d094d48db431dd5aff97f5",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/pjrt/common_pjrt_client.cc",
+        "additions": 6,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/common_pjrt_client.h",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/cpu_client.cc",
+        "additions": 12,
+        "deletions": 17
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/cpu_client.h",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/raw_buffer.cc",
+        "additions": 25,
+        "deletions": 5
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/raw_buffer.h",
+        "additions": 8,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer.cc",
+        "additions": 3,
+        "deletions": 50
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer.h",
+        "additions": 0,
+        "deletions": 28
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/cpu/tracked_cpu_device_buffer_test.cc",
+        "additions": 3,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/pjrt_stream_executor_client.cc",
+        "additions": 2,
+        "deletions": 2
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/pjrt_stream_executor_client.h",
+        "additions": 2,
+        "deletions": 1
+      }
+    ]
+  },
+  {
+    "sha": "aa95cad5da857d0e0ff88f9e544715502be51ff0",
+    "author": "jcai19",
+    "message": "[XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass\n\nThis updates the original value of a conditional op when unused tuple elements are removed.\n\nPiperOrigin-RevId: 846802773",
+    "date": "2025-12-19T19:15:41",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/aa95cad5da857d0e0ff88f9e544715502be51ff0",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/hlo/ir/BUILD",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_instruction.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_module.cc",
+        "additions": 1,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value.cc",
+        "additions": 0,
+        "deletions": 53
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value.h",
+        "additions": 0,
+        "deletions": 12
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_test.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_util.cc",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/ir/hlo_original_value_util.h",
+        "additions": 69,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/hlo/parser/hlo_parser.cc",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/BUILD",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/conditional_simplifier.cc",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/conditional_simplifier_test.cc",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/service/while_loop_simplifier.cc",
+        "additions": 3,
+        "deletions": 33
+      },
+      {
+        "filename": "third_party/xla/xla/tuple_tree.h",
+        "additions": 2,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "c698eecb5ab1f33bab10598b8a07211c80cca5ff",
+    "author": "GleasonK",
+    "message": "[StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference.\n\nPiperOrigin-RevId: 846795035",
+    "date": "2025-12-19T18:54:33",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/c698eecb5ab1f33bab10598b8a07211c80cca5ff",
+    "files": [
+      {
+        "filename": "third_party/xla/third_party/stablehlo/temporary.patch",
+        "additions": 560,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "a3fad5d03e2b1d6738a171f98f5b69e1103f05a6",
+    "author": "ybaturina",
+    "message": "Enable using custom hermetic NCCL version.\n\nThe NCCL version can be chosen via `HERMETIC_NCCL_VERSION` env var.\n\nSee docs [here](https://github.com/google-ml-infra/rules_ml_toolchain/blob/main/gpu/README.md#environment-variables-controlling-the-hermetic-cudacudnnnvshmem-versions).\n\nPiperOrigin-RevId: 846792626",
+    "date": "2025-12-19T18:49:24",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/a3fad5d03e2b1d6738a171f98f5b69e1103f05a6",
+    "files": [
+      {
+        "filename": "third_party/xla/MODULE.bazel",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/WORKSPACE",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "third_party/xla/tensorflow.bazelrc",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "third_party/xla/workspace0.bzl",
+        "additions": 3,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "ea362136d94765afd0e7321a05da76721565e528",
+    "author": "ermilovmaxim",
+    "message": "Allow serialization for sync collectives\n\nPiperOrigin-RevId: 846790089",
+    "date": "2025-12-19T18:43:37",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/ea362136d94765afd0e7321a05da76721565e528",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/all_gather_thunk.cc",
+        "additions": 11,
+        "deletions": 8
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/all_reduce_thunk.cc",
+        "additions": 11,
+        "deletions": 8
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/all_reduce_thunk_test.cc",
+        "additions": 30,
+        "deletions": 0
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/all_to_all_thunk.cc",
+        "additions": 11,
+        "deletions": 8
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/collective_thunk.cc",
+        "additions": 11,
+        "deletions": 7
+      },
+      {
+        "filename": "third_party/xla/xla/backends/gpu/runtime/thunk.proto",
+        "additions": 4,
+        "deletions": 4
+      }
+    ]
+  },
+  {
+    "sha": "843206ca817f964c128e4a810f9d95cde46d3833",
+    "author": "ybaturina",
+    "message": "Enable using custom hermetic NCCL version.\n\nThe NCCL version can be chosen via `HERMETIC_NCCL_VERSION` env var.\n\nSee docs [here](https://github.com/google-ml-infra/rules_ml_toolchain/blob/main/gpu/README.md#environment-variables-controlling-the-hermetic-cudacudnnnvshmem-versions).\n\nPiperOrigin-RevId: 846788706",
+    "date": "2025-12-19T18:39:43",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/843206ca817f964c128e4a810f9d95cde46d3833",
+    "files": [
+      {
+        "filename": ".bazelrc",
+        "additions": 2,
+        "deletions": 1
+      },
+      {
+        "filename": "WORKSPACE",
+        "additions": 3,
+        "deletions": 3
+      },
+      {
+        "filename": "ci/official/utilities/code_check_full.bats",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/workspace0.bzl",
+        "additions": 3,
+        "deletions": 3
+      }
+    ]
+  },
+  {
+    "sha": "6af9ca2d9c88467688a5a5fed179c3574b99d3e1",
+    "author": "deqiangc",
+    "message": "Add LINT.IfChange to keep batch function op registrations in sync.\n\nPiperOrigin-RevId: 846770644",
+    "date": "2025-12-19T17:47:30",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/6af9ca2d9c88467688a5a5fed179c3574b99d3e1",
+    "files": [
+      {
+        "filename": "tensorflow/core/runtime_fallback/runtime/runtime_fallback_batch_tf_opkernels.cc",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "filename": "tensorflow/core/tfrt/mlrt/kernel/batch_kernel.cc",
+        "additions": 3,
+        "deletions": 0
+      }
+    ]
+  },
+  {
+    "sha": "162efc7b6cf6eae703db2a06cf2989d752654cb8",
+    "author": "hawkinsp",
+    "message": "[PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only.\n\nThe current Execute() method executes all the chunks at one time. This refactoring is in preparation for software pipelining transposes with DMAs. Execute() now calls ExecuteChunk() for each chunk.\n\nPiperOrigin-RevId: 846743899",
+    "date": "2025-12-19T16:25:36",
+    "html_url": "https://github.com/tensorflow/tensorflow/commit/162efc7b6cf6eae703db2a06cf2989d752654cb8",
+    "files": [
+      {
+        "filename": "third_party/xla/xla/pjrt/transpose.cc",
+        "additions": 50,
+        "deletions": 47
+      },
+      {
+        "filename": "third_party/xla/xla/pjrt/transpose.h",
+        "additions": 6,
+        "deletions": 0
+      }
+    ]
+  },
+  {
     "sha": "6df9bab4d35808b4faa6d79b4671e61417629290",
     "author": "thcmbs",
     "message": "[XLA:GPU] Only mark HoistFusedBitcasts as changed when modifications occur.\n\nPiperOrigin-RevId: 846719569",
@@ -5901,1451 +7701,6 @@
         "filename": "tensorflow/core/grappler/inputs/utils_test.cc",
         "additions": 12,
         "deletions": 12
-      }
-    ]
-  },
-  {
-    "sha": "e6e6f0f6bc6076ee77875b16fdb7614059900465",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845669944",
-    "date": "2025-12-17T10:24:27",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/e6e6f0f6bc6076ee77875b16fdb7614059900465",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/tsl/platform/numa_hwloc.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/numa_noop.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/ram_file_system.h",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/rocm_rocdl_path.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/status.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/subprocess.h",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/subprocess_test.cc",
-        "additions": 13,
-        "deletions": 14
-      },
-      {
-        "filename": "third_party/xla/xla/tsl/platform/threadpool.cc",
-        "additions": 3,
-        "deletions": 3
-      }
-    ]
-  },
-  {
-    "sha": "aea2e3d2827274a95467a810102d231762200d29",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845668992",
-    "date": "2025-12-17T10:21:33",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/aea2e3d2827274a95467a810102d231762200d29",
-    "files": [
-      {
-        "filename": "tensorflow/core/distributed_runtime/rpc_collective_executor_mgr.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/rpc_collective_executor_mgr.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/rpc_collective_executor_mgr_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/rpcbench_test.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/scheduler.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/server_lib.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/server_lib.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/tensor_coding.cc",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/tensor_coding_test.cc",
-        "additions": 13,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/test_utils.h",
-        "additions": 14,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache.h",
-        "additions": 8,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache_logger.cc",
-        "additions": 12,
-        "deletions": 14
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache_logger.h",
-        "additions": 10,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache_partial.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache_partial.h",
-        "additions": 5,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_cache_wrapper.h",
-        "additions": 9,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_session.cc",
-        "additions": 13,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/worker_session.h",
-        "additions": 7,
-        "deletions": 7
-      }
-    ]
-  },
-  {
-    "sha": "854592931c404838dd7cf5e48d6969df354781c1",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845668948",
-    "date": "2025-12-17T10:21:24",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/854592931c404838dd7cf5e48d6969df354781c1",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/examples/axpy/stablehlo_compile_test.cc",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "6c69aa0e0de1498ce1510e7e7a99082fc7f4bde3",
-    "author": "dependabot[bot]",
-    "message": "PR #35269: Bump actions/upload-artifact from 5.0.0 to 6.0.0\n\nImported from GitHub PR https://github.com/openxla/xla/pull/35269\n\nBumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 5.0.0 to 6.0.0.\n<details>\n<summary>Release notes</summary>\n<p><em>Sourced from <a href=\"https://github.com/actions/upload-artifact/releases\">actions/upload-artifact's releases</a>.</em></p>\n<blockquote>\n<h2>v6.0.0</h2>\n<h2>v6 - What's new</h2>\n<blockquote>\n<p>[!IMPORTANT]\nactions/upload-artifact@v6 now runs on Node.js 24 (<code>runs.using: node24</code>) and requires a minimum Actions Runner version of 2.327.1. If you are using self-hosted runners, ensure they are updated before upgrading.</p>\n</blockquote>\n<h3>Node.js 24</h3>\n<p>This release updates the runtime to Node.js 24. v5 had preliminary support for Node.js 24, however this action was by default still running on Node.js 20. Now this action by default will run on Node.js 24.</p>\n<h2>What's Changed</h2>\n<ul>\n<li>Upload Artifact Node 24 support by <a href=\"https://github.com/salmanmkc\"><code>@​salmanmkc</code></a> in <a href=\"https://redirect.github.com/actions/upload-artifact/pull/719\">actions/upload-artifact#719</a></li>\n<li>fix: update <code>@​actions/artifact</code> for Node.js 24 punycode deprecation by <a href=\"https://github.com/salmanmkc\"><code>@​salmanmkc</code></a> in <a href=\"https://redirect.github.com/actions/upload-artifact/pull/744\">actions/upload-artifact#744</a></li>\n<li>prepare release v6.0.0 for Node.js 24 support by <a href=\"https://github.com/salmanmkc\"><code>@​salmanmkc</code></a> in <a href=\"https://redirect.github.com/actions/upload-artifact/pull/745\">actions/upload-artifact#745</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/actions/upload-artifact/compare/v5.0.0...v6.0.0\">https://github.com/actions/upload-artifact/compare/v5.0.0...v6.0.0</a></p>\n</blockquote>\n</details>\n<details>\n<summary>Commits</summary>\n<ul>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/b7c566a772e6b6bfb58ed0dc250532a479d7789f\"><code>b7c566a</code></a> Merge pull request <a href=\"https://redirect.github.com/actions/upload-artifact/issues/745\">#745</a> from actions/upload-artifact-v6-release</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/e516bc8500aaf3d07d591fcd4ae6ab5f9c391d5b\"><code>e516bc8</code></a> docs: correct description of Node.js 24 support in README</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/ddc45ed9bca9b38dbd643978d88e3981cdc91415\"><code>ddc45ed</code></a> docs: update README to correct action name for Node.js 24 support</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/615b319bd27bb32c3d64dca6b6ed6974d5fbe653\"><code>615b319</code></a> chore: release v6.0.0 for Node.js 24 support</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/017748b48f8610ca8e6af1222f4a618e84a9c703\"><code>017748b</code></a> Merge pull request <a href=\"https://redirect.github.com/actions/upload-artifact/issues/744\">#744</a> from actions/fix-storage-blob</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/38d4c7997f5510fcc41fc4aae2a6b97becdbe7fc\"><code>38d4c79</code></a> chore: rebuild dist</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/7d27270e0cfd253e666c44abac0711308d2d042f\"><code>7d27270</code></a> chore: add missing license cache files for <code>@​actions/core</code>, <code>@​actions/io</code>, and mi...</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/5f643d3c9475505ccaf26d686ffbfb71a8387261\"><code>5f643d3</code></a> chore: update license files for <code>@​actions/artifact</code><a href=\"https://github.com/5\"><code>@​5</code></a>.0.1 dependencies</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/1df1684032c88614064493e1a0478fcb3583e1d0\"><code>1df1684</code></a> chore: update package-lock.json with <code>@​actions/artifact</code><a href=\"https://github.com/5\"><code>@​5</code></a>.0.1</li>\n<li><a href=\"https://github.com/actions/upload-artifact/commit/b5b1a918401ee270935b6b1d857ae66c85f3be6f\"><code>b5b1a91</code></a> fix: update <code>@​actions/artifact</code> to ^5.0.0 for Node.js 24 punycode fix</li>\n<li>Additional commits viewable in <a href=\"https://github.com/actions/upload-artifact/compare/v5...v6\">compare view</a></li>\n</ul>\n</details>\n<br />\n\n[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=actions/upload-artifact&package-manager=github_actions&previous-version=5.0.0&new-version=6.0.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nDependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.\n\n[//]: # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n<details>\n<summary>Dependabot commands and options</summary>\n<br />\n\nYou can trigger Dependabot actions by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it\n- `@dependabot merge` will merge this PR after your CI passes on it\n- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it\n- `@dependabot cancel merge` will cancel a previously requested merge and block automerging\n- `@dependabot reopen` will reopen this PR if it is closed\n- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually\n- `@dependabot show <dependency name> ignore conditions` will show all of the ignore conditions of the specified dependency\n- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)\n\n</details>\nCopybara import of the project:\n\n--\n273f78ea9a3ef2ff528533d2fc613ecc149e4c47 by dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>:\n\nBump actions/upload-artifact from 5.0.0 to 6.0.0\n\nBumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 5.0.0 to 6.0.0.\n- [Release notes](https://github.com/actions/upload-artifact/releases)\n- [Commits](https://github.com/actions/upload-artifact/compare/v5...v6)\n\n---\nupdated-dependencies:\n- dependency-name: actions/upload-artifact\n  dependency-version: 6.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\n\nMerging this change closes #35269\n\nPiperOrigin-RevId: 845668175",
-    "date": "2025-12-17T10:19:15",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/6c69aa0e0de1498ce1510e7e7a99082fc7f4bde3",
-    "files": [
-      {
-        "filename": "third_party/xla/.github/workflows/benchmark_postsubmit.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/cpu_benchmarks_nightly.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/gpu_benchmarks_nightly.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/nightly_benchmarks.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/postsubmit_benchmark.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/presubmit_benchmark.yml",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/.github/workflows/scorecards-analysis.yml",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "8b4daac3472992cbb34e2bf97a56b0a1f06ecc75",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845666754",
-    "date": "2025-12-17T10:14:40",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/8b4daac3472992cbb34e2bf97a56b0a1f06ecc75",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/service/hlo_runner_pjrt.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/service/shaped_buffer_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/service/transfer_manager.cc",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "3ffe7a698b2a2f078ec0a2f6a91f08e8424a07c8",
-    "author": "akuegel",
-    "message": "[XLA:GPU] Increment autotuning cache key version and adapt autotune db.\n\nA recent change has affected the autotuning key, so we need to update the\nversion.\n\nPiperOrigin-RevId: 845661452",
-    "date": "2025-12-17T09:58:40",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/3ffe7a698b2a2f078ec0a2f6a91f08e8424a07c8",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/service/gpu/autotuning/autotune_cache_key.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/service/gpu/gpu_compiler_test_autotune_db.textproto",
-        "additions": 5,
-        "deletions": 5
-      }
-    ]
-  },
-  {
-    "sha": "d0cf19c0fa1f9044d0bd5b5fccdf875c38a21753",
-    "author": "shawnwang18",
-    "message": "PR #34734: [XLA:GPU] make DYNAMIC_SLICE_COPY_FUSION command default lowered to cuda-graph\n\nImported from GitHub PR https://github.com/openxla/xla/pull/34734\n\n📝 Summary of Changes\n\n* Added `DebugOptions::DYNAMIC_SLICE_COPY_FUSION` to the list of enabled GPU command buffers in the default debug options.\n\n🚀 Kind of Contribution\n⚡️ Performance Improvement\n\n🧪 Unit Tests:\nchange the default setting, unittest has already been added.\n\nCopybara import of the project:\n\n--\nbdca8aae0307ff41188b6481b878e42b9ec90612 by Shawn Wang <shawnw@nvidia.com>:\n\nmake DYNAMIC_SLICE_COPY_FUSION command default lowered to cuda-graph\n\nMerging this change closes #34734\n\nPiperOrigin-RevId: 845659522",
-    "date": "2025-12-17T09:52:48",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/d0cf19c0fa1f9044d0bd5b5fccdf875c38a21753",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/debug_options_flags.cc",
-        "additions": 2,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/debug_options_parsers_test.cc",
-        "additions": 11,
-        "deletions": 7
-      }
-    ]
-  },
-  {
-    "sha": "42652a45990e3c5be8a8a56936dd0b265b7ff3d2",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845650865",
-    "date": "2025-12-17T09:25:34",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/42652a45990e3c5be8a8a56936dd0b265b7ff3d2",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/interpreter/executable_base.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/backends/interpreter/executor.cc",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "third_party/xla/xla/backends/interpreter/executor.h",
-        "additions": 9,
-        "deletions": 9
-      }
-    ]
-  },
-  {
-    "sha": "e9333c03e800c9ff451f01e1743b8fa0aa29c9bc",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845650533",
-    "date": "2025-12-17T09:24:24",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/e9333c03e800c9ff451f01e1743b8fa0aa29c9bc",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/stream_executor/tpu/c_api_conversions.cc",
-        "additions": 6,
-        "deletions": 4
-      },
-      {
-        "filename": "third_party/xla/xla/stream_executor/tpu/c_api_conversions.h",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/stream_executor/tpu/noncopyable_buffer.h",
-        "additions": 3,
-        "deletions": 3
-      }
-    ]
-  },
-  {
-    "sha": "70a7d0e1421c8d19841f5dc38d96a20808d17ace",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845650270",
-    "date": "2025-12-17T09:23:34",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/70a7d0e1421c8d19841f5dc38d96a20808d17ace",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/tests/buffer_donation_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tests/cpu_gpu_fusion_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tests/dot_operation_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tests/dynamic_ops_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tests/hlo_test_base.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/tests/local_client_execute_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/tests/local_client_test_base.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/tests/local_client_test_base.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "third_party/xla/xla/tests/while_test.cc",
-        "additions": 2,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "17428e9c7986e3b98c0d1cd094e6a2b40f546c8a",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845650168",
-    "date": "2025-12-17T09:23:11",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/17428e9c7986e3b98c0d1cd094e6a2b40f546c8a",
-    "files": [
-      {
-        "filename": "tensorflow/core/common_runtime/eager/attr_builder.cc",
-        "additions": 13,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/attr_builder.h",
-        "additions": 9,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/attr_builder_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/context.cc",
-        "additions": 63,
-        "deletions": 56
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/context.h",
-        "additions": 46,
-        "deletions": 44
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/context_distributed_manager.cc",
-        "additions": 59,
-        "deletions": 57
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/context_test.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/copy_to_device_node.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/custom_device.h",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/custom_device_op_handler.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/custom_device_op_handler.h",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_executor.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_executor.h",
-        "additions": 8,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_executor_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_op_rewrite_registry.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_op_rewrite_registry_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_operation.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_operation.h",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/eager_operation_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/execute.cc",
-        "additions": 50,
-        "deletions": 43
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/execute_node.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/execute_test.cc",
-        "additions": 8,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/kernel_and_device.h",
-        "additions": 11,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/placement_utils.cc",
-        "additions": 13,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/placement_utils_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/tensor_handle.cc",
-        "additions": 19,
-        "deletions": 21
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/tensor_handle.h",
-        "additions": 22,
-        "deletions": 23
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/tensor_handle_data.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/tensor_handle_data.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/eager/tensor_handle_test.cc",
-        "additions": 7,
-        "deletions": 7
-      }
-    ]
-  },
-  {
-    "sha": "db8b9de813d3c1fb18f498532cc1ce1371339ab7",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845648984",
-    "date": "2025-12-17T09:19:16",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/db8b9de813d3c1fb18f498532cc1ce1371339ab7",
-    "files": [
-      {
-        "filename": "tensorflow/core/kernels/data/batch_dataset_op.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/cache_dataset_ops.cc",
-        "additions": 17,
-        "deletions": 17
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/cache_dataset_ops_test.cc",
-        "additions": 11,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/cache_ops.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/cache_ops.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/concatenate_dataset_op.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/data/dataset_ops.cc",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "efddb34c27796bfefda22ddaaceb66e2c6091d2d",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845648979",
-    "date": "2025-12-17T09:19:16",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/efddb34c27796bfefda22ddaaceb66e2c6091d2d",
-    "files": [
-      {
-        "filename": "tensorflow/core/common_runtime/gpu/gpu_debug_allocator.cc",
-        "additions": 9,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/gpu/gpu_util.cc",
-        "additions": 11,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/common_runtime/gpu/gpu_util.h",
-        "additions": 7,
-        "deletions": 6
-      }
-    ]
-  },
-  {
-    "sha": "c3f05a1f6ffca60dd699bc9ae48481011c9ad571",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845648967",
-    "date": "2025-12-17T09:19:13",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/c3f05a1f6ffca60dd699bc9ae48481011c9ad571",
-    "files": [
-      {
-        "filename": "tensorflow/core/distributed_runtime/base_rendezvous_mgr.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/cancellable_call.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/cluster_function_library_runtime.cc",
-        "additions": 12,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/cluster_function_library_runtime.h",
-        "additions": 10,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/cluster_function_library_runtime_test.cc",
-        "additions": 9,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_param_resolver_distributed.cc",
-        "additions": 9,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_param_resolver_distributed.h",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_param_resolver_distributed_test.cc",
-        "additions": 42,
-        "deletions": 37
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_rma_distributed.cc",
-        "additions": 11,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_rma_distributed.h",
-        "additions": 7,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/collective_rma_distributed_test.cc",
-        "additions": 34,
-        "deletions": 29
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/device_resolver_distributed.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/device_resolver_distributed.h",
-        "additions": 6,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/device_resolver_distributed_test.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/graph_mgr.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/local_master.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/local_master.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master.cc",
-        "additions": 29,
-        "deletions": 28
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master_env.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master_session.cc",
-        "additions": 96,
-        "deletions": 93
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master_session.h",
-        "additions": 21,
-        "deletions": 18
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/master_test.cc",
-        "additions": 17,
-        "deletions": 17
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/message_wrappers.cc",
-        "additions": 67,
-        "deletions": 62
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/message_wrappers.h",
-        "additions": 101,
-        "deletions": 101
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/message_wrappers_test.cc",
-        "additions": 10,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/recent_request_ids.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/recent_request_ids.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/remote_device.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/remote_device.h",
-        "additions": 2,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "0be4d53ad546022f396792d269f779534c6231fa",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845648351",
-    "date": "2025-12-17T09:17:12",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/0be4d53ad546022f396792d269f779534c6231fa",
-    "files": [
-      {
-        "filename": "tensorflow/compiler/jit/kernels/xla_ops.cc",
-        "additions": 9,
-        "deletions": 8
-      }
-    ]
-  },
-  {
-    "sha": "7addf9852a1472f9fadc87de8ec29f0b355f5c63",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845646520",
-    "date": "2025-12-17T09:12:29",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/7addf9852a1472f9fadc87de8ec29f0b355f5c63",
-    "files": [
-      {
-        "filename": "tensorflow/core/graph/benchmark_testlib.h",
-        "additions": 10,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/graph/collective_order.cc",
-        "additions": 10,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/graph/control_flow.cc",
-        "additions": 6,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/graph/control_flow.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/graph/costmodel.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/graph/costmodel.h",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/graph/costmodel_test.cc",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/graph/edgeset.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/graph/graph.cc",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/graph/graph.h",
-        "additions": 15,
-        "deletions": 15
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_debug_info_builder_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_def_builder.cc",
-        "additions": 8,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_def_builder.h",
-        "additions": 12,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_node_util.cc",
-        "additions": 8,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_node_util.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_partition.cc",
-        "additions": 64,
-        "deletions": 56
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_partition.h",
-        "additions": 9,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/graph/graph_partition_test.cc",
-        "additions": 42,
-        "deletions": 36
-      },
-      {
-        "filename": "tensorflow/core/graph/node_builder.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/graph/node_builder.h",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/graph/optimizer_cse_test.cc",
-        "additions": 17,
-        "deletions": 16
-      },
-      {
-        "filename": "tensorflow/core/graph/subgraph.cc",
-        "additions": 20,
-        "deletions": 19
-      },
-      {
-        "filename": "tensorflow/core/graph/subgraph.h",
-        "additions": 12,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/graph/tensor_id.h",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/graph/tensor_id_test.cc",
-        "additions": 9,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/graph/testlib.cc",
-        "additions": 20,
-        "deletions": 19
-      },
-      {
-        "filename": "tensorflow/core/graph/testlib.h",
-        "additions": 18,
-        "deletions": 17
-      },
-      {
-        "filename": "tensorflow/core/graph/validate.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/graph/validate_test.cc",
-        "additions": 11,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/graph/while_context.h",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "348ca28805eec9ba06d6d8dc3e7be63a0aab9f8a",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845646502",
-    "date": "2025-12-17T09:12:25",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/348ca28805eec9ba06d6d8dc3e7be63a0aab9f8a",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/service/gpu/kernels/cutlass_gemm_custom_kernel.cc",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "third_party/xla/xla/service/gpu/kernels/cutlass_gemm_custom_kernel_benchmarks.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/service/gpu/kernels/cutlass_gemm_custom_kernel_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "third_party/xla/xla/service/gpu/kernels/ptx_custom_kernel_test.cc",
-        "additions": 3,
-        "deletions": 3
-      }
-    ]
-  },
-  {
-    "sha": "22dda6f4ea1d075c655fc8d133a6c33f23dfa574",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845644872",
-    "date": "2025-12-17T09:07:06",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/22dda6f4ea1d075c655fc8d133a6c33f23dfa574",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/backends/gpu/profiler/kernel_name_tracer_test.cc",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "e7d96bda2e2d1087e10e450694cdb04aad5a80da",
-    "author": "tensorflower-gardener",
-    "message": "compat: Update forward compatibility horizon to 2025-12-17\n\nPiperOrigin-RevId: 845643992",
-    "date": "2025-12-17T09:04:34",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/e7d96bda2e2d1087e10e450694cdb04aad5a80da",
-    "files": [
-      {
-        "filename": "tensorflow/python/compat/compat.py",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "e12987ed2dbf446de3f6dbabf67e90ecf609f02f",
-    "author": "tensorflower-gardener",
-    "message": "Update GraphDef version to 2444.\n\nPiperOrigin-RevId: 845643947",
-    "date": "2025-12-17T09:04:23",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/e12987ed2dbf446de3f6dbabf67e90ecf609f02f",
-    "files": [
-      {
-        "filename": "tensorflow/core/public/version.h",
-        "additions": 1,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "a967808638b7256d777722630be808f801c08291",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845641559",
-    "date": "2025-12-17T08:56:13",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/a967808638b7256d777722630be808f801c08291",
-    "files": [
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/cluster_function_library_runtime.cc",
-        "additions": 4,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/cluster_function_library_runtime.h",
-        "additions": 9,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/destroy_tensor_handle_node.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/eager_client.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/eager_service_impl.cc",
-        "additions": 16,
-        "deletions": 15
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/eager_service_impl.h",
-        "additions": 7,
-        "deletions": 7
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/eager_service_impl_test.cc",
-        "additions": 53,
-        "deletions": 49
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_copy_node.cc",
-        "additions": 11,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_copy_node.h",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_execute_node.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_execute_node.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_mgr.cc",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_mgr.h",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_mgr_test.cc",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_tensor_handle.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_tensor_handle_data.cc",
-        "additions": 9,
-        "deletions": 8
-      },
-      {
-        "filename": "tensorflow/core/distributed_runtime/eager/remote_tensor_handle_data.h",
-        "additions": 11,
-        "deletions": 11
-      }
-    ]
-  },
-  {
-    "sha": "89b883eecf5130b2b353a051e687abe9a12e6662",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845638609",
-    "date": "2025-12-17T08:46:31",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/89b883eecf5130b2b353a051e687abe9a12e6662",
-    "files": [
-      {
-        "filename": "tensorflow/core/kernels/list_kernels.cc",
-        "additions": 9,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/core/kernels/list_kernels.h",
-        "additions": 19,
-        "deletions": 16
-      },
-      {
-        "filename": "tensorflow/core/kernels/listdiff_op.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/load_and_remap_matrix_op.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/logging_ops.cc",
-        "additions": 13,
-        "deletions": 13
-      },
-      {
-        "filename": "tensorflow/core/kernels/logging_ops.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/logging_ops_test.cc",
-        "additions": 22,
-        "deletions": 22
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_ops_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_table_init_op.cc",
-        "additions": 3,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_table_init_op.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_table_op.cc",
-        "additions": 31,
-        "deletions": 31
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_table_op.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_util.cc",
-        "additions": 22,
-        "deletions": 20
-      },
-      {
-        "filename": "tensorflow/core/kernels/lookup_util.h",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/lrn_op_test.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/map_kernels.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/map_stage_op.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/matching_files_op.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/matmul_op_real.cc",
-        "additions": 11,
-        "deletions": 11
-      },
-      {
-        "filename": "tensorflow/core/kernels/matmul_op_test.cc",
-        "additions": 11,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/kernels/maxpooling_op.cc",
-        "additions": 31,
-        "deletions": 31
-      },
-      {
-        "filename": "tensorflow/core/kernels/merge_v2_checkpoints_op_test.cc",
-        "additions": 8,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/kernels/mfcc_op.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/multinomial_op_test.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/mutex_ops.cc",
-        "additions": 5,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/nn_ops_test.cc",
-        "additions": 33,
-        "deletions": 30
-      },
-      {
-        "filename": "tensorflow/core/kernels/nth_element_op.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/one_hot_op.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/ops_testutil.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/ops_testutil.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/padding_fifo_queue.cc",
-        "additions": 2,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/padding_fifo_queue.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/parameterized_truncated_normal_op.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/parameterized_truncated_normal_op_test.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/parse_tensor_test.cc",
-        "additions": 25,
-        "deletions": 22
-      },
-      {
-        "filename": "tensorflow/core/kernels/partitioned_function_ops.cc",
-        "additions": 5,
-        "deletions": 5
-      },
-      {
-        "filename": "tensorflow/core/kernels/partitioned_function_ops.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/pooling_ops_3d.cc",
-        "additions": 29,
-        "deletions": 29
-      },
-      {
-        "filename": "tensorflow/core/kernels/pooling_ops_3d.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/pooling_ops_common.cc",
-        "additions": 3,
-        "deletions": 3
-      },
-      {
-        "filename": "tensorflow/core/kernels/pooling_ops_common.h",
-        "additions": 12,
-        "deletions": 12
-      },
-      {
-        "filename": "tensorflow/core/kernels/population_count_op.cc",
-        "additions": 11,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/kernels/population_count_op.h",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/priority_queue.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/core/kernels/priority_queue.h",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/quantization_utils.h",
-        "additions": 4,
-        "deletions": 4
-      },
-      {
-        "filename": "tensorflow/core/kernels/quantization_utils_test.cc",
-        "additions": 6,
-        "deletions": 6
-      },
-      {
-        "filename": "tensorflow/core/kernels/quantize_and_dequantize_op.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/core/kernels/quantize_and_dequantize_op_test.cc",
-        "additions": 10,
-        "deletions": 10
-      },
-      {
-        "filename": "tensorflow/core/kernels/quantize_down_and_shrink_range.cc",
-        "additions": 2,
-        "deletions": 2
-      }
-    ]
-  },
-  {
-    "sha": "79e54e1d40fd40cd174b21b7307cd14a82706239",
-    "author": "cota",
-    "message": "[xla:codegen] deduplicate LowerToLLVM passes\n\nFollow-up work to \"349a1d4e00c: [xla:codegen] split LowerToLLVMPass\ninto CPU and GPU versions\".\n\nPiperOrigin-RevId: 845636364",
-    "date": "2025-12-17T08:41:22",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/79e54e1d40fd40cd174b21b7307cd14a82706239",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/BUILD",
-        "additions": 21,
-        "deletions": 9
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_to_llvm_common.cc",
-        "additions": 95,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_to_llvm_common.h",
-        "additions": 40,
-        "deletions": 0
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_to_llvm_cpu.cc",
-        "additions": 6,
-        "deletions": 60
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_to_llvm_gpu.cc",
-        "additions": 41,
-        "deletions": 76
-      },
-      {
-        "filename": "third_party/xla/xla/codegen/emitters/transforms/lower_to_llvm_gpu.h",
-        "additions": 0,
-        "deletions": 1
-      }
-    ]
-  },
-  {
-    "sha": "8e0f4b64e6075ffd271a84423cbd539d0b82f6a3",
-    "author": "tensorflower-gardener",
-    "message": "Automated Code Change\n\nPiperOrigin-RevId: 845634459",
-    "date": "2025-12-17T08:36:01",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/8e0f4b64e6075ffd271a84423cbd539d0b82f6a3",
-    "files": [
-      {
-        "filename": "third_party/xla/xla/pjrt/c/pjrt_c_api_gpu_test.cc",
-        "additions": 13,
-        "deletions": 10
-      }
-    ]
-  },
-  {
-    "sha": "a05dfbfc3226832f26f24daecaf46412aac182ce",
-    "author": "lhutton1",
-    "message": "[mlir][tosa] Use `getTosaConstShape` implementation from MLIR (#106002)\n\nMLIR `ConversionUtils.h` defines an implementation of\n`getTosaConstShape`. In some cases here, but not all,\nthe implementation in `legalization_utils` was being used\ninstead. This commit removes the implementation in\n`legalization_utils` and updates the relevant call sites\nto use the MLIR version.\n\nChange-Id: I4595c5294e26f1d67b398446025c624d88e0ce18",
-    "date": "2025-12-17T10:06:38",
-    "html_url": "https://github.com/tensorflow/tensorflow/commit/a05dfbfc3226832f26f24daecaf46412aac182ce",
-    "files": [
-      {
-        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_common.cc",
-        "additions": 2,
-        "deletions": 2
-      },
-      {
-        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_tf.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_tfl.cc",
-        "additions": 1,
-        "deletions": 1
-      },
-      {
-        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_utils.cc",
-        "additions": 0,
-        "deletions": 9
-      },
-      {
-        "filename": "tensorflow/compiler/mlir/tosa/transforms/legalize_utils.h",
-        "additions": 0,
-        "deletions": 5
       }
     ]
   }

@@ -1,5 +1,107 @@
 [
   {
+    "number": 35359,
+    "title": "Fix: Controlled form inputs reset on form submission",
+    "user": "rdanciu11",
+    "created_at": "2025-12-15T01:46:10",
+    "updated_at": "2025-12-19T23:42:43",
+    "body": "## Summary\r\nFixes controlled form inputs incorrectly resetting after form submission with form actions.\r\n\r\n## Fixes\r\n- Fixes #31695\r\n- Fixes #30580 \r\n\r\n## The Bug\r\nWhen a form with a function `action` is submitted, controlled form inputs (those with `checked` or `value` props) are incorrectly reset to their default values. This breaks the expected behavior where controlled inputs should maintain their state.\r\n\r\n**Affected input types:**\r\n- Text inputs (`<input type=\"text\">`)\r\n- Select elements (`<select>`)\r\n- Textareas (`<textarea>`)\r\n- Checkboxes (`<input type=\"checkbox\">`)\r\n- Radio buttons (`<input type=\"radio\">`)\r\n\r\n## The Fix\r\nEnhanced `resetFormInstance()` in `ReactFiberConfigDOM.js` to:\r\n1. Check React's internal fiber tree to determine if an input is controlled\r\n2. Examine `memoizedProps` for control props:\r\n   - `value` prop for text inputs, select elements, and textareas\r\n   - `checked` prop for checkboxes and radio buttons\r\n3. Skip reset for controlled inputs\r\n4. Only reset truly uncontrolled inputs\r\n\r\nThis ensures controlled inputs maintain their state after form submission while uncontrolled inputs still reset as expected.\r\n\r\n## Tests\r\nAdded comprehensive test coverage in `ReactDOMForm-test.js`:\r\n\r\n**Controlled inputs (should NOT reset):**\r\n- Controlled checkboxes don't reset on form submission\r\n- Controlled radio buttons don't reset on form submission\r\n- Controlled select elements don't reset on form submission\r\n- Controlled textarea elements don't reset on form submission\r\n\r\n**Uncontrolled inputs (should still reset):**\r\n- Uncontrolled checkboxes still reset correctly\r\n- Uncontrolled select elements still reset correctly\r\n- Uncontrolled textarea elements still reset correctly\r\n\r\nAll existing tests continue to pass\r\n\r\n## How Has This Been Tested?\r\n- Ran full test suite: `yarn test ReactDOMForm-test`\r\n- Verified reproduction case scenarios\r\n- Tested with both controlled and uncontrolled inputs across all affected input types",
+    "html_url": "https://github.com/facebook/react/pull/35359",
+    "files": [
+      {
+        "filename": "packages/react-dom-bindings/src/client/ReactFiberConfigDOM.js",
+        "additions": 64,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/react-dom/src/__tests__/ReactDOMForm-test.js",
+        "additions": 414,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberHooks.js",
+        "additions": 40,
+        "deletions": 13
+      }
+    ]
+  },
+  {
+    "number": 35392,
+    "title": "[wip] experiment to entangle less often",
+    "user": "rickhanlonii",
+    "created_at": "2025-12-19T16:42:54",
+    "updated_at": "2025-12-19T16:46:19",
+    "body": "",
+    "html_url": "https://github.com/facebook/react/pull/35392",
+    "files": [
+      {
+        "filename": "packages/react-reconciler/src/ReactFiberLane.js",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactConcurrentErrorRecovery-test.js",
+        "additions": 13,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactHooksWithNoopRenderer-test.js",
+        "additions": 10,
+        "deletions": 2
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactSuspenseWithNoopRenderer-test.js",
+        "additions": 22,
+        "deletions": 1
+      },
+      {
+        "filename": "packages/react-reconciler/src/__tests__/ReactTransition-test.js",
+        "additions": 350,
+        "deletions": 3
+      },
+      {
+        "filename": "packages/shared/ReactFeatureFlags.js",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.native-fb.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.native-oss.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.native-fb.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.test-renderer.www.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.www-dynamic.js",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "filename": "packages/shared/forks/ReactFeatureFlags.www.js",
+        "additions": 1,
+        "deletions": 0
+      }
+    ]
+  },
+  {
     "number": 35371,
     "title": "Upgrade GitHub Actions for Node 24 compatibility",
     "user": "salmanmkc",
@@ -2562,32 +2664,6 @@
     ]
   },
   {
-    "number": 35359,
-    "title": "Fix: Controlled checkboxes and radio buttons reset on form submission",
-    "user": "rdanciu11",
-    "created_at": "2025-12-15T01:46:10",
-    "updated_at": "2025-12-15T02:04:35",
-    "body": "## Summary\r\nFixes controlled checkboxes and radio buttons incorrectly resetting after form submission with form actions.\r\n\r\n## Fixes\r\nFixes #31695\r\n\r\n## The Bug\r\nWhen a form with a function `action` is submitted, controlled checkboxes and radio buttons (those with a `checked` prop) are incorrectly reset to their default values. This breaks expected React behavior where controlled inputs should maintain their state.\r\n\r\n**Reproduction:** https://codesandbox.io/p/sandbox/checkbox-reset-repro-sff3sr\r\n\r\n## The Fix\r\nEnhanced `resetFormInstance()` in `ReactFiberConfigDOM.js` to:\r\n1. Check React's internal fiber tree to determine if an input is controlled\r\n2. Skip reset for inputs controlled by `checked` or `value` props\r\n3. Only reset truly uncontrolled inputs\r\n\r\nThis ensures controlled inputs maintain their state after form submission while uncontrolled inputs still reset as expected.\r\n\r\n## Tests\r\nAdded 3 new test cases in `ReactDOMForm-test.js`:\r\n- Controlled checkboxes don't reset on form submission\r\n- Controlled radio buttons don't reset on form submission  \r\n- Uncontrolled checkboxes still reset correctly\r\n\r\nAll existing tests continue to pass (48/48).\r\n\r\n## How Has This Been Tested?\r\n- Ran full test suite: `yarn test ReactDOMForm-test`\r\n- Verified reproduction case scenario\r\n- Tested with both controlled and uncontrolled inputs",
-    "html_url": "https://github.com/facebook/react/pull/35359",
-    "files": [
-      {
-        "filename": "packages/react-dom-bindings/src/client/ReactFiberConfigDOM.js",
-        "additions": 64,
-        "deletions": 1
-      },
-      {
-        "filename": "packages/react-dom/src/__tests__/ReactDOMForm-test.js",
-        "additions": 224,
-        "deletions": 0
-      },
-      {
-        "filename": "packages/react-reconciler/src/ReactFiberHooks.js",
-        "additions": 40,
-        "deletions": 13
-      }
-    ]
-  },
-  {
     "number": 35358,
     "title": "[jest] Handle Windows backslashes in preprocessor path matching",
     "user": "HM-23-HM",
@@ -2939,37 +3015,6 @@
       {
         "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/todo-update-expression-captured-variable.js",
         "additions": 13,
-        "deletions": 0
-      }
-    ]
-  },
-  {
-    "number": 35304,
-    "title": "fix: correctly compile post-increment assignment",
-    "user": "tennisleng",
-    "created_at": "2025-12-05T21:09:53",
-    "updated_at": "2025-12-11T19:00:51",
-    "body": "Fixes #35205. Explicitly captures the previous value of the member expression in a temporary before the update occurs, ensuring that post-increment operations return the original value.",
-    "html_url": "https://github.com/facebook/react/pull/35304",
-    "files": [
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/HIR/BuildHIR.ts",
-        "additions": 8,
-        "deletions": 2
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/bug-post-increment-assignment.expect.md",
-        "additions": 79,
-        "deletions": 0
-      },
-      {
-        "filename": "compiler/packages/babel-plugin-react-compiler/src/__tests__/fixtures/compiler/bug-post-increment-assignment.js",
-        "additions": 26,
-        "deletions": 0
-      },
-      {
-        "filename": "compiler/packages/snap/src/SproutTodoFilter.ts",
-        "additions": 1,
         "deletions": 0
       }
     ]

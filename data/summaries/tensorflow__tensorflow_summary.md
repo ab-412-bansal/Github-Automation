@@ -4,162 +4,163 @@
 
 - **Open PRs:** 30
 - **Open Issues:** 50
-- **Recent Commits (60d):** 200
+- **Recent Commits (30d):** 200
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-### Open Pull Requests (Last 60 Days)
+### Open Pull Requests (Last 30 Days)
 
-- [#106213](https://github.com/tensorflow/tensorflow/pull/106213): Refactor XLA Profiler to be Framework-Agnostic via Shared C-State (by @copybara-service[bot], opened 2025-12-14)
-- [#106749](https://github.com/tensorflow/tensorflow/pull/106749): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106640](https://github.com/tensorflow/tensorflow/pull/106640): [XLA:GPU] Allow to fuse iotas into sort. (by @copybara-service[bot], opened 2025-12-18)
-- [#106748](https://github.com/tensorflow/tensorflow/pull/106748): Update Keras nightly version and drop Python 3.9 support to fix vulnerability (CVE-2025-8747) in Keras 3.10. (by @copybara-service[bot], opened 2025-12-19)
+- [#106773](https://github.com/tensorflow/tensorflow/pull/106773): Automated Code Change (by @copybara-service[bot], opened 2025-12-20)
+- [#106364](https://github.com/tensorflow/tensorflow/pull/106364): [Autotuner] Combine all* autotuners in one backend-agnostic pass. (by @copybara-service[bot], opened 2025-12-16)
+- [#106036](https://github.com/tensorflow/tensorflow/pull/106036): Minor readability cleanup. (by @copybara-service[bot], opened 2025-12-11)
+- [#106772](https://github.com/tensorflow/tensorflow/pull/106772): [Autotuner] Log autotuner config in readable json format. When debugging the autotuner we often want to know the values of the AutotuneConfig. (by @copybara-service[bot], opened 2025-12-20)
+- [#106770](https://github.com/tensorflow/tensorflow/pull/106770): [Autotuner] Initialize random input values for buffer checks. If values are initialized to 0 buffer checker will fail to detect backends with wrong results. (by @copybara-service[bot], opened 2025-12-20)
+- [#105758](https://github.com/tensorflow/tensorflow/pull/105758): [XLA:CPU] Link Eigen IR module into XLA JITted code. Attempt 3. (by @copybara-service[bot], opened 2025-12-05)
+- [#106764](https://github.com/tensorflow/tensorflow/pull/106764): Fix TraceMe context propagation for some inference requests by replacing `kPathwaysExecutor` and `kTfrtExecutor` with a new enum`kGenericModelExecutor` and add back some tracing (by @copybara-service[bot], opened 2025-12-19)
 - [#106594](https://github.com/tensorflow/tensorflow/pull/106594): Link Eigen IR module into XLA JITted code. Attempt 4. (by @copybara-service[bot], opened 2025-12-18)
-- [#106387](https://github.com/tensorflow/tensorflow/pull/106387): [PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only. (by @copybara-service[bot], opened 2025-12-16)
-- [#106747](https://github.com/tensorflow/tensorflow/pull/106747): Moving definitions to cpp file, match function definition declaration order (by @copybara-service[bot], opened 2025-12-19)
-- [#106740](https://github.com/tensorflow/tensorflow/pull/106740): [XLA:GPU] Hoist fused bitcasts across transposes with size-1 dimensions. (by @copybara-service[bot], opened 2025-12-19)
-- [#106746](https://github.com/tensorflow/tensorflow/pull/106746): Have autotuner control the register spilling strategy rather than the ptx compiler (by @copybara-service[bot], opened 2025-12-19)
-- [#106744](https://github.com/tensorflow/tensorflow/pull/106744): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106743](https://github.com/tensorflow/tensorflow/pull/106743): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#104779](https://github.com/tensorflow/tensorflow/pull/104779): Use the XNNPack packing fingerprints to invalidate the weight cache. (by @copybara-service[bot], opened 2025-11-19)
-- [#106741](https://github.com/tensorflow/tensorflow/pull/106741): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106733](https://github.com/tensorflow/tensorflow/pull/106733): Fix configure.py sysconfig fallback used for Python library path detection (by @TerryTaoYY, opened 2025-12-19)
-- [#106703](https://github.com/tensorflow/tensorflow/pull/106703): Upgrade GitHub Actions to latest versions (by @salmanmkc, opened 2025-12-19)
-- [#106691](https://github.com/tensorflow/tensorflow/pull/106691): Warn users about GPU support on Windows (by @MERT-CKR, opened 2025-12-18)
-- [#106645](https://github.com/tensorflow/tensorflow/pull/106645): Fix TFL to TOSA constant truncation to i48 that broke tosa.greater legalization (by @deeptanshusekhri, opened 2025-12-18)
-- [#106638](https://github.com/tensorflow/tensorflow/pull/106638): Fix dynamic batch handling for TFL FullyConnected in TOSA legalization (by @deeptanshusekhri, opened 2025-12-18)
-- [#106738](https://github.com/tensorflow/tensorflow/pull/106738): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106737](https://github.com/tensorflow/tensorflow/pull/106737): Remove redundant TENSORFLOW_USE_ROCM define. (by @copybara-service[bot], opened 2025-12-19)
-- [#106736](https://github.com/tensorflow/tensorflow/pull/106736): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106621](https://github.com/tensorflow/tensorflow/pull/106621): [XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass (by @copybara-service[bot], opened 2025-12-18)
-- [#106726](https://github.com/tensorflow/tensorflow/pull/106726): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106730](https://github.com/tensorflow/tensorflow/pull/106730): [XLA:GPU] Improve read order when not using shared memory. (by @copybara-service[bot], opened 2025-12-19)
-- [#106729](https://github.com/tensorflow/tensorflow/pull/106729): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#106693](https://github.com/tensorflow/tensorflow/pull/106693): [StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference. (by @copybara-service[bot], opened 2025-12-18)
-- [#106717](https://github.com/tensorflow/tensorflow/pull/106717): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
-- [#101917](https://github.com/tensorflow/tensorflow/pull/101917): [PJRT_C_API] Allow `PJRT_Event` to be set as well as signal completion. (by @copybara-service[bot], opened 2025-10-09)
-- [#106714](https://github.com/tensorflow/tensorflow/pull/106714): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
+- [#106768](https://github.com/tensorflow/tensorflow/pull/106768): [XLA:SchedulingAnnotations] Add logging for configuration. (by @copybara-service[bot], opened 2025-12-20)
+- [#106105](https://github.com/tensorflow/tensorflow/pull/106105): switch from deprecated TF_CHECK_OK (by @copybara-service[bot], opened 2025-12-12)
+- [#106767](https://github.com/tensorflow/tensorflow/pull/106767): Add proto serialization for CollectivePermuteStartThunk (by @copybara-service[bot], opened 2025-12-19)
+- [#106766](https://github.com/tensorflow/tensorflow/pull/106766): [XLA:CPU] Refactor grouped convolution handling in YNN emitter. (by @copybara-service[bot], opened 2025-12-19)
+- [#103482](https://github.com/tensorflow/tensorflow/pull/103482): Add table metadata to SparseDenseMatmulConfig. (by @copybara-service[bot], opened 2025-11-03)
+- [#106763](https://github.com/tensorflow/tensorflow/pull/106763): Allow prefetching an hlo value if its use is colored in alternate memory even if if loop optimizer has decided otherwise. (by @copybara-service[bot], opened 2025-12-19)
+- [#106753](https://github.com/tensorflow/tensorflow/pull/106753): This corrects a numerical precision issue identified in several TFLite reference kernels. The issue stems from a "narrowing" effect where intermediate variables intended for double precision calculations were being evaluated in float precision due to the placement of type casts. (by @copybara-service[bot], opened 2025-12-19)
+- [#106761](https://github.com/tensorflow/tensorflow/pull/106761): Migrates `builder.create<Op>()` => `Op::create()` in tablegen files (by @copybara-service[bot], opened 2025-12-19)
+- [#106762](https://github.com/tensorflow/tensorflow/pull/106762): [PJRT] Don't treat loops over tiled dimensions specially unless there's a trailing tile. (by @copybara-service[bot], opened 2025-12-19)
+- [#106690](https://github.com/tensorflow/tensorflow/pull/106690): Add proto serialization for RaggedAllToAllStartThunk (by @copybara-service[bot], opened 2025-12-18)
+- [#106757](https://github.com/tensorflow/tensorflow/pull/106757): PR #35568: Fix crash in LatencyHidingScheduler with compute offload (by @copybara-service[bot], opened 2025-12-19)
+- [#106694](https://github.com/tensorflow/tensorflow/pull/106694): [PJRT] Change ExecuteChunk to support operating on only a chunk of the input or output buffer, rather than the whole thing. (by @copybara-service[bot], opened 2025-12-18)
+- [#101919](https://github.com/tensorflow/tensorflow/pull/101919): Pass a Future<std::string> through the PjRt C API instead of awaiting the string in PjRtCApiBuffer::CopyToRemoteDevice. (by @copybara-service[bot], opened 2025-10-09)
+- [#105914](https://github.com/tensorflow/tensorflow/pull/105914): Add TPU performance counters to XSpace. (by @copybara-service[bot], opened 2025-12-09)
 - [#106698](https://github.com/tensorflow/tensorflow/pull/106698): Update pinned dependencies and update an issue with installing gcloud in the ARM64 container (by @copybara-service[bot], opened 2025-12-18)
+- [#106213](https://github.com/tensorflow/tensorflow/pull/106213): Refactor XLA Profiler State Check to Use Low-Overhead C API (by @copybara-service[bot], opened 2025-12-14)
+- [#106756](https://github.com/tensorflow/tensorflow/pull/106756): Fixed small bugs in coordination service configs. (by @copybara-service[bot], opened 2025-12-19)
+- [#106691](https://github.com/tensorflow/tensorflow/pull/106691): Warn users about GPU support on Windows (by @MERT-CKR, opened 2025-12-18)
+- [#106733](https://github.com/tensorflow/tensorflow/pull/106733): Fix configure.py sysconfig fallback used for Python library path detection (by @TerryTaoYY, opened 2025-12-19)
+- [#106749](https://github.com/tensorflow/tensorflow/pull/106749): Automated Code Change (by @copybara-service[bot], opened 2025-12-19)
+- [#106748](https://github.com/tensorflow/tensorflow/pull/106748): Update Keras nightly version and drop Python 3.9 support to fix vulnerability (CVE-2025-8747) in Keras 3.10. (by @copybara-service[bot], opened 2025-12-19)
+- [#106747](https://github.com/tensorflow/tensorflow/pull/106747): Moving definitions to cpp file, match function definition declaration order (by @copybara-service[bot], opened 2025-12-19)
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 60 Days)
+### Pull Request History (Last 30 Days)
 
-- [#106213](https://github.com/tensorflow/tensorflow/pull/106213): Refactor XLA Profiler to be Framework-Agnostic via Shared C-State (by @copybara-service[bot]) — **Open**
+- [#106773](https://github.com/tensorflow/tensorflow/pull/106773): Automated Code Change (by @copybara-service[bot]) — **Open**
+- [#106364](https://github.com/tensorflow/tensorflow/pull/106364): [Autotuner] Combine all* autotuners in one backend-agnostic pass. (by @copybara-service[bot]) — **Open**
+- [#106036](https://github.com/tensorflow/tensorflow/pull/106036): Minor readability cleanup. (by @copybara-service[bot]) — **Open**
+- [#106771](https://github.com/tensorflow/tensorflow/pull/106771): Add replicated -> unreduced test coverage (by @copybara-service[bot]) — **Closed, closed at 2025-12-20T02:16:34**
+- [#106755](https://github.com/tensorflow/tensorflow/pull/106755): [XLA][Numerics][HLO Value Tracking] Support HLO original value in CopyFusion pass (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T02:04:04**
+- [#106772](https://github.com/tensorflow/tensorflow/pull/106772): [Autotuner] Log autotuner config in readable json format. When debugging the autotuner we often want to know the values of the AutotuneConfig. (by @copybara-service[bot]) — **Open**
+- [#106770](https://github.com/tensorflow/tensorflow/pull/106770): [Autotuner] Initialize random input values for buffer checks. If values are initialized to 0 buffer checker will fail to detect backends with wrong results. (by @copybara-service[bot]) — **Open**
+- [#105758](https://github.com/tensorflow/tensorflow/pull/105758): [XLA:CPU] Link Eigen IR module into XLA JITted code. Attempt 3. (by @copybara-service[bot]) — **Open**
+- [#104220](https://github.com/tensorflow/tensorflow/pull/104220): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-20T01:32:43**
+- [#106728](https://github.com/tensorflow/tensorflow/pull/106728): Move mutability tracking from Tracked buffers to RawBuffers as this is only used for importing foreign memory and clutters the API. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T01:29:51**
+- [#106769](https://github.com/tensorflow/tensorflow/pull/106769): Add a walk to convert unreduced `sdy.constant` to replicated `sdy.constant` and `sdy.replicated_to_unreduced`. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T01:16:59**
+- [#104779](https://github.com/tensorflow/tensorflow/pull/104779): Use the XNNPack packing fingerprints to invalidate the weight cache. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T01:07:15**
+- [#106764](https://github.com/tensorflow/tensorflow/pull/106764): Fix TraceMe context propagation for some inference requests by replacing `kPathwaysExecutor` and `kTfrtExecutor` with a new enum`kGenericModelExecutor` and add back some tracing (by @copybara-service[bot]) — **Open**
+- [#106594](https://github.com/tensorflow/tensorflow/pull/106594): Link Eigen IR module into XLA JITted code. Attempt 4. (by @copybara-service[bot]) — **Open**
+- [#106697](https://github.com/tensorflow/tensorflow/pull/106697): Update usage of llvm::PointerType::getUnqual to use non-deprecated version (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T00:23:43**
+- [#106768](https://github.com/tensorflow/tensorflow/pull/106768): [XLA:SchedulingAnnotations] Add logging for configuration. (by @copybara-service[bot]) — **Open**
+- [#104227](https://github.com/tensorflow/tensorflow/pull/104227): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-20T00:06:14**
+- [#104205](https://github.com/tensorflow/tensorflow/pull/104205): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-20T00:04:45**
+- [#106759](https://github.com/tensorflow/tensorflow/pull/106759): [XLA:CPU] Enable window dilation support in XLA CPU YNN convolution. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-20T00:03:27**
+- [#106105](https://github.com/tensorflow/tensorflow/pull/106105): switch from deprecated TF_CHECK_OK (by @copybara-service[bot]) — **Open**
+- [#106767](https://github.com/tensorflow/tensorflow/pull/106767): Add proto serialization for CollectivePermuteStartThunk (by @copybara-service[bot]) — **Open**
+- [#106766](https://github.com/tensorflow/tensorflow/pull/106766): [XLA:CPU] Refactor grouped convolution handling in YNN emitter. (by @copybara-service[bot]) — **Open**
+- [#106765](https://github.com/tensorflow/tensorflow/pull/106765): Migrate reshape_motion_test to PjRt. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T23:34:40**
+- [#103482](https://github.com/tensorflow/tensorflow/pull/103482): Add table metadata to SparseDenseMatmulConfig. (by @copybara-service[bot]) — **Open**
+- [#104217](https://github.com/tensorflow/tensorflow/pull/104217): PR #32738: [XLA:GPU] Allow cuDNN scaled dot fusions in the gemm autotuner (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T22:51:54**
+- [#106750](https://github.com/tensorflow/tensorflow/pull/106750): Apply llvm-use-new-mlir-op-builder fixes (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T22:49:40**
+- [#106763](https://github.com/tensorflow/tensorflow/pull/106763): Allow prefetching an hlo value if its use is colored in alternate memory even if if loop optimizer has decided otherwise. (by @copybara-service[bot]) — **Open**
+- [#104194](https://github.com/tensorflow/tensorflow/pull/104194): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T22:37:21**
+- [#104196](https://github.com/tensorflow/tensorflow/pull/104196): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T22:36:59**
+- [#106752](https://github.com/tensorflow/tensorflow/pull/106752): Apply llvm-use-new-mlir-op-builder fixes (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T22:36:00**
+- [#106753](https://github.com/tensorflow/tensorflow/pull/106753): This corrects a numerical precision issue identified in several TFLite reference kernels. The issue stems from a "narrowing" effect where intermediate variables intended for double precision calculations were being evaluated in float precision due to the placement of type casts. (by @copybara-service[bot]) — **Open**
+- [#104202](https://github.com/tensorflow/tensorflow/pull/104202): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T22:27:15**
+- [#106603](https://github.com/tensorflow/tensorflow/pull/106603): [ReplicaGroupV3][Refactor][4/n] Update replica group classes to hide implementation details (via private/protected) to external callers. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T22:25:34**
+- [#106761](https://github.com/tensorflow/tensorflow/pull/106761): Migrates `builder.create<Op>()` => `Op::create()` in tablegen files (by @copybara-service[bot]) — **Open**
+- [#106692](https://github.com/tensorflow/tensorflow/pull/106692): Integrate LLVM at llvm/llvm-project@7d381f2a5634 (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T22:15:48**
+- [#106762](https://github.com/tensorflow/tensorflow/pull/106762): [PJRT] Don't treat loops over tiled dimensions specially unless there's a trailing tile. (by @copybara-service[bot]) — **Open**
+- [#106751](https://github.com/tensorflow/tensorflow/pull/106751): Apply llvm-use-new-mlir-op-builder fixes (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T22:02:49**
+- [#104204](https://github.com/tensorflow/tensorflow/pull/104204): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T21:33:13**
+- [#104160](https://github.com/tensorflow/tensorflow/pull/104160): Refactor: Decouple SymbolicExpr from SymbolicExprContext pointer (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T21:32:36**
+- [#106640](https://github.com/tensorflow/tensorflow/pull/106640): [XLA:GPU] Allow to fuse iotas into sort. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T21:30:58**
+- [#106690](https://github.com/tensorflow/tensorflow/pull/106690): Add proto serialization for RaggedAllToAllStartThunk (by @copybara-service[bot]) — **Open**
+- [#104153](https://github.com/tensorflow/tensorflow/pull/104153): Enable f32 dot in YNNPACK by default (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T21:18:24**
+- [#106754](https://github.com/tensorflow/tensorflow/pull/106754): [XLA] Continue trying to unroll pipelined loops after failure (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T21:17:45**
+- [#104200](https://github.com/tensorflow/tensorflow/pull/104200): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T21:06:25**
+- [#104195](https://github.com/tensorflow/tensorflow/pull/104195): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T21:04:27**
+- [#106758](https://github.com/tensorflow/tensorflow/pull/106758): Internal changes only. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T21:03:42**
+- [#104173](https://github.com/tensorflow/tensorflow/pull/104173): Reset the public cache. (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T20:32:19**
+- [#106334](https://github.com/tensorflow/tensorflow/pull/106334): [ReplicaGroupV3][Refactor][3/n] Use CollectiveDeviceListBase for polymorphic device list support. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T20:30:20**
+- [#106757](https://github.com/tensorflow/tensorflow/pull/106757): PR #35568: Fix crash in LatencyHidingScheduler with compute offload (by @copybara-service[bot]) — **Open**
+- [#104198](https://github.com/tensorflow/tensorflow/pull/104198): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T20:05:43**
+- [#104058](https://github.com/tensorflow/tensorflow/pull/104058): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T20:03:53**
+- [#106694](https://github.com/tensorflow/tensorflow/pull/106694): [PJRT] Change ExecuteChunk to support operating on only a chunk of the input or output buffer, rather than the whole thing. (by @copybara-service[bot]) — **Open**
+- [#104193](https://github.com/tensorflow/tensorflow/pull/104193): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T20:01:52**
+- [#103854](https://github.com/tensorflow/tensorflow/pull/103854): NFC: Add bounds checks in Triton fusion emitter. (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:58:33**
+- [#104149](https://github.com/tensorflow/tensorflow/pull/104149): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:57:29**
+- [#106708](https://github.com/tensorflow/tensorflow/pull/106708): Simplify TrackedCpuDeviceBuffer. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T19:52:33**
+- [#101919](https://github.com/tensorflow/tensorflow/pull/101919): Pass a Future<std::string> through the PjRt C API instead of awaiting the string in PjRtCApiBuffer::CopyToRemoteDevice. (by @copybara-service[bot]) — **Open**
+- [#105914](https://github.com/tensorflow/tensorflow/pull/105914): Add TPU performance counters to XSpace. (by @copybara-service[bot]) — **Open**
+- [#104151](https://github.com/tensorflow/tensorflow/pull/104151): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:44:07**
+- [#106621](https://github.com/tensorflow/tensorflow/pull/106621): [XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T19:41:27**
+- [#104054](https://github.com/tensorflow/tensorflow/pull/104054): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:30:06**
+- [#104066](https://github.com/tensorflow/tensorflow/pull/104066): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:28:30**
+- [#104068](https://github.com/tensorflow/tensorflow/pull/104068): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:27:58**
+- [#104145](https://github.com/tensorflow/tensorflow/pull/104145): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:27:11**
+- [#106693](https://github.com/tensorflow/tensorflow/pull/106693): [StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T19:25:51**
+- [#106698](https://github.com/tensorflow/tensorflow/pull/106698): Update pinned dependencies and update an issue with installing gcloud in the ARM64 container (by @copybara-service[bot]) — **Open**
+- [#106706](https://github.com/tensorflow/tensorflow/pull/106706): Enable using custom hermetic NCCL version. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T19:17:34**
+- [#104163](https://github.com/tensorflow/tensorflow/pull/104163): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T19:08:38**
+- [#106601](https://github.com/tensorflow/tensorflow/pull/106601): Allow serialization for sync collectives (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T19:05:39**
+- [#106213](https://github.com/tensorflow/tensorflow/pull/106213): Refactor XLA Profiler State Check to Use Low-Overhead C API (by @copybara-service[bot]) — **Open**
+- [#106756](https://github.com/tensorflow/tensorflow/pull/106756): Fixed small bugs in coordination service configs. (by @copybara-service[bot]) — **Open**
+- [#104057](https://github.com/tensorflow/tensorflow/pull/104057): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:51:02**
+- [#104158](https://github.com/tensorflow/tensorflow/pull/104158): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:50:43**
+- [#104100](https://github.com/tensorflow/tensorflow/pull/104100): Avoid inlining the graph when delegation can take the composite hop (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:50:38**
+- [#104150](https://github.com/tensorflow/tensorflow/pull/104150): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:49:46**
+- [#106707](https://github.com/tensorflow/tensorflow/pull/106707): Enable using custom hermetic NCCL version. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T18:48:05**
+- [#104091](https://github.com/tensorflow/tensorflow/pull/104091): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:05:35**
+- [#104154](https://github.com/tensorflow/tensorflow/pull/104154): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:05:23**
+- [#104123](https://github.com/tensorflow/tensorflow/pull/104123): PR #33260: [GPU] Optimize all-gathers on non-major dimension using a single transpose. (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:03:42**
+- [#104059](https://github.com/tensorflow/tensorflow/pull/104059): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:03:31**
+- [#104113](https://github.com/tensorflow/tensorflow/pull/104113): [XLA:CPU] Run HLO scheduling when running HLO passes (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T18:03:01**
+- [#106696](https://github.com/tensorflow/tensorflow/pull/106696): Add LINT.IfChange to keep batch function op registrations in sync. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T18:02:40**
+- [#106691](https://github.com/tensorflow/tensorflow/pull/106691): Warn users about GPU support on Windows (by @MERT-CKR) — **Open**
+- [#106733](https://github.com/tensorflow/tensorflow/pull/106733): Fix configure.py sysconfig fallback used for Python library path detection (by @TerryTaoYY) — **Open**
+- [#104148](https://github.com/tensorflow/tensorflow/pull/104148): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T16:35:54**
+- [#104147](https://github.com/tensorflow/tensorflow/pull/104147): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T16:35:46**
+- [#103890](https://github.com/tensorflow/tensorflow/pull/103890): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T16:35:10**
+- [#104144](https://github.com/tensorflow/tensorflow/pull/104144): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T16:34:06**
+- [#104101](https://github.com/tensorflow/tensorflow/pull/104101): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T16:33:17**
+- [#106387](https://github.com/tensorflow/tensorflow/pull/106387): [PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T16:33:01**
+- [#106703](https://github.com/tensorflow/tensorflow/pull/106703): Upgrade GitHub Actions to latest versions (by @salmanmkc) — **Closed, closed at 2025-12-19T15:39:17**
 - [#106749](https://github.com/tensorflow/tensorflow/pull/106749): Automated Code Change (by @copybara-service[bot]) — **Open**
 - [#104065](https://github.com/tensorflow/tensorflow/pull/104065): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T15:14:32**
 - [#104089](https://github.com/tensorflow/tensorflow/pull/104089): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T15:13:47**
-- [#106640](https://github.com/tensorflow/tensorflow/pull/106640): [XLA:GPU] Allow to fuse iotas into sort. (by @copybara-service[bot]) — **Open**
 - [#106748](https://github.com/tensorflow/tensorflow/pull/106748): Update Keras nightly version and drop Python 3.9 support to fix vulnerability (CVE-2025-8747) in Keras 3.10. (by @copybara-service[bot]) — **Open**
 - [#104055](https://github.com/tensorflow/tensorflow/pull/104055): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T15:13:10**
 - [#106745](https://github.com/tensorflow/tensorflow/pull/106745): [XLA:GPU] Only mark HoistFusedBitcasts as changed when modifications occur. (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T15:12:49**
-- [#106594](https://github.com/tensorflow/tensorflow/pull/106594): Link Eigen IR module into XLA JITted code. Attempt 4. (by @copybara-service[bot]) — **Open**
-- [#106387](https://github.com/tensorflow/tensorflow/pull/106387): [PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only. (by @copybara-service[bot]) — **Open**
 - [#106747](https://github.com/tensorflow/tensorflow/pull/106747): Moving definitions to cpp file, match function definition declaration order (by @copybara-service[bot]) — **Open**
 - [#106740](https://github.com/tensorflow/tensorflow/pull/106740): [XLA:GPU] Hoist fused bitcasts across transposes with size-1 dimensions. (by @copybara-service[bot]) — **Open**
 - [#106746](https://github.com/tensorflow/tensorflow/pull/106746): Have autotuner control the register spilling strategy rather than the ptx compiler (by @copybara-service[bot]) — **Open**
-- [#104142](https://github.com/tensorflow/tensorflow/pull/104142): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T14:03:47**
-- [#104143](https://github.com/tensorflow/tensorflow/pull/104143): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T14:03:23**
-- [#104094](https://github.com/tensorflow/tensorflow/pull/104094): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T14:03:02**
-- [#106744](https://github.com/tensorflow/tensorflow/pull/106744): Automated Code Change (by @copybara-service[bot]) — **Open**
-- [#104045](https://github.com/tensorflow/tensorflow/pull/104045): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T13:37:56**
-- [#104099](https://github.com/tensorflow/tensorflow/pull/104099): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T13:36:27**
-- [#104056](https://github.com/tensorflow/tensorflow/pull/104056): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T13:36:02**
-- [#106739](https://github.com/tensorflow/tensorflow/pull/106739): PR #35354: [ROCM] bug-fixing SortRewriter and fixing self_adjoint_test on ROCM (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T13:35:18**
-- [#106743](https://github.com/tensorflow/tensorflow/pull/106743): Automated Code Change (by @copybara-service[bot]) — **Open**
-- [#104092](https://github.com/tensorflow/tensorflow/pull/104092): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T12:40:48**
-- [#104024](https://github.com/tensorflow/tensorflow/pull/104024): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T12:39:34**
-- [#104087](https://github.com/tensorflow/tensorflow/pull/104087): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T12:39:27**
-- [#104084](https://github.com/tensorflow/tensorflow/pull/104084): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T12:39:09**
-- [#104779](https://github.com/tensorflow/tensorflow/pull/104779): Use the XNNPack packing fingerprints to invalidate the weight cache. (by @copybara-service[bot]) — **Open**
-- [#106741](https://github.com/tensorflow/tensorflow/pull/106741): Automated Code Change (by @copybara-service[bot]) — **Open**
-- [#104067](https://github.com/tensorflow/tensorflow/pull/104067): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:54:47**
-- [#104063](https://github.com/tensorflow/tensorflow/pull/104063): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:54:18**
-- [#104088](https://github.com/tensorflow/tensorflow/pull/104088): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:54:03**
-- [#104082](https://github.com/tensorflow/tensorflow/pull/104082): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:53:42**
-- [#103775](https://github.com/tensorflow/tensorflow/pull/103775): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:52:13**
-- [#103654](https://github.com/tensorflow/tensorflow/pull/103654): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:51:41**
-- [#104086](https://github.com/tensorflow/tensorflow/pull/104086): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:51:19**
-- [#104071](https://github.com/tensorflow/tensorflow/pull/104071): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:50:10**
-- [#104075](https://github.com/tensorflow/tensorflow/pull/104075): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:49:49**
-- [#106718](https://github.com/tensorflow/tensorflow/pull/106718): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T10:49:18**
-- [#104017](https://github.com/tensorflow/tensorflow/pull/104017): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:38:51**
-- [#106733](https://github.com/tensorflow/tensorflow/pull/106733): Fix configure.py sysconfig fallback used for Python library path detection (by @TerryTaoYY) — **Open**
-- [#106703](https://github.com/tensorflow/tensorflow/pull/106703): Upgrade GitHub Actions to latest versions (by @salmanmkc) — **Open**
-- [#106691](https://github.com/tensorflow/tensorflow/pull/106691): Warn users about GPU support on Windows (by @MERT-CKR) — **Open**
-- [#103880](https://github.com/tensorflow/tensorflow/pull/103880): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:37:11**
-- [#104062](https://github.com/tensorflow/tensorflow/pull/104062): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:37:06**
-- [#106645](https://github.com/tensorflow/tensorflow/pull/106645): Fix TFL to TOSA constant truncation to i48 that broke tosa.greater legalization (by @deeptanshusekhri) — **Open**
-- [#103879](https://github.com/tensorflow/tensorflow/pull/103879): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:36:58**
-- [#104051](https://github.com/tensorflow/tensorflow/pull/104051): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:36:48**
-- [#106638](https://github.com/tensorflow/tensorflow/pull/106638): Fix dynamic batch handling for TFL FullyConnected in TOSA legalization (by @deeptanshusekhri) — **Open**
-- [#104034](https://github.com/tensorflow/tensorflow/pull/104034): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:36:25**
-- [#106711](https://github.com/tensorflow/tensorflow/pull/106711): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T10:35:47**
-- [#106735](https://github.com/tensorflow/tensorflow/pull/106735): Make filecheck prefixes a parameter. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T10:30:10**
-- [#103822](https://github.com/tensorflow/tensorflow/pull/103822): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:23:52**
-- [#104060](https://github.com/tensorflow/tensorflow/pull/104060): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:23:44**
-- [#103769](https://github.com/tensorflow/tensorflow/pull/103769): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T10:22:40**
-- [#106734](https://github.com/tensorflow/tensorflow/pull/106734): [XLA:GPU] Fix bugs when sorting two elements with a fused iota. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T10:20:44**
-- [#104047](https://github.com/tensorflow/tensorflow/pull/104047): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:59:52**
-- [#103899](https://github.com/tensorflow/tensorflow/pull/103899): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:59:45**
-- [#104052](https://github.com/tensorflow/tensorflow/pull/104052): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:58:21**
-- [#104005](https://github.com/tensorflow/tensorflow/pull/104005): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:57:51**
-- [#103917](https://github.com/tensorflow/tensorflow/pull/103917): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:57:16**
-- [#106682](https://github.com/tensorflow/tensorflow/pull/106682): Add more logs to the CuDNN autotuner backend. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T09:56:56**
-- [#106738](https://github.com/tensorflow/tensorflow/pull/106738): Automated Code Change (by @copybara-service[bot]) — **Open**
-- [#106737](https://github.com/tensorflow/tensorflow/pull/106737): Remove redundant TENSORFLOW_USE_ROCM define. (by @copybara-service[bot]) — **Open**
-- [#104053](https://github.com/tensorflow/tensorflow/pull/104053): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:46:15**
-- [#106732](https://github.com/tensorflow/tensorflow/pull/106732): Refactor: Pass GpuComputeCapability to GetBlasComputationType (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T09:43:25**
-- [#104020](https://github.com/tensorflow/tensorflow/pull/104020): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:32:38**
-- [#104012](https://github.com/tensorflow/tensorflow/pull/104012): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:31:54**
-- [#103933](https://github.com/tensorflow/tensorflow/pull/103933): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:31:31**
-- [#103862](https://github.com/tensorflow/tensorflow/pull/103862): PR #32970: [NVIDIA GPU] Set nccl max channels to 32 for blackwell (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:31:06**
-- [#103812](https://github.com/tensorflow/tensorflow/pull/103812): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:20:44**
-- [#104007](https://github.com/tensorflow/tensorflow/pull/104007): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:20:36**
-- [#103829](https://github.com/tensorflow/tensorflow/pull/103829): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:19:53**
-- [#104014](https://github.com/tensorflow/tensorflow/pull/104014): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:18:27**
-- [#104013](https://github.com/tensorflow/tensorflow/pull/104013): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:18:06**
-- [#103925](https://github.com/tensorflow/tensorflow/pull/103925): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:04:48**
-- [#103883](https://github.com/tensorflow/tensorflow/pull/103883): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:04:34**
-- [#103940](https://github.com/tensorflow/tensorflow/pull/103940): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:04:21**
-- [#103802](https://github.com/tensorflow/tensorflow/pull/103802): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T09:03:59**
-- [#106390](https://github.com/tensorflow/tensorflow/pull/106390): [XLA:GPU] Add xla_gpu_default_to_alg_dot_bf16_bf16_f32 flag to XLA. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T09:03:37**
-- [#103738](https://github.com/tensorflow/tensorflow/pull/103738): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:52:17**
-- [#103896](https://github.com/tensorflow/tensorflow/pull/103896): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:51:29**
-- [#106731](https://github.com/tensorflow/tensorflow/pull/106731): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T08:50:03**
-- [#103926](https://github.com/tensorflow/tensorflow/pull/103926): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:32:46**
-- [#103781](https://github.com/tensorflow/tensorflow/pull/103781): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:32:40**
-- [#106466](https://github.com/tensorflow/tensorflow/pull/106466): Add GetCompilationOptions to PjRt C API (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T08:32:01**
-- [#106736](https://github.com/tensorflow/tensorflow/pull/106736): Automated Code Change (by @copybara-service[bot]) — **Open**
-- [#103770](https://github.com/tensorflow/tensorflow/pull/103770): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:14:22**
-- [#103794](https://github.com/tensorflow/tensorflow/pull/103794): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:13:42**
-- [#103727](https://github.com/tensorflow/tensorflow/pull/103727): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:13:32**
-- [#103886](https://github.com/tensorflow/tensorflow/pull/103886): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:13:04**
-- [#103919](https://github.com/tensorflow/tensorflow/pull/103919): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T08:11:58**
-- [#106613](https://github.com/tensorflow/tensorflow/pull/106613): Automated Code Change (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T08:11:14**
-- [#103897](https://github.com/tensorflow/tensorflow/pull/103897): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:54:49**
-- [#103901](https://github.com/tensorflow/tensorflow/pull/103901): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:54:16**
-- [#103881](https://github.com/tensorflow/tensorflow/pull/103881): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:54:04**
-- [#103798](https://github.com/tensorflow/tensorflow/pull/103798): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:53:33**
-- [#106659](https://github.com/tensorflow/tensorflow/pull/106659): Remove unused dependencies and conditional compilation from XLA GPU emitter transforms. (by @copybara-service[bot]) — **Closed (merged), closed at 2025-12-19T07:52:47**
-- [#106621](https://github.com/tensorflow/tensorflow/pull/106621): [XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass (by @copybara-service[bot]) — **Open**
-- [#103878](https://github.com/tensorflow/tensorflow/pull/103878): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:33:15**
-- [#103884](https://github.com/tensorflow/tensorflow/pull/103884): Automated Code Change (by @copybara-service[bot]) — **Closed, closed at 2025-12-19T07:32:04**
 
 ---
 
 ## ❗ Open Issues
 
-### Open Issues (Last 60 Days)
+### Open Issues (Last 30 Days)
 
+- [#106760](https://github.com/tensorflow/tensorflow/issues/106760): ImportError: DLL load failed while importing _pywrap_tensorflow_internal: A dynamic link library (DLL) initialization routine failed. (by @acegikmoqsu07-hue, opened 2025-12-19)
+- [#106653](https://github.com/tensorflow/tensorflow/issues/106653): Is there any plan to support CUDA 13 (by @372046933, opened 2025-12-18)
 - [#106742](https://github.com/tensorflow/tensorflow/issues/106742): TensorFlow Lite converter eliminates essential requantization in a mixed integer precision model (by @jonasdaugalas, opened 2025-12-19)
 - [#105552](https://github.com/tensorflow/tensorflow/issues/105552): NaN loss on multi-GPU training with certain pairs of GPU (by @yinghuang, opened 2025-12-03)
-- [#106653](https://github.com/tensorflow/tensorflow/issues/106653): Is there any plan to support CUDA 13 (by @372046933, opened 2025-12-18)
 - [#106388](https://github.com/tensorflow/tensorflow/issues/106388): tf.raw_ops.SparseFillEmptyRowsGrad CPU-GPU inconsistency for out-of-range reverse_index_map (by @BlindCipher, opened 2025-12-16)
 - [#106684](https://github.com/tensorflow/tensorflow/issues/106684): Emit runtime warning when querying GPU info on Windows where CUDA is unsupported (TF ≥ 2.11) (by @MERT-CKR, opened 2025-12-18)
 - [#75814](https://github.com/tensorflow/tensorflow/issues/75814): Encountering a `Segmentation fault` when using `data_flow_ops.FIFOQueue` in TensorFlow (by @Justobe, opened 2024-09-15)
@@ -206,14 +207,38 @@
 - [#64170](https://github.com/tensorflow/tensorflow/issues/64170): Enabling XLA in tensorflow 2.16 causes memory leaks (by @Di-Is, opened 2024-03-21)
 - [#105636](https://github.com/tensorflow/tensorflow/issues/105636): XLA compilation fails on Conv2D with intermediate zero-sized spatial dimensions, while eager mode succeeds (by @Blooming-Tree, opened 2025-12-04)
 - [#102598](https://github.com/tensorflow/tensorflow/issues/102598): GRU character generation functional API model throws various exceptions. (by @khteh, opened 2025-10-20)
-- [#104859](https://github.com/tensorflow/tensorflow/issues/104859): CUDA device context initialization failure during IFFT operations with extreme axis parameter values (by @qiqicliff, opened 2025-11-21)
 
 ---
 
 ## 📈 Recent Commits
 
-### Recent Commits (Last 60 Days)
+### Recent Commits (Last 30 Days)
 
+- [4baf6a3](https://github.com/tensorflow/tensorflow/commit/4baf6a3d215f91e4a58c3fa0cb1fd890248bebbb): Add replicated -> unreduced test coverage (by @yashk2810, 2025-12-20)
+- [8f784b1](https://github.com/tensorflow/tensorflow/commit/8f784b11c3dc5106065bc9b9089eb80f004ea747): [XLA][Numerics][HLO Value Tracking] Support HLO original value in CopyFusion pass (by @jcai19, 2025-12-20)
+- [9d83337](https://github.com/tensorflow/tensorflow/commit/9d833374f9caee892d2e915623bbf67fca7c4b26): Move mutability tracking from Tracked buffers to RawBuffers as this is only used for importing foreign memory and clutters the API. (by @pschuh, 2025-12-20)
+- [f4a923f](https://github.com/tensorflow/tensorflow/commit/f4a923fa821e2c25d9670ae33e443742f4fc1201): Add a walk to convert unreduced `sdy.constant` to replicated `sdy.constant` and `sdy.replicated_to_unreduced`. (by @ZixuanJiang, 2025-12-20)
+- [911ce60](https://github.com/tensorflow/tensorflow/commit/911ce60c2902b58cd892ca05f2297d72ef624e5f): Use the XNNPack packing fingerprints to invalidate the weight cache. (by @qukhan, 2025-12-20)
+- [49fda87](https://github.com/tensorflow/tensorflow/commit/49fda87ad762c8210eeac05926ce0281230a7d36): Update usage of llvm::PointerType::getUnqual to use non-deprecated version (by @tensorflower-gardener, 2025-12-20)
+- [cb2c66e](https://github.com/tensorflow/tensorflow/commit/cb2c66e7150d69af0473ff2ceffab7980111e727): [XLA:CPU] Enable window dilation support in XLA CPU YNN convolution. (by @vksnk, 2025-12-19)
+- [3feec35](https://github.com/tensorflow/tensorflow/commit/3feec3590c4d9d8d00e54954f4da05c7c3e72bcc): Migrate reshape_motion_test to PjRt. (by @nvgrw, 2025-12-19)
+- [af8c7d0](https://github.com/tensorflow/tensorflow/commit/af8c7d0e2e006be6e69b0034d3d2d9fb1e744179): Apply llvm-use-new-mlir-op-builder fixes (by @tensorflower-gardener, 2025-12-19)
+- [84ad581](https://github.com/tensorflow/tensorflow/commit/84ad581652911f91120f53bb07bcaeed812f34a3): Apply llvm-use-new-mlir-op-builder fixes (by @tensorflower-gardener, 2025-12-19)
+- [b35e4ed](https://github.com/tensorflow/tensorflow/commit/b35e4ed192d1e9cefcf6be5e5657e4256d778787): [ReplicaGroupV3][Refactor][4/n] Update replica group classes to hide implementation details (via private/protected) to external callers. (by @Varcho, 2025-12-19)
+- [d6a407c](https://github.com/tensorflow/tensorflow/commit/d6a407c9f5e0774e26b2f85b420381ff72d7ea67): Integrate LLVM at llvm/llvm-project@7d381f2a5634 (by @tensorflower-gardener, 2025-12-19)
+- [5e685fb](https://github.com/tensorflow/tensorflow/commit/5e685fb6e1e645a3af69c1b462d2329abdac7357): Apply llvm-use-new-mlir-op-builder fixes (by @tensorflower-gardener, 2025-12-19)
+- [d11a803](https://github.com/tensorflow/tensorflow/commit/d11a803d83c3040078ebcb854d99d9f93377a39d): [XLA:GPU] Allow to fuse iotas into sort. (by @akuegel, 2025-12-19)
+- [e961b23](https://github.com/tensorflow/tensorflow/commit/e961b236974e99cca6434b14f8a0d80ecbce803f): [XLA] Continue trying to unroll pipelined loops after failure (by @vsytch, 2025-12-19)
+- [453b5bb](https://github.com/tensorflow/tensorflow/commit/453b5bbfdeecf05f3a5bc60af1ef770bca7d3c3a): Internal changes only. (by @fengwuyao, 2025-12-19)
+- [07acbd5](https://github.com/tensorflow/tensorflow/commit/07acbd560e5d2ee59f8df8d4d0a7797d9cf03f9a): [ReplicaGroupV3][Refactor][3/n] Use CollectiveDeviceListBase for polymorphic device list support. (by @Varcho, 2025-12-19)
+- [068c5bf](https://github.com/tensorflow/tensorflow/commit/068c5bfe9599738011d094d48db431dd5aff97f5): Simplify TrackedCpuDeviceBuffer. (by @pschuh, 2025-12-19)
+- [aa95cad](https://github.com/tensorflow/tensorflow/commit/aa95cad5da857d0e0ff88f9e544715502be51ff0): [XLA][Numerics][HLO Value Tracking] Support HLO original values in ConditionalSimplifier pass (by @jcai19, 2025-12-19)
+- [c698eec](https://github.com/tensorflow/tensorflow/commit/c698eecb5ab1f33bab10598b8a07211c80cca5ff): [StableHLO] Update CHLO broadcast ops to use StableHLO bounded-dynamism-aware broadcasting for type inference. (by @GleasonK, 2025-12-19)
+- [a3fad5d](https://github.com/tensorflow/tensorflow/commit/a3fad5d03e2b1d6738a171f98f5b69e1103f05a6): Enable using custom hermetic NCCL version. (by @ybaturina, 2025-12-19)
+- [ea36213](https://github.com/tensorflow/tensorflow/commit/ea362136d94765afd0e7321a05da76721565e528): Allow serialization for sync collectives (by @ermilovmaxim, 2025-12-19)
+- [843206c](https://github.com/tensorflow/tensorflow/commit/843206ca817f964c128e4a810f9d95cde46d3833): Enable using custom hermetic NCCL version. (by @ybaturina, 2025-12-19)
+- [6af9ca2](https://github.com/tensorflow/tensorflow/commit/6af9ca2d9c88467688a5a5fed179c3574b99d3e1): Add LINT.IfChange to keep batch function op registrations in sync. (by @deqiangc, 2025-12-19)
+- [162efc7](https://github.com/tensorflow/tensorflow/commit/162efc7b6cf6eae703db2a06cf2989d752654cb8): [PJRT] Add a ExecuteChunk method that allows the user to execute a single chunk of the transpose only. (by @hawkinsp, 2025-12-19)
 - [6df9bab](https://github.com/tensorflow/tensorflow/commit/6df9bab4d35808b4faa6d79b4671e61417629290): [XLA:GPU] Only mark HoistFusedBitcasts as changed when modifications occur. (by @thcmbs, 2025-12-19)
 - [8bb1b42](https://github.com/tensorflow/tensorflow/commit/8bb1b4215c096c0800f99b19567856948b0ab332): PR #35354: [ROCM] bug-fixing SortRewriter and fixing self_adjoint_test on ROCM (by @pemeliya, 2025-12-19)
 - [d68f582](https://github.com/tensorflow/tensorflow/commit/d68f58209eb731c3e298c2d487a3f3df5cd9ce6b): Automated Code Change (by @tensorflower-gardener, 2025-12-19)
@@ -389,42 +414,17 @@
 - [d536c1c](https://github.com/tensorflow/tensorflow/commit/d536c1c3fb09a60ed721ff2770bdb3ce37328678): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
 - [fa3e8b7](https://github.com/tensorflow/tensorflow/commit/fa3e8b7b4b34846c63164a585e19be0e32cbbb11): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
 - [46b13f4](https://github.com/tensorflow/tensorflow/commit/46b13f4f274ca4b582144f031aeed359d81b77f9): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [e6e6f0f](https://github.com/tensorflow/tensorflow/commit/e6e6f0f6bc6076ee77875b16fdb7614059900465): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [aea2e3d](https://github.com/tensorflow/tensorflow/commit/aea2e3d2827274a95467a810102d231762200d29): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [8545929](https://github.com/tensorflow/tensorflow/commit/854592931c404838dd7cf5e48d6969df354781c1): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [6c69aa0](https://github.com/tensorflow/tensorflow/commit/6c69aa0e0de1498ce1510e7e7a99082fc7f4bde3): PR #35269: Bump actions/upload-artifact from 5.0.0 to 6.0.0 (by @dependabot[bot], 2025-12-17)
-- [8b4daac](https://github.com/tensorflow/tensorflow/commit/8b4daac3472992cbb34e2bf97a56b0a1f06ecc75): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [3ffe7a6](https://github.com/tensorflow/tensorflow/commit/3ffe7a698b2a2f078ec0a2f6a91f08e8424a07c8): [XLA:GPU] Increment autotuning cache key version and adapt autotune db. (by @akuegel, 2025-12-17)
-- [d0cf19c](https://github.com/tensorflow/tensorflow/commit/d0cf19c0fa1f9044d0bd5b5fccdf875c38a21753): PR #34734: [XLA:GPU] make DYNAMIC_SLICE_COPY_FUSION command default lowered to cuda-graph (by @shawnwang18, 2025-12-17)
-- [42652a4](https://github.com/tensorflow/tensorflow/commit/42652a45990e3c5be8a8a56936dd0b265b7ff3d2): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [e9333c0](https://github.com/tensorflow/tensorflow/commit/e9333c03e800c9ff451f01e1743b8fa0aa29c9bc): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [70a7d0e](https://github.com/tensorflow/tensorflow/commit/70a7d0e1421c8d19841f5dc38d96a20808d17ace): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [17428e9](https://github.com/tensorflow/tensorflow/commit/17428e9c7986e3b98c0d1cd094e6a2b40f546c8a): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [db8b9de](https://github.com/tensorflow/tensorflow/commit/db8b9de813d3c1fb18f498532cc1ce1371339ab7): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [efddb34](https://github.com/tensorflow/tensorflow/commit/efddb34c27796bfefda22ddaaceb66e2c6091d2d): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [c3f05a1](https://github.com/tensorflow/tensorflow/commit/c3f05a1f6ffca60dd699bc9ae48481011c9ad571): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [0be4d53](https://github.com/tensorflow/tensorflow/commit/0be4d53ad546022f396792d269f779534c6231fa): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [7addf98](https://github.com/tensorflow/tensorflow/commit/7addf9852a1472f9fadc87de8ec29f0b355f5c63): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [348ca28](https://github.com/tensorflow/tensorflow/commit/348ca28805eec9ba06d6d8dc3e7be63a0aab9f8a): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [22dda6f](https://github.com/tensorflow/tensorflow/commit/22dda6f4ea1d075c655fc8d133a6c33f23dfa574): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [e7d96bd](https://github.com/tensorflow/tensorflow/commit/e7d96bda2e2d1087e10e450694cdb04aad5a80da): compat: Update forward compatibility horizon to 2025-12-17 (by @tensorflower-gardener, 2025-12-17)
-- [e12987e](https://github.com/tensorflow/tensorflow/commit/e12987ed2dbf446de3f6dbabf67e90ecf609f02f): Update GraphDef version to 2444. (by @tensorflower-gardener, 2025-12-17)
-- [a967808](https://github.com/tensorflow/tensorflow/commit/a967808638b7256d777722630be808f801c08291): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [89b883e](https://github.com/tensorflow/tensorflow/commit/89b883eecf5130b2b353a051e687abe9a12e6662): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [79e54e1](https://github.com/tensorflow/tensorflow/commit/79e54e1d40fd40cd174b21b7307cd14a82706239): [xla:codegen] deduplicate LowerToLLVM passes (by @cota, 2025-12-17)
-- [8e0f4b6](https://github.com/tensorflow/tensorflow/commit/8e0f4b64e6075ffd271a84423cbd539d0b82f6a3): Automated Code Change (by @tensorflower-gardener, 2025-12-17)
-- [a05dfbf](https://github.com/tensorflow/tensorflow/commit/a05dfbfc3226832f26f24daecaf46412aac182ce): [mlir][tosa] Use `getTosaConstShape` implementation from MLIR (#106002) (by @lhutton1, 2025-12-17)
 
 ---
 
-### 📈 Commit Activity (Last 60 Days)
+### 📈 Commit Activity (Last 30 Days)
 - **Top Contributors:**
-  - @tensorflower-gardener — 101 commits
+  - @tensorflower-gardener — 86 commits
   - @beckerhe — 8 commits
-  - @mwhittaker — 7 commits
+  - @qukhan — 7 commits
 - **Most Modified Files:**
-  - third_party/xla/xla/service/gpu/transforms/BUILD (7 changes)
-  - third_party/xla/xla/service/gpu/BUILD (7 changes)
+  - third_party/xla/xla/service/gpu/BUILD (8 changes)
+  - third_party/xla/xla/service/gpu/transforms/BUILD (8 changes)
   - third_party/xla/xla/backends/gpu/runtime/BUILD (6 changes)
 
 ---

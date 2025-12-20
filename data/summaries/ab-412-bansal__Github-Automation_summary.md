@@ -2,46 +2,38 @@
 
 ## 📂 Overview
 
-- **Open PRs:** 3
+- **Open PRs:** 0
 - **Open Issues:** 0
-- **Recent Commits (60d):** 0
+- **Recent Commits (30d):** 0
 
 
 ---
 
 ## 📝 Open Pull Requests
 
-### Open Pull Requests (Last 60 Days)
-
-- [#13](https://github.com/ab-412-bansal/Github-Automation/pull/13): Bump js-yaml from 4.1.0 to 4.1.1 in /frontend (by @dependabot[bot], opened 2025-11-16)
-- [#12](https://github.com/ab-412-bansal/Github-Automation/pull/12): Bump tar from 7.5.1 to 7.5.2 in /frontend (by @dependabot[bot], opened 2025-10-30)
-- [#11](https://github.com/ab-412-bansal/Github-Automation/pull/11): Bump vite from 7.1.9 to 7.1.11 in /frontend (by @dependabot[bot], opened 2025-10-21)
+No open pull requests in the last 30 days.
 
 ---
 
 ## 🕑 Pull Request History
 
-### Pull Request History (Last 60 Days)
-
-- [#13](https://github.com/ab-412-bansal/Github-Automation/pull/13): Bump js-yaml from 4.1.0 to 4.1.1 in /frontend (by @dependabot[bot]) — **Open**
-- [#12](https://github.com/ab-412-bansal/Github-Automation/pull/12): Bump tar from 7.5.1 to 7.5.2 in /frontend (by @dependabot[bot]) — **Open**
-- [#11](https://github.com/ab-412-bansal/Github-Automation/pull/11): Bump vite from 7.1.9 to 7.1.11 in /frontend (by @dependabot[bot]) — **Open**
+No pull request history in the last 30 days.
 
 ---
 
 ## ❗ Open Issues
 
-No open issues in the last 60 days.
+No open issues in the last 30 days.
 
 ---
 
 ## 📈 Recent Commits
 
-No recent commits in the last 60 days.
+No recent commits in the last 30 days.
 
 ---
 
-No commit activity in the last 60 days.
+No commit activity in the last 30 days.
 
 ---
 
